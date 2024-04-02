@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>DevPortfolio</title>
+  </head>
+  <body>
+    <!-- <div id="app"></div> -->
+    <header>
+      <nav id="navbar_container" class="w-100">
+        <div class="menu">
+          <div id="menu_wrap" class="menu_wrap">
+            <div class="menu_symbol d-flex justify-content-center align-items-center">
+              <input type="checkbox" name="check" id="trigger_menu" 
+              class="trigger_menu" >
+              <div class="menu_bar"></div>
+              </div>
+            </div>
+            <div id="menu_content" class="menu_content">
+              <ul class="menu_links">
+                <li class="menu_link active_li" data-index="0" data-value="home">
+                  <div class="menulink_content">
+                  <span >Home</span>
+                </div>
+                </li>
+                <li class="menu_link" data-index="1" data-value="home">
+                  <div class="menulink_content">
+                  <span>About</span>
+                </div>
+                </li>
+                <li class="menu_link" data-index="2" data-value="home">
+                  <div class="menulink_content">
+                  <span>Skills</span>
+                </div>
+                </li>
+                <li class="menu_link" data-index="3" data-value="home">
+                  <div class="menulink_content">
+                  <span>Resume</span>
+                </div>
+                </li>
+                <li class="menu_link" data-index="4" data-value="home">
+                  <div class="menulink_content">
+                  <span>Contact</span>
+                </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+         <div id="logo_wrapper" class="logo_wrapper">
+          <span class="logo_menu_text p-2 d-flex justify-content-center align-items-center">DevPortFolio</span>
+           <figure class="logo_menu">
+            <img src="./src/assets/images/apple-touch-icon.png" alt="Oops overview" class="logo_img">
+          </figure>
+         </div>
+        </div>
+        <div class="navbar_row row">
+          <div
+            class="navbar_content_tags col-md py-1 px-5 d-flex flex-column flex-md-row justify-content-between align-items-center text-white mx-auto my-0"
+          >
+            <ul class="navlink_container d-flex ps-0 mb-0">
+              <li class="navlink active_li" data-index="0" data-value="home">
+                <div class="navlink_content">
+                  <a href="#">Home</a>
+                </div>
+              </li>
+              <li class="navlink" data-index="1" data-value="about me">
+                <div class="navlink_content">
+                  <a href="#">About Me</a>
+                </div>
+              </li>
+              <li class="navlink" data-index="2" data-value="skills">
+                <div class="navlink_content">
+                  <a href="#">Skills</a>
+                </div>
+              </li>
+              <li class="navlink" data-index="3" data-value="resume">
+                <div class="navlink_content">
+                  <a href="#">Resume</a>
+                </div>
+              </li>
+              <li class="navlink" data-index="4" data-value="contact">
+                <div class="navlink_content">
+                  <a href="#">Contact</a>
+                </div>
+              </li>
+            </ul>
+            <div
+              id="current_link_show"
+              class="current_link_show d-flex justify-content-center align-items-center pe-0"
+              data-index="0"
+            >
+              <span class="current_link_text">home</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main_app" class="main_app"></main>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

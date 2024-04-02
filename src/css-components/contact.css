@@ -1,0 +1,74 @@
+:root {
+  --navbar-height-desk-1: 100px;
+  --navbar-height-mob-desk: 50px;
+  --footer-height: 50px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 160px) {
+  .msg_container {
+    width: 100%;
+    height: calc(100vh - (var(--navbar-height-mob-desk)+ var(--footer-height)));
+  }
+
+  .msg_container .msg_together {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ddd;
+  }
+  .msg_container .contact_msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: auto;
+    font-size: calc(24px + 0.3vw);
+    background-color: #ccc;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .brand_container {
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: aqua;
+  }
+
+  .brand_container .brand_row {
+    width: 100%;
+    height: 100%;
+  }
+  .brand_container .brand_row .item_brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .brand_container .brand_row .item_brand a {
+    color: #333;
+  }
+}
+
+@media (min-width: 460px) {
+  .msg_container {
+    width: 100%;
+    height: calc(100vh - (var(--navbar-height-desk-1)+ var(--footer-height)));
+  }
+}
+
+@media (min-width: 768px) {
+  .msg_container {
+    width: 100%;
+    height: calc(100vh - (var(--navbar-height-mob-desk)+ var(--footer-height)));
+  }
+}
