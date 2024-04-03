@@ -11,6 +11,9 @@
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
   --navmenu-color-title: #f4f4f4;
+  --footer-height-desk: 100px;
+  --footer-height-mob: 70px;
+  --msg-container-height: var(--footer-height) + var(--navbar-height-mob-desk);
 }
 
 *,
@@ -24,6 +27,7 @@
 body {
   position: relative;
   width: 100vw;
+  max-height: 100vh;
   margin: 0 auto;
 }
 
@@ -38,6 +42,13 @@ ul {
 a {
   text-decoration: none;
   color: #333;
+}
+
+.main_app {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - var(--navbar-height-mob-desk));
+  height: calc(100vh - var(--navbar-height-desk-1));
 }
 
 /* navbar menu  */
@@ -344,6 +355,10 @@ input.trigger_menu {
     font-size: calc(18px + 0.3vw);
     transform: translateX(-30%);
   }
+
+  .main_app {
+    height: calc(100vh - var(--navbar-height-mob-desk));
+  }
 }
 
 @media (min-width: 460px) {
@@ -366,6 +381,10 @@ input.trigger_menu {
     font-size: calc(20px + 0.3vw);
     transform: translateX(-40%);
     visibility: hidden;
+  }
+
+  .main_app {
+    height: calc(100vh - var(--navbar-height-desk-1));
   }
 
   /*navbar desktop link */
@@ -491,6 +510,10 @@ input.trigger_menu {
   .navlink.active_li .navlink_content {
     width: 5.2em;
     height: 2.1em;
+  }
+
+  .main_app {
+    height: calc(100vh - var(--navbar-height-mob-desk));
   }
 }
 

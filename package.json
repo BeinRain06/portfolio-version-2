@@ -14,6 +14,10 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
-    "bootstrap": "^5.2.3"
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "bootstrap": "^5.2.3",
+    "vanilla-framework": "^4.9.1"
   }
 }

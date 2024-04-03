@@ -1,3 +1,4 @@
+import { linkedin, github, twitter } from "../assets/images/index.ts";
 import "../css-components/contact.css";
 
 export interface IContact {
@@ -21,16 +22,16 @@ export default class Contact implements IContact {
     const row = document.createElement("div") as HTMLDivElement;
     const column = document.createElement("div") as HTMLDivElement;
 
-    column.className = " contact_msg p-2";
-
-    column.innerHTML = `<span class="message_me text-black">Let's Build Something Together !</span>`;
+    container.className = "msg_container container-fluid";
 
     row.className =
       "msg_together row d-flex justify-content-center align-items-center";
 
-    row.appendChild(column);
+    column.className = " contact_msg p-2";
 
-    container.className = "msg_container container-fluid";
+    column.innerHTML = `<span class="message_me">Let's Build Something Together !</span>`;
+
+    row.appendChild(column);
 
     container.appendChild(row);
 
@@ -42,20 +43,55 @@ export default class Contact implements IContact {
     const container = document.createElement("div") as HTMLDivElement;
     const row = document.createElement("div") as HTMLDivElement;
 
-    row.className = "brand_row row";
-    row.innerHTML = `
-    <div class="item_brand col-4">
-    <a href="#">Twitter</a>
-    </div>
-    <div class="item_brand col-4">
-    <a href="#">Twitter</a>
-    </div>
-    <div class="item_brand col-4">
-    <a href="#">Twitter</a>
-    </div>
-    `;
-
     container.className = "brand_container container-fluid";
+
+    row.className = "brand_row row";
+
+    const columnOne = document.createElement("div") as HTMLDivElement;
+    const columnTwo = document.createElement("div") as HTMLDivElement;
+    const columnThree = document.createElement("div") as HTMLDivElement;
+
+    columnOne.className = "item_brand col-4";
+    columnTwo.className = "item_brand col-4";
+    columnThree.className = "item_brand col-4";
+
+    const tweetWrapper = document.createElement("div") as HTMLDivElement;
+    tweetWrapper.id = "link_tweeter";
+    tweetWrapper.className = "tweeter_wrapper link_media";
+    tweetWrapper.style.backgroundImage = `${twitter}`;
+    tweetWrapper.addEventListener("click", (): void => {
+      window.open("https://twitter.com/nest_Ngoueni", "_blank");
+    });
+
+    columnOne.appendChild(tweetWrapper);
+
+    const githubWrapper = document.createElement("div") as HTMLDivElement;
+    githubWrapper.id = "link_github";
+    githubWrapper.className = "github_wrapper link_media";
+    githubWrapper.style.backgroundImage = `${github}`;
+    githubWrapper.addEventListener("click", (): void => {
+      window.open("https://github.com/BeinRain06", "_blank");
+    });
+
+    columnTwo.appendChild(githubWrapper);
+
+    const linkedinWrapper = document.createElement("div") as HTMLDivElement;
+    linkedinWrapper.id = "link_linkedin";
+    linkedinWrapper.className = "linkedin_wrapper link_media";
+    linkedinWrapper.style.backgroundImage = `${linkedin}`;
+    linkedinWrapper.addEventListener("click", (): void => {
+      window.open(
+        "https://www.linkedin.com/in/gerard-ngouend-5a0584244/",
+        "_blank"
+      );
+    });
+
+    columnThree.appendChild(linkedinWrapper);
+
+    row.appendChild(columnOne);
+    row.appendChild(columnTwo);
+    row.appendChild(columnThree);
+
     container.appendChild(row);
 
     this.MainBody.appendChild(container);
