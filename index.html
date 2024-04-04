@@ -25,27 +25,27 @@
             </div>
             <div id="menu_content" class="menu_content">
               <ul class="menu_links">
-                <li class="menu_link active_li" data-index="0" data-value="home">
+                <li class="menu_link" data-index="0" data-value="home">
                   <div class="menulink_content">
                   <span >Home</span>
                 </div>
                 </li>
-                <li class="menu_link" data-index="1" data-value="home">
+                <li class="menu_link" data-index="1" data-value="about me">
                   <div class="menulink_content">
                   <span>About</span>
                 </div>
                 </li>
-                <li class="menu_link" data-index="2" data-value="home">
+                <li class="menu_link" data-index="2" data-value="skills">
                   <div class="menulink_content">
                   <span>Skills</span>
                 </div>
                 </li>
-                <li class="menu_link" data-index="3" data-value="home">
+                <li class="menu_link" data-index="3" data-value="resume">
                   <div class="menulink_content">
                   <span>Resume</span>
                 </div>
                 </li>
-                <li class="menu_link" data-index="4" data-value="home">
+                <li class="menu_link" data-index="4" data-value="contact">
                   <div class="menulink_content">
                   <span>Contact</span>
                 </div>
@@ -82,7 +82,7 @@
               </li>
               <li class="navlink" data-index="3" data-value="resume">
                 <div class="navlink_content">
-                  <a href="#">Resume</a>
+                  <a href="#craft_domain">Resume</a>
                 </div>
               </li>
               <li class="navlink" data-index="4" data-value="contact">
@@ -102,7 +102,13 @@
         </div>
       </nav>
     </header>
-    <main id="main_app" class="main_app"></main>
+    <main id="main_app" class="main_app">
+      <div id="taked_home" class="taked_home main_view active_section" data-index="0"></div>
+      <div id="know_about_me" class="know_about_me main_view" data-index="1"></div>
+      <div id="active_skills" class="active_skills main_view" data-index="2"></div>
+      <div id="craft_domain" class="craft_domain main_view" data-index="3"></div>
+      <div id="link_station" class="link_station main_view" data-index="4"></div>
+    </main>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script type="module" src="/src/main.ts"></script>
   </body>

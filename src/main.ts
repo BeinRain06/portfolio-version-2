@@ -35,8 +35,25 @@ import { setupCounter } from "./counter.ts";
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!) */
 
+const switchActiveSection = (
+  indexTarget: string,
+  bodySectionCollection: HTMLDivElement[]
+): void => {
+  const indexNumber: number = +indexTarget;
+  console.log(indexNumber);
+
+  bodySectionCollection.forEach((bodySection, i): void => {
+    if (indexNumber === i) {
+      bodySection.classList.add("active_section");
+    } else {
+      bodySection.classList.remove("active_section");
+    }
+  });
+};
+
 const selectPageToRender = (
   indexTarget: string,
+  bodySectionCollection: HTMLDivElement[],
   home: IHome,
   about: IAbout,
   skills: ISkills,
@@ -45,18 +62,24 @@ const selectPageToRender = (
 ): void => {
   switch (indexTarget) {
     case "0":
+      switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future home");
       break;
     case "1":
+      switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future about");
       break;
     case "2":
+      switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future skills");
       break;
     case "3":
+      switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future resume");
+      resume.renderResume();
       break;
     case "4":
+      switchActiveSection(indexTarget, bodySectionCollection);
       contact.renderContact();
       break;
     default:
@@ -72,14 +95,31 @@ const mainApp = (): void => {
   const contact = Contact.instance;
 
   /* menu*/
-  const triggerWrapper = document.getElementById(
-    "trigger_menu"
-  ) as HTMLDivElement;
+  const triggerWrapper = document.getElementById("menu_wrap") as HTMLDivElement;
   const triggeredMenu = document.getElementById(
     "trigger_menu"
   ) as HTMLInputElement;
   const menuContent = document.getElementById("menu_content") as HTMLDivElement;
   const logoWrapper = document.getElementById("logo_wrapper") as HTMLDivElement;
+
+  /*Body Section*/
+  const bodySectionCollection: HTMLDivElement[] = Array.from(
+    document.querySelectorAll(".main_view")
+  );
+
+  /*menuLinks */
+  const menuLinks = document.querySelectorAll(
+    ".menu_link"
+  ) as NodeListOf<HTMLElement>;
+
+  const fullMenuLinks: HTMLElement[] = Array.from(menuLinks);
+
+  console.log("fullMenuLinks:", fullMenuLinks);
+
+  const menuLinkHome = fullMenuLinks[0].firstElementChild as HTMLDivElement;
+  menuLinkHome.classList.add("active_li");
+
+  /*NavLinks */
 
   const navLinks = document.querySelectorAll(
     ".navlink"
@@ -94,6 +134,8 @@ const mainApp = (): void => {
   let previousNavTag = document.querySelector(".active_li") as HTMLLIElement;
 
   let currentNavTag: HTMLLIElement;
+
+  fullLinks[0].classList.add("active_li");
 
   fullLinks.forEach((linkItem) => {
     linkItem.addEventListener("click", (event): void => {
@@ -118,7 +160,55 @@ const mainApp = (): void => {
 
       currentLinkText.innerText = newValueShow;
 
-      selectPageToRender(newIndexShow, home, about, skills, resume, contact);
+      selectPageToRender(
+        newIndexShow,
+        bodySectionCollection,
+        home,
+        about,
+        skills,
+        resume,
+        contact
+      );
+    });
+  });
+
+  fullMenuLinks.forEach((linkItem) => {
+    linkItem.addEventListener("click", (event): void => {
+      currentNavTag = event.currentTarget as HTMLLIElement;
+      console.log("currentNavTag:", currentNavTag);
+
+      previousNavTag.classList.remove("active_li");
+
+      currentNavTag.classList.add("active_li");
+
+      previousNavTag = currentNavTag;
+
+      /*remove menu_content */
+      const logoText = logoWrapper.querySelector(
+        ".logo_menu_text"
+      ) as HTMLSpanElement;
+
+      const check: boolean = triggeredMenu.checked;
+
+      if (check === true) {
+        triggeredMenu.style.backgroundColor = "#848d94";
+        menuContent.classList.remove("currently_view");
+        logoWrapper.classList.remove("currently_view");
+        logoText.style.color = "#fff";
+
+        triggeredMenu.checked = false;
+      }
+      const newIndexShow = currentNavTag.getAttribute("data-index") as string;
+
+      selectPageToRender(
+        newIndexShow,
+        bodySectionCollection,
+        home,
+        about,
+        skills,
+        resume,
+        contact
+      );
     });
   });
 

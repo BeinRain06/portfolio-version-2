@@ -3,6 +3,7 @@ import "../css-components/contact.css";
 
 export interface IContact {
   MainBody: HTMLElement;
+  MainContact: HTMLDivElement;
   suitMessage: () => void;
   brandLinkCompany: () => void;
   renderContact: () => void;
@@ -10,11 +11,15 @@ export interface IContact {
 
 export default class Contact implements IContact {
   MainBody: HTMLElement;
+  MainContact: HTMLDivElement;
 
   static instance: Contact = new Contact();
 
   private constructor() {
     this.MainBody = document.getElementById("main_app") as HTMLElement;
+    this.MainContact = document.getElementById(
+      "link_station"
+    ) as HTMLDivElement;
   }
 
   suitMessage() {
@@ -36,7 +41,8 @@ export default class Contact implements IContact {
     container.appendChild(row);
 
     this.MainBody.innerHTML = "";
-    this.MainBody.appendChild(container);
+    this.MainContact.appendChild(container);
+    /*  this.MainBody.appendChild(container); */
   }
 
   brandLinkCompany() {
@@ -93,12 +99,16 @@ export default class Contact implements IContact {
     row.appendChild(columnThree);
 
     container.appendChild(row);
-
-    this.MainBody.appendChild(container);
+    this.MainContact.appendChild(container);
+    /* this.MainBody.appendChild(container); */
   }
 
   renderContact() {
     this.suitMessage();
     this.brandLinkCompany();
+
+    setTimeout((): void => {
+      this.MainBody.appendChild(this.MainContact);
+    }, 800);
   }
 }
