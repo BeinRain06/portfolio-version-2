@@ -72,6 +72,7 @@ const selectPageToRender = (
     case "2":
       switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future skills");
+      skills.renderSkills();
       break;
     case "3":
       switchActiveSection(indexTarget, bodySectionCollection);

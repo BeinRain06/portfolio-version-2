@@ -35,7 +35,7 @@ body {
 
 .main_view {
   position: absolute;
-  top: 0.5rem;
+  top: 0rem;
   left: 0;
   width: 100%;
   min-height: 100vh;
@@ -48,7 +48,7 @@ body {
 }
 .main_view.active_section {
   position: absolute;
-  top: 0.5rem;
+  top: 0rem;
   left: 0;
   width: 100%;
   min-height: 100vh;
