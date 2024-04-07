@@ -1,6 +1,6 @@
 import "./style.css";
 
-import Home from "./components/about.ts";
+import Home from "./components/home.ts";
 import About from "./components/about.ts";
 import Skills from "./components/skills.ts";
 import Resume from "./components/resume.ts";
@@ -64,6 +64,7 @@ const selectPageToRender = (
     case "0":
       switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future home");
+      home.renderHome();
       break;
     case "1":
       switchActiveSection(indexTarget, bodySectionCollection);
@@ -88,6 +89,26 @@ const selectPageToRender = (
   }
 };
 
+const initialLoader = (
+  indexTarget: string,
+  bodySectionCollection: HTMLDivElement[],
+  home: IHome,
+  about: IAbout,
+  skills: ISkills,
+  resume: IResume,
+  contact: IContact
+): void => {
+  selectPageToRender(
+    indexTarget,
+    bodySectionCollection,
+    home,
+    about,
+    skills,
+    resume,
+    contact
+  );
+};
+
 const mainApp = (): void => {
   const home = Home.instance;
   const about = About.instance;
@@ -106,6 +127,17 @@ const mainApp = (): void => {
   /*Body Section*/
   const bodySectionCollection: HTMLDivElement[] = Array.from(
     document.querySelectorAll(".main_view")
+  );
+
+  /* preload Home Page */
+  initialLoader(
+    "0",
+    bodySectionCollection,
+    home,
+    about,
+    skills,
+    resume,
+    contact
   );
 
   /*menuLinks */

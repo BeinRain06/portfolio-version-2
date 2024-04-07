@@ -21,15 +21,22 @@
 
 /*skills wrapper */
 
-.active_skills {
-  /*1*/
+/* .active_skills {
+  
   width: 100%;
   min-height: 100vh;
   padding: 0.25rem 0;
   display: block;
-}
+} */
 
 @media (min-width: 160px) {
+  /*skills wrapper */
+  .active_skills {
+    /*1*/
+    height: calc(100vh - var(--navbar-height-mob-desk));
+    padding: 0.5rem 0;
+  }
+
   .skills_container {
     /*2*/
     width: 100%;
@@ -242,6 +249,12 @@
 }
 
 @media (min-width: 460px) {
+  /*skills wrapper */
+  .active_skills {
+    /*1*/
+    height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
   .skill_box {
     /*4*/
     width: calc(100% - 0.8rem);
@@ -274,11 +287,10 @@
 }
 
 @media (min-width: 768px) {
+  /*skills wrapper */
   .active_skills {
     /*1*/
-    padding: 2rem 0;
-    margin: 0rem auto;
-    background-color: #555;
+    height: calc(100vh - var(--navbar-height-mob-desk));
   }
 
   .skills_container {

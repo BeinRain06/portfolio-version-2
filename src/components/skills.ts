@@ -3,7 +3,7 @@ import "../css-components/skills.css";
 export interface ISkills {
   MainBody: HTMLElement;
   MainSkills: HTMLDivElement;
-  builtSkills: () => HTMLDivElement;
+  builtSkills: () => void;
   renderSkills: () => void;
 }
 
@@ -198,15 +198,14 @@ export default class Skills implements ISkills {
     skillsContainer.appendChild(abilityContentOne);
     skillsContainer.appendChild(abilityContentTwo);
 
-    return skillsContainer;
+    this.MainSkills.appendChild(skillsContainer);
   }
 
   renderSkills() {
-    const grabSkillsContainer = this.builtSkills() as HTMLDivElement;
+    this.builtSkills();
 
-    //render action to main app
-    setTimeout((): void => {
-      this.MainSkills.appendChild(grabSkillsContainer);
-    }, 2000);
+    /* setTimeout((): void => {
+      this.MainBody.appendChild(this.MainSkills);
+    }, 2000); */
   }
 }
