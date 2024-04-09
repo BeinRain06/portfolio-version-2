@@ -27,6 +27,7 @@
     position: relative;
     top: 0;
     width: 100%;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
     padding: 0 0.5rem;
     background-color: rgb(201, 174, 226);
     background-image: url("../assets/images/inner-picture/bady-abbas-EroYdeZY71I-unsplash.jpg");
@@ -53,7 +54,7 @@
     justify-content: flex-start;
     align-items: left;
     visibility: hidden;
-    animation: anim-hello-group 1s ease-out 1s forwards;
+    animation: anim-hello-group 1s ease-out 1.8s forwards;
   }
 
   .hello_wrap {
@@ -90,7 +91,7 @@
     height: 100%;
     transform: translate(-50%, -50%);
     visibility: hidden;
-    animation: anim-name-group 1s ease-out 2s forwards;
+    animation: anim-name-group 1s ease-out 2.6s forwards;
   }
 
   .name_wrap {
@@ -123,11 +124,15 @@
     color: #fff;
     font-size: calc(10px+ 0.3vw);
     visibility: hidden;
-    animation: anim-footer-message 1s ease-in-out 2.9s forwards;
+    animation: anim-footer-message 1s ease-in-out 3.2s forwards;
   }
 }
 
 @media (min-width: 460px) {
+  .taked_home {
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+
   .hello_wrap div.suit_bar {
     width: 30%;
   }
@@ -135,21 +140,18 @@
   .name_row {
     position: absolute;
     top: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    animation: anim-name-group 1s ease-out 2s forwards;
   }
+}
 
-  .name_wrap {
-    font-size: calc(36px + 0.3vw);
+@media (min-width: 460px) {
+  .taked_home {
+    min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 }
 
 @keyframes anim-hello-group {
   0% {
-    left: -2rem;
+    left: -40%;
     visibility: hidden;
   }
   100% {

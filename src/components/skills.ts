@@ -198,14 +198,12 @@ export default class Skills implements ISkills {
     skillsContainer.appendChild(abilityContentOne);
     skillsContainer.appendChild(abilityContentTwo);
 
+    this.MainSkills.innerHTML = "";
+
     this.MainSkills.appendChild(skillsContainer);
   }
 
   renderSkills() {
     this.builtSkills();
-
-    /* setTimeout((): void => {
-      this.MainBody.appendChild(this.MainSkills);
-    }, 2000); */
   }
 }

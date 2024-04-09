@@ -49,6 +49,8 @@ export default class Resume implements IResume {
     row.appendChild(columnTwo);
     container.appendChild(row);
 
+    this.MainResume.innerHTML = "";
+
     this.MainResume.appendChild(container);
   }
 
@@ -110,15 +112,12 @@ export default class Resume implements IResume {
     container.className = "resume_container container-fluid";
 
     container.appendChild(row);
+
     this.MainResume.appendChild(container);
   }
 
   renderResume() {
     this.backInYearsStory();
     this.resumeStatus();
-
-    setTimeout((): void => {
-      this.MainBody.appendChild(this.MainResume);
-    }, 800);
   }
 }

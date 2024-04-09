@@ -28,8 +28,13 @@
 @media (min-width: 160px) {
   /*resume_wrapper*/
   .craft_domain {
-    height: calc(100vh - var(--navbar-height-mob-desk));
+    position: relative;
+    left: 100%;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
     padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    animation: anime-resume-seat 1.2s ease-in-out forwards;
   }
 
   .resume_container {
@@ -152,7 +157,7 @@
 @media (min-width: 460px) {
   /*resume_wrapper*/
   .craft_domain {
-    height: calc(100vh - var(--navbar-height-desk-1));
+    min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 
   .resume_container {
@@ -275,7 +280,7 @@
 @media (min-width: 768px) {
   /*resume_wrapper*/
   .craft_domain {
-    height: calc(110vh - var(--navbar-height-mob-desk));
+    min-height: calc(110vh - var(--navbar-height-mob-desk));
   }
 
   .resume_container {
@@ -332,5 +337,18 @@
 
   .content_resume .spot_matter {
     font-size: calc(15px + 0.2vw);
+  }
+}
+
+@keyframes anime-resume-seat {
+  0% {
+    left: 100%;
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    visibility: visible;
+    opacity: 1;
   }
 }

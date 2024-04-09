@@ -39,6 +39,8 @@ export default class Home implements IHome {
     row.appendChild(helloWrapper);
     container.appendChild(row);
 
+    this.MainHome.innerHTML = "";
+
     this.MainHome.appendChild(container);
   }
 
@@ -81,6 +83,7 @@ export default class Home implements IHome {
     </div>`;
 
     container.appendChild(row);
+
     this.MainHome.appendChild(container);
   }
 
@@ -88,9 +91,5 @@ export default class Home implements IHome {
     this.sayHye();
     this.selfPresentation();
     this.welcomeHome();
-
-    setTimeout(() => {
-      this.MainBody.appendChild(this.MainHome);
-    }, 800);
   }
 }

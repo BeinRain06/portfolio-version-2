@@ -40,9 +40,9 @@ export default class Contact implements IContact {
 
     container.appendChild(row);
 
-    this.MainBody.innerHTML = "";
+    this.MainContact.innerHTML = "";
+
     this.MainContact.appendChild(container);
-    /*  this.MainBody.appendChild(container); */
   }
 
   brandLinkCompany() {
@@ -99,16 +99,12 @@ export default class Contact implements IContact {
     row.appendChild(columnThree);
 
     container.appendChild(row);
+
     this.MainContact.appendChild(container);
-    /* this.MainBody.appendChild(container); */
   }
 
   renderContact() {
     this.suitMessage();
     this.brandLinkCompany();
-
-    setTimeout((): void => {
-      this.MainBody.appendChild(this.MainContact);
-    }, 800);
   }
 }

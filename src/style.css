@@ -521,7 +521,7 @@ input.trigger_menu {
 
 @media (min-width: 768px) {
   .main_app {
-    height: calc(100vh - var(--navbar-height-mob-desk));
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
   }
 
   /*logo menu*/
