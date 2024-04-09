@@ -29,8 +29,7 @@ export default class Home implements IHome {
 
     row.className = "hye_row row";
 
-    helloWrapper.className =
-      "hello_wrap w-100  d-flex justify-content-center p-2 gap-2";
+    helloWrapper.className = "hello_wrap d-flex w-100 p-2 gap-2";
 
     helloWrapper.innerHTML = `
     <h1 class="say_hello" >hello</h1>

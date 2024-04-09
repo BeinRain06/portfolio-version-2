@@ -21,110 +21,130 @@
   padding: 0;
 }
 
-/*wrapper*/
-.taked_home {
-  position: relative;
-  top: 0;
-  width: 100%;
-  padding: 0 0.5rem;
-  background-color: rgb(201, 174, 226);
-  background-image: url("../assets/images/inner-picture/bady-abbas-EroYdeZY71I-unsplash.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  /*  background-clip: content-box; */
-  background-size: cover;
-  margin: 0 auto;
-  z-index: 1;
+@media (min-width: 160px) {
+  /*wrapper*/
+  .taked_home {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0 0.5rem;
+    background-color: rgb(201, 174, 226);
+    background-image: url("../assets/images/inner-picture/bady-abbas-EroYdeZY71I-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  /* hello message */
+  .hye_container {
+    position: relative;
+    top: 0.5rem;
+    width: 100%;
+    height: 30vh;
+    z-index: 3;
+  }
+
+  .hye_row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    visibility: hidden;
+    animation: anim-hello-group 1s ease-out 1s forwards;
+  }
+
+  .hello_wrap {
+    position: relative;
+    top: 0;
+    left: calc(30% -5vw);
+    height: 80px;
+    color: #fff;
+    font-size: calc(24px + 0.3vw);
+  }
+
+  .hello_wrap div.suit_bar {
+    position: relative;
+    bottom: -32px;
+    left: 0;
+    width: 42%;
+    height: 2px;
+    background-color: #fff;
+  }
+
+  /* presentation name */
+
+  .name_container {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    z-index: 3;
+  }
+
+  .name_row {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    animation: anim-name-group 1s ease-out 2s forwards;
+  }
+
+  .name_wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    font-size: calc(36px + 0.3vw);
+    letter-spacing: 4px;
+  }
+
+  /* footer message */
+  .footer_container {
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+    height: 10vh;
+    z-index: 3;
+  }
+
+  .footer_row {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .welcome_home {
+    color: #fff;
+    font-size: calc(10px+ 0.3vw);
+    visibility: hidden;
+    animation: anim-footer-message 1s ease-in-out 2.9s forwards;
+  }
 }
 
-/* hello message */
-.hye_container {
-  position: relative;
-  top: 0.5rem;
-  width: 100%;
-  height: 30vh;
-  z-index: 3;
-}
+@media (min-width: 460px) {
+  .hello_wrap div.suit_bar {
+    width: 30%;
+  }
 
-.hye_row {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate(-50%, -50%);
-  visibility: hidden;
-  animation: anim-hello-group 1s ease-out 1s forwards;
-}
+  .name_row {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    animation: anim-name-group 1s ease-out 2s forwards;
+  }
 
-.hello_wrap {
-  position: relative;
-  top: 0;
-  height: 80px;
-  color: #fff;
-  font-size: calc(24px + 0.3vw);
-}
-
-.hello_wrap div.suit_bar {
-  position: relative;
-  bottom: -32px;
-  left: 0;
-  width: 30%;
-  height: 2px;
-  background-color: #fff;
-}
-
-/* presentation name */
-
-.name_container {
-  position: relative;
-  width: 100%;
-  height: 45vh;
-  z-index: 3;
-}
-
-.name_row {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  visibility: hidden;
-  animation: anim-name-group 1s ease-out 2s forwards;
-}
-
-.name_wrap {
-  width: 100%;
-  height: auto;
-  color: #fff;
-  font-size: calc(36px + 0.3vw);
-  letter-spacing: 4px;
-}
-
-/* footer message */
-.footer_container {
-  position: relative;
-  bottom: 5px;
-  width: 100%;
-  height: 10vh;
-  z-index: 3;
-}
-
-.footer_row {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.welcome_home {
-  color: #fff;
-  font-size: calc(10px+ 0.3vw);
-  visibility: hidden;
-  animation: anim-footer-message 1s ease-in-out 2.9s forwards;
+  .name_wrap {
+    font-size: calc(36px + 0.3vw);
+  }
 }
 
 @keyframes anim-hello-group {
