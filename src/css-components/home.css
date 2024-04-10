@@ -59,7 +59,7 @@
 
   .hello_wrap {
     position: relative;
-    top: 0;
+    top: 2rem;
     left: calc(30% -5vw);
     height: 80px;
     color: #fff;

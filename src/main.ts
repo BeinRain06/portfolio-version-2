@@ -69,6 +69,7 @@ const selectPageToRender = (
     case "1":
       switchActiveSection(indexTarget, bodySectionCollection);
       console.log("future about");
+      about.renderAbout();
       break;
     case "2":
       switchActiveSection(indexTarget, bodySectionCollection);

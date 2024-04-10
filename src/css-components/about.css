@@ -1,0 +1,210 @@
+@import "../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css";
+
+:root {
+  --navbar-height-desk-1: 100px;
+  --navbar-height-mob-desk: 50px;
+  --footer-height-desk: 100px;
+  --footer-height-mob: 60px;
+
+  --msg-container-height-mob: var(--footer-height-mob) +
+    var(--navbar-height-mob-desk);
+
+  --msg-container-height-desk: var(--footer-height-desk) +
+    var(--navbar-height-mob-desk);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 160px) {
+  .know_about_me {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    background-image: url("../assets/images/inner-picture/des-recits-YsoS7vH3x_I-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .know_about_me:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: 0;
+  }
+
+  .locker_container {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    z-index: 5;
+    visibility: hidden;
+    animation: anim-phaseA-about 1s ease-in-out forwards;
+  }
+
+  .locker_row {
+    width: 100%;
+    height: 100%;
+  }
+
+  .duty_wrapper {
+    flex-direction: column;
+  }
+
+  .duty_wrapper .agent_img_wrapper {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    perspective: 1000px;
+  }
+
+  .agent_img_wrapper .agent_img {
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("../assets/images/IMG-white-portfolio-3.png");
+    background-position: top 40% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(0.68);
+  }
+
+  .duty_wrapper .working_area {
+    width: 40%;
+    color: #f4f4f4;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    font-size: calc(15px + 0.3vw);
+  }
+
+  .int_work_title {
+    font-size: calc(20px + 0.3vw);
+    text-decoration: underline;
+  }
+
+  /*interst side */
+
+  .interest_container {
+    position: relative;
+    top: -50%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 5;
+    padding: 0;
+    visibility: hidden;
+    animation: anim-phaseB-about 1s ease-in-out forwards;
+  }
+
+  .interest_wrapper {
+    width: 100%;
+    height: 100%;
+    color: #747171;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #cecece;
+  }
+
+  .interest_wrapper .skills_recap {
+    position: relative;
+    top: 0.25rem;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .skills_recap .skill_item_pro {
+    width: 90%;
+    color: #c0c0c0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .interest_wrapper .inner_side_interests {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2.5rem;
+    font-size: calc(15px + 0.3vw);
+  }
+}
+
+@media (min-width: 460px) {
+  .interest_container {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+  }
+
+  .know_about_me {
+    min-height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
+  .duty_wrapper {
+    flex-direction: row;
+  }
+
+  .duty_wrapper .working_area {
+    margin: 0;
+  }
+
+  .interest_wrapper .skills_recap {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+}
+.know_about_me {
+  min-height: calc(100vh - var(--navbar-height-mob-desk));
+}
+
+@keyframes anim-phaseA-about {
+  0% {
+    top: 50%;
+    visibility: hidden;
+  }
+  100% {
+    top: 0%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-phaseB-about {
+  0% {
+    top: -50%;
+    visibility: hidden;
+  }
+  100% {
+    top: 0%;
+    visibility: visible;
+  }
+}
