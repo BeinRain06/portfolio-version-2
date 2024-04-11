@@ -28,21 +28,18 @@ export default class Resume implements IResume {
     container.className = "story_container container-fluid";
 
     row.className =
-      "story_enroll row w-100 d-flex justify-content-between align-items-center p-2 mx-auto";
+      "story_enroll row w-100 d-flex justify-content-center align-items-center py-2 mx-auto";
 
-    columnOne.className = "title_story col-xs-1 col-2";
-    columnOne.innerHTML = `<h4 class="title_underlined" >STory Telling :</h4>`;
-    columnTwo.className = "story_wrap col-xs-11 col-10";
+    columnOne.className = "title_story  col-xs-2 col-sm-2";
+    columnOne.innerHTML = `<h4 class="title_underlined px-2" >STory Telling :</h4>`;
+    columnTwo.className = "story_wrap col-10";
     columnTwo.innerHTML = `
     <p class="story_content d-flex  justify-content-center  w-100" >
-        10 Years working  
-        on electrical wiring building. From  2 years and half dive in  Front End Dev . Shining teams like
-        code Academy, freeCodeCamp resources like Mozilla MDN Reference,
-        w3Schools, StackOverflow, and so on drives me a lot of teaches, and
-        help through bugs program  difficulties encountered. This entire Crew, without which it couldn't be possible
-        to make this page. Because I really experienced to be at home though
-        unknown. I genuinely also want to be in the game and
-        shares value with others!
+        10 Years performing on electrical  
+        wiring house. Missing creativity and self-work organizing, jump in web development . Lovely community like
+        frontendmentor, freeCodeCamp, youtube; continuously resources like MDN Mozilla MDN ,
+        w3Schools, StackOverflow, and many else, drives our learning journey in unpredictable but fast roads that we can't imagine.
+        I pause to say Thanks You to all these Teams. But litterally creativity is not an aspect that is bound to something or someone. In tha matter we set up will to be part of te game! 
     </p>`;
 
     row.appendChild(columnOne);
@@ -68,19 +65,19 @@ export default class Resume implements IResume {
     columnFour.className = "title_road road_res2 col-xs-10";
     columnFour.innerHTML = `<span class="road_label">Education</span>`;
 
-    columnTwo.className = "content_resume col-xs-10 col-5";
-    columnThree.className = "content_resume col-xs-10 col-5";
+    columnTwo.className = "content_resume";
+    columnThree.className = "content_resume";
     columnTwo.innerHTML = `
     <div class="flash_resume w-100">
       <h5 class="paragraph_title">Tailwind CSS</h5>
-      <ul class="paragraph_points w-80 h-auto d-flex flex-column justify-content-center align-item-center text-align-justify">
+      <ul class="paragraph_points  d-flex flex-column text-align-justify gap-2">
         <li class="spot_matter w-100 "> Tailwind with Vanilla Javascript</li>
         <li class="spot_matter w-100 "> Tailwind with NextJS</li>
       </ul>
     </div>
     <div class="flash_resume w-100">
       <h5 class="paragraph_title">NextJS</h5>
-      <ul class="paragraph_points ">
+      <ul class="paragraph_points d-flex flex-column text-align-justify gap-2">
         <li class="spot_matter w-100"> Pages and Routing in NextJS</li>
         <li class="spot_matter w-100"> Server Side Rendering(SSR)</li>
       </ul>
@@ -89,16 +86,16 @@ export default class Resume implements IResume {
     columnThree.innerHTML = `
     <div class="flash_resume w-100">
       <h5 class="paragraph_title">Electrical &   Electronics Engineering</h4>
-      <ul class="paragraph_points ">
+      <ul class="paragraph_points  d-flex flex-column text-align-justify gap-2">
         <li class="spot_matter w-100"> Technology University Institute (I.U.T Douala) </li>
         <li class="spot_matter w-100"> 2 years degree - Diploma <span class="font-italic">D.U.T option(Industrial IT & Electrical Engineering) </span> - Diplome Universitaire De Technologie</li>
       </ul>
     </div>
     <div class="flash_resume w-100">
       <h5 class="paragraph_title">Electrotechnics</h5>
-      <ul class="paragraph_points w-80 h-auto d-flex flex-column justify-content-center align-item-center text-align-justify">
+      <ul class="paragraph_points  d-flex flex-column text-align-justify gap-2">
         <li class="spot_matter w-100"> Coast University Institute (I.U.C Douala)</li>
-        <li class="spot_matter w-100">1 year degree - Diploma <span class="font-italic"> bachelor's degree in Electrotechnics </span> -</li>
+        <li class="spot_matter w-100">1 year degree - Diploma <span class="font-italic"> bachelor's degree in Electrotechnics </span></li>
       </ul>
     </div>`;
 

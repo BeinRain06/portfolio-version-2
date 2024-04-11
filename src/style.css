@@ -26,9 +26,11 @@
 
 body {
   position: relative;
+  left: 0.75rem;
   width: 100vw;
   min-height: 100vh;
-  margin: 0 auto;
+  padding-left: 0.85rem;
+  overflow-x: hidden;
 }
 
 /*Main container*/
@@ -71,6 +73,7 @@ a {
 .main_app {
   position: relative;
   width: 100vw;
+  padding: 0;
   min-height: calc(100vh - var(--navbar-height-mob-desk));
 }
 
@@ -104,7 +107,8 @@ a {
 }
 
 input.trigger_menu {
-  --webkit-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
   position: absolute;
   width: 1.8rem;
