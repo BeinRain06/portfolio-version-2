@@ -60,7 +60,7 @@
   .hello_wrap {
     position: relative;
     top: 2rem;
-    left: calc(30% -5vw);
+    left: calc(30% - 5vw);
     height: 80px;
     color: #fff;
     font-size: calc(24px + 0.3vw);
@@ -122,7 +122,7 @@
 
   .welcome_home {
     color: #fff;
-    font-size: calc(10px+ 0.3vw);
+    font-size: calc(10px + 0.3vw);
     visibility: hidden;
     animation: anim-footer-message 1s ease-in-out 3.2s forwards;
   }
