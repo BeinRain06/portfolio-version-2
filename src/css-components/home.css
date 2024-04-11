@@ -60,7 +60,7 @@
   .hello_wrap {
     position: relative;
     top: 2rem;
-    left: calc(30% - 5vw);
+    left: calc(3% - 0.3vw);
     height: 80px;
     color: #fff;
     font-size: calc(24px + 0.3vw);
@@ -122,7 +122,7 @@
 
   .welcome_home {
     color: #fff;
-    font-size: calc(10px + 0.3vw);
+    font-size: calc(14px + 0.3vw);
     visibility: hidden;
     animation: anim-footer-message 1s ease-in-out 3.2s forwards;
   }
@@ -130,7 +130,7 @@
 
 @media (min-width: 460px) {
   .taked_home {
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 
   .hello_wrap div.suit_bar {
@@ -140,12 +140,6 @@
   .name_row {
     position: absolute;
     top: 50%;
-  }
-}
-
-@media (min-width: 460px) {
-  .taked_home {
-    min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 }
 
