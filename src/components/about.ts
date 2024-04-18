@@ -35,7 +35,7 @@ export default class About implements IAbout {
         <div class="agent_img"></div>
       </div>
       <div class="working_area" >
-        <span class="int_work_title">Identity</span>
+        
         <p class="skills_acquaintance fw-bold" >Front-End/ Back-End Developer </p>
       </div>
       `;
@@ -63,31 +63,32 @@ export default class About implements IAbout {
     interestBoardOne.className = "skills_recap";
 
     interestBoardOne.innerHTML = `
+    <div class="skill_item_pro">
+          <label for="css">CSS</label>
+          <div id="progress_css" class="progress style="height: 16px" role="progressbar" aria-label="Example with label" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 40%;background-color: #f4f4f4; border-radius: 24px;animation: css-progress-anim 1s ease-in-out 4s forwards">75%</div>
+        </div>
     
         <div class="skill_item_pro">
           <label for="javascript">Javascript</label>
-          <div class="progress style="height: 14px" role="progressbar" aria-label="javascript" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 60% ; background-color: #577e45; border-radius: 24px">60%</div>
+          <div id="progress_javascript" class="progress style="height: 14px" role="progressbar" aria-label="javascript" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 24px;animation: javascript-progress-anim 1s ease-in-out 5.1s forwards">60%</div>
         </div>
         <div class="skill_item_pro">
           <label for="express">ExpressJS</label>
-          <div class="progress style="height: 16px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 55%; background-color: #45637e; border-radius: 24px">55%</div>
+          <div id="progress_express" class="progress style="height: 16px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 55%;background-color: #f4f4f4; border-radius: 24px;animation: express-progress-anim 1s ease-in-out 6s forwards;">55%</div>
         </div>
-        <div class="skill_item_pro">
-          <label for="css">CSS</label>
-          <div class="progress style="height: 16px" role="progressbar" aria-label="Example with label" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 40%; background-color: #68737c; border-radius: 24px">40%</div>
-        </div>
+        
         <div class="skill_item_pro">
           <label for="typescript">Typescript</label>
-          <div class="progress style="height: 16px" role="progressbar" aria-label="typescript" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 25%; background-color: #7d8066; border-radius: 24px">25%</div>
+          <div id="progress_typescript" class="progress style="height: 16px" role="progressbar" aria-label="typescript" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 25%; background-color: #f4f4f4;border-radius: 24px;animation: typescript-progress-anim 1s ease-in-out 7s forwards;">25%</div>
         </div>
         <div class="skill_item_pro">
           <label for="node">NodeJS</label>
-          <div class="progress style="height: 16px" role="progressbar" aria-label="NodeJs" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 20%; background-color: #c0c0c0; border-radius: 24px">20%</div>
+          <div id="progress_node" class="progress style="height: 16px" role="progressbar" aria-label="NodeJs" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 20%;background-color: #f4f4f4; border-radius: 24px;animation: node-progress-anim 1s ease-in-out 8s forwards;">20%</div>
         </div>
     `;
 
@@ -96,8 +97,10 @@ export default class About implements IAbout {
     interestBoardTwo.className = "inner_side_interests";
 
     interestBoardTwo.innerHTML = `
-      <span class="int_work_title">Interest</span>
-        <p class="skills_acquaintance" > animes, writing, movies, Games  </p>
+      <div class="beating_interest">
+        <span class="int_work_title">Interest</span>
+        <p class="interest_area" > animes, writing, movies, Games  </p>
+      </div> "
       `;
 
     interestWrapper.appendChild(interestBoardOne);
