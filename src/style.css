@@ -72,6 +72,7 @@ a {
 
 .main_app {
   position: relative;
+  top: 50px;
   width: 100vw;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height-mob-desk));
@@ -86,13 +87,14 @@ a {
 .menu_wrap {
   position: relative;
   top: 0.5rem;
-  left: 0.5rem;
+  right: 0.5rem;
   width: 2.4rem;
   height: 2.4rem;
-  border: 2px solid #ddd;
+  /*  border: 2px solid #ddd; */
   border-radius: 5px;
   z-index: 3;
-  display: inline-block;
+  display: block;
+  float: right;
 }
 
 .menu_wrap .menu_symbol {
@@ -102,8 +104,10 @@ a {
   transform: translate(-50%, -50%);
   width: 84%;
   height: 84%;
-  background-color: var(--bg-color-menu-wrap);
-  border: 2px solid transparent;
+  /* background-color: var(--bg-color-menu-wrap); */
+  background-color: transparent;
+  z-index: 3;
+  /* border: 2px solid transparent; */
 }
 
 input.trigger_menu {
@@ -113,10 +117,16 @@ input.trigger_menu {
   position: absolute;
   width: 1.8rem;
   height: 1.8rem;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ada9a9;
   background-color: transparent;
+}
+
+input.trigger_menu:checked {
+  accent-color: transparent;
 }
 
 /*menu symbol transdormation */
@@ -184,7 +194,7 @@ input.trigger_menu {
 .menu_content {
   content: "";
   position: absolute;
-  top: -17rem;
+  top: -16.95rem;
   left: 50%;
   width: 100vw;
   height: auto;
@@ -205,6 +215,7 @@ input.trigger_menu {
   padding: 2rem 0;
   background-color: #ada9a9;
   transform: translateX(-50%);
+  z-index: 2;
 }
 
 .menu_links {
@@ -296,6 +307,7 @@ input.trigger_menu {
 .logo_wrapper {
   position: absolute;
   top: -0.6rem;
+  left: 0;
   width: 100vw;
   height: 50px;
   background-color: transparent;
@@ -308,9 +320,11 @@ input.trigger_menu {
 .logo_wrapper.currently_view {
   position: absolute;
   top: -0.6rem;
+  left: 0;
   width: 100vw;
   height: 50px;
   background-color: #3c3c3f;
+  background-color: #ada9a9;
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -319,24 +333,27 @@ input.trigger_menu {
 .logo_menu_text {
   position: absolute;
   top: 1rem;
-  left: 50%;
+  left: 35%;
   width: 60vw;
   height: auto;
   padding: 0.5rem;
   color: #fff;
   font-size: calc(20px + 0.3vw);
-  transform: translateX(-40%);
+  transform: translateX(-50%);
   z-index: 5;
   visibility: visible;
 }
 
 .logo_menu {
   position: relative;
-  width: calc(82vw - 0.25em);
-  height: 4rem;
+  /*  width: calc(82vw - 0.25em); */
+  width: calc(100vw - 56px);
+  width: calc(100vw);
+  height: 3.9rem;
   margin-bottom: 0;
   display: inline-block;
   z-index: 3;
+  transform: translateX(-56px);
 }
 
 .logo_menu::before {
@@ -386,9 +403,9 @@ input.trigger_menu {
     display: none;
   }
 
-  .menu_wrap {
+  /* .menu_wrap {
     left: 0.25rem;
-  }
+  } */
 
   .logo_menu_text {
     font-size: calc(18px + 0.3vw);
@@ -398,7 +415,8 @@ input.trigger_menu {
 
 @media (min-width: 460px) {
   .main_app {
-    min-height: calc(100vh - var(--navbar-height-desk-1));
+    top: 0;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
   }
 
   .menu {
@@ -408,9 +426,9 @@ input.trigger_menu {
     display: block;
   }
 
-  .menu_wrap {
+  /*  .menu_wrap {
     left: 0.5rem;
-  }
+  } */
 
   .logo_menu {
     width: calc(100vw);

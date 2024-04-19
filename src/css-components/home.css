@@ -30,12 +30,12 @@
     min-height: calc(100vh - var(--navbar-height-mob-desk));
     padding: 0 0.5rem;
     background-color: rgb(201, 174, 226);
-    background-image: url("../assets/images/inner-picture/bady-abbas-EroYdeZY71I-unsplash.jpg");
+    background-image: url("../assets/images/inner-picture/valeria-reverdo-6AY725DMxHE-unsplash.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
-    z-index: 1;
+    z-index: 0;
   }
 
   /* hello message */
