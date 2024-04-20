@@ -5,7 +5,7 @@
 :root {
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
-  --footer-height-desk: 100px;
+  --footer-height-desk: 80px;
   --footer-height-mob: 60px;
 
   --msg-container-height-mob: var(--footer-height-mob) +
@@ -41,13 +41,6 @@
     width: 100%;
     height: calc(100vh - var(--footer-height-mob));
     padding: 0;
-  }
-
-  .msg_container .msg_together {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
     background-image: linear-gradient(
       to right top,
       #053730,
@@ -58,12 +51,24 @@
     );
   }
 
-  .msg_together .contact_msg {
+  .msg_container .msg_together {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .contact_msg {
+    width: 100%;
+    height: 100px;
+  }
+
+  .contact_msg .message_me {
     position: absolute;
-    top: 42%;
+    top: 32%;
     left: 50%;
     width: 80vw;
-    height: auto;
+    height: 100px;
     padding-bottom: 0;
     font-size: calc(24px + 0.3vw);
     color: #fff;
@@ -74,12 +79,154 @@
     transition: all 1s ease-in-out;
   }
 
-  .msg_together .contact_msg:hover {
-    padding-bottom: 1rem;
+  .msg_together .message_me:hover {
     text-decoration: underline;
     font-size: calc(26px + 0.3vw);
     letter-spacing: 2px;
   }
+
+  /* drop a message */
+  .form_msg_wrapper {
+    position: absolute;
+    top: 32%;
+    left: 14%;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* transform: translateX(-1%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn_hand {
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    left: -16%;
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+    transform: translateX(-10%);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    outline: none;
+    transition: all 1s ease-in-out;
+  }
+
+  .btn_hand:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 0px 4px #e2712f;
+  }
+
+  .hand_writing_img {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets//images/hand-writing.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .warning_sending_msg {
+    position: absolute;
+    top: 0;
+    width: 0%;
+    height: 0px;
+    padding: 0.25rem;
+    background-color: #333;
+    color: brown;
+    border-radius: 0px;
+    font-size: calc(12px + 0.3vw);
+    box-shadow: 0px 0px 5px rgb(209, 211, 74);
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+  }
+
+  .warning_sending_msg.apply_it_visible {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 24px;
+    padding: 0.25rem;
+    border-radius: 5px;
+    visibility: visible;
+  }
+  .drop_wrapper {
+    position: absolute;
+    top: 3rem;
+    height: auto;
+  }
+
+  .form_msg_control {
+    width: 100%;
+    padding: 0.25rem;
+    height: 70%;
+    margin: 0 auto;
+    background-image: linear-gradient(
+      to right top,
+      #230537,
+      #710d4a,
+      #b63345,
+      #e2712f,
+      #ebba12
+    );
+  }
+
+  .form_content_control {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form_content_control label {
+    position: relative;
+    left: 0;
+    width: 100%;
+    font-size: calc(11px + 0.2vw);
+    display: block;
+    float: left;
+  }
+
+  .form_content_control input,
+  .form_content_submit button {
+    font-size: calc(11px + 0.3vw);
+    border: none;
+    outline: none;
+  }
+
+  .form_content_control input {
+    width: 100%;
+    height: 34px;
+    padding-left: 0.5rem;
+    border-radius: 5px;
+  }
+
+  .form_content_submit button.submit_btn_msg {
+    position: relative;
+    right: 0;
+    width: 4.6rem;
+    height: 2.2rem;
+    color: #fff;
+    background-color: #4d1b9e;
+    border-radius: 5px;
+  }
+
+  .form_content_submit button div {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: 1px solid #fff;
+    outline-offset: -2px;
+  }
+
+  /* brand container */
 
   .brand_container {
     position: relative;
@@ -154,15 +301,17 @@
   }
 
   .msg_container {
-    height: calc(100vh - var(--footer-height-desk));
+    /*  height: calc(100vh - var(--msg-container-height-desk)); */
+
+    height: calc(100vh - 130px);
     padding: 0;
   }
 
-  .msg_together .contact_msg {
+  .msg_together .message_me {
     font-size: calc(30px + 0.3vw);
   }
 
-  .msg_together .contact_msg:hover {
+  .msg_together .message_me:hover {
     font-size: calc(32px + 0.3vw);
   }
 
