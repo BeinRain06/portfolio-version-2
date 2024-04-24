@@ -1,0 +1,181 @@
+/* @import "../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"; */
+
+:root {
+  --navbar-height-desk-1: 100px;
+  --navbar-height-mob-desk: 50px;
+  --footer-height-desk: 100px;
+  --footer-height-mob: 60px;
+
+  --msg-container-height-mob: var(--footer-height-mob) +
+    var(--navbar-height-mob-desk);
+
+  --msg-container-height-desk: var(--footer-height-desk) +
+    var(--navbar-height-mob-desk);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 160px) {
+  /*wrapper*/
+  .taked_home {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    padding: 0 0.5rem;
+    background-color: rgb(201, 174, 226);
+    background-image: url("../assets/images/inner-picture/valeria-reverdo-6AY725DMxHE-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    z-index: 0;
+  }
+
+  /* hello message */
+  .hye_container {
+    position: relative;
+    top: 0.5rem;
+    width: 100%;
+    height: 30vh;
+    z-index: 3;
+  }
+
+  .hye_row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    visibility: hidden;
+    animation: anim-hello-group 1s ease-out 1.8s forwards;
+  }
+
+  .hello_wrap {
+    position: relative;
+    top: 2rem;
+    left: calc(3% - 0.3vw);
+    height: 80px;
+    color: #fff;
+    font-size: calc(24px + 0.3vw);
+  }
+
+  .hello_wrap div.suit_bar {
+    position: relative;
+    bottom: -32px;
+    left: 0;
+    width: 42%;
+    height: 2px;
+    background-color: #fff;
+  }
+
+  /* presentation name */
+
+  .name_container {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    z-index: 3;
+  }
+
+  .name_row {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    animation: anim-name-group 1s ease-out 2.6s forwards;
+  }
+
+  .name_wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    font-size: calc(36px + 0.3vw);
+    letter-spacing: 4px;
+  }
+
+  /* footer message */
+  .footer_container {
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+    height: 10vh;
+    z-index: 3;
+  }
+
+  .footer_row {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .welcome_home {
+    color: #fff;
+    font-size: calc(14px + 0.3vw);
+    visibility: hidden;
+    animation: anim-footer-message 1s ease-in-out 3.2s forwards;
+  }
+}
+
+@media (min-width: 460px) {
+  .taked_home {
+    min-height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
+  .hello_wrap div.suit_bar {
+    width: 30%;
+  }
+
+  .name_row {
+    position: absolute;
+    top: 50%;
+  }
+}
+
+@keyframes anim-hello-group {
+  0% {
+    left: -40%;
+    visibility: hidden;
+  }
+  100% {
+    left: 20%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-name-group {
+  0% {
+    left: 100%;
+    visibility: hidden;
+  }
+
+  100% {
+    left: 50%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-footer-message {
+  0% {
+    visibility: hidden;
+    transform: scale(0.2);
+    opacity: 0.74;
+  }
+
+  100% {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+  }
+}

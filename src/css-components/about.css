@@ -1,0 +1,374 @@
+/* @import "../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"; */
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Hind:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --navbar-height-desk-1: 100px;
+  --navbar-height-mob-desk: 50px;
+  --footer-height-desk: 100px;
+  --footer-height-mob: 60px;
+
+  --msg-container-height-mob: var(--footer-height-mob) +
+    var(--navbar-height-mob-desk);
+
+  --msg-container-height-desk: var(--footer-height-desk) +
+    var(--navbar-height-mob-desk);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*progress bar*/
+
+#progress_css .progress_bar {
+  background-color: #f4f4f4;
+  animation: css-progress-anim 0.45s ease-in-out forwards;
+}
+#progress_javascript .progress_bar {
+  background-color: #f4f4f4;
+  animation: javascript-progress-anim 0.45s ease-in-out 0.7s forwards;
+}
+
+#progress_express .progress_bar {
+  background-color: #f4f4f4;
+  animation: express-progress-anim 0.45s ease-in-out 1s forwards;
+}
+
+#progress_typescript .progress_bar {
+  background-color: #f4f4f4;
+  animation: typescript-progress-anim 0.45s ease-in-out 1.3s forwards;
+}
+
+#progress_node .progress_bar {
+  background-color: #f4f4f4;
+  animation: node-progress-anim 0.45s ease-in-out 1.6s forwards;
+}
+
+/* test anim */
+
+.skills_acquaintance,
+.interest_area {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.skills_acquaintance {
+  font-size: calc(18px + 0.3vw);
+  visibility: hidden;
+  animation: skills-acquaintance-anim 2s ease-in-out forwards 0.5s;
+}
+
+.interest_area {
+  font-size: calc(17px + 0.3vw);
+}
+
+@media (min-width: 160px) {
+  .know_about_me {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    padding-bottom: 1.5rem;
+    font-family: "Hind", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("../assets/images/inner-picture/des-recits-YsoS7vH3x_I-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .know_about_me:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: 0;
+  }
+
+  .locker_container {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    z-index: 5;
+    visibility: hidden;
+    animation: anim-phaseA-about 1s ease-in-out forwards;
+  }
+
+  .locker_row {
+    width: 100%;
+    height: 100%;
+  }
+
+  .duty_wrapper {
+    flex-direction: column;
+  }
+
+  .duty_wrapper .agent_img_wrapper {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    perspective: 1000px;
+  }
+
+  .agent_img_wrapper .agent_img {
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("../assets/images/IMG-white-portfolio-3.png");
+    background-position: top 40% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(0.68);
+  }
+
+  .duty_wrapper .working_area {
+    width: 40%;
+    color: #f4f4f4;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    font-size: calc(15px + 0.3vw);
+  }
+
+  .int_work_title {
+    font-size: calc(20px + 0.3vw);
+    text-decoration: underline;
+  }
+
+  /*interst side */
+
+  .interest_container {
+    position: relative;
+    top: -50%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 5;
+    padding: 0;
+    visibility: hidden;
+    animation: anim-phaseB-about 1s ease-in-out forwards;
+  }
+
+  .interest_wrapper {
+    width: 100%;
+    height: 100%;
+    color: #747171;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #cecece;
+  }
+
+  .interest_wrapper .skills_recap {
+    position: relative;
+    top: 0.25rem;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .skills_recap .skill_item_pro {
+    width: 90%;
+    color: #c0c0c0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .interest_wrapper .inner_side_interests {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2.5rem;
+    font-size: calc(15px + 0.3vw);
+    visibility: hidden;
+    animation: hide-show-interest 1s ease-in-out forwards;
+  }
+
+  .inner_side_interests .beating_interest {
+    padding: 1rem;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    visibility: hidden;
+    animation: interest-area-anim 1.2s ease-in-out forwards 2.2s;
+  }
+}
+
+@media (min-width: 460px) {
+  .interest_container {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+  }
+
+  .know_about_me {
+    min-height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
+  .duty_wrapper {
+    flex-direction: row;
+  }
+
+  .duty_wrapper .working_area {
+    margin: 0;
+  }
+
+  .interest_wrapper .skills_recap {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .know_about_me {
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+}
+
+@keyframes anim-phaseA-about {
+  0% {
+    top: 50%;
+    visibility: hidden;
+  }
+  100% {
+    top: 0%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-phaseB-about {
+  0% {
+    top: -50%;
+    visibility: hidden;
+  }
+  100% {
+    top: 0%;
+    visibility: visible;
+  }
+}
+
+@keyframes skills-acquaintance-anim {
+  0% {
+    transform: scale(0.2);
+    visibility: hidden;
+  }
+  100% {
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+@keyframes interest-area-anim {
+  0% {
+    transform: translateX(-300px) rotateZ(72deg) scale(0.2);
+    visibility: visible;
+  }
+  25% {
+    transform: translateX(-225px) rotateZ(144deg) scale(0.2);
+    visibility: visible;
+  }
+  50% {
+    transform: translateX(-150px) rotateZ(216deg) scale(0.5);
+    visibility: visible;
+  }
+  75% {
+    transform: translateX(-75px) rotateZ(288deg) scale(0.75);
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(0) rotateZ(360deg) scale(1);
+    visibility: visible;
+    border-radius: 5px;
+    border: 1px solid transparent;
+  }
+}
+
+@keyframes hide-show-interest {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+/*progress anim */
+
+@keyframes css-progress-anim {
+  0% {
+    width: 0;
+    background-color: #f4f4f4;
+  }
+  100% {
+    width: 75%;
+    background-color: #577e45;
+  }
+}
+
+@keyframes javascript-progress-anim {
+  0% {
+    width: 0;
+    background-color: #f4f4f4;
+  }
+  100% {
+    width: 60%;
+    background-color: #45637e;
+  }
+}
+
+@keyframes express-progress-anim {
+  0% {
+    width: 0;
+    background-color: #f4f4f4;
+  }
+  100% {
+    width: 50%;
+    background-color: #68737c;
+  }
+}
+
+@keyframes typescript-progress-anim {
+  0% {
+    width: 0;
+    background-color: #f4f4f4;
+  }
+  100% {
+    width: 35%;
+    background-color: #68737c;
+  }
+}
+
+@keyframes node-progress-anim {
+  0% {
+    width: 0%;
+    background-color: #f4f4f4;
+  }
+  100% {
+    width: 20%;
+    background-color: #c0c0c0;
+  }
+}
