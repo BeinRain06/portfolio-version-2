@@ -228,13 +228,11 @@ const mainApp = (): void => {
     ) as HTMLSpanElement;
     const check: boolean = triggeredMenu.checked;
     if (check === true) {
-      triggeredMenu.style.backgroundColor = "#9e9d9d";
       menuContent.classList.add("currently_view");
       logoWrapper.classList.add("currently_view");
 
-      logoText.style.color = "#60c77a";
+      logoText.style.color = "#107c41";
     } else {
-      triggeredMenu.style.backgroundColor = "#848d94";
       menuContent.classList.remove("currently_view");
       logoWrapper.classList.remove("currently_view");
       logoText.style.color = "#fff";

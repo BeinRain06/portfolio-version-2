@@ -1,16 +1,13 @@
-/* @import "../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"; */
-
 :root {
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
-  --footer-height-desk: 100px;
-  --footer-height-mob: 60px;
+  --footer-height-mob: 50px;
 
-  --msg-container-height-mob: var(--footer-height-mob) +
-    var(--navbar-height-mob-desk);
+  --msg-container-height-mob: 120px;
 
-  --msg-container-height-desk: var(--footer-height-desk) +
-    var(--navbar-height-mob-desk);
+  --msg-container-height-mob-mini: 100px;
+
+  --msg-container-height-desk: 100px;
 }
 
 *,
@@ -23,14 +20,19 @@
 
 @media (min-width: 160px) {
   /*wrapper*/
+  .main_view,
+  .main_view.active_section {
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+
   .taked_home {
     position: relative;
     top: 0;
     width: 100%;
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
-    padding: 0 0.5rem;
+    height: inherit;
+    margin: 0;
     background-color: rgb(201, 174, 226);
-    background-image: url("../assets/images/inner-picture/valeria-reverdo-6AY725DMxHE-unsplash.jpg");
+    background-image: url("../assets/images/inner-picture/lauren-mancke-aOC7TSLb1o8-unsplash.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,17 +64,17 @@
     top: 2rem;
     left: calc(3% - 0.3vw);
     height: 80px;
-    color: #fff;
-    font-size: calc(24px + 0.3vw);
+    color: rgb(209, 190, 228);
+    font-size: calc(18px + 0.3vw);
   }
 
   .hello_wrap div.suit_bar {
     position: relative;
     bottom: -32px;
     left: 0;
-    width: 42%;
+    width: 12%;
     height: 2px;
-    background-color: #fff;
+    background-color: rgb(209, 190, 228);
   }
 
   /* presentation name */
@@ -80,7 +82,7 @@
   .name_container {
     position: relative;
     width: 100%;
-    height: 45vh;
+    height: 43vh;
     z-index: 3;
   }
 
@@ -98,7 +100,8 @@
     position: relative;
     width: 100%;
     height: auto;
-    color: #fff;
+    /* color: rgb(149, 110, 187); */
+    color: rgb(154, 110, 189);
     font-size: calc(36px + 0.3vw);
     letter-spacing: 4px;
   }
@@ -108,7 +111,7 @@
     position: relative;
     bottom: 5px;
     width: 100%;
-    height: 10vh;
+    height: auto;
     z-index: 3;
   }
 
@@ -120,8 +123,43 @@
     height: 100%;
   }
 
+  .logo_skills_city {
+    width: 100%;
+    height: 46px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+  }
+
+  .logo_skill {
+    position: relative;
+    width: 70px;
+    height: 100%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .logo_skill.react_skill {
+    background-image: url("../assets/images/react-javascript-js-framework-facebook-svgrepo-com.svg");
+  }
+  .logo_skill.typescript_skill {
+    background-image: url("../assets/images/typescriptdef-official-svgrepo-com.svg");
+  }
+  .logo_skill.mongodb_skill {
+    background-image: url("../assets/images/mongodb-svgrepo-com.svg");
+  }
+  .logo_skill.javascript_skill {
+    background-image: url("../assets/images/js-svgrepo-com.svg");
+  }
+  .logo_skill.node_skill {
+    background-image: url("../assets/images/node-js-svgrepo-com.svg");
+  }
+
   .welcome_home {
-    color: #fff;
+    color: rgb(149, 110, 187);
     font-size: calc(14px + 0.3vw);
     visibility: hidden;
     animation: anim-footer-message 1s ease-in-out 3.2s forwards;
@@ -129,17 +167,58 @@
 }
 
 @media (min-width: 460px) {
-  .taked_home {
+  .main_view,
+  .main_view.active_section {
     min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 
   .hello_wrap div.suit_bar {
-    width: 30%;
+    width: 20%;
+  }
+
+  .name_container {
+    height: 36vh;
   }
 
   .name_row {
     position: absolute;
     top: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .main_view,
+  .main_view.active_section {
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+
+  .hello_wrap {
+    position: relative;
+    top: 2rem;
+    left: calc(3% - 0.3vw);
+    font-size: calc(21px + 0.3vw);
+  }
+
+  .name_container {
+    height: 43vh;
+  }
+
+  .logo_skills_city {
+    height: 76px;
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .logo_skill {
+    position: relative;
+    width: 60px;
+    height: 100%;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 

@@ -5,14 +5,13 @@
 :root {
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
-  --footer-height-desk: 80px;
-  --footer-height-mob: 60px;
+  --footer-height-mob: 50px;
 
-  --msg-container-height-mob: var(--footer-height-mob) +
-    var(--navbar-height-mob-desk);
+  --msg-container-height-mob: 120px;
 
-  --msg-container-height-desk: var(--footer-height-desk) +
-    var(--navbar-height-mob-desk);
+  --msg-container-height-mob-mini: 100px;
+
+  --msg-container-height-desk: 100px;
 }
 
 *,
@@ -28,18 +27,18 @@
 @media (min-width: 160px) {
   .link_station {
     position: relative;
-    top: -80%;
+    top: 0;
     height: calc(100vh - var(--navbar-height-mob-desk));
-    visibility: hidden;
+    visibility: visible;
     transform: scale(1);
-    animation: we-together-anim 2s ease-in-out 0.3s forwards;
+    /* animation: we-together-anim 2s ease-in-out 0.3s forwards; */
   }
 
   .msg_container {
     position: relative;
     top: 0;
     width: 100%;
-    height: calc(100vh - var(--footer-height-mob));
+    height: calc(100vh - var(--msg-container-height-mob-mini));
     padding: 0;
     background-image: linear-gradient(
       to right top,
@@ -269,15 +268,17 @@
     width: 3rem;
     height: 3rem;
     padding: 0rem;
-    background-image: url("../assets/images/twitter-svgrepo-com.svg");
+    background-image: url("../assets/images/linkedin-svgrepo-com.svg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1;
   }
 
-  .linkedin_wrapper.link_media {
-    background-image: url("../assets/images/linkedin-svgrepo-com.svg");
+  .tweeter_wrapper.link_media {
+    width: 3rem;
+    height: 3rem;
+    background-image: url("../assets/images/twitter-x-logo.png");
   }
 
   .github_wrapper.link_media {
@@ -294,20 +295,24 @@
     opacity: 0.8;
     border-radius: 5px;
     border: 1px solid transparent;
-    background-color: rgba(118, 216, 118, 0.315);
+    /* background-color: rgba(118, 216, 118, 0.315); */
     transition: all 1s ease-in-out;
   }
 
   .link_media:hover::before {
     border-radius: 5px;
     border: 1px solid #fff;
-    background-color: rgba(0, 0, 0, 0.215);
+    /* background-color: rgba(0, 0, 0, 0.215); */
   }
 }
 
 @media (min-width: 460px) {
   .link_station {
     height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
+  .msg_container {
+    height: calc(100vh - var(--msg-container-height-desk));
   }
 }
 
@@ -317,9 +322,9 @@
   }
 
   .msg_container {
-    /*  height: calc(100vh - var(--msg-container-height-desk)); */
+    /*  height: calc(100vh - 130px); */
+    height: calc(100vh - var(--msg-container-height-mob));
 
-    height: calc(100vh - 130px);
     padding: 0;
   }
 
@@ -331,10 +336,6 @@
     font-size: calc(32px + 0.3vw);
   }
 
-  .brand_container {
-    height: var(--footer-height-desk);
-  }
-
   .link_media {
     width: 5rem;
     height: 3.8rem;
@@ -342,7 +343,7 @@
   }
 }
 
-@keyframes we-together-anim {
+/* @keyframes we-together-anim {
   0% {
     top: -80%;
     visibility: hidden;
@@ -359,4 +360,4 @@
     top: 0%;
     transform: scale(1);
   }
-}
+} */

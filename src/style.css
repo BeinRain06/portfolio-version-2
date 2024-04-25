@@ -46,8 +46,6 @@ body {
   transition: all 1.3s ease-in-out 0.4s;
   visibility: hidden;
   display: none;
-  /* transform: translate(0, -100vh);
-   */
 }
 .main_view.active_section {
   opacity: 1;
@@ -88,8 +86,8 @@ a {
   position: relative;
   top: 0.5rem;
   right: 0.5rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2rem;
+  height: 2.2rem;
   /*  border: 2px solid #ddd; */
   border-radius: 5px;
   z-index: 3;
@@ -104,10 +102,9 @@ a {
   transform: translate(-50%, -50%);
   width: 84%;
   height: 84%;
-  /* background-color: var(--bg-color-menu-wrap); */
   background-color: transparent;
   z-index: 3;
-  /* border: 2px solid transparent; */
+  cursor: pointer;
 }
 
 input.trigger_menu {
@@ -121,13 +118,13 @@ input.trigger_menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ada9a9;
   background-color: transparent;
+  z-index: 5;
 }
 
-input.trigger_menu:checked {
+/* input.trigger_menu:checked {
   accent-color: transparent;
-}
+} */
 
 /*menu symbol transdormation */
 
@@ -138,6 +135,7 @@ input.trigger_menu:checked {
   height: 2px;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(0deg);
 }
 
 .menu_symbol input.trigger_menu + .menu_bar::before {
@@ -148,6 +146,7 @@ input.trigger_menu:checked {
   height: 100%;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(0deg);
 }
 
 .menu_symbol input.trigger_menu + .menu_bar::after {
@@ -158,6 +157,7 @@ input.trigger_menu:checked {
   height: 100%;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(0deg);
 }
 
 /*here add */
@@ -169,6 +169,7 @@ input.trigger_menu:checked {
   height: 2px;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(45deg);
 }
 
 .menu_symbol input.trigger_menu:checked + .menu_bar::before {
@@ -179,27 +180,30 @@ input.trigger_menu:checked {
   height: 100%;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(0deg);
 }
 
 .menu_symbol input.trigger_menu:checked + .menu_bar::after {
   content: "";
   position: absolute;
-  top: 7px;
+  top: 0px;
   width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 24px;
+  transform: rotate(90deg);
 }
 
 .menu_content {
   content: "";
   position: absolute;
-  top: -16.95rem;
+  top: -17.1rem;
   left: 50%;
   width: 100vw;
   height: auto;
   padding: 2rem 0 3.4rem;
-  background-color: #ada9a9;
+  /*  background-color: #ada9a9; */
+  background-color: rgba(0, 0, 128, 0.623);
   transform: translateX(-50%);
   transition: all 1.4s ease-in-out;
   z-index: 2;
@@ -208,12 +212,11 @@ input.trigger_menu:checked {
 .menu_content.currently_view {
   content: "";
   position: absolute;
-  top: 3.3rem;
+  top: 3.1rem;
   left: 50%;
   width: 100vw;
   height: auto;
   padding: 2rem 0;
-  background-color: #ada9a9;
   transform: translateX(-50%);
   z-index: 2;
 }
@@ -244,7 +247,6 @@ input.trigger_menu:checked {
   top: 0;
   width: 80%;
   height: 100%;
-  color: #333;
   font-size: calc(16px + 0.3vw);
   letter-spacing: 0.5px;
   display: flex;
@@ -255,7 +257,6 @@ input.trigger_menu:checked {
 
 .menulink_content:hover {
   top: 0.5rem;
-  color: #fff;
 }
 
 .menulink_content::before {
@@ -265,7 +266,7 @@ input.trigger_menu:checked {
   left: 0;
   width: 100%;
   height: 100%;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid rgb(209, 190, 228);
   transition: all 0.78s ease-in-out;
 }
 
@@ -280,8 +281,6 @@ input.trigger_menu:checked {
 }
 
 .menulink_content.active_li {
-  color: #ddd;
-  /* background-color: #333; */
   font-size: calc(16px + 0.3vw);
   display: flex;
   justify-content: center;
@@ -298,8 +297,13 @@ input.trigger_menu:checked {
   animation: menu-link-anim 0.8s ease-in-out 0.9s forwards;
 }
 
-.menulink_content.active_li a {
+/* .menulink_content.active_li a {
   color: #ddd;
+  z-index: 1;
+} */
+
+.menulink_content a {
+  color: rgb(209, 190, 228);
   z-index: 1;
 }
 
@@ -311,10 +315,12 @@ input.trigger_menu:checked {
   width: 100vw;
   height: 50px;
   background-color: transparent;
+  background-color: rgba(0, 0, 128, 0.95);
   height: auto;
   display: flex;
   justify-content: flex-end;
   transition: all 2s ease-in-out 0.5s;
+  z-index: 1;
 }
 
 .logo_wrapper.currently_view {
@@ -323,8 +329,7 @@ input.trigger_menu:checked {
   left: 0;
   width: 100vw;
   height: 50px;
-  background-color: #3c3c3f;
-  background-color: #ada9a9;
+  background-color: rgba(0, 0, 128, 0.95);
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -333,27 +338,26 @@ input.trigger_menu:checked {
 .logo_menu_text {
   position: absolute;
   top: 1rem;
-  left: 35%;
+  left: 50%;
   width: 60vw;
   height: auto;
   padding: 0.5rem;
   color: #fff;
   font-size: calc(20px + 0.3vw);
-  transform: translateX(-50%);
+  transform: translateX(-56%);
   z-index: 5;
   visibility: visible;
 }
 
 .logo_menu {
   position: relative;
-  /*  width: calc(82vw - 0.25em); */
-  width: calc(100vw - 56px);
+  /*  width: calc(100vw - 46px); */
   width: calc(100vw);
   height: 3.9rem;
   margin-bottom: 0;
   display: inline-block;
   z-index: 3;
-  transform: translateX(-56px);
+  /* transform: translateX(-46px); */
 }
 
 .logo_menu::before {
@@ -364,10 +368,12 @@ input.trigger_menu:checked {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
   font-size: calc(20px + 0.3vw);
 }
 
 .logo_img {
+  display: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -409,14 +415,13 @@ input.trigger_menu:checked {
 
   .logo_menu_text {
     font-size: calc(18px + 0.3vw);
-    transform: translateX(-30%);
   }
 }
 
 @media (min-width: 460px) {
   .main_app {
     top: 0;
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 
   .menu {
@@ -436,14 +441,14 @@ input.trigger_menu:checked {
 
   .logo_menu_text {
     font-size: calc(20px + 0.3vw);
-    transform: translateX(-40%);
+    /*   transform: translateX(-40%); */
     visibility: hidden;
   }
 
   /*navbar desktop link */
   .navbar_content_tags {
     height: var(--navbar-height-desk-1);
-    background-color: var(--bg-color-navbar);
+    background-color: rgba(0, 0, 128, 0.95);
   }
 
   .navlink_container {
@@ -554,7 +559,7 @@ input.trigger_menu:checked {
   /*navbar desktop link */
   .navbar_content_tags {
     height: var(--navbar-height-mob-desk);
-    background-color: var(--bg-color-navbar);
+    background-color: rgba(0, 0, 128, 0.95);
   }
 
   .navlink .navlink_content {
@@ -573,27 +578,27 @@ input.trigger_menu:checked {
 /* @keyframes anim */
 @keyframes menu-link-anim {
   0% {
-    border-left: 2px solid #fff;
+    border-left: 2px solid rgb(209, 190, 228);
     border-top-left-radius: 24px;
   }
 
   25% {
-    border-top: 2px solid #fff;
+    border-top: 2px solid rgb(209, 190, 228);
     border-top-right-radius: 24px;
   }
 
   50% {
-    border-right: 2px solid #fff;
+    border-right: 2px solid rgb(209, 190, 228);
     border-bottom-right-radius: 24px;
   }
 
   75% {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid rgb(209, 190, 228);
     border-top-left-radius: 24px;
   }
 
   100% {
-    border: 2px solid #fff;
+    border: 2px solid rgb(209, 190, 228);
     border-radius: 24px;
   }
 }
@@ -615,7 +620,7 @@ input.trigger_menu:checked {
     width: calc(100% - 12px);
     height: calc(100% - 0.6rem);
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.315);
+    background-color: rgba(0, 0, 0, 0.215);
     border-radius: 24px;
     overflow: hidden;
     content: "";

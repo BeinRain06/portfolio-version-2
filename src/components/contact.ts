@@ -287,15 +287,15 @@ export default class Contact implements IContact {
 
     container.className = "brand_container container-fluid";
 
-    row.className = "brand_row row";
+    row.className = "brand_row row d-flex justify-content-center";
 
     const columnOne = document.createElement("div") as HTMLDivElement;
     const columnTwo = document.createElement("div") as HTMLDivElement;
     const columnThree = document.createElement("div") as HTMLDivElement;
 
-    columnOne.className = "item_brand col-4";
-    columnTwo.className = "item_brand col-4";
-    columnThree.className = "item_brand col-4";
+    columnOne.className = "item_brand col-3";
+    columnTwo.className = "item_brand col-3";
+    columnThree.className = "item_brand col-3";
 
     const tweetWrapper = document.createElement("div") as HTMLDivElement;
     tweetWrapper.id = "link_tweeter";
