@@ -202,7 +202,6 @@ input.trigger_menu {
   width: 100vw;
   height: auto;
   padding: 2rem 0 3.4rem;
-  /*  background-color: #ada9a9; */
   background-color: rgba(0, 0, 128, 0.623);
   transform: translateX(-50%);
   transition: all 1.4s ease-in-out;

@@ -64,7 +64,7 @@
     top: 2rem;
     left: calc(3% - 0.3vw);
     height: 80px;
-    color: rgb(209, 190, 228);
+    color: rgba(167, 142, 192, 0.788);
     font-size: calc(18px + 0.3vw);
   }
 
