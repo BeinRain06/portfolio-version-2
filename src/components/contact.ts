@@ -16,6 +16,7 @@ export interface IContact {
     dropWrapper: HTMLDivElement,
     e: SubmitEvent
   ) => void;
+  fullShowForm: (dropWrapper: HTMLDivElement) => void;
   brandLinkCompany: () => void;
   renderContact: () => void;
 }
@@ -162,6 +163,18 @@ export default class Contact implements IContact {
     }
   }
 
+  fullShowForm(dropWrapper: HTMLDivElement) {
+    const collapseItem = new Collapse(dropWrapper);
+
+    if (dropWrapper.classList.contains("activate_view")) {
+      dropWrapper.classList.remove("activate_view");
+      collapseItem.hide();
+    } else {
+      dropWrapper.classList.add("activate_view");
+      collapseItem.show();
+    }
+  }
+
   suitMessage() {
     const container = document.createElement("div") as HTMLDivElement;
     const row = document.createElement("div") as HTMLDivElement;
@@ -190,15 +203,11 @@ export default class Contact implements IContact {
 
     buttonHandWriting.className = "btn_hand";
 
-    buttonHandWriting.setAttribute("data-bs-toggle", "collapse");
-    buttonHandWriting.setAttribute("data-bs-target", "#drop_wrapper");
-    buttonHandWriting.setAttribute("aria-expanded", "false");
-    buttonHandWriting.setAttribute("aria-controls", "drop_wrapper");
     buttonHandWriting.innerHTML = `<div class="hand_writing_img"></div>`;
 
     const dropWrapper = document.createElement("div") as HTMLDivElement;
     dropWrapper.id = "drop_wrapper";
-    dropWrapper.className = "collapse drop_wrapper col-xs-8 col-sm-4";
+    dropWrapper.className = "collapse drop_wrapper  col-10 col-sm-5";
 
     const formControl = document.createElement("form") as HTMLFormElement;
 
@@ -233,8 +242,7 @@ export default class Contact implements IContact {
       "warning_sending_msg d-flex justify-content-center align-items-center";
 
     const formContentSubmit = document.createElement("div") as HTMLDivElement;
-    formContentSubmit.className =
-      "form_content_submit w-100 d-flex justify-content-end py-2";
+    formContentSubmit.className = "form_content_submit w-100 d-flex py-2";
 
     const buttonSubmit = document.createElement("button") as HTMLButtonElement;
     buttonSubmit.id = "submit_btn_msg";
@@ -259,6 +267,11 @@ export default class Contact implements IContact {
     const message = messageWrapper.querySelector(
       "#message"
     ) as HTMLTextAreaElement;
+
+    buttonHandWriting.addEventListener(
+      "click",
+      this.fullShowForm.bind(this, dropWrapper)
+    );
 
     formControl.addEventListener(
       "submit",
@@ -287,7 +300,8 @@ export default class Contact implements IContact {
 
     container.className = "brand_container container-fluid";
 
-    row.className = "brand_row row d-flex justify-content-center";
+    row.className =
+      "brand_row row d-flex justify-content-center align-items-center";
 
     const columnOne = document.createElement("div") as HTMLDivElement;
     const columnTwo = document.createElement("div") as HTMLDivElement;

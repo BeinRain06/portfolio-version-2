@@ -201,7 +201,7 @@ const mainApp = (): void => {
       const check: boolean = triggeredMenu.checked;
 
       if (check === true) {
-        triggeredMenu.style.backgroundColor = "#848d94";
+        /* triggeredMenu.style.backgroundColor = "#848d94"; */
         menuContent.classList.remove("currently_view");
         logoWrapper.classList.remove("currently_view");
         logoText.style.color = "#fff";
