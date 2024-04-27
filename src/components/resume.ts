@@ -30,16 +30,12 @@ export default class Resume implements IResume {
     row.className =
       "story_enroll row w-100 d-flex justify-content-center align-items-center py-2 mx-auto";
 
-    columnOne.className = "title_story  col-xs-2 col-sm-2";
+    columnOne.className = "title_story  col-xs-2 col-sm-1";
     columnOne.innerHTML = `<h4 class="title_underlined px-2" >STory Telling :</h4>`;
     columnTwo.className = "story_wrap col-10";
     columnTwo.innerHTML = `
     <p class="story_content d-flex  justify-content-center  w-100" >
-        10 Years performing on electrical  
-        wiring house. Missing creativity and self-work organizing, jump in web development . Lovely community like
-        frontendmentor, freeCodeCamp, youtube; continuously resources like MDN Mozilla MDN ,
-        w3Schools, StackOverflow, and many else, drives our learning journey in unpredictable but fast roads that we can't imagine.
-        I pause to say Thanks You to all these Teams. But litterally creativity is not an aspect that is bound to something or someone. In tha matter we set up will to be part of te game! 
+        About 02 years and half, developed skills in ReactJS, TypeScript, and Vanilla JS. React Context API tease me to build easy app storing data under the client side. NodeJS and Express improve this experience at the time surrounded with the external database tool MonGoDB. MonGoDB then along with Json web token on the fire allows me to tackle area of user Authentication under credentials mostly needed effective  inside website application. Here one of our goal is being able to be skilled enough to push out many prototypes that can serve as sample on new products developments. Years Earlier have been orking in electrical field especially area of house wiring.       
     </p>`;
 
     row.appendChild(columnOne);
@@ -54,7 +50,8 @@ export default class Resume implements IResume {
   resumeStatus() {
     const container = document.createElement("div") as HTMLDivElement;
 
-    const row = document.createElement("div") as HTMLDivElement;
+    const rowOne = document.createElement("div") as HTMLDivElement;
+    const rowTwo = document.createElement("div") as HTMLDivElement;
     const columnOne = document.createElement("div") as HTMLDivElement;
     const columnTwo = document.createElement("div") as HTMLDivElement;
     const columnThree = document.createElement("div") as HTMLDivElement;
@@ -99,16 +96,18 @@ export default class Resume implements IResume {
       </ul>
     </div>`;
 
-    row.className = "resume_row row";
+    rowOne.className = "resume_row_one row";
+    rowTwo.className = "resume_row_two row";
 
-    row.appendChild(columnOne);
-    row.appendChild(columnTwo);
-    row.appendChild(columnThree);
-    row.appendChild(columnFour);
+    rowOne.appendChild(columnOne);
+    rowOne.appendChild(columnTwo);
+    rowTwo.appendChild(columnThree);
+    rowTwo.appendChild(columnFour);
 
     container.className = "resume_container container-fluid";
 
-    container.appendChild(row);
+    container.appendChild(rowOne);
+    container.appendChild(rowTwo);
 
     this.MainResume.appendChild(container);
   }

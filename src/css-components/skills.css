@@ -320,7 +320,7 @@
 
   .skills_container {
     /*2*/
-    padding: 0 0 0 1rem;
+    padding: 1rem 0.5rem 0.5rem;
     margin: 0 auto 1rem;
     flex-basis: 50%;
     flex-direction: row;
@@ -350,9 +350,11 @@
   }
 
   .skill_box .skill_item .skill_subItem {
+    left: 1%;
     padding: 0;
     margin: 0.25rem 0;
     width: 96%;
+    transform: translateX(0%);
   }
 
   /* skills subitem  ::before, ::after */
