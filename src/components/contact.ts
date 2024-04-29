@@ -1,5 +1,5 @@
 import { linkedin, github, twitter } from "../assets/images/index.ts";
-import { getInfosMail, sendDataMail } from "../api_functions/api_function.ts";
+import { sendDataMail } from "../api_functions/api_function.ts";
 import "../css-components/contact.css";
 import { Collapse } from "bootstrap";
 
