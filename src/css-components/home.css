@@ -187,6 +187,10 @@
     top: 50%;
     margin: 0;
   }
+
+  .name_wrap {
+    color: rgb(154, 110, 189);
+  }
 }
 
 @media (min-width: 768px) {
@@ -204,10 +208,6 @@
 
   .name_container {
     height: 43vh;
-  }
-
-  .name_wrap {
-    color: rgb(154, 110, 189);
   }
 
   .logo_skills_city {
