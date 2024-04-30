@@ -118,7 +118,7 @@
   .hand_writing_img {
     width: 100%;
     height: 100%;
-    background-image: url("../assets//images/hand-writing.png");
+    background-image: url("../assets/images/hand-writing.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -249,7 +249,9 @@
     bottom: 0;
     height: var(--footer-height-mob);
     padding: 0;
-    background-color: #555;
+    background-color: rgb(29, 29, 56);
+
+    background-color: rgb(20, 20, 43);
   }
 
   .brand_container .brand_row {
@@ -278,9 +280,9 @@
 
   .tweeter_wrapper.link_media {
     /*  top: 0.25rem; */
-    width: 2rem;
-    height: 2rem;
-    background-image: url("../assets/images/twitter-x-logo.png");
+    /*  width: 2rem;
+    height: 2rem; */
+    background-image: url("../assets/images/x_logo_twitter_new_brand_icon.svg");
   }
 
   .github_wrapper.link_media {
@@ -359,7 +361,6 @@
     bottom: 0;
     height: var(--footer-height-desk-1);
     padding: 0;
-    background-color: #555;
   }
 
   .link_media {
@@ -368,11 +369,11 @@
     padding: 0rem;
   }
 
-  .tweeter_wrapper.link_media {
+  /*  .tweeter_wrapper.link_media {
     top: 0.35rem;
     width: 3rem;
     height: 3rem;
-  }
+  } */
 }
 
 /* @keyframes we-together-anim {

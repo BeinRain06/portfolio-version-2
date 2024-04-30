@@ -140,6 +140,7 @@
 
   .skill_box .skill_item .sample_project {
     font-size: calc(12px + 0.3vw);
+    padding-right: 1rem;
   }
 
   .sample_project span.sample_link {

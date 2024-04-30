@@ -93,6 +93,7 @@
     height: 100%;
     transform: translate(-50%, -50%);
     visibility: hidden;
+    margin: 0 auto;
     animation: anim-name-group 1s ease-out 2.6s forwards;
   }
 
@@ -100,8 +101,9 @@
     position: relative;
     width: 100%;
     height: auto;
-    /* color: rgb(149, 110, 187); */
-    color: rgb(154, 110, 189);
+    /*  color: rgb(154, 110, 189); */
+    color: rgb(126, 49, 189);
+    /* background-color: #ebebeb38; */
     font-size: calc(36px + 0.3vw);
     letter-spacing: 4px;
   }
@@ -183,6 +185,7 @@
   .name_row {
     position: absolute;
     top: 50%;
+    margin: 0;
   }
 }
 
@@ -201,6 +204,10 @@
 
   .name_container {
     height: 43vh;
+  }
+
+  .name_wrap {
+    color: rgb(154, 110, 189);
   }
 
   .logo_skills_city {
