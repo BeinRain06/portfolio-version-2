@@ -61,7 +61,7 @@
 
   .contact_msg .message_me {
     position: absolute;
-    top: 32%;
+    top: 50%;
     left: 50%;
     width: 80vw;
     height: 100px;
@@ -84,11 +84,11 @@
   /* drop a message */
   .form_msg_wrapper {
     position: absolute;
-    top: 32%;
-    left: 14%;
+    top: 1%;
     left: 0;
     width: 100%;
     height: auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,8 +98,8 @@
   .btn_hand {
     position: relative;
     cursor: pointer;
-    top: 0;
-    left: -16%;
+    top: 20%;
+    left: -39%;
     width: 20px;
     height: 20px;
     opacity: 0.9;
@@ -126,15 +126,13 @@
 
   .drop_wrapper {
     position: absolute;
-    top: 3rem;
+    top: 1.5rem;
     height: auto;
     margin: 0 auto;
   }
 
   .form_msg_control {
     position: relative;
-    top: -1rem;
-    left: calc(2px - 4%);
     width: 100%;
     padding: 0.25rem 0.75rem;
     height: 70%;
@@ -275,18 +273,14 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 1;
+    z-index: 3;
   }
 
   .tweeter_wrapper.link_media {
-    /*  top: 0.25rem; */
-    /*  width: 2rem;
-    height: 2rem; */
     background-image: url("../assets/images/x_logo_twitter_new_brand_icon.svg");
   }
 
   .github_wrapper.link_media {
-    /*  top: 0.25rem; */
     background-image: url("../assets/images/logo-github-svgrepo-com.svg");
   }
 
@@ -319,9 +313,9 @@
     height: calc(100vh - var(--msg-container-height-mob-med));
   }
 
-  .form_msg_control {
+  /* .form_msg_control {
     left: calc(5px - 4%);
-  }
+  } */
 
   .form_content_submit {
     justify-content: flex-end;
@@ -340,7 +334,6 @@
 
   .msg_container {
     height: calc(100vh - var(--msg-container-height-desk-1));
-
     padding: 0;
   }
 
@@ -352,8 +345,17 @@
     font-size: calc(32px + 0.3vw);
   }
 
-  .form_msg_control {
-    left: calc(5px - 4%);
+  .contact_msg .message_me {
+    top: 32%;
+  }
+
+  .form_msg_wrapper {
+    top: 6%;
+  }
+
+  .btn_hand {
+    top: 0;
+    left: -16%;
   }
 
   .brand_container {
