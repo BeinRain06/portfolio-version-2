@@ -201,8 +201,7 @@
 
   .taked_home {
     margin: 0;
-    background-position: 135px center;
-    /*  margin: 0 auto; */
+    background-position: center 35%;
   }
 
   .hello_wrap {
