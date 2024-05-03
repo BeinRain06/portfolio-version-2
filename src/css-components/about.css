@@ -4,7 +4,8 @@
 
 :root {
   --navbar-height-desk-1: 100px;
-  --navbar-height-mob-desk: 50px;
+  /* --navbar-height-mob-desk: 50px; */
+  --navbar-height-mob-desk: 100px;
   --footer-height-desk: 100px;
   --footer-height-mob: 60px;
 
@@ -70,12 +71,16 @@
 }
 
 @media (min-width: 160px) {
+  .main_app {
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+
   .know_about_me {
     position: relative;
     top: 0;
     width: 100%;
     min-height: calc(100vh - var(--navbar-height-mob-desk));
-    padding-bottom: 1.5rem;
+    /*  padding-bottom: 1.5rem; */
     font-family: "Hind", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -100,93 +105,51 @@
 
   .locker_container {
     position: relative;
-    top: 50%;
+    top: 0%;
     width: 100%;
-    height: 50vh;
+    height: calc(100vh - var(--navbar-height-mob-desk));
+    padding: 0;
     margin: 0 auto;
-    z-index: 5;
-    visibility: hidden;
-    animation: anim-phaseA-about 1s ease-in-out forwards;
-  }
-
-  .locker_row {
-    width: 100%;
-    height: 100%;
+    z-index: 3;
   }
 
   .duty_wrapper {
-    flex-direction: column;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .duty_wrapper .agent_img_wrapper {
     position: relative;
-    width: 40%;
+    width: 100%;
     height: 100%;
-    perspective: 1000px;
+    perspective: 500px;
   }
 
   .agent_img_wrapper .agent_img {
-    position: absolute;
-    top: 0;
-    left: -20%;
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    background-image: url("../assets/images/IMG-white-portfolio-3.png");
-    background-position: top 40% center;
+    background-image: url("../assets/images/IMG_portfolio_21_final.png");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform: scale(0.68);
+    transform: scale(0.96);
   }
 
-  .duty_wrapper .working_area {
-    width: 40%;
-    color: #f4f4f4;
+  .duty_wrapper .skills_recap {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 70%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     gap: 0.5rem;
     font-size: calc(15px + 0.3vw);
-  }
-
-  .int_work_title {
-    font-size: calc(20px + 0.3vw);
-    text-decoration: underline;
-  }
-
-  /*interst side */
-
-  .interest_container {
-    position: relative;
-    top: -50%;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    z-index: 5;
-    padding: 0;
-    visibility: hidden;
-    animation: anim-phaseB-about 1s ease-in-out forwards;
-  }
-
-  .interest_wrapper {
-    width: 100%;
-    height: 100%;
-    color: #747171;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: #cecece;
-  }
-
-  .interest_wrapper .skills_recap {
-    position: relative;
-    top: 0.25rem;
-    width: 60%;
-    height: 100%;
-    display: flex;
-    gap: 0.25rem;
   }
 
   .skills_recap .skill_item_pro {
@@ -197,15 +160,61 @@
     gap: 0.25rem;
   }
 
-  .interest_wrapper .inner_side_interests {
-    width: 40%;
-    height: 100%;
+  /* centering skill Item Pro */
+  #first_skill_pro.skill_item_pro {
+    position: relative;
+  }
+  #first_skill_pro.skill_item_pro .skill_item_pro {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%);
+    display: flex;
+  }
+
+  .int_work_title {
+    font-size: calc(20px + 0.3vw);
+    text-decoration: underline;
+  }
+
+  /*interst side */
+
+  .interest_container {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 5;
+    padding: 0;
+  }
+
+  .interest_row {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    color: #cecece;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex-basis: 100%;
+  }
+
+  .interest_row .inner_side_interests {
+    width: calc(90%);
+    position: absolute;
+    left: 4%;
+    bottom: -75%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    gap: 2.5rem;
-    font-size: calc(15px + 0.3vw);
+    gap: 0.5rem;
+    font-size: calc(12px + 0.3vw);
     visibility: hidden;
     animation: hide-show-interest 1s ease-in-out forwards;
   }
@@ -213,33 +222,37 @@
   .inner_side_interests .beating_interest {
     padding: 1rem;
     border-radius: 50%;
-    border: 1px solid #fff;
-    visibility: hidden;
-    animation: interest-area-anim 1.2s ease-in-out forwards 2.2s;
   }
 }
 
 @media (min-width: 460px) {
-  .interest_container {
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-  }
-
   .know_about_me {
     min-height: calc(100vh - var(--navbar-height-desk-1));
+    padding-bottom: 0.5rem;
   }
 
-  .duty_wrapper {
-    flex-direction: row;
+  .locker_container {
+    height: 102vh;
+
+    visibility: hidden;
+    animation: anim-phaseA-about 1s ease-in-out forwards;
   }
 
-  .duty_wrapper .working_area {
-    margin: 0;
+  .agent_img_wrapper .agent_img {
+    background-position: center 12%;
+    transform: scale(0.9);
   }
 
-  .interest_wrapper .skills_recap {
-    position: relative;
-    top: 0;
+  .duty_wrapper .skills_recap {
+    position: absolute;
+    top: 37%;
+    width: 100%;
+    height: 40%;
+  }
+
+  .interest_row .inner_side_interests {
+    bottom: -68%;
+    height: auto;
   }
 }
 

@@ -18,6 +18,8 @@ export default class About implements IAbout {
     this.MainAbout = document.getElementById("know_about_me") as HTMLDivElement;
   }
 
+  // interest_area
+
   IdAgent() {
     const container = document.createElement("div") as HTMLDivElement;
     const row = document.createElement("div") as HTMLDivElement;
@@ -25,45 +27,16 @@ export default class About implements IAbout {
 
     container.className = "locker_container container-fluid";
 
-    row.className = "locker_row row w-100 h-100";
+    row.className = "locker_row row w-100 h-100 mx-auto";
 
-    dutyWrapper.className =
-      "duty_wrapper w-100 h-100 d-flex justify-content-between px-2";
+    dutyWrapper.className = "duty_wrapper w-100 h-100";
 
-    dutyWrapper.innerHTML = `
-      <div class="agent_img_wrapper" >
-        <div class="agent_img"></div>
-      </div>
-      <div class="working_area" >
-        
-        <p class="skills_acquaintance fw-bold" >Front-End/ Back-End Developer </p>
-      </div>
-      `;
+    const skillsRecap = document.createElement("div") as HTMLDivElement;
 
-    row.appendChild(dutyWrapper);
-    container.appendChild(row);
+    skillsRecap.className = "skills_recap";
 
-    this.MainAbout.innerHTML = "";
-    this.MainAbout.appendChild(container);
-  }
-
-  detailsInterest() {
-    const container = document.createElement("div") as HTMLDivElement;
-    const row = document.createElement("div") as HTMLDivElement;
-    const interestWrapper = document.createElement("div") as HTMLDivElement;
-
-    container.className = "interest_container container-fluid";
-
-    row.className = "interest_row row w-100 h-100 mx-auto";
-
-    interestWrapper.className = "interest_wrapper ";
-
-    const interestBoardOne = document.createElement("div") as HTMLDivElement;
-
-    interestBoardOne.className = "skills_recap";
-
-    interestBoardOne.innerHTML = `
-    <div class="skill_item_pro">
+    skillsRecap.innerHTML = `
+    <div id="first_skill_pro" class="skill_item_pro">
           <label for="css">CSS</label>
           <div id="progress_css" class="progress style="height: 16px" role="progressbar" aria-label="Example with label" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 40%;background-color: #f4f4f4; border-radius: 24px;animation: css-progress-anim 1s ease-in-out 4s forwards">75%</div>
@@ -79,7 +52,6 @@ export default class About implements IAbout {
           <div id="progress_express" class="progress style="height: 16px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 55%;background-color: #f4f4f4; border-radius: 24px;animation: express-progress-anim 1s ease-in-out 6s forwards;">55%</div>
         </div>
-        
         <div class="skill_item_pro">
           <label for="typescript">Typescript</label>
           <div id="progress_typescript" class="progress style="height: 16px" role="progressbar" aria-label="typescript" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -92,21 +64,52 @@ export default class About implements IAbout {
         </div>
     `;
 
-    const interestBoardTwo = document.createElement("div") as HTMLDivElement;
+    const agentImgWrapper = document.createElement("div") as HTMLDivElement;
+    agentImgWrapper.className = "agent_img_wrapper";
+    agentImgWrapper.innerHTML = `
+    <div class="agent_img"></div>
+    `;
 
-    interestBoardTwo.className = "inner_side_interests";
+    dutyWrapper.appendChild(agentImgWrapper);
+    dutyWrapper.appendChild(skillsRecap);
 
-    interestBoardTwo.innerHTML = `
+    row.appendChild(dutyWrapper);
+    container.appendChild(row);
+
+    this.MainAbout.innerHTML = "";
+    this.MainAbout.appendChild(container);
+  }
+
+  detailsInterest() {
+    const container = document.createElement("div") as HTMLDivElement;
+    const row = document.createElement("div") as HTMLDivElement;
+
+    container.className = "interest_container container-fluid";
+
+    row.className = "interest_row row";
+
+    const workingArea = document.createElement("div") as HTMLDivElement;
+
+    workingArea.className = "working_area";
+
+    workingArea.innerHTML = `
+    <p class="skills_acquaintance fw-bold" >Front-End/ Back-End Developer </p>
+    `;
+
+    const interestBoard = document.createElement("div") as HTMLDivElement;
+
+    interestBoard.className = "inner_side_interests";
+
+    interestBoard.innerHTML = `
       <div class="beating_interest">
         <span class="int_work_title">Interest</span>
         <p class="interest_area" > animes, writing, movies, Games  </p>
       </div> "
       `;
 
-    interestWrapper.appendChild(interestBoardOne);
-    interestWrapper.appendChild(interestBoardTwo);
+    row.appendChild(workingArea);
+    row.appendChild(interestBoard);
 
-    row.appendChild(interestWrapper);
     container.appendChild(row);
 
     this.MainAbout.appendChild(container);
