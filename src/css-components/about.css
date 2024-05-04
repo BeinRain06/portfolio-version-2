@@ -60,17 +60,22 @@
   font-style: normal;
 }
 
-.skills_acquaintance {
-  font-size: calc(18px + 0.3vw);
-  visibility: hidden;
-  animation: skills-acquaintance-anim 2s ease-in-out forwards 0.5s;
-}
-
-.interest_area {
-  font-size: calc(17px + 0.3vw);
-}
-
 @media (min-width: 160px) {
+  .skills_acquaintance {
+    font-size: calc(18px + 0.3vw);
+    visibility: hidden;
+    animation: skills-acquaintance-anim 2s ease-in-out forwards 0.5s;
+  }
+
+  .int_work_title {
+    font-size: calc(20px + 0.3vw);
+    text-decoration: underline;
+  }
+
+  .interest_area {
+    font-size: calc(17px + 0.3vw);
+  }
+
   .main_app {
     min-height: calc(100vh - var(--navbar-height-mob-desk));
   }
@@ -84,7 +89,8 @@
     font-family: "Hind", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url("../assets/images/inner-picture/des-recits-YsoS7vH3x_I-unsplash.jpg");
+    /*  background-image: url("../assets/images/inner-picture/des-recits-YsoS7vH3x_I-unsplash.jpg"); */
+    background-image: url("../assets/images/inner-picture/kazuend-2KXEb_8G5vo-unsplash.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -131,7 +137,7 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    background-image: url("../assets/images/IMG_portfolio_21_final.png");
+    background-image: url("../assets/images/IMG_portfolio_30_final_1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -173,12 +179,7 @@
     display: flex;
   }
 
-  .int_work_title {
-    font-size: calc(20px + 0.3vw);
-    text-decoration: underline;
-  }
-
-  /*interst side */
+  /*interest side */
 
   .interest_container {
     position: absolute;
@@ -194,13 +195,13 @@
     position: relative;
     width: 100%;
     height: 90%;
-    color: #cecece;
+    color: hsl(0, 0%, 81%);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
   }
 
   .interest_row .inner_side_interests {
@@ -214,7 +215,6 @@
     justify-content: center;
     text-align: center;
     gap: 0.5rem;
-    font-size: calc(12px + 0.3vw);
     visibility: hidden;
     animation: hide-show-interest 1s ease-in-out forwards;
   }
@@ -257,8 +257,110 @@
 }
 
 @media (min-width: 768px) {
+  .skills_acquaintance {
+    font-size: calc(24px + 0.3vw);
+  }
+
+  .int_work_title {
+    font-size: calc(26px + 0.3vw);
+  }
+
+  .interest_area {
+    font-size: calc(25px + 0.3vw);
+  }
+
   .know_about_me {
     min-height: calc(100vh - var(--navbar-height-mob-desk));
+  }
+
+  .locker_container {
+    height: 36rem;
+
+    /* visibility: hidden;
+    animation: anim-phaseA-about 1s ease-in-out forwards; */
+  }
+
+  .duty_wrapper {
+    /*  flex-basis: 50%; */
+    /* flex-basis: 100%; */
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .duty_wrapper .agent_img_wrapper {
+    width: 40%;
+  }
+
+  .agent_img_wrapper .agent_img {
+    background-position: center 60px;
+    transform: scale(1.3);
+  }
+
+  .duty_wrapper .skills_recap {
+    position: relative;
+    top: 0%;
+    width: 60%;
+    height: 100%;
+    gap: 0.5rem;
+    font-size: calc(15px + 0.3vw);
+  }
+
+  /* align skill Item Pro flex-end */
+  #first_skill_pro.skill_item_pro .skill_item_pro {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    transform: translate(0);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /*interest side */
+
+  .interest_container {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .interest_row {
+    flex-basis: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    /*  align-items: center; */
+    text-align: left;
+  }
+
+  .interest_row .working_area {
+    width: 50%;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: calc(30px + 0.3vw);
+  }
+
+  .interest_row .inner_side_interests {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+    gap: 0;
+    font-size: calc(18px + 0.3vw);
+  }
+
+  .inner_side_interests .beating_interest {
+    padding: 0.5rem;
+    width: 100%;
+    /* display: flex;
+    justify-content: flex-end; */
+    border-radius: 0;
   }
 }
 
