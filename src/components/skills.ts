@@ -170,21 +170,24 @@ export default class Skills implements ISkills {
     <div class="skill_box">
       <div class="skill_item">
         <div class="skill_subItem">
-          <h4 class="title_subItem" >MONGODB</h4>
+          <h4 class="title_subItem" >VueJS - Tailwind </h4>
           <ul class="area_knowledge">
             <li class="talking_area">
-              <p class="knowledge">MONGODB Atlas Cloud setup for new Project</p>
+              <p class="knowledge">vue 3 composition API</p>
             </li>
             <li class="talking_area">
-              <p class="knowledge">Create Collection and Database in MongoDB </p>
+              <p class="knowledge">Programmatic Navigation Vue router </p>
             </li>
             <li class="talking_area">
-              <p class="knowledge">HTTP Request ith Built-in MONGODB functions</p>
+              <p class="knowledge">Pinia store management basis</p>
+            </li>
+            <li class="talking_area">
+              <p class="knowledge">Token key pass with linux openssl and jsonwebtoken</p>
             </li>
             <li class="talking_area">
               <p class="sample_project">
                  <span class= "sample_link fw-light text-decoration-underline">Link :</span>
-                 <a href="https://quiz-app-delta-beryl.vercel.app/" class=" text-decoration-underline"> Other Link</a>
+                 <a href="https://github.com/BeinRain06/blog-app-tech" class=" text-decoration-underline"> https://github.com/BeinRain06/blog-app-tech</a>
                </p>
             </li>
           </ul>

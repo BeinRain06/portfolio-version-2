@@ -173,6 +173,9 @@ export default class Contact implements IContact {
       dropWrapper.classList.add("activate_view");
       collapseItem.show();
     }
+
+    dropWrapper.classList.add("activate_view");
+    collapseItem.show();
   }
 
   suitMessage() {
@@ -182,13 +185,12 @@ export default class Contact implements IContact {
     const columnOne = document.createElement("div") as HTMLDivElement;
     const columnTwo = document.createElement("div") as HTMLDivElement;
 
-    container.className = "msg_container container-fluid";
+    container.className = "msg_and_form_container container-fluid";
 
-    row.className =
-      "msg_together row d-flex flex-column justify-content-center align-items-center";
+    row.className = "msg_together row d-flex flex-column  align-items-center";
 
     columnOne.className =
-      "contact_msg d-flex justify-content-center align-items-center p-2";
+      "contact_msg d-flex justify-content-center align-items-center ";
 
     columnOne.innerHTML = `
     <span class="message_me w-100 ">Let's Build Something Together !
@@ -207,7 +209,8 @@ export default class Contact implements IContact {
 
     const dropWrapper = document.createElement("div") as HTMLDivElement;
     dropWrapper.id = "drop_wrapper";
-    dropWrapper.className = "collapse drop_wrapper  col-10 col-sm-5";
+    dropWrapper.className =
+      "collapse drop_wrapper activate_view col-10 col-sm-5";
 
     const formControl = document.createElement("form") as HTMLFormElement;
 
@@ -253,14 +256,17 @@ export default class Contact implements IContact {
 
     formContentSubmit.appendChild(warningDiv);
     formContentSubmit.appendChild(buttonSubmit);
+
     formControl.appendChild(nameWrapper);
     formControl.appendChild(emailWrapper);
     formControl.appendChild(messageWrapper);
     formControl.appendChild(formContentSubmit);
-    dropWrapper.appendChild(formControl);
+    /*  dropWrapper.appendChild(formControl); */
 
-    columnTwo.appendChild(buttonHandWriting);
-    columnTwo.appendChild(dropWrapper);
+    /*  columnTwo.appendChild(buttonHandWriting);
+    columnTwo.appendChild(dropWrapper); */
+
+    columnTwo.appendChild(formControl);
 
     const name = nameWrapper.querySelector("#signature") as HTMLInputElement;
     const email = emailWrapper.querySelector("#email") as HTMLInputElement;
@@ -268,10 +274,10 @@ export default class Contact implements IContact {
       "#message"
     ) as HTMLTextAreaElement;
 
-    buttonHandWriting.addEventListener(
+    /*  buttonHandWriting.addEventListener(
       "click",
       this.fullShowForm.bind(this, dropWrapper)
-    );
+    ); */
 
     formControl.addEventListener(
       "submit",

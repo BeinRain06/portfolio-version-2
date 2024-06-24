@@ -81,11 +81,12 @@ export default class Home implements IHome {
     <div class="glad_see_you d-flex flex-column justify-content-end w-100 h-100">
       <div class="logo_skills_wrapper w-100 h-100 d-flex justify-content-end">
         <div class= "logo_skills_city">
-            <div id="react_skill" class= "logo_skill react_skill"></div>
-            <div id="typescript_skill" class= "logo_skill typescript_skill"></div>
-            <div id="mongodb_skill" class= "logo_skill mongodb_skill"></div>
-            <div id="javascript_skill" class= "logo_skill javascript_skill"></div>
-            <div id="node_skill" class= "logo_skill node_skill"></div>
+            <div id="javascript_skill" class= "logo_skill javascript_skill" data-pos="1"></div>
+            <div id="react_skill" class= "logo_skill react_skill" data-pos="1"></div>
+            <div id="typescript_skill" class= "logo_skill typescript_skill" data-pos="1"></div>
+            <div id="vuejs_skill" class= "logo_skill vuejs_skill" data-pos="2"></div>
+            <div id="mongodb_skill" class= "logo_skill mongodb_skill" data-pos="2"></div>
+            <div id="node_skill" class= "logo_skill node_skill" data-pos="2"></div>
         </div>
       </div>
       <span class="welcome_home" ><i>Welcome home__</i></span>

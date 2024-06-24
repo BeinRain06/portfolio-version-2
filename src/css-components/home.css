@@ -64,7 +64,8 @@
     top: 2rem;
     left: calc(3% - 0.3vw);
     height: 80px;
-    color: rgba(167, 142, 192, 0.788);
+    color: #2f90bb;
+    color: #154c79;
     font-size: calc(18px + 0.3vw);
   }
 
@@ -101,8 +102,9 @@
     position: relative;
     width: 100%;
     height: auto;
-    /*  color: rgb(154, 110, 189); */
-    color: rgb(126, 49, 189);
+    color: #2f90bb;
+    color: rgb(36, 155, 36);
+
     /* background-color: #ebebeb38; */
     font-size: calc(36px + 0.3vw);
     letter-spacing: 4px;
@@ -127,7 +129,7 @@
 
   .logo_skills_city {
     width: 100%;
-    height: 46px;
+    height: 50px;
     margin-bottom: 1.5rem;
     display: flex;
     justify-content: flex-end;
@@ -136,12 +138,22 @@
 
   .logo_skill {
     position: relative;
-    width: 70px;
+    width: 80px;
     height: 100%;
+    clip-path: circle(55%);
+    transform: rotate(0deg);
     display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 1s ease-in-out;
+  }
+
+  div.logo_skill[data-pos="1"]:hover {
+    transform: rotate(360deg);
+  }
+  div.logo_skill[data-pos="2"]:hover {
+    transform: rotate(-360deg);
   }
 
   .logo_skill.react_skill {
@@ -160,11 +172,16 @@
     background-image: url("../assets/images/node-js-svgrepo-com.svg");
   }
 
+  .logo_skill.vuejs_skill {
+    background-image: url("../assets/images/vue-vuejs-javascript-js-framework-svgrepo-com.svg");
+  }
+
   .welcome_home {
-    color: rgb(149, 110, 187);
+    color: rgba(0, 128, 0, 0.644);
     font-size: calc(14px + 0.3vw);
     visibility: hidden;
     animation: anim-footer-message 1s ease-in-out 3.2s forwards;
+    transition: all 1s ease-in-out;
   }
 }
 
@@ -174,12 +191,20 @@
     min-height: calc(100vh - var(--navbar-height-desk-1));
   }
 
+  .taked_home {
+    height: 29rem;
+  }
+
+  .hello_wrap {
+    color: rgba(167, 142, 192, 0.788);
+  }
+
   .hello_wrap div.suit_bar {
     width: 20%;
   }
 
   .name_container {
-    height: 28vh;
+    height: 40vh;
   }
 
   .name_row {
@@ -191,6 +216,17 @@
   .name_wrap {
     color: rgb(154, 110, 189);
   }
+
+  .logo_skill {
+    position: relative;
+    width: 60px;
+    height: 100%;
+    clip-path: circle(55%);
+  }
+
+  .welcome_home {
+    color: rgb(149, 110, 187);
+  }
 }
 
 @media (min-width: 768px) {
@@ -200,6 +236,7 @@
   }
 
   .taked_home {
+    height: 29.4rem;
     margin: 0;
     background-position: center 35%;
   }
@@ -225,7 +262,7 @@
 
   .logo_skill {
     position: relative;
-    width: 60px;
+    width: 80px;
     height: 100%;
     display: block;
     background-position: center;
