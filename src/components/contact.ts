@@ -17,7 +17,7 @@ export interface IContact {
     e: SubmitEvent
   ) => void;
   fullShowForm: (dropWrapper: HTMLDivElement) => void;
-  brandLinkCompany: () => void;
+  /*  brandLinkCompany: () => void; */
   renderContact: () => void;
 }
 
@@ -182,22 +182,22 @@ export default class Contact implements IContact {
     const container = document.createElement("div") as HTMLDivElement;
     const row = document.createElement("div") as HTMLDivElement;
 
-    const columnOne = document.createElement("div") as HTMLDivElement;
+    /*  const columnOne = document.createElement("div") as HTMLDivElement; */
     const columnTwo = document.createElement("div") as HTMLDivElement;
 
     container.className = "msg_and_form_container container-fluid";
 
     row.className = "msg_together row d-flex flex-column  align-items-center";
 
-    columnOne.className =
+    /*  columnOne.className =
       "contact_msg d-flex justify-content-center align-items-center ";
 
     columnOne.innerHTML = `
     <span class="message_me w-100 ">Let's Build Something Together !
     </span>
-    `;
+    `; */
 
-    columnTwo.className = "form_msg_wrapper ";
+    columnTwo.className = "main_contact_area";
 
     const buttonHandWriting = document.createElement(
       "button"
@@ -213,109 +213,29 @@ export default class Contact implements IContact {
       "collapse drop_wrapper activate_view col-10 col-sm-5";
 
     const formControl = document.createElement("form") as HTMLFormElement;
-
+    // have to remove .form_msg_control (later_)
     formControl.className = "form_msg_control";
 
-    const nameWrapper = document.createElement("div") as HTMLDivElement;
-    nameWrapper.id = "name_wrap";
-    nameWrapper.className = "form_content_control";
-    const emailWrapper = document.createElement("div") as HTMLDivElement;
-    emailWrapper.id = "email_wrap";
-    emailWrapper.className = "form_content_control";
-    const messageWrapper = document.createElement("div") as HTMLDivElement;
-    messageWrapper.id = "message_wrap";
-    messageWrapper.className = "form_content_control";
+    const contactBoard = document.createElement("div") as HTMLDivElement;
+    contactBoard.className = "contact_board";
+    const socialActivity = document.createElement("div") as HTMLDivElement;
+    socialActivity.className = "social_activity";
 
-    nameWrapper.innerHTML = `
-    <label for="signature" >Guess Name</label>
-          <input type="text" id="signature" class="signature_guess" name="signature" placeholder="signature"/>
-    `;
-    emailWrapper.innerHTML = `
-    <label for="email" >email</label>
-          <input type="text" id="email" class="email_guess" name="email" placeholder="email_address"/>
-    `;
-    messageWrapper.innerHTML = `
-    <label for="message" >Leave a Message</label>
-          <textarea  id="message" name="message" class="message" placeholder="drop a message" rows="3" cols="30" ></textarea>
-    `;
+    const formSide = document.createElement("div") as HTMLDivElement;
+    formSide.className = "form_side";
 
-    const warningDiv = document.createElement("div") as HTMLDivElement;
-    warningDiv.id = "warning_sending_msg";
-    warningDiv.className =
-      "warning_sending_msg d-flex justify-content-center align-items-center";
+    contactBoard.appendChild(socialActivity);
+    contactBoard.appendChild(formSide);
 
-    const formContentSubmit = document.createElement("div") as HTMLDivElement;
-    formContentSubmit.className = "form_content_submit w-100 d-flex py-2";
+    // --> social-media
+    const socialMsg = document.createElement("div") as HTMLDivElement;
+    socialMsg.className = "social_msg";
 
-    const buttonSubmit = document.createElement("button") as HTMLButtonElement;
-    buttonSubmit.id = "submit_btn_msg";
-    buttonSubmit.setAttribute("type", "submit");
-    buttonSubmit.className = "submit_btn_msg";
+    const socialMediaWrapper = document.createElement("div") as HTMLDivElement;
+    socialMediaWrapper.className = "social_media_wrap";
 
-    buttonSubmit.innerHTML = `<div class="w-100 h-100 d-flex justify-content-center align-items-center">send</div>`;
-
-    formContentSubmit.appendChild(warningDiv);
-    formContentSubmit.appendChild(buttonSubmit);
-
-    formControl.appendChild(nameWrapper);
-    formControl.appendChild(emailWrapper);
-    formControl.appendChild(messageWrapper);
-    formControl.appendChild(formContentSubmit);
-    /*  dropWrapper.appendChild(formControl); */
-
-    /*  columnTwo.appendChild(buttonHandWriting);
-    columnTwo.appendChild(dropWrapper); */
-
-    columnTwo.appendChild(formControl);
-
-    const name = nameWrapper.querySelector("#signature") as HTMLInputElement;
-    const email = emailWrapper.querySelector("#email") as HTMLInputElement;
-    const message = messageWrapper.querySelector(
-      "#message"
-    ) as HTMLTextAreaElement;
-
-    /*  buttonHandWriting.addEventListener(
-      "click",
-      this.fullShowForm.bind(this, dropWrapper)
-    ); */
-
-    formControl.addEventListener(
-      "submit",
-      this.sendOurMailReview.bind(
-        this,
-        name,
-        email,
-        message,
-        warningDiv,
-        dropWrapper
-      )
-    );
-
-    row.appendChild(columnOne);
-    row.appendChild(columnTwo);
-    container.appendChild(row);
-
-    this.MainContact.innerHTML = "";
-
-    this.MainContact.appendChild(container);
-  }
-
-  brandLinkCompany() {
-    const container = document.createElement("div") as HTMLDivElement;
-    const row = document.createElement("div") as HTMLDivElement;
-
-    container.className = "brand_container container-fluid";
-
-    row.className =
-      "brand_row row d-flex justify-content-center align-items-center";
-
-    const columnOne = document.createElement("div") as HTMLDivElement;
-    const columnTwo = document.createElement("div") as HTMLDivElement;
-    const columnThree = document.createElement("div") as HTMLDivElement;
-
-    columnOne.className = "item_brand col-3";
-    columnTwo.className = "item_brand col-3";
-    columnThree.className = "item_brand col-3";
+    const socialMedia = document.createElement("div") as HTMLDivElement;
+    socialMedia.className = "social_media";
 
     const tweetWrapper = document.createElement("div") as HTMLDivElement;
     tweetWrapper.id = "link_tweeter";
@@ -325,8 +245,6 @@ export default class Contact implements IContact {
       window.open("https://twitter.com/nest_Ngoueni", "_blank");
     });
 
-    columnOne.appendChild(tweetWrapper);
-
     const githubWrapper = document.createElement("div") as HTMLDivElement;
     githubWrapper.id = "link_github";
     githubWrapper.className = "github_wrapper link_media";
@@ -334,8 +252,6 @@ export default class Contact implements IContact {
     githubWrapper.addEventListener("click", (): void => {
       window.open("https://github.com/BeinRain06", "_blank");
     });
-
-    columnTwo.appendChild(githubWrapper);
 
     const linkedinWrapper = document.createElement("div") as HTMLDivElement;
     linkedinWrapper.id = "link_linkedin";
@@ -348,19 +264,109 @@ export default class Contact implements IContact {
       );
     });
 
-    columnThree.appendChild(linkedinWrapper);
+    socialMsg.innerHTML = `
+      <p class="social_says">social media</p>
+    `;
 
-    row.appendChild(columnOne);
+    socialMedia.appendChild(tweetWrapper);
+    socialMedia.appendChild(githubWrapper);
+    socialMedia.appendChild(linkedinWrapper);
+    socialMediaWrapper.appendChild(socialMedia);
+
+    socialActivity.appendChild(socialMsg);
+    socialActivity.appendChild(socialMediaWrapper);
+
+    // <-- social-media
+
+    // form-side
+
+    const formContainer = document.createElement("form") as HTMLFormElement;
+    formContainer.className = "form_container";
+
+    const sharingMsg = document.createElement("div") as HTMLDivElement;
+    sharingMsg.className = "sharing_msg";
+    const nameWrapper = document.createElement("div") as HTMLDivElement;
+    nameWrapper.id = "name_wrap";
+    nameWrapper.className = "name_wrap form_content_control";
+    const emailAndSubmit = document.createElement("div") as HTMLDivElement;
+    emailAndSubmit.className = "email_and_submit";
+    const emailWrapper = document.createElement("div") as HTMLDivElement;
+    emailWrapper.id = "email_wrap";
+    emailWrapper.className = " email_wrap form_content_control";
+    const messageWrapper = document.createElement("div") as HTMLDivElement;
+    messageWrapper.id = "message_wrap";
+    messageWrapper.className = " message_wrap form_content_control";
+
+    sharingMsg.innerHTML = `<p for="signature" >Let's Build Something Together !</p>`;
+
+    nameWrapper.innerHTML = `
+    <label for="signature" >Guess Name</label>
+          <input type="text" id="signature" class="signature_guess" name="signature" placeholder="signature"/>
+    `;
+
+    emailWrapper.innerHTML = `
+    <label for="email" >email</label>
+          <input type="text" id="email" class="email_guess" name="email" placeholder="email_address"/>
+    `;
+
+    messageWrapper.innerHTML = `
+    <label for="message" >Leave a Message</label>
+          <textarea  id="message" name="message" class="message" placeholder="drop_message" rows="3" cols="30" ></textarea>
+    `;
+
+    const submitContainer = document.createElement("div") as HTMLDivElement;
+    submitContainer.className = "submit_container";
+    submitContainer.innerHTML = `
+     <button class="btn_sub_msg">Send</button>
+     `;
+
+    const warningDiv = document.createElement("div") as HTMLDivElement;
+    warningDiv.id = "warning_submit_msg";
+    warningDiv.className = "warning_submit_msg";
+
+    emailWrapper.appendChild(warningDiv);
+
+    formContainer.appendChild(sharingMsg);
+    formContainer.appendChild(nameWrapper);
+    formContainer.appendChild(emailWrapper);
+    formContainer.appendChild(messageWrapper);
+    formContainer.appendChild(submitContainer);
+
+    columnTwo.appendChild(contactBoard);
+    columnTwo.appendChild(formContainer);
+
+    const name = nameWrapper.querySelector("#signature") as HTMLInputElement;
+    const email = emailWrapper.querySelector("#email") as HTMLInputElement;
+    const message = messageWrapper.querySelector(
+      "#message"
+    ) as HTMLTextAreaElement;
+
+    /*  buttonHandWriting.addEventListener(
+      "click",
+      this.fullShowForm.bind(this, dropWrapper)
+    ); */
+
+    formContainer.addEventListener(
+      "submit",
+      this.sendOurMailReview.bind(
+        this,
+        name,
+        email,
+        message,
+        warningDiv,
+        dropWrapper
+      )
+    );
+
     row.appendChild(columnTwo);
-    row.appendChild(columnThree);
-
     container.appendChild(row);
+
+    this.MainContact.innerHTML = "";
 
     this.MainContact.appendChild(container);
   }
 
   renderContact() {
     this.suitMessage();
-    this.brandLinkCompany();
   }
 }
