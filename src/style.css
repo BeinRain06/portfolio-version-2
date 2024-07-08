@@ -35,8 +35,7 @@ body {
 
 /*Main container*/
 
-.main_view,
-.main_view.active_section {
+.main_view {
   position: absolute;
   top: 0rem;
   left: 0;
@@ -47,12 +46,11 @@ body {
   visibility: hidden;
   display: none;
 }
+
 .main_view.active_section {
   opacity: 1;
   visibility: visible;
   display: block;
-  /*  transform: translate(0, 0);
-  */
 }
 
 /*here modify to adapt to css*/

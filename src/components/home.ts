@@ -78,7 +78,7 @@ export default class Home implements IHome {
     row.className = "footer_row  d-flex justify-content-end p-2";
 
     row.innerHTML = `
-    <div class="glad_see_you d-flex flex-column justify-content-end w-100 h-100">
+    <div class="glad_see_you d-flex flex-column justify-content-end w-100">
       <div class="logo_skills_wrapper w-100 h-100 d-flex justify-content-end">
         <div class= "logo_skills_city">
             <div id="javascript_skill" class= "logo_skill javascript_skill" data-pos="1"></div>
