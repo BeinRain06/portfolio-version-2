@@ -72,13 +72,13 @@ export default class Contact implements IContact {
       errorWarningMsg = "Please review and fill the empty field!";
       p.innerHTML = errorWarningMsg;
       warningDiv?.appendChild(p);
-      warningDiv.classList.add("apply_it_visible");
+      warningDiv.classList.add("apply_visibility");
 
       setTimeout((): void => {
         name.value = "";
         email.value = "";
         message.value = "";
-        warningDiv.classList.remove("apply_it_visible");
+        warningDiv.classList.remove("apply_visibility");
       }, 5000);
 
       return;
@@ -297,7 +297,7 @@ export default class Contact implements IContact {
     messageWrapper.id = "message_wrap";
     messageWrapper.className = " message_wrap form_content_control";
 
-    sharingMsg.innerHTML = `<p for="signature" >Let's Build Something Together !</p>`;
+    sharingMsg.innerHTML = `<p class="message_me" >Let's Build Something Together !</p>`;
 
     nameWrapper.innerHTML = `
     <label for="signature" >Guess Name</label>

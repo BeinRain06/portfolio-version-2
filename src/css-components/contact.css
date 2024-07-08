@@ -28,23 +28,6 @@
     height: calc(100vh - var(--navbar-height-mob-desk));
     visibility: visible;
     transform: scale(1);
-    /* animation: we-together-anim 2s ease-in-out 0.3s forwards; */
-  }
-
-  .msg_and_form_container {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    background-image: linear-gradient(
-      to right top,
-      #000080,
-      #0f0a99,
-      #1b16b2,
-      #2421cd,
-      #2d2de8
-    );
   }
 
   .msg_and_form_container .msg_together {
@@ -53,30 +36,6 @@
     height: 100%;
     margin: 0 auto;
   }
-
-  /* .contact_msg {
-    width: 100%;
-    height: 100px;
-  }
-
-  .contact_msg .message_me {
-    width: 80%;
-    height: 100%;
-    padding-top: 1rem;
-    font-size: calc(24px + 0.3vw);
-    color: #fff;
-    letter-spacing: 0px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 1s ease-in-out;
-    z-index: 25;
-  }
-
-  .msg_together .message_me:hover {
-    text-decoration: underline;
-    font-size: calc(26px + 0.3vw);
-    letter-spacing: 2px;
-  } */
 
   /* drop a message */
   .main_contact_area {
@@ -127,113 +86,7 @@
     margin: 0 auto;
   }
 
-  .form_msg_control {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 1rem 1.25rem;
-    margin: 0 auto;
-    background-image: linear-gradient(
-      to right top,
-      #000080,
-      #030388,
-      #07068f,
-      #0b0a97,
-      #0e0e9f
-    );
-  }
-
-  .form_content_control {
-    width: 100%;
-    min-height: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .form_content_submit {
-    position: relative;
-    width: 100%;
-    padding: 0.5rem 0;
-    justify-content: center;
-  }
-
-  .warning_sending_msg {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 70%;
-    height: 24px;
-    padding: 0.25rem;
-    background-color: #ddd;
-    color: brown;
-    border-radius: 0px;
-    font-size: calc(12px + 0.3vw);
-    margin: 0 auto;
-    box-shadow: 0px 0px 5px rgb(209, 211, 74);
-    transform: translate(0%, -50%);
-    visibility: hidden;
-    transition: all 1s ease-in-out;
-    z-index: 3;
-  }
-
-  .warning_sending_msg.apply_it_visible {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 70%;
-    height: 24px;
-    padding: 0.25rem;
-    border-radius: 5px;
-    transform: translate(0%, -50%);
-    visibility: visible;
-  }
-
-  .form_content_submit button.submit_btn_msg {
-    position: relative;
-    right: 0;
-    width: 100%;
-    height: 2rem;
-    color: #fff;
-    background-color: #4d1b9e;
-    border-radius: 5px;
-  }
-
-  .form_content_submit button div {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    background-color: transparent;
-    border-radius: 5px;
-    outline: 1px solid #fff;
-    outline-offset: -2px;
-  }
-
-  /* brand container */
-
-  .brand_container {
-    position: relative;
-    bottom: 0;
-    height: var(--footer-height-mob);
-    padding: 0;
-    background-color: rgb(29, 29, 56);
-
-    background-color: rgb(20, 20, 43);
-  }
-
-  .brand_container .brand_row {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    border: 2px solid transparent;
-  }
-  .brand_row .item_brand {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  /* --------------- */
 
   .link_media {
     position: relative;
@@ -274,84 +127,6 @@
     border: 1px solid #fff;
   }
 
-  /* board contact (new) */
-  .form_container input,
-  .form_container button {
-    border: none;
-    outline: none;
-  }
-
-  .form_container input {
-    width: 100%;
-    height: 34px;
-    padding-left: 0.5rem;
-    border-radius: 5px;
-  }
-}
-
-@media (min-width: 460px) {
-  .link_station {
-    height: calc(100vh - var(--navbar-height-desk-1));
-  }
-
-  .msg_and_form_container {
-    height: auto;
-  }
-
-  /* .contact_msg {
-    width: 100%;
-    height: 50px;
-  }
-
-  .contact_msg .message_me {
-    width: 90%;
-    padding-top: 1rem;
-  } */
-
-  .main_contact_area {
-    position: relative;
-    top: 0;
-    width: 70%;
-    height: auto;
-    margin: 2.25rem 0 1rem;
-  }
-
-  .form_content_submit {
-    justify-content: flex-end;
-  }
-
-  .form_content_submit button.submit_btn_msg {
-    width: 4.6rem;
-    height: 2.2rem;
-  }
-
-  .link_media {
-    width: 2.5rem;
-    height: 2.2rem;
-    padding: 0rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .link_station {
-    height: calc(100vh - var(--navbar-height-mob-desk));
-  }
-
-  .btn_hand {
-    top: 0;
-    left: -16%;
-  }
-
-  .brand_container {
-    position: relative;
-    bottom: 0;
-    height: var(--footer-height-desk-1);
-    height: 50px;
-    padding: 0;
-  }
-
-  /* board contact (new) */
-
   .msg_and_form_container {
     position: relative;
     top: 0;
@@ -359,107 +134,94 @@
     height: auto;
     padding: 0;
     background-image: linear-gradient(
-      to right top,
-      #676493,
-      #5c5d8d,
-      #505686,
-      #444f80,
-      #374879,
-      #2f5386,
-      #235f93,
-      #066b9e,
-      #008ebc,
-      #00b2d3,
-      #20d7e5,
-      #5ffbf1
+      to right,
+      #151365,
+      #121c6a,
+      #11256e,
+      #122d71,
+      #153474,
+      #193a79,
+      #1d407e,
+      #214683,
+      #254d8c,
+      #295496,
+      #2c5b9f,
+      #3062a9
     );
   }
 
   .main_contact_area {
-    width: 64%;
-    height: 400px;
+    width: 90%;
+    height: 480px;
     max-width: 680px;
     margin: 2.5rem 0 2rem;
-  }
-
-  .main_contact_area * div {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .contact_board {
     position: relative;
-    top: 2rem;
-    height: 100%;
+    top: 0.5rem;
     padding: 0;
     display: grid;
-    grid-template-columns: 100px;
-    grid-template-rows: 88%;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px;
   }
 
   .contact_board .social_activity {
-    height: 100%;
-    padding: 10px 8px;
+    padding: 0px 8px 5px;
     display: flex;
     flex-direction: column;
-    /*  background-color: #6b1964; */
-    background-color: rgba(107, 25, 100, 0.12);
   }
 
   .social_activity .social_msg {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 35px;
     display: flex;
-    flex-direction: column;
-    /* border: 1px solid black; */
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   .social_msg .social_says {
     position: relative;
-    top: 5px;
-    color: #9595ee;
-    writing-mode: sideways-lr;
-    font-size: 10px;
-    /*  border: 1px solid black; */
+    top: 0;
+    color: rgba(51, 51, 131, 0.87);
+    padding-left: 12px;
+    writing-mode: horizontal-tb;
+    font-size: 11px;
   }
 
   .social_activity .social_media_wrap {
     width: 100%;
-    flex: 0 0 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    /* background-color: yellow; */
   }
 
   .social_activity .social_media {
     width: 100%;
     height: 40px;
-    /*   background-color: red; */
-    display: flex;
-    justify-content: flex-start;
-    gap: 8px;
     font-size: calc(14px + 0.15vw);
+    margin-top: 2.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
   }
 
   .social_media .link_media {
-    width: 1.2em;
-    height: 1.52em;
+    width: 1.3em;
+    height: 1.3em;
     padding: 0;
   }
 
   .form_container {
     width: 100%;
-    padding: 20px 8px 20px 20px;
-    display: grid;
-    grid-template-areas:
-      ". . with_me with_me"
-      "guess guess guess ."
-      "email email email submit"
-      "msg msg msg msg";
-    grid-template-rows: max-content;
-    column-gap: 15px;
-    row-gap: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
@@ -470,49 +232,57 @@
   }
 
   .sharing_msg {
-    grid-area: with_me;
-    position: relative;
-    top: 1.7rem;
-    padding: 0.5rem 0;
-    color: #fff;
-    display: block;
-    float: right;
-    border-radius: 5px;
-    border-top: 1px solid #c5c3c3;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 0.35rem;
+    display: flex;
+    justify-content: center;
+    border: 1px solid transparent;
   }
 
   .sharing_msg .message_me {
-    font-size: calc(14px + 0.3vw);
-    color: #fff;
+    font-size: calc(14px + 0.1vw);
+    color: #bebebe;
+    padding: 5px 0;
+    transition: all 380ms ease-in-out;
   }
 
   .sharing_msg .message_me:hover {
-    font-size: calc(16px + 0.3vw);
+    color: navy;
+    letter-spacing: 0.35px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.38);
+    font-size: calc(14px + 0.35vw);
   }
 
   .name_wrap {
-    grid-area: guess;
     letter-spacing: 0;
   }
 
   .email_wrap {
     position: relative;
-    grid-area: email;
   }
 
-  .email_wrap .warning_sending_msg {
+  .email_wrap .warning_submit_msg {
     position: absolute;
     top: 5px;
-    width: 60%;
+    width: 80%;
     padding: 5px 10px;
     color: brown;
     background-color: #cfcd51;
+    visibility: hidden;
+    opacity: 0;
     border-radius: 5px;
     box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.3);
+    transition: all 450ms ease;
+  }
+
+  .email_wrap .warning_submit_msg.apply_visibility {
+    visibility: visible;
+    opacity: 1;
   }
 
   .message_wrap {
-    grid-area: msg;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -523,20 +293,28 @@
     padding: 5px;
     color: #e2e2e0;
     background-color: transparent;
+    outline: none;
     border-radius: 5px;
     border: 1px solid #c5c3c3;
     box-shadow: 0px 0px 4px rgb(127, 127, 131);
   }
 
+  .message_wrap textarea:focus {
+    border: 2px solid #1d5391;
+  }
+
   .submit_container {
-    grid-area: submit;
-    padding: 1rem;
+    position: relative;
+    right: calc(6%);
+    padding: 0;
+    margin-top: 2rem;
     border-radius: 5px;
-    border: 1px solid gray;
   }
 
   .submit_container .btn_sub_msg {
-    padding: 10px 15px;
+    width: 110%;
+    padding: 6px 0px;
+    margin: 0 auto;
     color: #fff;
     background-color: rgb(88, 115, 151);
     border-radius: 5px;
@@ -548,7 +326,6 @@
     background-color: rgb(28, 74, 143);
   }
 
-  /* modify */
   .form_content_control {
     width: 100%;
     display: flex;
@@ -569,9 +346,7 @@
   }
 
   .form_container input {
-    /*  width: 100%; */
-    height: 24px;
-    /* color:#e4e4e4; */
+    height: 32px;
     color: #e2e2e0;
     padding-left: 0.5rem;
     background-color: transparent;
@@ -581,31 +356,204 @@
   }
 
   .form_container input:focus {
-    border-bottom: 2px solid #6c1d91;
+    border-bottom: 2px solid #1d5391;
   }
 
   .form_container input::placeholder,
   .form_container textarea::placeholder {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 460px) {
+  .link_station {
+    height: calc(100vh - var(--navbar-height-desk-1));
+  }
+
+  .main_contact_area {
+    width: 70%;
+  }
+
+  .sharing_msg {
+    bottom: 2rem;
+    justify-content: flex-end;
+    border: 1px solid transparent;
+  }
+
+  .sharing_msg .message_me {
+    font-size: calc(12px + 0.1vw);
+    transform: scale(0.88);
+    padding: 0;
+  }
+
+  .sharing_msg .message_me:hover {
+    color: navy;
+    letter-spacing: 0.5px;
+    transform: scale(1);
+    font-size: calc(12px + 0.1vw);
+  }
+
+  .submit_container {
+    left: -2rem;
+    margin-top: 1rem;
+  }
+
+  .submit_container .btn_sub_msg {
+    width: 120%;
+  }
+
+  .form_container label {
+    width: 40%;
+  }
+
+  .form_container input::placeholder,
+  .form_container textarea::placeholder {
     font-size: 12px;
   }
 }
 
-/* @keyframes we-together-anim {
-  0% {
-    top: -80%;
-    visibility: hidden;
+@media (min-width: 768px) {
+  .link_station {
+    height: calc(100vh - var(--navbar-height-mob-desk));
   }
-  50% {
-    top: 0%;
-    visibility: visible;
+
+  .btn_hand {
+    top: 0;
+    left: -16%;
   }
-  80% {
-    top: -15%;
-    transform: scale(0.65);
+
+  .main_contact_area {
+    top: 0;
+    left: -0.35rem;
+    width: 64%;
+    max-width: 640px;
+    height: 400px;
+    margin: 2.5rem 0 2rem;
+    flex-direction: row;
+    gap: 15px;
   }
-  100% {
-    top: 0%;
+
+  .main_contact_area * div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form_side {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .contact_board {
+    top: 2rem;
+    height: 100%;
+    grid-template-columns: 100px;
+    grid-template-rows: 88%;
+  }
+
+  .contact_board .social_activity {
+    height: 100%;
+    padding: 10px 8px;
+    background-color: rgba(107, 25, 100, 0.12);
+  }
+
+  .social_activity .social_msg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social_msg .social_says {
+    writing-mode: sideways-lr;
+    top: 5px;
+    color: #9595ee;
+    padding-left: 0px;
+    font-size: 10px;
+  }
+
+  .social_activity .social_media_wrap {
+    flex: 0 0 1;
+    flex-direction: column;
+  }
+
+  .social_activity .social_media {
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .social_media .link_media {
+    width: 1.2em;
+    height: 1.2em;
+    padding: 0;
+  }
+
+  .form_container {
+    display: grid;
+    grid-template-areas:
+      ". . with_me with_me"
+      "guess guess guess ."
+      "email email email submit"
+      "msg msg msg msg";
+    grid-template-rows: max-content;
+    padding: 20px 8px 20px 20px;
+    row-gap: 10px;
+  }
+
+  .sharing_msg {
+    grid-area: with_me;
+    position: relative;
+    top: 1.7rem;
+    left: 0;
+    bottom: 0;
+    padding: 0.5rem 0;
+    float: right;
+    border-radius: 5px;
+    border-top: 1px solid #c5c3c3;
+  }
+
+  .sharing_msg .message_me {
+    font-size: calc(12px + 0.15vw);
+    color: #fff;
+    padding-top: -0.15rem;
     transform: scale(1);
+    transition: all 350ms ease-in-out;
   }
-} */
+
+  .sharing_msg .message_me:hover {
+    color: navy;
+    letter-spacing: 0px;
+    padding-top: 0.15rem;
+  }
+
+  .email_wrap {
+    grid-area: email;
+  }
+
+  .name_wrap {
+    grid-area: guess;
+  }
+
+  .message_wrap {
+    grid-area: msg;
+  }
+
+  .submit_container {
+    grid-area: submit;
+    padding: 1rem;
+    border: 1px solid gray;
+  }
+
+  .submit_container .btn_sub_msg {
+    width: auto;
+    padding: 10px 15px;
+    transition: all 350ms ease-in-out;
+  }
+
+  .form_container input {
+    height: 24px;
+    width: 60%;
+  }
+}
