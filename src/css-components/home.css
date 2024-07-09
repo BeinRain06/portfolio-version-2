@@ -258,13 +258,21 @@
 @media (min-width: 768px) {
   .main_view,
   .main_view.active_section {
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
+    min-height: auto;
   }
 
   .taked_home {
-    height: 29.4rem;
+    height: 27.2rem;
     margin: 0;
     background-position: center 35%;
+  }
+
+  .hye_container {
+    position: relative;
+    top: 0.5rem;
+    width: 100%;
+    height: 8rem;
+    z-index: 3;
   }
 
   .hello_wrap {
@@ -275,7 +283,7 @@
   }
 
   .name_container {
-    height: 14rem !important;
+    height: 12rem !important;
   }
 
   .logo_skills_city {
@@ -300,7 +308,7 @@
     position: relative !important;
     bottom: 0 !important;
     width: 100%;
-    height: 100px;
+    height: 80px;
   }
 }
 
