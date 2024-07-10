@@ -107,7 +107,7 @@ class MainApp implements IMain {
 
     /* --> initial trigger */
 
-    /* this.initialLoader(
+    this.initialLoader(
       "0",
       this.bodySectionCollection,
       this.home,
@@ -115,7 +115,7 @@ class MainApp implements IMain {
       this.skills,
       this.resume,
       this.contact
-    ); */
+    );
 
     this.defaultActiveLink();
 
@@ -320,5 +320,5 @@ class MainApp implements IMain {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => MainApp.instance);
+/* document.addEventListener("DOMContentLoaded", () => MainApp.instance); */
 /* const app = MainApp.instance; */
