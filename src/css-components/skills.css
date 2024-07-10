@@ -273,7 +273,7 @@
   /*skills wrapper */
   .active_skills {
     /*1*/
-    min-height: calc(100vh - var(--navbar-height-desk-1));
+    margin-top: 0;
   }
 
   .skill_box {
@@ -314,10 +314,6 @@
 
 @media (min-width: 768px) {
   /*skills wrapper */
-  .active_skills {
-    /*1*/
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
-  }
 
   .skills_container {
     /*2*/

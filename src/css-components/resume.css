@@ -36,10 +36,10 @@ ul.paragraph_points {
   /*resume_wrapper*/
   .craft_domain {
     position: relative;
-    left: 100%;
+    left: 0;
     padding-top: 0.5rem;
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
     /*  animation: anime-resume-seat 1.2s ease-in-out forwards; */
   }
 
@@ -325,7 +325,7 @@ ul.paragraph_points {
   }
 }
 
-@keyframes anime-resume-seat {
+/* @keyframes anime-resume-seat {
   0% {
     left: 100%;
     visibility: hidden;
@@ -336,4 +336,4 @@ ul.paragraph_points {
     visibility: visible;
     opacity: 1;
   }
-}
+} */
