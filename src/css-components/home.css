@@ -197,7 +197,7 @@
   }
 
   .taked_home {
-    height: 24rem;
+    height: 29rem;
   }
 
   .hello_wrap {
@@ -260,7 +260,7 @@
   }
 
   .taked_home {
-    height: 27.2rem;
+    height: 28rem;
     margin: 0;
     background-position: center 35%;
   }
@@ -280,8 +280,12 @@
     font-size: calc(21px + 0.3vw);
   }
 
+  .name_row {
+    top: 40%;
+  }
+
   .name_container {
-    height: 12rem !important;
+    height: 15rem !important;
   }
 
   .logo_skills_city {
