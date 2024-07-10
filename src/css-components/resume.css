@@ -251,7 +251,7 @@ ul.paragraph_points {
     left: 0rem;
     width: calc(50%);
     padding: 0;
-    margin: 1rem 0 0.5rem;
+    margin: 1rem 0 2rem;
     flex-direction: row;
     gap: 0rem;
   }

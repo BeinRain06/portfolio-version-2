@@ -58,6 +58,7 @@ class MainApp implements IMain {
   menuContent: HTMLDivElement;
   logoWrapper: HTMLDivElement;
   bodySectionCollection: NodeListOf<HTMLElement>;
+  menuLinksContainer: HTMLUListElement;
   menuLinks: NodeListOf<HTMLElement>;
   navLinksContainer: HTMLUListElement;
   navLinks: NodeListOf<HTMLElement>;
@@ -92,6 +93,9 @@ class MainApp implements IMain {
     ) as NodeListOf<HTMLElement>;
 
     /*menuLinks */
+    this.menuLinksContainer = document.querySelector(
+      ".menu_links"
+    ) as HTMLUListElement;
     this.menuLinks = document.querySelectorAll(
       ".menu_link"
     ) as NodeListOf<HTMLElement>;
@@ -139,6 +143,10 @@ class MainApp implements IMain {
     });
 
     this.navLinksContainer.addEventListener("click", (): void =>
+      this.switchActiveLink()
+    );
+
+    this.menuLinksContainer.addEventListener("click", (): void =>
       this.switchActiveLink()
     );
   }
