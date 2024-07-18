@@ -69,16 +69,6 @@
     font-size: calc(18px + 0.3vw);
   }
 
-  .hello_wrap div.suit_bar {
-    position: relative;
-    bottom: -32px;
-    left: 0;
-    width: 12%;
-    height: 2px;
-    /* background-color: rgb(209, 190, 228); */
-    background-color: #154c79;
-  }
-
   /* presentation name */
 
   .name_container {
@@ -205,10 +195,6 @@
     /* color: rgba(167, 142, 192, 0.788); */
   }
 
-  .hello_wrap div.suit_bar {
-    width: 20%;
-  }
-
   .name_container {
     height: 12.5rem !important;
   }
@@ -260,7 +246,8 @@
   }
 
   .taked_home {
-    height: 40rem;
+    /*  height: 30rem; */
+    min-height: auto;
     margin: 0;
     background-position: center 35%;
   }
@@ -288,11 +275,15 @@
     height: 15rem !important;
   }
 
+  .name_wrap {
+    height: 100%;
+  }
+
   .logo_skills_city {
     height: 76px;
     margin-bottom: 0.25rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 1rem;
   }
 

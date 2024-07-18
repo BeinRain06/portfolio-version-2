@@ -33,7 +33,6 @@ export default class Home implements IHome {
 
     helloWrapper.innerHTML = `
     <h1 class="say_hello" >Front-End/ MERN App Developer</h1>
-    <div class="suit_bar">
     </div>`;
 
     row.appendChild(helloWrapper);
@@ -79,7 +78,7 @@ export default class Home implements IHome {
 
     row.innerHTML = `
     <div class="glad_see_you d-flex flex-column justify-content-end w-100">
-      <div class="logo_skills_wrapper w-100 h-100 d-flex justify-content-end">
+      <div class="logo_skills_wrapper w-100 h-100 d-flex justify-content-start">
         <div class= "logo_skills_city">
             <div id="javascript_skill" class= "logo_skill javascript_skill" data-pos="1"></div>
             <div id="react_skill" class= "logo_skill react_skill" data-pos="1"></div>
@@ -89,7 +88,6 @@ export default class Home implements IHome {
             <div id="node_skill" class= "logo_skill node_skill" data-pos="2"></div>
         </div>
       </div>
-      <span class="welcome_home" ><i>Welcome home__</i></span>
     </div>`;
 
     container.appendChild(row);

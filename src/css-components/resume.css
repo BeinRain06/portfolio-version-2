@@ -1,6 +1,6 @@
 /* @import "../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"; */
 
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Satisfy&display=swap");
 
 :root {
   --bg-color-ct-res1: rgba(0, 0, 128, 0.8);
@@ -27,9 +27,69 @@
   padding: 0;
 }
 
-ul.paragraph_points {
-  margin-bottom: 0;
-  list-style: circle;
+li.no_list_style {
+  list-style: none;
+}
+
+.font_Satisfy {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font_Garamond_400 {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font_Cabin_500 {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font_Open_Sans_400 {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.text_size {
+  font-size: 12px;
+}
+
+.lan_enum {
+  padding: 0 0.25rem;
+  color: #bdbdbd;
+  font-size: calc(13px + 0.15vw);
+  font-weight: bold;
+}
+
+.lan_level {
+  padding: 0 0.25rem;
+  color: #444;
+  font-size: calc(12px + 0.3vw);
+}
+
+.edu_former {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 128, 0.705);
+  display: flex;
+  justify-content: center;
+}
+
+.lan_former {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 128, 0.705);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media (min-width: 160px) {
@@ -37,55 +97,47 @@ ul.paragraph_points {
   .craft_domain {
     position: relative;
     left: 0;
-    padding-top: 0.5rem;
-    opacity: 0;
-    visibility: visible;
-    /*  animation: anime-resume-seat 1.2s ease-in-out forwards; */
-  }
-
-  /*story dropped */
-  .story_container {
-    position: relative;
     width: 100vw;
-    height: auto;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 1rem;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+  }
+
+  /* Summary */
+  .story_container {
     display: none;
-  }
-
-  h4.title_underlined {
-    font-size: calc(12px + 0.3vw);
-    text-decoration: underline;
-
-    font-family: "Cabin", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-  }
-
-  .story_enroll {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0.25rem auto 4rem;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
-  .story_content {
+  .title_underlined {
+    font-size: calc(15px + 0.3vw);
+    text-decoration: underline;
+  }
+
+  .story_wrap {
+    position: relative;
+    left: 0.75rem;
     width: 100%;
     height: 100%;
-    padding-left: 0;
     line-height: 1.5;
-    font-size: calc(12px + 0.1vw);
-    text-align: justify;
-
-    font-family: "EB Garamond", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    font-size: calc(14px + 0.2vw);
+    text-align: center;
   }
+
+  /*software cursus*/
 
   .resume_container {
     position: relative;
     top: 0.25rem;
     width: 100%;
     padding: 0;
+    margin: 2rem 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,49 +145,8 @@ ul.paragraph_points {
     overflow-x: hidden;
   }
 
-  /*resume content side */
-  .title_road.road_res1 {
-    /*  writing-mode: sideways-lr; */
-    writing-mode: horizontal-tb;
-    background-color: var(--bg-color-ct-res1);
-  }
-  .title_road.road_res2 {
-    /*  writing-mode: sideways-rl; */
-    writing-mode: horizontal-tb;
-    background-color: var(--bg-color-ct-res2);
-  }
-
-  .title_road {
-    position: relative;
-    left: -0.15rem;
-    width: 100%;
-    height: 20px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /*resume lift*/
-  .resume_row_one,
-  .resume_row_two {
-    position: relative;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .resume_row_two {
-    flex-direction: column-reverse;
-  }
-
-  .content_resume {
-    width: 100%;
+  .self_taught_cursus {
+    width: 100vw;
     padding: 0.5rem 0.25rem;
     display: flex;
     flex-direction: column;
@@ -143,197 +154,172 @@ ul.paragraph_points {
     align-items: center;
   }
 
-  .flash_resume {
+  .self_taught_cursus .education_title,
+  .language_mastering .language_title {
+    padding: 0 0.25rem;
+    color: #fff;
+    background-color: rgb(200, 200, 205);
+    font-size: calc(14px + 0.25vw);
+  }
+
+  .self_taught_cursus .flash_resume {
     width: 100%;
-    padding: 0.5rem 0;
-    margin: 0 auto;
-    display: grid;
-    grid-auto-flow: dense;
-    grid-auto-rows: auto auto;
-    grid-template-rows: max-content;
-  }
-
-  .content_resume .paragraph_title {
-    font-size: calc(15px + 0.3vw);
-    font-weight: bold;
-    text-align: center;
-
-    font-family: "Cabin", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-  }
-
-  .content_resume .spot_matter {
-    font-size: calc(14px + 0.2vw);
-
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-  }
-
-  .paragraph_points {
-    width: 100%;
-    height: auto;
-    padding: 0 0.5rem 0 0.75rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 275px) {
-  .story_container {
-    display: block;
+    align-items: center;
   }
 
-  .title_road {
+  .self_taught_cursus .flash_resume:nth-child(odd) {
+    background-color: #e6ebfc;
+  }
+  .self_taught_cursus .flash_resume:nth-child(even) {
+    background-color: #eee;
+  }
+
+  .self_taught_cursus .about_journey {
+    width: 90%;
     position: relative;
-    left: 0;
+    top: 0.25rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: calc(14px + 0.15vw);
   }
 
-  .resume_container {
-    top: 0rem;
-    min-height: auto;
+  .flash_resume .skill_label {
+    width: 10rem;
+    color: #bdbdbd;
+    list-style: square;
+    text-align: center;
+    font-size: calc(12px + 0.15vw);
   }
 
-  .resume_row_one,
-  .resume_row_two {
-    width: 96%;
+  .flash_resume .period_works {
+    list-style: circle;
+    padding: 0.15rem 0.35rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  .period_works .duration_times {
+    padding: 0.25rem;
+    color: #fff;
+    background-color: rgb(187, 102, 154);
+    font-size: calc(10px + 0.15vw);
+    border-radius: 3px;
+  }
+
+  .period_works .specific_date {
+    font-size: calc(11px + 0.25vw);
+    font-weight: bold;
+  }
+
+  .language_specific {
+    width: 90vw;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.125rem;
   }
 }
 
 @media (min-width: 460px) {
-  .story_enroll {
-    flex-direction: row;
+  .lan_former {
+    justify-content: center;
   }
-
-  .story_content {
-    padding: 0 1rem 0 0;
-    margin: 0 0 0.5rem 0;
-    font-size: calc(15px + 0.25vw);
-  }
-
-  .title_road {
-    height: 40px;
-  }
-
-  .content_resume .paragraph_title {
+  .text_size {
     font-size: calc(18px + 0.3vw);
   }
 
-  .content_resume .spot_matter {
+  .self_taught_cursus .education_title,
+  .language_mastering .language_title {
+    font-size: calc(20px + 0.35vw);
+  }
+
+  .self_taught_cursus .about_journey {
+    font-size: calc(15px + 0.3vw);
+  }
+
+  .self_taught_cursus .flash_resume {
+    height: 15rem;
+  }
+
+  .flash_resume .skill_label {
+    width: 40%;
+    padding-bottom: 0.5rem;
+    font-size: calc(20px + 0.3vw);
+  }
+
+  .flash_resume .period_works {
+    padding: 0.5rem 0.35rem;
+    margin: 1rem 0;
+  }
+
+  .period_works .duration_times {
+    padding: 0.5rem 0.25rem;
+    font-size: calc(14px + 0.2vw);
+  }
+
+  .period_works .specific_date {
+    font-size: calc(14px + 0.3vw);
+  }
+
+  .language_specific {
+    align-items: center;
+  }
+
+  .lan_enum {
+    padding: 0 0.25rem;
+    font-size: calc(15px + 0.25vw);
+  }
+
+  .lan_level {
+    padding: 0 0.25rem;
     font-size: calc(14px + 0.3vw);
   }
 }
 
 @media (min-width: 768px) {
-  .title_road {
-    position: relative;
-    left: -0.15rem;
-    width: 20px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .edu_former {
+    width: 40%;
   }
 
-  /*resume lift*/
-  .resume_container {
-    flex-direction: row;
+  .lan_former {
+    width: 40%;
+    margin: 0 auto;
   }
 
-  .resume_row_one,
-  .resume_row_two {
-    left: 0rem;
-    width: calc(50%);
+  .text_size {
+    font-size: calc(20px + 0.3vw);
+  }
+
+  .craft_domain {
+    max-width: 900px;
+  }
+
+  .self_taught_cursus {
+    width: 100vw !important;
+  }
+
+  .self_taught_cursus .flash_resume:nth-child(odd) {
+    border-left: 1rem solid #b7bfd6;
+    border-right: 1rem solid #b7bfd6;
+  }
+  .self_taught_cursus .flash_resume:nth-child(even) {
+    border-left: 1rem solid #afafaf;
+    border-right: 1rem solid #afafaf;
+  }
+
+  .self_taught_cursus .education_title,
+  .language_mastering .language_title {
+    width: 60%;
+    height: 2.6rem;
     padding: 0;
-    margin: 1rem 0 2rem;
-    flex-direction: row;
-    gap: 0rem;
-  }
-
-  .resume_row_two {
-    flex-direction: row;
-  }
-
-  .title_road.road_res1 {
-    writing-mode: sideways-lr;
-    color: rgb(192, 182, 171);
-  }
-  .title_road.road_res2 {
-    writing-mode: sideways-rl;
-    color: rgb(179, 132, 88);
-    margin-left: 0.25rem;
-  }
-
-  .content_resume {
-    width: calc(100% - 28px);
-    margin: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .content_resume:first-child {
-    background-image: linear-gradient(
-      to left bottom,
-      #091748,
-      #071c5b,
-      #06206e,
-      #062581,
-      #092995
-    );
-  }
-  .content_resume:last-child {
-    background-image: linear-gradient(
-      to right bottom,
-      #091748,
-      #071c5b,
-      #06206e,
-      #062581,
-      #092995
-    );
-  }
-
-  .content_resume .paragraph_title {
-    height: 50px;
-    padding: 1rem 0.5rem 0.5rem;
-    color: #ddd;
-    margin: 0.25rem 0;
-    text-align: left;
-  }
-
-  .content_resume .spot_matter {
-    height: 80px;
-    color: rgb(154, 110, 189);
-  }
-
-  .paragraph_points {
-    width: 100%;
-    padding: 0 0.5rem 0 1.5rem;
-    height: 220px;
-    justify-content: flex-start;
-    text-align: left;
-    margin: 0;
-    border-radius: 5px;
+    text-align: center;
+    display: grid;
+    place-items: center;
   }
 }
-
-/* @keyframes anime-resume-seat {
-  0% {
-    left: 100%;
-    visibility: hidden;
-    opacity: 0;
-  }
-  100% {
-    left: 0%;
-    visibility: visible;
-    opacity: 1;
-  }
-} */
