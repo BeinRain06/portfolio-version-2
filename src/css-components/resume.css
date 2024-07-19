@@ -110,9 +110,6 @@ li.no_list_style {
     width: 100%;
     max-width: 800px;
     margin: 0.25rem auto 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .title_underlined {
@@ -232,6 +229,12 @@ li.no_list_style {
   }
   .text_size {
     font-size: calc(18px + 0.3vw);
+  }
+
+  .story_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .self_taught_cursus .education_title,

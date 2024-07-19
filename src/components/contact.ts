@@ -311,7 +311,7 @@ export default class Contact implements IContact {
 
     messageWrapper.innerHTML = `
     <label for="message" >Leave a Message</label>
-          <textarea  id="message" name="message" class="message" placeholder="drop_message" rows="3" cols="30" ></textarea>
+          <textarea  id="message" name="message" class="message" placeholder="drop_message" rows="5" cols="30" ></textarea>
     `;
 
     const submitContainer = document.createElement("div") as HTMLDivElement;
