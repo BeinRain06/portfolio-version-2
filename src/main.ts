@@ -162,15 +162,11 @@ class MainApp implements IMain {
 
     const fullMenuLinks: HTMLElement[] = Array.from(this.menuLinks);
 
-    const currentLinkShow = document.getElementById(
-      "current_link_show"
-    ) as HTMLDivElement;
-
     let previousNavTag = document.querySelector(".active_li") as HTMLLIElement;
 
     let currentNavTag: HTMLLIElement;
 
-    fullLinks[0].classList.remove("active_li");
+    /*   fullLinks[0].classList.remove("active_li"); */
 
     fullLinks.forEach((linkItem) => {
       linkItem.addEventListener("click", (event): void => {
@@ -181,19 +177,11 @@ class MainApp implements IMain {
 
         const newIndexShow = currentNavTag.getAttribute("data-index") as string;
 
-        const newValueShow = currentNavTag.getAttribute("data-value") as string;
+        /* const newValueShow = currentNavTag.getAttribute("data-value") as string; */
 
         currentNavTag.classList.add("active_li");
 
         previousNavTag = currentNavTag;
-
-        currentLinkShow.setAttribute("data-index", newIndexShow);
-
-        const currentLinkText = currentLinkShow.querySelector(
-          ".current_link_text"
-        ) as HTMLSpanElement;
-
-        currentLinkText.innerText = newValueShow;
 
         this.selectPageToRender(
           newIndexShow,

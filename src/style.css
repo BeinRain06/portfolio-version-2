@@ -6,7 +6,7 @@
 :root {
   --body-text-color: #fff;
   --navlink-show-color: #000;
-  --bg-color-link: #aca9a9;
+  --bg-color-link: #f0e9e9;
   --bg-color-navbar: #3c3c3f;
   --bg-color-menu-wrap: #848d94;
 
@@ -24,6 +24,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.font_Satisfy {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -384,21 +390,21 @@ input.trigger_menu {
   object-fit: cover;
 }
 
-/*current link show animation*/
+/*navlink show animation*/
 
-.current_link_show[data-index="0"]::before {
+.navlink.active_li .navlink_content[data-index="0"]::before {
   animation: anim-black-link 1.2s ease-in-out forwards;
 }
-.current_link_show[data-index="1"]::before {
+.navlink.active_li .navlink_content[data-index="1"]::before {
   animation: anim-yellow-link 1.2s ease-in-out forwards;
 }
-.current_link_show[data-index="2"]::before {
+.navlink.active_li .navlink_content[data-index="2"]::before {
   animation: anim-purple-link 1.2s ease-in-out forwards;
 }
-.current_link_show[data-index="3"]::before {
+.navlink.active_li .navlink_content[data-index="3"]::before {
   animation: anim-green-link 1.2s ease-in-out forwards;
 }
-.current_link_show[data-index="4"]::before {
+.navlink.active_li .navlink_content[data-index="4"]::before {
   animation: anim-orange-link 1.2s ease-in-out forwards;
 }
 
@@ -418,13 +424,15 @@ input.trigger_menu {
 @media (min-width: 460px) {
   .main_app {
     top: 0;
-    min-height: calc(100vh - var(--navbar-height-desk-1));
+    min-height: calc(100vh - var(--navbar-height-mob-desk));
   }
 
   .menu {
     display: none;
   }
   .navbar_row {
+    width: 100%;
+    margin: 0;
     display: block;
   }
 
@@ -444,42 +452,41 @@ input.trigger_menu {
 
   /*navbar desktop link */
   .navbar_content_tags {
-    height: var(--navbar-height-desk-1);
+    height: var(--navbar-height-mob-desk);
     background-color: rgba(0, 0, 128, 0.95);
+    padding: 0.25rem 0.5rem;
   }
 
   .navlink_container {
-    gap: calc(16px + 1.4vw);
+    gap: calc(26px + 0.45vw);
   }
 
   .navlink .navlink_content {
     position: relative;
-    width: 4.4em;
+    cursor: pointer;
+    padding: 0;
     height: 2.1em;
-    padding-left: 0.25rem;
+    display: flex;
+    align-items: center;
     text-align: left;
     transition: all 1s ease-in-out;
     z-index: 5;
   }
 
-  .navlink .navlink_content:hover {
-    background-color: var(--bg-color-link);
+  .navlink .navlink_content a {
+    color: var(--body-text-color);
+    font-size: calc(12px + 0.2vw);
   }
 
   .navlink .navlink_content::before {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 2px;
     height: 1px;
-    width: 15%;
+    width: 0;
     background-color: var(--body-text-color);
-    transform: translateX(-0.25rem);
     border-radius: 24px;
     transition: all 0.84s ease-in-out;
-  }
-  .navlink .navlink_content a {
-    color: var(--body-text-color);
-    font-size: calc(0.84em + 0.1vw);
   }
 
   .navlink .navlink_content:hover::before {
@@ -490,85 +497,47 @@ input.trigger_menu {
 
   .navlink.active_li .navlink_content {
     position: relative;
-    width: 4.4em;
-    height: 2.1em;
-    padding-left: 0.25rem;
-    text-align: left;
-    transition: all 1s ease-in-out;
-  }
-  .navlink.active_li .navlink_content::before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    height: 1px;
-    width: 100%;
-    background-color: var(--body-text-color);
-    transform: translateX(-0.25rem);
-    border-radius: 24px;
-  }
-  .navlink.active_li .navlink_content a {
-    color: var(--body-text-color);
-    font-size: calc(0.7em + 0.1vw);
-  }
-  /*navbar desktop right side */
-  .current_link_show {
-    position: relative;
-    width: 6.8em;
-    height: 2.6em;
-    padding: 0.5em 0;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.25rem;
     color: #fff;
-    font-size: calc(14px + 0.1vw);
     border-radius: 24px;
     outline: 2px solid #ddd;
     outline-offset: -6px;
   }
 
-  .current_link_show::before {
+  .navlink.active_li .navlink_content::before {
     z-index: 1;
-    width: 15%;
-    height: calc(100% - 0.6rem);
-    opacity: 1;
-    background-color: transparent;
-    border-radius: 24px;
-    overflow: hidden;
-    content: "";
-    position: absolute;
-    top: 0.3rem;
-    left: 6px;
+    width: 100%;
+    height: calc(100% - 0.4rem);
+    background-color: rgba(0, 0, 0, 0.215);
   }
 
-  .current_link_show .current_link_text {
-    z-index: 3;
+  .navlink.active_li .navlink_content a {
+    color: var(--body-text-color);
+    font-size: calc(0.7em + 0.1vw);
   }
 }
 
 @media (min-width: 768px) {
-  .main_app {
-    min-height: calc(100vh - var(--navbar-height-mob-desk));
-  }
-
-  /*logo menu*/
-  .logo_menu {
-    display: none;
-  }
-
-  /*navbar desktop link */
   .navbar_content_tags {
-    height: var(--navbar-height-mob-desk);
-    background-color: rgba(0, 0, 128, 0.95);
+    padding: 0.25rem 2rem 0 0;
   }
 
-  .navlink .navlink_content {
-    width: 5.2em;
-    height: 2.1em;
+  .title_nav {
+    padding-left: 1.5rem;
+    font-size: calc(16px + 0.28vw);
   }
-
-  /*separ*/
 
   .navlink.active_li .navlink_content {
-    width: 5.2em;
-    height: 2.1em;
+    padding: 1rem;
+  }
+
+  .navlink .navlink_content a {
+    font-size: calc(13px + 0.25vw);
+  }
+
+  .navlink.active_li .navlink_content a {
+    font-size: calc(13px + 0.18vw);
   }
 }
 
@@ -602,7 +571,7 @@ input.trigger_menu {
 
 @keyframes anim-black-link {
   0% {
-    width: 15%;
+    width: 0;
     height: calc(100% - 0.6rem);
     opacity: 1;
     background-color: transparent;
@@ -629,7 +598,7 @@ input.trigger_menu {
 
 @keyframes anim-yellow-link {
   0% {
-    width: 15%;
+    width: 0;
     height: calc(100% - 0.6rem);
     opacity: 1;
     background-color: transparent;
@@ -656,8 +625,8 @@ input.trigger_menu {
 
 @keyframes anim-purple-link {
   0% {
-    width: 15%;
-    height: calc(100% - 0.6rem);
+    width: 0;
+    height: calc(100% - 12px);
     opacity: 1;
     background-color: transparent;
     border-radius: 24px;
@@ -683,8 +652,8 @@ input.trigger_menu {
 
 @keyframes anim-green-link {
   0% {
-    width: 15%;
-    height: calc(100% - 0.6rem);
+    width: 0;
+    height: calc(100% - 12px);
     opacity: 1;
     background-color: transparent;
     border-radius: 24px;
@@ -710,7 +679,7 @@ input.trigger_menu {
 
 @keyframes anim-orange-link {
   0% {
-    width: 15%;
+    width: 0;
     height: calc(100% - 0.6rem);
     opacity: 1;
     background-color: transparent;

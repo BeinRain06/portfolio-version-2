@@ -167,11 +167,11 @@
   }
 
   .name_container {
-    height: 46vh !important;
+    height: 54vh !important;
   }
 
   .name_row {
-    top: 30%;
+    top: 48%;
     margin: 0;
     backdrop-filter: unset;
   }
