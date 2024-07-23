@@ -308,6 +308,17 @@
 
   .img_stack_wrap .img_full_stack {
     border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #img_full_one.img_full_stack {
+    background-image: url("../assets/images/Screenshot-2.png");
+  }
+
+  #img_full_two.img_full_stack {
+    background-image: url("../assets/images/Screenshot-3.png");
   }
 
   .project_base .img_stack_wrap:hover {

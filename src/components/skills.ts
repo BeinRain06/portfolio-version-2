@@ -224,7 +224,7 @@ export default class Skills implements ISkills {
           <span class="title_stack font_Satisfy">Full Stack Projects</span>
           <div class="project_base">
             <div class="img_stack_wrap">
-              <img src="../src/assets/images/Screenshot-2.png" class="img_full_stack w-100 h-100 object-fit-cover" alt="not found">
+              <div id="img_full_one" class="img_full_stack w-100 h-100"></div>
             </div>
             <div class="about_stack_project">
               <ul class="summary_project"><li style="list-style:square; padding-left:0.25rem; margin-right:0.5rem"></li><li style="list-style:none;">order foods online</li></ul>
@@ -235,7 +235,7 @@ export default class Skills implements ISkills {
 
            <div class="project_base">
           <div class="img_stack_wrap">
-              <img src="../src/assets/images/Screenshot-3.png" class="img_full_stack w-100 h-100 object-fit-cover" alt="not found">
+              <div id="img_full_two" class="img_full_stack w-100 h-100"></div>
             </div>
             <div class="about_stack_project">
               <ul class="summary_project"><li style="list-style:square; 
