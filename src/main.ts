@@ -43,6 +43,9 @@ interface IMain {
     resume: IResume,
     contact: IContact
   ) => void;
+
+  defaultActiveLink: () => void;
+  switchActiveLink: (label: string) => void;
 }
 
 class MainApp implements IMain {
@@ -143,21 +146,22 @@ class MainApp implements IMain {
     });
 
     this.navLinksContainer.addEventListener("click", (): void =>
-      this.switchActiveLink()
+      this.switchActiveLink("desktop")
     );
 
-    this.menuLinksContainer.addEventListener("click", (): void =>
-      this.switchActiveLink()
-    );
+    this.menuLinksContainer.addEventListener("click", (): void => {
+      this.switchActiveLink("mobile");
+    });
   }
 
   defaultActiveLink() {
     const fullMenuLinks = Array.from(this.menuLinks) as HTMLElement[];
-    const menuLinkHome = fullMenuLinks[0].firstElementChild as HTMLDivElement;
+    const menuLinkHome = fullMenuLinks[fullMenuLinks.length - 1]
+      .firstElementChild as HTMLDivElement;
     menuLinkHome.classList.add("active_li");
   }
 
-  switchActiveLink() {
+  switchActiveLink(label: string) {
     const fullLinks: HTMLElement[] = Array.from(this.navLinks);
 
     const fullMenuLinks: HTMLElement[] = Array.from(this.menuLinks);
@@ -168,72 +172,78 @@ class MainApp implements IMain {
 
     /*   fullLinks[0].classList.remove("active_li"); */
 
-    fullLinks.forEach((linkItem) => {
-      linkItem.addEventListener("click", (event): void => {
-        currentNavTag = event.currentTarget as HTMLLIElement;
-        console.log("currentNavTag:", currentNavTag);
+    if (label === "desktop") {
+      fullLinks.forEach((linkItem) => {
+        linkItem.addEventListener("click", (event): void => {
+          currentNavTag = event.currentTarget as HTMLLIElement;
+          console.log("currentNavTag:", currentNavTag);
 
-        previousNavTag.classList.remove("active_li");
+          previousNavTag.classList.remove("active_li");
 
-        const newIndexShow = currentNavTag.getAttribute("data-index") as string;
+          const newIndexShow = currentNavTag.getAttribute(
+            "data-index"
+          ) as string;
 
-        /* const newValueShow = currentNavTag.getAttribute("data-value") as string; */
+          /* const newValueShow = currentNavTag.getAttribute("data-value") as string; */
 
-        currentNavTag.classList.add("active_li");
+          currentNavTag.classList.add("active_li");
 
-        previousNavTag = currentNavTag;
+          previousNavTag = currentNavTag;
 
-        this.selectPageToRender(
-          newIndexShow,
-          this.bodySectionCollection,
-          this.home,
-          this.about,
-          this.skills,
-          this.resume,
-          this.contact
-        );
+          this.selectPageToRender(
+            newIndexShow,
+            this.bodySectionCollection,
+            this.home,
+            this.about,
+            this.skills,
+            this.resume,
+            this.contact
+          );
+        });
       });
-    });
+    } else {
+      fullMenuLinks.forEach((linkItem) => {
+        linkItem.addEventListener("click", (event): void => {
+          currentNavTag = event.currentTarget as HTMLLIElement;
+          console.log("currentNavTag:", currentNavTag);
 
-    fullMenuLinks.forEach((linkItem) => {
-      linkItem.addEventListener("click", (event): void => {
-        currentNavTag = event.currentTarget as HTMLLIElement;
-        console.log("currentNavTag:", currentNavTag);
+          previousNavTag.classList.remove("active_li");
 
-        previousNavTag.classList.remove("active_li");
+          currentNavTag.classList.add("active_li");
 
-        currentNavTag.classList.add("active_li");
+          previousNavTag = currentNavTag;
 
-        previousNavTag = currentNavTag;
+          /*remove menu_content */
+          const logoText = this.logoWrapper.querySelector(
+            ".logo_menu_text"
+          ) as HTMLSpanElement;
 
-        /*remove menu_content */
-        const logoText = this.logoWrapper.querySelector(
-          ".logo_menu_text"
-        ) as HTMLSpanElement;
+          const check: boolean = this.triggeredMenu.checked;
 
-        const check: boolean = this.triggeredMenu.checked;
+          if (check === true) {
+            /* triggeredMenu.style.backgroundColor = "#848d94"; */
+            this.menuContent.classList.remove("currently_view");
+            this.logoWrapper.classList.remove("currently_view");
+            logoText.style.color = "#fff";
 
-        if (check === true) {
-          /* triggeredMenu.style.backgroundColor = "#848d94"; */
-          this.menuContent.classList.remove("currently_view");
-          this.logoWrapper.classList.remove("currently_view");
-          logoText.style.color = "#fff";
+            this.triggeredMenu.checked = false;
+          }
+          const newIndexShow = currentNavTag.getAttribute(
+            "data-index"
+          ) as string;
 
-          this.triggeredMenu.checked = false;
-        }
-        const newIndexShow = currentNavTag.getAttribute("data-index") as string;
-
-        this.selectPageToRender(
-          newIndexShow,
-          this.bodySectionCollection,
-          this.home,
-          this.about,
-          this.skills,
-          this.resume,
-          this.contact
-        );
+          this.selectPageToRender(
+            newIndexShow,
+            this.bodySectionCollection,
+            this.home,
+            this.about,
+            this.skills,
+            this.resume,
+            this.contact
+          );
+        });
       });
-    });
+    }
   }
 
   switchActiveSection(

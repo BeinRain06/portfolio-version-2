@@ -425,7 +425,7 @@
 
 @media (min-width: 768px) {
   .link_station {
-    height: calc(100vh - var(--navbar-height-mob-desk));
+    height: calc(100vh - 20px);
   }
 
   .btn_hand {
