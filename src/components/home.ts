@@ -57,7 +57,7 @@ export default class Home implements IHome {
       "name_wrap   d-flex justify-content-center  align-items-center p-2";
 
     nameWrapper.innerHTML = `
-    <span class="my_name py-2 px-3" >I AM NGOUEND GERARD </span>
+    <div class="my_name py-2 px-3" >I AM NGOUEND GERARD </div>
     
     </div>`;
 

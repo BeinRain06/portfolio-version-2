@@ -217,9 +217,19 @@
     background-position: center 35%;
   }
 
+  .taked_home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.24);
+  }
+
   .hye_container {
     position: relative;
-    top: 0.5rem;
+    top: 3rem;
     width: 100%;
     height: 8rem;
     z-index: 3;
@@ -233,7 +243,8 @@
   }
 
   .name_row {
-    top: 40%;
+    top: 55%;
+    background-blend-mode: color-burn;
   }
 
   .name_container {
@@ -241,12 +252,27 @@
   }
 
   .name_wrap {
+    position: relative;
     height: 100%;
+    color: #eeeeeedc;
+  }
+
+  .name_wrap .my_name::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32rem;
+    height: 3rem;
+    padding: 0.25rem 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
   }
 
   .footer_container {
     position: relative !important;
-    bottom: 0 !important;
+    bottom: -35px !important;
     width: 100%;
     height: 80px;
     height: calc(28vh - 50px);

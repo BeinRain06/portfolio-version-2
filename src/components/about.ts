@@ -31,45 +31,87 @@ export default class About implements IAbout {
 
     dutyWrapper.className = "duty_wrapper";
 
-    const skillsRecap = document.createElement("div") as HTMLDivElement;
+    const skillsRecapMOb = document.createElement("div") as HTMLDivElement;
+    const skillsRecapDesk = document.createElement("div") as HTMLDivElement;
 
-    skillsRecap.className = "skills_recap";
+    skillsRecapMOb.className = "skills_recap d-block d-md-none";
 
-    skillsRecap.innerHTML = `
+    skillsRecapMOb.innerHTML = `
     <div id="first_skill_pro" class="skill_item_pro">
           <label for="css">CSS</label>
-          <div id="progress_css" class="progress style="height: 14px" role="progressbar" aria-label="Example with label" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_css" class="progress style="height:14px" role="progressbar" aria-label="Example with label" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 40%;background-color: #f4f4f4; border-radius: 30px;animation: css-progress-anim 1s ease-in-out 4s forwards">85%</div>
         </div>
     
         <div class="skill_item_pro">
           <label for="javascript">Javascript</label>
-          <div id="progress_javascript" class="progress style="height: 14px" role="progressbar" aria-label="javascript" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_javascript" class="progress style="height:14px" role="progressbar" aria-label="javascript" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: javascript-progress-anim 1s ease-in-out 5.1s forwards">80%</div>
         </div>
         <div class="skill_item_pro">
           <label for="reactjs">ReactJS</label>
-          <div id="progress_reactjs" class="progress style="height: 14px" role="progressbar" aria-label="reactjs" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_reactjs" class="progress style="height:14px" role="progressbar" aria-label="reactjs" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: react-progress-anim 1s ease-in-out 5.1s forwards">78%</div>
         </div>
          <div class="skill_item_pro">
           <label for="vuejs">VueJS</label>
-          <div id="progress_vuejs" class="progress style="height: 14px" role="progressbar" aria-label="vuejs" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_vuejs" class="progress style="height:14px" role="progressbar" aria-label="vuejs" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: vue-progress-anim 1s ease-in-out 5.1s forwards">68%</div>
         </div>
          <div class="skill_item_pro">
           <label for="typescript">Typescript</label>
-          <div id="progress_typescript" class="progress style="height: 14px" role="progressbar" aria-label="typescript" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_typescript" class="progress style="height:14px" role="progressbar" aria-label="typescript" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: typescript-progress-anim 1s ease-in-out 5.1s forwards">65%</div>
         </div>
         <div class="skill_item_pro">
           <label for="express">ExpressJS</label>
-          <div id="progress_express" class="progress style="height: 14px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_express" class="progress style="height:14px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 55%;background-color: #f4f4f4; border-radius: 30px;animation: express-progress-anim 1s ease-in-out 6s forwards;">75%</div>
         </div>
         <div class="skill_item_pro">
           <label for="node">NodeJS</label>
-          <div id="progress_node" class="progress style="height: 14px" role="progressbar" aria-label="NodeJs" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress_node" class="progress style="height:14px" role="progressbar" aria-label="NodeJs" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 20%;background-color: #f4f4f4; border-radius: 30px;animation: node-progress-anim 1s ease-in-out 8s forwards;">60%</div>
+        </div>
+    `;
+
+    skillsRecapDesk.className = "skills_recap  d-md-block";
+
+    skillsRecapDesk.innerHTML = `
+    <div id="first_skill_pro" class="skill_item_pro">
+          <label for="css">CSS</label>
+          <div id="progress_css" class="progress style="height:22px" role="progressbar" aria-label="Example with label" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 40%;background-color: #f4f4f4; border-radius: 30px;animation: css-progress-anim 1s ease-in-out 4s forwards">85%</div>
+        </div>
+    
+        <div class="skill_item_pro">
+          <label for="javascript">Javascript</label>
+          <div id="progress_javascript" class="progress style="height:22px" role="progressbar" aria-label="javascript" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: javascript-progress-anim 1s ease-in-out 5.1s forwards">80%</div>
+        </div>
+        <div class="skill_item_pro">
+          <label for="reactjs">ReactJS</label>
+          <div id="progress_reactjs" class="progress style="height:22px" role="progressbar" aria-label="reactjs" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: react-progress-anim 1s ease-in-out 5.1s forwards">78%</div>
+        </div>
+         <div class="skill_item_pro">
+          <label for="vuejs">VueJS</label>
+          <div id="progress_vuejs" class="progress style="height:22px" role="progressbar" aria-label="vuejs" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: vue-progress-anim 1s ease-in-out 5.1s forwards">68%</div>
+        </div>
+         <div class="skill_item_pro">
+          <label for="typescript">Typescript</label>
+          <div id="progress_typescript" class="progress style="height:22px" role="progressbar" aria-label="typescript" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60% ;background-color: #f4f4f4; border-radius: 30px;animation: typescript-progress-anim 1s ease-in-out 5.1s forwards">65%</div>
+        </div>
+        <div class="skill_item_pro">
+          <label for="express">ExpressJS</label>
+          <div id="progress_express" class="progress style="height:22px" role="progressbar" aria-label="express" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 55%;background-color: #f4f4f4; border-radius: 30px;animation: express-progress-anim 1s ease-in-out 6s forwards;">75%</div>
+        </div>
+        <div class="skill_item_pro">
+          <label for="node">NodeJS</label>
+          <div id="progress_node" class="progress style="height:22px" role="progressbar" aria-label="NodeJs" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 20%;background-color: #f4f4f4; border-radius: 30px;animation: node-progress-anim 1s ease-in-out 8s forwards;">60%</div>
         </div>
     `;
@@ -94,7 +136,8 @@ export default class About implements IAbout {
     `;
 
     skillsAndAgentWrapper.appendChild(agentImgWrapper);
-    skillsAndAgentWrapper.appendChild(skillsRecap);
+    skillsAndAgentWrapper.appendChild(skillsRecapMOb);
+    skillsAndAgentWrapper.appendChild(skillsRecapDesk);
 
     dutyWrapper.appendChild(workingArea);
     dutyWrapper.appendChild(skillsAndAgentWrapper);

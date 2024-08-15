@@ -226,10 +226,10 @@ export default class Skills implements ISkills {
             <div class="img_stack_wrap">
               <div id="img_full_one" class="img_full_stack w-100 h-100"></div>
             </div>
-            <div class="about_stack_project">
-              <ul class="summary_project"><li style="list-style:square; padding-left:0.25rem; margin-right:0.5rem"></li><li style="list-style:none;">order foods online</li></ul>
-              <span class="font_Open_Sans_500 mb-1">MERN (MONGODB-Express-ReactJS-Node) + Styled-Components</span>
-              <span class="w-100"><a class="full_stack_link" href="https://github.com/BeinRain06/Tds_Restaurant_three" class=" text-decoration-underline">https://github.com/BeinRain06/Tds_Restaurant_three</a></span>
+            <div class="about_stack_project d-flex flex-column align-items-left">
+              <ul class="summary_project w-100 " ><li style="list-style:square; margin-right:0.5rem;"></li><li style="list-style:none;">order foods online</li></ul>
+              <span class="font_Open_Sans_500 mb-1" style="padding-left:1rem;" >MERN (MONGODB-Express-ReactJS-Node) + Styled-Components</span>
+              <span class="w-100"><a class="full_stack_link" style="padding-left:1rem;" href="https://github.com/BeinRain06/Tds_Restaurant_three" class=" text-decoration-underline">https://github.com/BeinRain06/Tds_Restaurant_three</a></span>
             </div>  
           </div>
 
@@ -238,10 +238,10 @@ export default class Skills implements ISkills {
               <div id="img_full_two" class="img_full_stack w-100 h-100"></div>
             </div>
             <div class="about_stack_project">
-              <ul class="summary_project"><li style="list-style:square; 
-              padding-left:0.25rem; margin-right:0.5rem"></li><li style="list-style:none;">blog about tech news</li></ul>
-              <span class="font_Open_Sans_500 mb-1">MEVN (MONGODB-Express-VueJS-Node) + TailwindCSS</span>
-              <span class="w-100"><a class="full_stack_link" href="https://github.com/BeinRain06/blog-app-tech" class=" text-decoration-underline">https://github.com/BeinRain06/blog-app-tech</a></span>
+              <ul class="summary_project w-100" "><li style="list-style:square;
+             margin-right:0.5rem;"></li><li style="list-style:none;">blog about tech news</li></ul>
+              <span class="font_Open_Sans_500 mb-1" style="padding-left:1rem;">MEVN (MONGODB-Express-VueJS-Node) + TailwindCSS</span>
+              <span class="w-100"><a class="full_stack_link" style="padding-left:1rem;" href="https://github.com/BeinRain06/blog-app-tech" class=" text-decoration-underline">https://github.com/BeinRain06/blog-app-tech</a></span>
             </div>
         </div>
         </div>

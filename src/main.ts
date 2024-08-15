@@ -173,6 +173,7 @@ class MainApp implements IMain {
     /*   fullLinks[0].classList.remove("active_li"); */
 
     if (label === "desktop") {
+      fullLinks[fullLinks.length - 1].classList.remove("active_li");
       fullLinks.forEach((linkItem) => {
         linkItem.addEventListener("click", (event): void => {
           currentNavTag = event.currentTarget as HTMLLIElement;
@@ -202,6 +203,7 @@ class MainApp implements IMain {
         });
       });
     } else {
+      fullMenuLinks[fullMenuLinks.length - 1].classList.remove("active_li");
       fullMenuLinks.forEach((linkItem) => {
         linkItem.addEventListener("click", (event): void => {
           currentNavTag = event.currentTarget as HTMLLIElement;

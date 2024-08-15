@@ -326,7 +326,9 @@
   }
 
   .project_base .about_stack_project {
-    margin: 0.5rem 0;
+    width: 82%;
+    padding: 0;
+    margin: 0.5rem auto;
     display: flex;
     flex-direction: column;
   }

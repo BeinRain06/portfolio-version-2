@@ -558,7 +558,18 @@ input.trigger_menu {
 }
 
 @media (min-width: 768px) {
+  .navbar_row {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    display: block;
+    z-index: 5;
+  }
+
   .navbar_content_tags {
+    /*  background-color: #3c3c3f; */
     padding: 0.25rem 2rem 0 0;
   }
 
