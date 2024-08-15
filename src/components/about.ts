@@ -75,7 +75,7 @@ export default class About implements IAbout {
         </div>
     `;
 
-    skillsRecapDesk.className = "skills_recap  d-md-block";
+    skillsRecapDesk.className = "skills_recap d-none d-md-block";
 
     skillsRecapDesk.innerHTML = `
     <div id="first_skill_pro" class="skill_item_pro">

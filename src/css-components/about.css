@@ -231,6 +231,10 @@
     color: #fff;
   }
 
+  .duty_wrapper .skills_recap {
+    padding-left: 1.75rem;
+  }
+
   .skills_agent_wrap {
     height: 25rem;
     flex-direction: column;
@@ -263,7 +267,7 @@
     padding: 0.25rem 0.5rem;
     width: 4rem;
     position: relative;
-    left: calc(70% + 7vw);
+    left: calc(80% + 7vw);
     writing-mode: sideways-lr;
   }
 }

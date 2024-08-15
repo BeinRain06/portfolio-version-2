@@ -532,6 +532,10 @@ li.no_list_style {
     font-size: calc(20px + 0.3vw);
   }
 
+  .craft_domain {
+    padding: 4.5rem 1rem 1rem;
+  }
+
   .primar_table_row .info_tech_content {
     width: 90%;
   }
