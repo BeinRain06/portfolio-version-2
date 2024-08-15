@@ -66,7 +66,7 @@ li.no_list_style {
 
 .lan_enum {
   padding: 0 0.25rem;
-  color: #bdbdbd;
+  color: #505050;
   font-size: calc(13px + 0.15vw);
   font-weight: bold;
 }
@@ -112,6 +112,15 @@ li.no_list_style {
     margin: 0.25rem auto 4rem;
   }
 
+  .title_story {
+    width: 180px;
+    padding: 0.25rem 1rem;
+    margin: 1rem 0;
+    color: #fff;
+    background-color: #c4c1c1;
+    text-align: center;
+  }
+
   .title_underlined {
     font-size: calc(15px + 0.3vw);
     text-decoration: underline;
@@ -124,7 +133,7 @@ li.no_list_style {
     height: 100%;
     line-height: 1.5;
     font-size: calc(14px + 0.2vw);
-    text-align: center;
+    text-align: justify;
   }
 
   /*software cursus*/
@@ -142,6 +151,61 @@ li.no_list_style {
     overflow-x: hidden;
   }
 
+  /* --> primary education */
+  .primar_education_content {
+    width: 86%;
+    margin: 4rem auto;
+  }
+
+  .primar_title_wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .primar_table {
+    width: 100%;
+    min-height: 200px;
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    background-color: #e0e0e0;
+  }
+
+  .academic_primar_year {
+    color: #d3d0d0;
+    background-color: #34803b;
+    font-weight: bold;
+  }
+
+  .primar_table_row {
+    width: 100%;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .primar_table_row * {
+    padding: 0.25rem 0;
+    font-size: calc(12px + 0.2vw);
+  }
+
+  .primar_table_row .info_tech_title {
+    width: 5rem;
+    padding: 0;
+    margin-right: 1rem;
+  }
+
+  .primar_table_row .info_tech_content {
+    text-align: left;
+    width: 82%;
+    padding-right: 1rem;
+  }
+  /* <-- primary education */
+
+  /* --> self-taught cursus */
   .self_taught_cursus {
     width: 100vw;
     padding: 0.5rem 0.25rem;
@@ -151,12 +215,27 @@ li.no_list_style {
     align-items: center;
   }
 
+  .primar_education .education_title,
+  .experience_duty .experience_title,
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
-    padding: 0 0.25rem;
+    width: 100%;
+    padding: 0.35rem 0.25rem;
     color: #fff;
     background-color: rgb(200, 200, 205);
-    font-size: calc(14px + 0.25vw);
+    font-size: calc(13px + 0.25vw);
+    text-align: center;
+  }
+
+  .self_taught_cursus .about_journey {
+    width: 100%;
+    position: relative;
+    top: 1rem;
+    left: 1rem;
+    color: #333;
+    padding: 0.5rem 0;
+    margin: 1.5rem 0;
+    font-size: calc(13px + 0.25vw);
   }
 
   .self_taught_cursus .flash_resume {
@@ -174,15 +253,6 @@ li.no_list_style {
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
     background-color: #eee;
-  }
-
-  .self_taught_cursus .about_journey {
-    width: 90%;
-    position: relative;
-    top: 0.25rem;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
-    font-size: calc(14px + 0.15vw);
   }
 
   .flash_resume .skill_label {
@@ -212,19 +282,43 @@ li.no_list_style {
     font-size: calc(11px + 0.25vw);
     font-weight: bold;
   }
+  /* <-- self-taught cursus */
 
-  .language_specific {
-    width: 90vw;
-    padding: 0.5rem;
+  /* --> language potential  */
+  .language_mastering {
+    width: 100vw;
+    height: 210px;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.125rem;
+    align-items: center;
   }
+
+  .language_potential_mob {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*  gap: 0.5rem; */
+  }
+
+  .language_potential_desk {
+    display: none;
+  }
+  /* <-- language potential */
 }
 
 @media (min-width: 460px) {
+  .edu_former {
+    width: 60%;
+  }
+
   .lan_former {
+    width: 50%;
     justify-content: center;
   }
   .text_size {
@@ -237,9 +331,54 @@ li.no_list_style {
     justify-content: center;
   }
 
+  .primar_education .education_title,
+  .experience_duty .experience_title,
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
+    width: 80%;
     font-size: calc(20px + 0.35vw);
+  }
+
+  .language_mastering .language_title {
+    width: 40%;
+  }
+
+  /* --> primary education */
+  .primar_education_content {
+    width: 86%;
+    margin: 4rem auto;
+  }
+
+  .primar_title_wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .primar_table {
+    width: 100%;
+    min-height: 200px;
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    background-color: #e0e0e0;
+  }
+
+  .primar_table_row * {
+    font-size: calc(14px + 0.1vw);
+  }
+
+  .primar_table_row .info_tech_content {
+    text-align: left;
+    width: 72%;
+  }
+  /* <-- primary education */
+
+  /* --> self-taught cursus */
+  .self_taught_cursus {
+    width: 90vw;
+    margin: 0 auto;
   }
 
   .self_taught_cursus .about_journey {
@@ -269,20 +408,114 @@ li.no_list_style {
   .period_works .specific_date {
     font-size: calc(14px + 0.3vw);
   }
+  /* <-- self-taught cursus */
 
-  .language_specific {
-    align-items: center;
+  /* --> language potential desk */
+  .language_potential_mob {
+    display: none;
   }
 
-  .lan_enum {
-    padding: 0 0.25rem;
-    font-size: calc(15px + 0.25vw);
+  .language_potential_desk {
+    position: relative;
+    top: 2rem;
+    width: 100vw;
+    height: 130px;
+    padding: 0;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    font-size: calc(13px + 0.15vw);
+    gap: 0.15rem;
   }
 
-  .lan_level {
-    padding: 0 0.25rem;
-    font-size: calc(14px + 0.3vw);
+  .taught_language_one,
+  .taught_language_two {
+    position: relative;
+    width: 50%;
+    height: 100px;
+    margin: 0 auto;
   }
+
+  .taught_language_one .essence_lan {
+    width: 210px;
+    padding: 0.35rem 0.25rem;
+    background-color: #ccd1cd;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+  }
+
+  .taught_language_two .essence_lan {
+    width: 210px;
+    padding: 0.35rem 0.25rem;
+    color: #fff;
+    background-color: #6f1277;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+  }
+
+  .taught_language_one .lan_square_item {
+    position: relative;
+    width: 14px;
+    height: 7px;
+    border: 1px solid #333;
+  }
+
+  .taught_language_two .lan_square_item {
+    position: relative;
+    width: 14px;
+    height: 7px;
+    border: 1px solid #e4e4f4;
+  }
+
+  .taught_language_one .lan_square_item {
+    background-image: linear-gradient(
+      to right top,
+      #103705,
+      #2c6110,
+      #4f8d16,
+      #79bb18,
+      #a8eb12
+    );
+  }
+
+  .taught_language_one .lan_square_item:last-child {
+    background-color: transparent;
+    background-image: none;
+  }
+
+  .taught_language_two .lan_square_item.active_square {
+    background-image: linear-gradient(
+      to right top,
+      #103705,
+      #2c6110,
+      #4f8d16,
+      #79bb18,
+      #a8eb12
+    );
+  }
+
+  .taught_language_two .lan_square_item:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 100%;
+    background-image: linear-gradient(
+      to right top,
+      #103705,
+      #2c6110,
+      #4f8d16,
+      #79bb18,
+      #a8eb12
+    );
+  }
+
+  /* <-- language potential desk */
 }
 
 @media (min-width: 768px) {
@@ -291,38 +524,84 @@ li.no_list_style {
   }
 
   .lan_former {
-    width: 40%;
-    margin: 0 auto;
+    width: 30%;
+    margin: 0.5rem auto 2rem;
   }
 
   .text_size {
     font-size: calc(20px + 0.3vw);
   }
 
-  .craft_domain {
-    max-width: 900px;
+  .primar_table_row .info_tech_content {
+    width: 90%;
   }
 
+  /* <-- self-taught cursus */
   .self_taught_cursus {
-    width: 100vw !important;
+    width: 86vw;
+    max-width: 900px;
+    margin: 4rem auto 3rem;
+  }
+
+  .self_taught_cursus .about_journey {
+    left: 1.5rem;
+    font-size: calc(15px + 0.3vw);
   }
 
   .self_taught_cursus .flash_resume:nth-child(odd) {
-    border-left: 1rem solid #b7bfd6;
-    border-right: 1rem solid #b7bfd6;
+    border-left: 0.1rem solid #fccfaa;
+    border-right: 0.1rem solid #fccfaa;
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
-    border-left: 1rem solid #afafaf;
-    border-right: 1rem solid #afafaf;
+    border-left: 0.1rem solid #afafafc7;
+    border-right: 0.1rem solid #afafafc7;
   }
+  /* <-- self-taught cursus */
 
+  .primar_education .education_title,
+  .experience_duty .experience_title,
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
-    width: 60%;
+    width: 80%;
     height: 2.6rem;
     padding: 0;
-    text-align: center;
     display: grid;
     place-items: center;
   }
+
+  /* --> language potential desk */
+  .language_mastering {
+    height: 350px;
+  }
+
+  .language_potential_desk {
+    width: 90vw;
+    max-width: 900px;
+    justify-content: space-between;
+    font-size: calc(15px + 0.18vw);
+    gap: 0.5rem;
+  }
+
+  .taught_language_one .essence_lan {
+    width: 390px;
+  }
+
+  .taught_language_two .essence_lan {
+    width: 390px;
+  }
+
+  .taught_language_one .lan_square_item {
+    position: relative;
+    width: 14px;
+    height: 7px;
+    border: 1px solid #333;
+  }
+
+  .taught_language_two .lan_square_item {
+    position: relative;
+    width: 14px;
+    height: 7px;
+    border: 1px solid #e4e4f4;
+  }
+  /* <-- language potential desk */
 }

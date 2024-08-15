@@ -301,12 +301,12 @@ export default class Contact implements IContact {
 
     nameWrapper.innerHTML = `
     <label for="signature" >Guess Name</label>
-          <input type="text" id="signature" class="signature_guess" name="signature" placeholder="signature"/>
+          <input type="text" id="name" class="input_field" name="name" placeholder="signature"/>
     `;
 
     emailWrapper.innerHTML = `
     <label for="email" >email</label>
-          <input type="text" id="email" class="email_guess" name="email" placeholder="email_address"/>
+          <input type="text" id="email" class="input_field" name="email" placeholder="email_address"/>
     `;
 
     messageWrapper.innerHTML = `
