@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 <template>
-  <div>ABOUT PAGE</div>
+  <div>RESUME PAGE</div>
 </template>
 <style scoped></style>

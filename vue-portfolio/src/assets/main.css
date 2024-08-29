@@ -1,35 +1,199 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@import '../../node_modules/bootstrap/dist/css/bootstrap-utilities.min.css';
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Satisfy&display=swap');
+
+:root {
+  --body-text-color: #fff;
+  --navlink-show-color: #000;
+  --bg-color-link: #f0e9e9;
+  --bg-color-navbar: #3c3c3f;
+  --bg-color-menu-wrap: #848d94;
+
+  --navbar-height-desk-1: 100px;
+  --navbar-height-mob-desk: 50px;
+  --navmenu-color-title: #f4f4f4;
+  --footer-height-desk: 100px;
+  --footer-height-mob: 70px;
+  --msg-container-height: var(--footer-height) + var(--navbar-height-mob-desk);
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 800
+
+.eb-garamond-<uniquifier> {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.cabin-<uniquifier> {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} */
+
+.font_Satisfy {
+  font-family: 'Satisfy', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font_Open_Sans_400 {
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  /* font-size: clamp(0.75rem, 0.92rem, 1.1rem); */
+}
+
+.cabin-500 {
+  font-family: 'Cabin', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.row > * {
+  padding: 0;
+}
+
+body {
+  position: relative;
+  left: 0;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 0rem;
+  overflow-x: hidden;
+}
+
+@keyframes anim-welcome-page {
+  0% {
+    opacity: 0.6;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* <li
+              class="navlink"
+              data-index="2"
+              data-value="skills"
+              @click.prevent="(e) => targetPage(e, 'skills')"
+            >
+              <div class="navlink_content" data-index="2">
+                <span class="font_Open_Sans_400">Skills</span>
+              </div>
+            </li>
+            <li
+              class="navlink"
+              data-index="3"
+              data-value="resume"
+              @click.prevent="(e) => targetPage(e, 'resume')"
+            >
+              <div class="navlink_content" data-index="3">
+                <span class="font_Open_Sans_400">Resume</span>
+              </div>
+            </li>
+            <li
+              class="navlink"
+              data-index="4"
+              data-value="contact"
+              @click.prevent="(e) => targetPage(e, 'contact')"
+            >
+              <div class="navlink_content" data-index="4">
+                <span class="font_Open_Sans_400">Contact</span>
+              </div>
+            </li>
+            <li
+              class="navlink"
+              data-index="1"
+              data-value="about me"
+              @click.prevent="(e) => targetPage(e, 'about')"
+            >
+              <div class="navlink_content" data-index="1">
+                <span class="font_Open_Sans_400">About_Me </span>
+              </div>
+            </li>
+            <li
+              class="navlink active_li"
+              data-index="0"
+              data-value="home"
+              @click.prevent="(e) => targetPage(e, 'home')"
+            >
+              <div class="navlink_content" data-index="0">
+                <span class="font_Open_Sans_400">Home</span>
+              </div>
+            </li> */
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
+/*  <li
+              class="menu_link"
+              data-index="2"
+              data-value="skills"
+              @click.prevent="(e) => targetPage(e, 'skills')"
+            >
+              <div class="menulink_content">
+                <a href="#active_skills">Skills</a>
+              </div>
+            </li>
+            <li
+              class="menu_link"
+              data-index="3"
+              data-value="resume"
+              @click.prevent="(e) => targetPage(e, 'resume')"
+            >
+              <div class="menulink_content">
+                <a href="#craft_domain">Resume</a>
+              </div>
+            </li>
+            <li
+              class="menu_link"
+              data-index="4"
+              data-value="contact"
+              @click.prevent="(e) => targetPage(e, 'contact')"
+            >
+              <div class="menulink_content">
+                <a href="#link_station">Contact</a>
+              </div>
+            </li>
+            <li
+              class="menu_link"
+              data-index="1"
+              data-value="about me"
+              @click.prevent="(e) => targetPage(e, 'about')"
+            >
+              <div class="menulink_content">
+                <a href="#know_about_me">About Me</a>
+              </div>
+            </li>
+            <li
+              class="menu_link"
+              data-index="0"
+              data-value="home"
+              @click.prevent="(e) => targetPage(e, 'home')"
+            >
+              <div class="menulink_content">
+                <a href="#taked_home">Home</a>
+              </div>
+            </li> */

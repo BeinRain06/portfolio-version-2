@@ -248,14 +248,6 @@ function sendOurMailReview(e, emailFormat) {
 </template>
 
 <style scoped>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 /*Main container*/
 
 @media (min-width: 160px) {
@@ -263,8 +255,8 @@ function sendOurMailReview(e, emailFormat) {
     position: relative;
     top: 0;
     height: calc(100vh - 50px);
-    visibility: visible;
     transform: scale(1);
+    animation: anim-welcome-page 1.2s ease-in-out forwards;
   }
 
   .msg_and_form_container .msg_together {
