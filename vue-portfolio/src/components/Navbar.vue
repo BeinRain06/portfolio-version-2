@@ -115,11 +115,11 @@ function toggleMenuContent(e) {
             >DevPortFolio
           </span>
           <figure class="logo_menu">
-            <img
+            <!-- <img
               src="./src/assets/images/apple-touch-icon.png"
               alt="Oops overview"
               class="logo_img"
-            />
+            /> -->
           </figure>
         </div>
         <div id="menu_wrap" class="menu_wrap">
