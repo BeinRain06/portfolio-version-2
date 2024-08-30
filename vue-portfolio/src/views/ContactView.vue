@@ -251,18 +251,10 @@ function sendOurMailReview(e, emailFormat) {
 /*Main container*/
 
 @media (min-width: 160px) {
-  .link_station {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 50px);
-    transform: scale(1);
-    animation: anim-welcome-page 1.2s ease-in-out forwards;
-  }
-
   .msg_and_form_container .msg_together {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     margin: 0 auto;
   }
 
@@ -613,22 +605,12 @@ function sendOurMailReview(e, emailFormat) {
 }
 
 @media (min-width: 768px) {
-  .link_station {
-    min-height: calc(100vh);
-  }
-
-  .btn_hand {
-    top: 0;
-    left: -16%;
-  }
-
   .main_contact_area {
     top: 0;
     left: -0.35rem;
     width: 80%;
-    max-width: 820px;
-    /*  height: 545px; */
-    margin: 2.5rem 0 2rem;
+    height: 40rem;
+    max-width: 920px;
     flex-direction: row;
     gap: 20px;
   }
@@ -644,8 +626,8 @@ function sendOurMailReview(e, emailFormat) {
   }
 
   .contact_board {
-    top: 2rem;
-    height: 100%;
+    top: 5rem;
+    height: 65%;
     grid-template-columns: 140px;
     grid-template-rows: 90%;
   }
@@ -698,14 +680,14 @@ function sendOurMailReview(e, emailFormat) {
       'email email email submit submit'
       'msg msg msg msg msg';
     grid-template-rows: 140px;
-    padding: 20px 8px 20px 20px;
+    padding: 10px 8px 10px 8px;
     row-gap: 10px;
   }
 
   .sharing_msg {
     grid-area: with_me;
     position: relative;
-    top: 1.7rem;
+    top: 5rem;
     left: 0;
     bottom: 0;
     padding: 0.5rem 0;
@@ -719,6 +701,7 @@ function sendOurMailReview(e, emailFormat) {
     color: #cac6c6;
     font-weight: bolder;
     padding-top: -0.15rem;
+    margin-bottom: 0;
     transform: scale(1);
     transition: all 350ms ease-in-out;
   }
