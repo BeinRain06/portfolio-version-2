@@ -21,13 +21,13 @@ onMounted(() => {
   })
 })
 
-function setLiMobNames(element: undefined) {
+function setLiMobNames(element: any | undefined) {
   if (element) {
     refLiMobNames.value.push(element)
   }
 }
 
-function setLiNames(element: undefined) {
+function setLiNames(element: any | undefined) {
   if (element) {
     refLiNames.value.push(element)
   }
@@ -42,7 +42,7 @@ function runActiveLi(i: number, screen: string) {
     })
   } else if (screen === 'desktop') {
     refLiMobNames.value.forEach((item: HTMLElement) => {
-      let newItem: HTMLElement | null = item.firstElementChild
+      let newItem: Element | null = item.firstElementChild
       if (newItem.classList.contains('active_li')) {
         newItem.classList.remove('active_li')
       }
@@ -50,9 +50,8 @@ function runActiveLi(i: number, screen: string) {
   }
 
   refLiMobNames.value.forEach((item: HTMLElement | null, j: number) => {
+    let newItem: Element | null = item.firstElementChild
     if (i === j) {
-      let newItem: HTMLElement | null = item.firstElementChild
-
       newItem.classList.add('active_li')
     } else {
       newItem.classList.remove('active_li')
@@ -61,7 +60,6 @@ function runActiveLi(i: number, screen: string) {
 
   refLiNames.value.forEach((item: HTMLElement, j: number) => {
     if (i === j) {
-      console.log(item)
       item.classList.add('active_li')
     } else {
       item.classList.remove('active_li')
@@ -101,7 +99,7 @@ function targetPage(i: number, section: string, screen: string) {
   return target_Path.value
 }
 function toggleMenuContent(e: Event) {
-  let newTarget: HTMLElement | null = e.currentTarget
+  let newTarget: EventTarget | null = e.currentTarget
   if (newTarget.checked) {
     menuBox.value.classList.add('currently_view')
   } else {
