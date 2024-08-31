@@ -3,10 +3,10 @@ import { ref, reactive, computed } from 'vue'
 
 import { sendDataMail } from '../api_functions/api_function'
 
-const tweetRef = <HTMLDivElement>ref()
-const gitRef = <HTMLDivElement>ref()
-const linkedInRef = <HTMLDivElement>ref()
-const warningDiv = <HTMLDivElement>ref()
+const tweetRef = <any>ref()
+const gitRef = <any>ref()
+const linkedInRef = <any>ref()
+const warningDiv = <any>ref()
 const nameInputForm = <any>ref()
 const emailInputForm = <any>ref()
 const msgTextAreaForm = <any>ref()
@@ -49,7 +49,7 @@ function redirectionMedia(label: string) {
   window.open(media.mediaLink, '_blank')
 }
 
-function handThisData(e: HTMLInputElement | HTMLTextAreaElement, element: string) {
+function handThisData(e: Event, element: string) {
   if (element === 'name') {
     emailFormat.name = e.target.value
   } else if (element === 'email') {

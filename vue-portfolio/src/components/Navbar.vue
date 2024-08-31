@@ -11,7 +11,7 @@ let target_Path = <any>ref()
 
 let refLiMobNames = <any>ref([])
 let refLiNames = <any>ref([])
-const linkNames = <string[]>ref(['skills', 'resume', 'contact', 'about', 'home'])
+const linkNames = ref(['skills', 'resume', 'contact', 'about', 'home']) as string[]
 
 onMounted(() => {
   refLiNames.value.forEach((element: HTMLElement, i: number) => {
@@ -21,13 +21,13 @@ onMounted(() => {
   })
 })
 
-function setLiMobNames(element: HTMLElement) {
+function setLiMobNames(element: VNodeRef | undefined) {
   if (element) {
     refLiMobNames.value.push(element)
   }
 }
 
-function setLiNames(element: HTMLElement) {
+function setLiNames(element: VNodeRef | undefined) {
   if (element) {
     refLiNames.value.push(element)
   }
@@ -48,7 +48,7 @@ function runActiveLi(i: number, screen: string) {
     })
   }
 
-  refLiMobNames.value.forEach((item: HTMLElement, j: number) => {
+  refLiMobNames.value.forEach((item: HTMLElement | null, j: number) => {
     if (i === j) {
       console.log(item)
       item.firstElementChild.classList.add('active_li')
@@ -98,7 +98,7 @@ function targetPage(i: number, section: string, screen: string) {
 
   return target_Path.value
 }
-function toggleMenuContent(e: HTMLInputElement) {
+function toggleMenuContent(e: Event) {
   if (e.currentTarget.checked) {
     menuBox.value.classList.add('currently_view')
   } else {
