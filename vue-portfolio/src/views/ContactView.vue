@@ -3,25 +3,27 @@ import { ref, reactive, computed } from 'vue'
 
 import { sendDataMail } from '../api_functions/api_function.ts'
 
-const tweetRef = ref(null)
-const gitRef = ref(null)
-const linkedInRef = ref(null)
-const warningDiv = ref(null)
-const nameInputForm = ref()
-const emailInputForm = ref()
-const msgTextAreaForm = ref()
+const tweetRef = <HTMLDivElement>ref()
+const gitRef = <HTMLDivElement>ref()
+const linkedInRef = <HTMLDivElement>ref()
+const warningDiv = <HTMLDivElement>ref()
+const nameInputForm = <HTMLInputElement>ref()
+const emailInputForm = <HTMLInputElement>ref()
+const msgTextAreaForm = <HTMLTextAreaElement>ref()
 
-const thisURL = ref(
-  'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
+const thisURL = <string>(
+  ref(
+    'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
+  )
 )
 
-let media = reactive({ mediaLink: '' })
-let emailFormat = reactive({
+let media = <string>reactive({ mediaLink: '' })
+let emailFormat = <{ name: string; email: string; message: string }>reactive({
   name: '',
   email: '',
   message: ''
 })
-let warningAttribute = reactive({
+let warningAttribute = <{ stateError: boolean; stateSuccess: boolean; message: string }>reactive({
   stateError: false,
   stateSuccess: false,
   message: ''

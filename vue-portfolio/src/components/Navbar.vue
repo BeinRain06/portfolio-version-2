@@ -4,14 +4,14 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const inputBox = ref()
-const menuBox = ref()
+const inputBox = <HTMLInputElement>ref()
+const menuBox = <HTMLDivElement>ref()
 
-let target_Path = ref()
+let target_Path = <ReturnType<()  => useRouter()>>ref()
 
-let refLiMobNames = ref([])
-let refLiNames = ref([])
-const linkNames = ref(['skills', 'resume', 'contact', 'about', 'home'])
+let refLiMobNames = <HTMLLiElement[]>ref([])
+let refLiNames = <HTMLLiElement[]>ref([])
+const linkNames = <string[]>ref(['skills', 'resume', 'contact', 'about', 'home'])
 
 onMounted(() => {
   refLiNames.value.forEach((element, i) => {
