@@ -43,8 +43,8 @@ function runActiveLi(i: number, screen: string) {
   } else if (screen === 'desktop') {
     refLiMobNames.value.forEach((item: HTMLElement) => {
       let newItem: Element | null = item.firstElementChild
-      if (newItem.classList.contains('active_li')) {
-        newItem.classList.remove('active_li')
+      if (newItem?.classList.contains('active_li')) {
+        newItem?.classList.remove('active_li')
       }
     })
   }
@@ -52,9 +52,9 @@ function runActiveLi(i: number, screen: string) {
   refLiMobNames.value.forEach((item: HTMLElement | null, j: number) => {
     let newItem: Element | null = item.firstElementChild
     if (i === j) {
-      newItem.classList.add('active_li')
+      newItem?.classList.add('active_li')
     } else {
-      newItem.classList.remove('active_li')
+      newItem?.classList.remove('active_li')
     }
   })
 
@@ -99,8 +99,8 @@ function targetPage(i: number, section: string, screen: string) {
   return target_Path.value
 }
 function toggleMenuContent(e: Event) {
-  let newTarget: EventTarget | null = e.currentTarget
-  if (newTarget.checked) {
+  let newTarget: EventTarget | HTMLInputElement | null = e.currentTarget
+  if (newTarget?.checked) {
     menuBox.value.classList.add('currently_view')
   } else {
     menuBox.value.classList.remove('currently_view')
