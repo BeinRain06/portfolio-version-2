@@ -7,48 +7,48 @@ const router = useRouter()
 const inputBox = <any>ref()
 const menuBox = <any>ref()
 
-let target_Path = Promise<void | NavigationFailure | undefined>ref()
+let target_Path = <any>ref()
 
 let refLiMobNames = <any>ref([])
 let refLiNames = <any>ref([])
 const linkNames = <string[]>ref(['skills', 'resume', 'contact', 'about', 'home'])
 
 onMounted(() => {
-  refLiNames.value.forEach((element:HTMLElement, i:number) => {
+  refLiNames.value.forEach((element: HTMLElement, i: number) => {
     if (i === 4) {
       element.classList.add('active_li')
     }
   })
 })
 
-function setLiMobNames(element:HTMLElement) {
+function setLiMobNames(element: HTMLElement) {
   if (element) {
     refLiMobNames.value.push(element)
   }
 }
 
-function setLiNames(element:HTMLElement) {
+function setLiNames(element: HTMLElement) {
   if (element) {
     refLiNames.value.push(element)
   }
 }
 
-function runActiveLi(i:number, screen:string) {
+function runActiveLi(i: number, screen: string) {
   if (screen === 'mobile') {
-    refLiNames.value.forEach((item:HTMLElement) => {
+    refLiNames.value.forEach((item: HTMLElement) => {
       if (item.classList.contains('active_li')) {
         item.classList.remove('active_li')
       }
     })
   } else if (screen === 'desktop') {
-    refLiMobNames.value.forEach((item:HTMLElement) => {
+    refLiMobNames.value.forEach((item: HTMLElement) => {
       if (item.firstElementChild.classList.contains('active_li')) {
         item.firstElementChild.classList.remove('active_li')
       }
     })
   }
 
-  refLiMobNames.value.forEach((item:HTMLElement, j:number) => {
+  refLiMobNames.value.forEach((item: HTMLElement, j: number) => {
     if (i === j) {
       console.log(item)
       item.firstElementChild.classList.add('active_li')
@@ -57,7 +57,7 @@ function runActiveLi(i:number, screen:string) {
     }
   })
 
-  refLiNames.value.forEach((item:HTMLElement, j:number) => {
+  refLiNames.value.forEach((item: HTMLElement, j: number) => {
     if (i === j) {
       console.log(item)
       item.classList.add('active_li')
@@ -67,7 +67,7 @@ function runActiveLi(i:number, screen:string) {
   })
 }
 
-function targetPage(i:number, section:string, screen:string) {
+function targetPage(i: number, section: string, screen: string) {
   console.log(refLiNames.value)
   if (screen === 'mobile') {
     menuBox.value.classList.remove('currently_view')
