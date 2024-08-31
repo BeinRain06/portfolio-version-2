@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 
-import { sendDataMail } from '../api_functions/api_function.ts'
+import { sendDataMail } from '../api_functions/api_function'
 
 const tweetRef = <HTMLDivElement>ref()
 const gitRef = <HTMLDivElement>ref()
 const linkedInRef = <HTMLDivElement>ref()
 const warningDiv = <HTMLDivElement>ref()
-const nameInputForm = <HTMLInputElement>ref()
-const emailInputForm = <HTMLInputElement>ref()
-const msgTextAreaForm = <HTMLTextAreaElement>ref()
+const nameInputForm = <any>ref()
+const emailInputForm = <any>ref()
+const msgTextAreaForm = <any>ref()
 
-const thisURL = <string>(
-  ref(
-    'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
-  )
+const thisURL = ref(
+  'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
 )
 
-let media = <string>reactive({ mediaLink: '' })
+let media = <{ mediaLink: string }>reactive({ mediaLink: '' })
 let emailFormat = <{ name: string; email: string; message: string }>reactive({
   name: '',
   email: '',
@@ -39,7 +37,7 @@ const formTag = computed(() => {
   return newObj
 })
 
-function redirectionMedia(e, label) {
+function redirectionMedia(label: string) {
   if (label === 'tweeter') {
     media.mediaLink = 'https://twitter.com/nest_Ngoueni'
   } else if (label === 'github') {
@@ -51,7 +49,7 @@ function redirectionMedia(e, label) {
   window.open(media.mediaLink, '_blank')
 }
 
-function handThisData(e, element) {
+function handThisData(e: HTMLInputElement | HTMLTextAreaElement, element: string) {
   if (element === 'name') {
     emailFormat.name = e.target.value
   } else if (element === 'email') {
@@ -61,7 +59,7 @@ function handThisData(e, element) {
   }
 }
 
-function delayTime(timeSet) {
+function delayTime(timeSet: number) {
   setTimeout((): void => {
     emailFormat.name = ''
     emailFormat.email = ''
@@ -77,19 +75,14 @@ function delayTime(timeSet) {
   }, timeSet)
 }
 
-function sendOurMailReview(e, emailFormat) {
+function sendOurMailReview(emailFormat: { name: string; email: string; message: string }) {
   // \w - alias for [a-zA-Z_0-9]
   // "whitespace"?  - allow whitespace after word, set is as optional
   const regExName = /^[a-zA-Z]{1,2}(\w+ ?)+$/
   const regEXEmail = /^([a-zA-Z0-9_\-\.\+]+)@([a-zA-Z0-9_\-\.]+)\.[a-zA-Z]{2,5}$/
 
-  console.log(emailFormat)
-
   const checkName = regExName.test(emailFormat.name)
   const checkEmail = regEXEmail.test(emailFormat.email)
-
-  console.log(emailFormat.name)
-  console.log(checkName)
 
   if (emailFormat.name === '' || emailFormat.email === '') {
     warningAttribute.message = 'name and email needed!'
@@ -165,19 +158,19 @@ function sendOurMailReview(e, emailFormat) {
                     id="link_tweeter"
                     class="tweeter_wrapper link_media"
                     ref="tweetRef"
-                    @click.prevent="(e) => redirectionMedia(e, 'tweeter')"
+                    @click.prevent="() => redirectionMedia('tweeter')"
                   ></div>
                   <div
                     id="link_github"
                     class="github_wrapper link_media"
                     ref="gitRef"
-                    @click.prevent="(e) => redirectionMedia(e, 'github')"
+                    @click.prevent="() => redirectionMedia('github')"
                   ></div>
                   <div
                     id="link_linkedin"
                     class="linkedin_wrapper link_media"
                     ref="linkedInRef"
-                    @click.prevent="(e) => redirectionMedia(e, 'linkedin')"
+                    @click.prevent="() => redirectionMedia('linkedin')"
                   ></div>
                 </div>
               </div>
@@ -238,7 +231,7 @@ function sendOurMailReview(e, emailFormat) {
               ></textarea>
             </div>
             <div class="submit_container">
-              <button class="btn_sub_msg" @click.prevent="(e) => sendOurMailReview(e, emailFormat)">
+              <button class="btn_sub_msg" @click.prevent="() => sendOurMailReview(emailFormat)">
                 Send
               </button>
             </div>

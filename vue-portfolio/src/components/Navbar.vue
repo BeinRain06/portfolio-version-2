@@ -4,51 +4,51 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const inputBox = <HTMLInputElement>ref()
-const menuBox = <HTMLDivElement>ref()
+const inputBox = <any>ref()
+const menuBox = <any>ref()
 
-let target_Path = ref()
+let target_Path = Promise<void | NavigationFailure | undefined>ref()
 
-let refLiMobNames = <HTMLLiElement[]>ref([])
-let refLiNames = <HTMLLiElement[]>ref([])
+let refLiMobNames = <any>ref([])
+let refLiNames = <any>ref([])
 const linkNames = <string[]>ref(['skills', 'resume', 'contact', 'about', 'home'])
 
 onMounted(() => {
-  refLiNames.value.forEach((element, i) => {
+  refLiNames.value.forEach((element:HTMLElement, i:number) => {
     if (i === 4) {
       element.classList.add('active_li')
     }
   })
 })
 
-function setLiMobNames(element) {
+function setLiMobNames(element:HTMLElement) {
   if (element) {
     refLiMobNames.value.push(element)
   }
 }
 
-function setLiNames(element) {
+function setLiNames(element:HTMLElement) {
   if (element) {
     refLiNames.value.push(element)
   }
 }
 
-function runActiveLi(i, screen) {
+function runActiveLi(i:number, screen:string) {
   if (screen === 'mobile') {
-    refLiNames.value.forEach((item) => {
+    refLiNames.value.forEach((item:HTMLElement) => {
       if (item.classList.contains('active_li')) {
         item.classList.remove('active_li')
       }
     })
   } else if (screen === 'desktop') {
-    refLiMobNames.value.forEach((item) => {
+    refLiMobNames.value.forEach((item:HTMLElement) => {
       if (item.firstElementChild.classList.contains('active_li')) {
         item.firstElementChild.classList.remove('active_li')
       }
     })
   }
 
-  refLiMobNames.value.forEach((item, j) => {
+  refLiMobNames.value.forEach((item:HTMLElement, j:number) => {
     if (i === j) {
       console.log(item)
       item.firstElementChild.classList.add('active_li')
@@ -57,7 +57,7 @@ function runActiveLi(i, screen) {
     }
   })
 
-  refLiNames.value.forEach((item, j) => {
+  refLiNames.value.forEach((item:HTMLElement, j:number) => {
     if (i === j) {
       console.log(item)
       item.classList.add('active_li')
@@ -67,7 +67,7 @@ function runActiveLi(i, screen) {
   })
 }
 
-function targetPage(e, i, section, screen) {
+function targetPage(i:number, section:string, screen:string) {
   console.log(refLiNames.value)
   if (screen === 'mobile') {
     menuBox.value.classList.remove('currently_view')
@@ -98,7 +98,7 @@ function targetPage(e, i, section, screen) {
 
   return target_Path.value
 }
-function toggleMenuContent(e) {
+function toggleMenuContent(e: HTMLInputElement) {
   if (e.currentTarget.checked) {
     menuBox.value.classList.add('currently_view')
   } else {
@@ -141,7 +141,7 @@ function toggleMenuContent(e) {
               class="menu_link"
               v-for="(localname, i) in linkNames"
               :data-index="i"
-              @click.prevent="(e) => targetPage(e, i, localname, 'mobile')"
+              @click.prevent="() => targetPage(i, localname, 'mobile')"
               :ref="setLiMobNames"
             >
               <div class="menulink_content">
@@ -162,7 +162,7 @@ function toggleMenuContent(e) {
               class="navlink"
               v-for="(localname, i) in linkNames"
               :ref="setLiNames"
-              @click.prevent="(e) => targetPage(e, i, localname, 'desktop')"
+              @click.prevent="() => targetPage(i, localname, 'desktop')"
             >
               <div class="navlink_content" :data-index="i">
                 <span class="font_Open_Sans_400">{{
