@@ -7,7 +7,7 @@ const router = useRouter()
 const inputBox = <HTMLInputElement>ref()
 const menuBox = <HTMLDivElement>ref()
 
-let target_Path = <ReturnType<()  => useRouter()>>ref()
+let target_Path = ref()
 
 let refLiMobNames = <HTMLLiElement[]>ref([])
 let refLiNames = <HTMLLiElement[]>ref([])
