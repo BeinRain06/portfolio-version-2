@@ -50,13 +50,14 @@ function redirectionMedia(label: string) {
 }
 
 function handThisData(e: Event, element: string) {
-  let newTag: HTMLInputElement | EventTarget | null = e.target
+  const newTag = (<HTMLInputElement>e.target).value
+
   if (element === 'name') {
-    emailFormat.name = newTag?.value
+    emailFormat.name = newTag
   } else if (element === 'email') {
-    emailFormat.email = newTag?.value
+    emailFormat.email = newTag
   } else if (element === 'message') {
-    emailFormat.message = newTag?.value
+    emailFormat.message = newTag
   }
 }
 
