@@ -50,7 +50,7 @@ function runActiveLi(i: number, screen: string) {
   }
 
   refLiMobNames.value.forEach((item: HTMLElement | null, j: number) => {
-    let newItem: Element | null = item.firstElementChild
+    let newItem: Element | null = item?.firstElementChild
     if (i === j) {
       newItem?.classList.add('active_li')
     } else {
@@ -99,7 +99,7 @@ function targetPage(i: number, section: string, screen: string) {
   return target_Path.value
 }
 function toggleMenuContent(e: Event) {
-  let newTarget: EventTarget | HTMLInputElement | null = e.currentTarget
+  let newTarget: HTMLInputElement | EventTarget | null = e.currentTarget
   if (newTarget?.checked) {
     menuBox.value.classList.add('currently_view')
   } else {
