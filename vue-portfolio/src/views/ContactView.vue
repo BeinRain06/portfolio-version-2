@@ -50,12 +50,13 @@ function redirectionMedia(label: string) {
 }
 
 function handThisData(e: Event, element: string) {
+  let newTag: HTMLElement | null = e.target
   if (element === 'name') {
-    emailFormat.name = e.target.value
+    emailFormat.name = newTag.value
   } else if (element === 'email') {
-    emailFormat.email = e.target.value
+    emailFormat.email = newTag.value
   } else if (element === 'message') {
-    emailFormat.message = e.target.value
+    emailFormat.message = newTag.value
   }
 }
 
