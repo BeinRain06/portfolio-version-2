@@ -538,9 +538,11 @@ input.trigger_menu {
     display: none;
   }
   .navbar_row {
-    width: 100%;
+    width: 100vw;
+    padding: 0;
     margin: 0;
     display: block;
+    overflow-x: hidden;
   }
 
   /*  .menu_wrap {

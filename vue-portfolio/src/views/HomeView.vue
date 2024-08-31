@@ -58,6 +58,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
+    overflow-x: hidden;
     z-index: 0;
   }
 

@@ -433,10 +433,9 @@
 
   .about_content_page {
     position: relative;
-    overflow: hidden;
     top: 0;
     width: 100vw;
-    height: calc(100vh - 100px);
+    min-height: 100vh;
     margin: 0 auto;
     border-top: 0.65rem solid rgb(0, 0, 56);
     border-bottom: 1rem solid rgb(0, 0, 56);
@@ -448,7 +447,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    overflow-x: hidden;
     z-index: 1;
   }
 
@@ -472,6 +471,7 @@
 
   .working_area {
     padding: 0 1rem;
+    margin-top: 1rem;
     height: 4rem;
     color: #fff;
     text-align: center;
@@ -500,8 +500,8 @@
 
   .skills_agent_wrap {
     width: 100%;
-    height: 19rem;
-    padding-bottom: 1rem;
+    height: 18rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -536,8 +536,8 @@
 
   .interest_container {
     position: absolute;
-    bottom: 3rem;
-    left: 0;
+    top: 17rem;
+    left: 0.5rem;
     width: 100%;
     height: auto;
     z-index: 5;
@@ -559,21 +559,19 @@
     padding: 1rem 0.5rem 1rem 0.25rem;
     width: 11rem;
     position: relative;
-    left: 1rem;
+    left: 0;
   }
 }
 
 @media (min-width: 460px) {
-  .about_content_page {
-    top: 0;
-    padding-bottom: 0.5rem;
-    min-height: 100vh;
-  }
-
   .locker_container {
-    min-height: 22rem;
+    min-height: 30rem;
     visibility: visible;
     /*  animation: anim-phaseA-about 1s ease-in-out forwards; */
+  }
+
+  .about_content_page {
+    padding: 0;
   }
 
   .working_area {
@@ -621,6 +619,7 @@
 
   .interest_container {
     position: absolute;
+    top: unset;
     bottom: 5rem;
   }
 

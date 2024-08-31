@@ -253,6 +253,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
+    overflow-x: hidden;
   }
 
   /* drop a message */
