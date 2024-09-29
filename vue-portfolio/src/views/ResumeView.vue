@@ -148,7 +148,7 @@ function playMoreInfoContent() {
               </div>
             </div>
 
-            <div class="experience_wrap w-100">
+            <div class="experience_wrap">
               <div
                 class="experience_ct w-100 d-flex flex-column justify-content-center align-items-center"
               >
@@ -156,7 +156,7 @@ function playMoreInfoContent() {
                   <div class="experience_sample_title text_size_one">
                     <span>EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
                   </div>
-                  <div class="experience_sample_content w-100 my-2 mx-auto text_size_one">
+                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
                     <div class="company_base w-100">
                       <span class="years_intern my-2 fw-bold text-success">2013 -2014</span>
                       <div class="company_reference my-1">
@@ -172,90 +172,95 @@ function playMoreInfoContent() {
                       </ul>
                     </div>
                     <div class="experience_projects px-1">
-                      <span class="my-1 fw-bold">SIDE PROJECTS</span>
-                      <div class="projects_list w-100">
-                        <ul class="project_card flex flex-column w-100" style="list-style: none">
-                          <li class="w-100">
-                            <div class="img_card_work">
-                              <span
-                                class="w-100 h-100 d-flex justify-content-center align-items-center"
-                                >VACON NXP</span
+                      <span class="fw-bold">SIDE PROJECTS</span>
+                      <div class="projects_list w-100 mt-3">
+                        <div class="project_card">
+                          <ul class="project_box flex flex-column w-100" style="list-style: none">
+                            <li class="w-100">
+                              <div class="img_card_work">
+                                <span
+                                  class="w-100 h-100 d-flex justify-content-center align-items-center"
+                                  >VACON NXP</span
+                                >
+                              </div>
+                            </li>
+                            <li class="project_content text_size_one mt-3">
+                              <span class="title_project fw-bold">
+                                Elaborative maintenance guide for Vacon NXP Frequency Converter
+                              </span>
+                              <p class="gen_purpose">
+                                Come up with an elaborative maintenance manual to prevent Vacon
+                                Converter from unexpected failures caused by lack of parameters
+                                regards
+                              </p>
+                            </li>
+                            <li
+                              class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
+                            >
+                              <div class="project_logo text_size_three">Converter</div>
+                            </li>
+                            <li class="more_info_elt">
+                              <div
+                                class="more_info_wrap"
+                                ref="moreBtn"
+                                @click="playMoreInfoContent"
                               >
+                                <span>more info</span>
+                                <div class="more_info_symbol">&raquo;</div>
+                              </div>
+                            </li>
+                          </ul>
+
+                          <div class="more_content_wrap text_size_three w-100 my-2">
+                            <div class="entitled_more py-2">
+                              <span class="font_Satisfy">Expectations</span>
                             </div>
-                          </li>
-                          <li class="project_content text_size_one mt-1">
-                            <span class="title_project fw-bold">
-                              Elaborative maintenance guide for Vacon NXP Frequency Converter
-                            </span>
-                            <p class="gen_purpose">
-                              Come up with an elaborative maintenance manual to prevent Vacon
-                              Converter from unexpected failures caused by lack of parameters
-                              regards
-                            </p>
-                          </li>
-                          <li
-                            class="project_logo_wrap w-100 d-flex flex-column justify-content-center align-items-center"
-                          >
-                            <div class="project_logo text_size_three">Converter</div>
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="more_info_wrap text_size_three"
-                        ref="moreBtn"
-                        @click="playMoreInfoContent"
-                      >
-                        <span>more info</span>
-                        <div class="more_info_symbol">&raquo;</div>
-                      </div>
-                      <div class="more_content_wrap text_size_three w-100 my-2">
-                        <div class="entitled_more py-2">
-                          <span class="font_Satisfy">Expectations</span>
+                            <ul class="more_content_ct p-0 mt-2">
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">1</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    Be familiar with Vacon NXP converter
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">2</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    learn about automation with AC/DC Converter
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">3</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    implement preventive maintenance
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
-                        <ul class="more_content_ct p-0 mt-2">
-                          <li
-                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                          >
-                            <div class="entity_box_number my-2">
-                              <div class="triangular_base_box">
-                                <div class="entity_number">1</div>
-                              </div>
-                            </div>
-                            <div class="entity_text">
-                              <p class="entity_text_paragraph text-center">
-                                Be familiar with Vacon NXP converter
-                              </p>
-                            </div>
-                          </li>
-                          <li
-                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                          >
-                            <div class="entity_box_number my-2">
-                              <div class="triangular_base_box">
-                                <div class="entity_number">2</div>
-                              </div>
-                            </div>
-                            <div class="entity_text">
-                              <p class="entity_text_paragraph text-center">
-                                learn about automation with AC/DC Converter
-                              </p>
-                            </div>
-                          </li>
-                          <li
-                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                          >
-                            <div class="entity_box_number my-2">
-                              <div class="triangular_base_box">
-                                <div class="entity_number">3</div>
-                              </div>
-                            </div>
-                            <div class="entity_text">
-                              <p class="entity_text_paragraph text-center">
-                                implement preventive maintenance
-                              </p>
-                            </div>
-                          </li>
-                        </ul>
                       </div>
                     </div>
                   </div>
@@ -464,6 +469,10 @@ li.no_list_style {
 
 .text_size_three {
   font-size: calc(14px + 0.3vw);
+}
+
+.margin_exp_sample {
+  margin: 0.5rem auto;
 }
 
 .lan_enum {
@@ -701,8 +710,10 @@ li.no_list_style {
   }
 
   .company_base {
-    display: grid;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     margin: 0 auto;
   }
 
@@ -712,16 +723,16 @@ li.no_list_style {
     gap: 0.5rem;
   }
 
-  .project_card {
+  .project_box {
     width: 100%;
     padding: 0;
     margin: 0.5rem 0;
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 8rem 9rem 2rem;
+    grid-auto-rows: 8rem min-content 1rem 1rem;
   }
 
-  .project_card .img_card_work {
+  .project_box .img_card_work {
     position: relative;
     width: 90%;
     height: 100%;
@@ -730,7 +741,7 @@ li.no_list_style {
     border: 1px solid #333;
   }
 
-  .project_card .img_card_work::before {
+  .project_box .img_card_work::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -746,7 +757,7 @@ li.no_list_style {
     place-items: center;
   }
 
-  .project_card .project_content {
+  .project_box .project_content {
     width: 100%;
     padding: 0.5rem;
     display: flex;
@@ -754,11 +765,15 @@ li.no_list_style {
     gap: 0.5rem;
   }
 
+  .project_box .more_info_elt {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
   .more_info_wrap {
-    position: relative;
-    margin-left: calc(100% - 12ch);
-    margin-top: 1rem;
-    height: 1rem;
+    font-size: calc(14px + 0.3vw);
     cursor: pointer;
     display: inline-flex;
     gap: 0.5rem;
@@ -1062,6 +1077,17 @@ li.no_list_style {
 }
 
 @media (min-width: 768px) {
+  .text_size_one {
+    font-size: calc(13px + 0.1vw);
+  }
+  .text_size_three {
+    font-size: calc(14px + 0.15vw);
+  }
+
+  .margin_exp_sample {
+    margin: 2.5rem auto 0.5rem;
+  }
+
   .edu_former {
     width: 25rem;
   }
@@ -1126,23 +1152,64 @@ li.no_list_style {
   }
 
   /* --> experiences */
-  .project_card {
+
+  .experience_wrap {
+    width: 88%;
+
+    margin: 0 auto;
+  }
+
+  .company_base {
+    align-items: left;
+    margin: 0;
+  }
+
+  .project_box {
     width: 100%;
     padding: 0;
     margin: 1rem 0 0;
     display: grid;
     place-content: center;
-    grid-template-columns: 10rem 6fr 2fr;
-    grid-auto-rows: 8rem;
+    grid-template-columns: 25% 50% 10% 15%;
+    grid-auto-rows: 9rem;
+    gap: 1rem;
   }
 
-  .project_card .img_card_work {
+  .project_box .img_card_work {
     position: relative;
     width: 90%;
     height: 100%;
     margin: 0 auto 0.5rem;
     border-radius: 5px;
     border: 1px solid #333;
+  }
+
+  .project_box .project_content {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .project_box .project_logo_wrap {
+    margin-left: 2rem;
+  }
+
+  .project_box .more_info_elt {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .more_info_wrap {
+    position: relative;
+    right: calc(10%);
+    font-size: calc(12px + 0.3vw);
   }
 
   /* --> language potential desk */
