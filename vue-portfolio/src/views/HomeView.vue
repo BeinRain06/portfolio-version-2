@@ -261,7 +261,7 @@
   .name_wrap {
     position: relative;
     height: 100%;
-    color: #b41b5b;
+    color: #89ff9d;
     transition: all 450ms ease 300ms;
   }
 
@@ -270,17 +270,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 33rem;
+    width: 36rem;
     height: 3rem;
     padding: 0.25rem;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.45);
     border-radius: 5px;
     transform: translate(-50%, -50%);
     transition: all 450ms ease;
   }
 
-  .name_wrap:hover {
-    color: #b4366a;
+  .name_wrap .my_name:hover {
+    color: #068554;
   }
   .name_wrap .my_name:hover::before {
     background-color: rgba(0, 0, 0, 0.25);

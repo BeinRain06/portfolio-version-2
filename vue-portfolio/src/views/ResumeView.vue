@@ -1,26 +1,43 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+
+const moreBtn: Ref<HTMLDivElement | undefined> = ref()
+
+function playMoreInfoContent() {
+  if (moreBtn.value?.classList.contains('active_info')) {
+    moreBtn.value?.classList.remove('active_info')
+  } else {
+    moreBtn.value?.classList.add('active_info')
+  }
+}
+</script>
 
 <template>
   <section id="resume_page">
     <div class="resume_domain">
       <!-- years story -->
-      <div class="story_container container-fluid">
+      <div class="story_container p-1">
         <div
-          class="story_enroll row w-100 d-flex flex-column justify-content-center align-items-center"
+          class="story_enroll w-100 p-2 mx-auto d-flex flex-column justify-content-center align-items-center"
         >
           <div class="title_story">
             <h4 class="font_Cabin_500"><strong>Summary</strong></h4>
           </div>
-          <div class="story_wrap w-100 d-flex justify-content-center">
-            <p class="story_content font_Open_Sans_400">
-              About 02 years and half, developed skills in ReactJS, TypeScript, and Vanilla JS.
-              React Context API tease me to build easy app storing data under the client side.
-              NodeJS and Express improve this experience at the time surrounded with the external
-              database tool MonGoDB. MonGoDB then along with Json web token on the fire allows me to
-              tackle area of user Authentication under credentials mostly needed effective inside
-              website application. Here one of our goal is being able to be skilled enough to push
-              out many prototypes that can serve as sample on new products developments. Years
-              Earlier have been working in electrical field especially area of house wiring.
+          <div class="story_wrap d-flex justify-content-center">
+            <p class="story_content font_Open_Sans_400 pt-4">
+              Hye Guys! My Name is NGOUEND RAOUL GERARD and i really glad to meet you. Back in my
+              Three years University. I study basics electrical and automation engineering,
+              obtaining an <span>associate's degree</span> after two years and a
+              <span>bacheloror in Electrotechnics</span> in the end years. I successfully work on
+              the field for quite plenty 07 years after that, though didn't manage to become an
+              electrical engineering. During this course i loved dive in subject related with
+              automation , having difficulties to have an internship in enterprize with some good
+              automation devices. I turn myself to learn a subject that is quite familiar and that
+              can be accessible at low cost or obviously let'say some kind of free. Then i dive into
+              coding since 03 years , having made some side projects to master fundamentals skills
+              of web developments. This is a delight to share them with others crews on the field
+              web development from front-end development to full-stack dev.
             </p>
           </div>
         </div>
@@ -47,28 +64,38 @@
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">Degree</th>
-                    <td class="school_certificate w-70">
-                      <span class="text-success">D.U.T : Diplome Universitaire de Technologie</span>
-                      <span> (Universitary Technic Diploma)</span>
-                    </td>
-                  </tr>
-                  <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">DeparTment</th>
-                    <td class="my_department w-70 my-0">
-                      <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
-                        G.E.I.I: Genie Electrique et Informatique Industrielle</span
+                    <td class="school_certificate w-70 mx-auto">
+                      <div
+                        class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
-                      <span> (Industrial Automation And Electrical Engineering)</span>
+                        <span class="text-success fw-bold">D.U.T </span>
+                        <span>( Diplome Universitaire de Technologie/ Associate's Degree )</span>
+                      </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">University</th>
+                    <td class="my_department w-70 my-0 mx-auto">
+                      <div
+                        class="w-100 d-flex flex-column justify-content-center align-items-center md: flex-row"
+                      >
+                        <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
+                          G.E.I.I
+                        </span>
+                        <span>
+                          (Genie Electrique et Informatique Industrielle/Industrial Automation And
+                          Electrical Engineering)</span
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="primar_table_row p-4">
                     <td class="info_tech_content">
-                      <span class="text-success"
-                        >University of Douala/ I.U.T : Institut Universitaire de Technologie</span
+                      <div
+                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                      <span> (Universitary Institute of Technology)</span>
+                        <span class="text-success">University of Douala/I.U.T</span>
+                        <span> Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28</span>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -81,27 +108,32 @@
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">Degree</th>
-                    <td class="school_certificate w-70">
-                      <span class="text-success">Licence en Electrotechnique</span>
-                      <span> (Bachelor Electrotechnics)</span>
+                    <td class="school_certificate w-70 mx-auto">
+                      <div
+                        class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
+                      >
+                        <span class="text-success fw-bold">E.T </span>
+                        <span
+                          >( Licence en Electrotechnique/ Bachelor in Electrotechnics science)</span
+                        >
+                      </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">DeparTment</th>
-                    <td class="my_department w-70 my-0">
+                    <td class="my_department w-70 my-0 mx-auto">
                       <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
                         E.T: ElectroTechnics</span
                       >
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <th class="info_tech_title">University</th>
                     <td class="info_tech_content">
-                      <span class="text-success"
-                        >University of Dschang/ I.U.C : Institut Universitaire dela Cote</span
+                      <div
+                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                      <span> (Universitary Coast Institute)</span>
+                        <span class="text-success">University of Dschang/IUC </span>
+                        <span> Colline de Foto · +237 233 45 13 81</span>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -113,6 +145,121 @@
             <div class="primar_title_wrapper my-4">
               <div class="edu_former justify-self-center">
                 <h5 class="experience_title font_Satisfy my-2">Experiences</h5>
+              </div>
+            </div>
+
+            <div class="experience_wrap w-100">
+              <div
+                class="experience_ct w-100 d-flex flex-column justify-content-center align-items-center"
+              >
+                <div class="experience_sample flex_col_center">
+                  <div class="experience_sample_title text_size_one">
+                    <span>EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
+                  </div>
+                  <div class="experience_sample_content w-100 my-2 mx-auto text_size_one">
+                    <div class="company_base w-100">
+                      <span class="years_intern my-2 fw-bold text-success">2013 -2014</span>
+                      <div class="company_reference my-1">
+                        <span class="w-full fw-bold">
+                          CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483
+                        </span>
+                      </div>
+                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                        <li class="w-100">Install Electrical devices for customers clients</li>
+                        <li class="w-100">
+                          Design Electrical schemes for electrical gas station board
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="experience_projects px-1">
+                      <span class="my-1 fw-bold">SIDE PROJECTS</span>
+                      <div class="projects_list w-100">
+                        <ul class="project_card flex flex-column w-100" style="list-style: none">
+                          <li class="w-100">
+                            <div class="img_card_work">
+                              <span
+                                class="w-100 h-100 d-flex justify-content-center align-items-center"
+                                >VACON NXP</span
+                              >
+                            </div>
+                          </li>
+                          <li class="project_content text_size_one mt-1">
+                            <span class="title_project fw-bold">
+                              Elaborative maintenance guide for Vacon NXP Frequency Converter
+                            </span>
+                            <p class="gen_purpose">
+                              Come up with an elaborative maintenance manual to prevent Vacon
+                              Converter from unexpected failures caused by lack of parameters
+                              regards
+                            </p>
+                          </li>
+                          <li
+                            class="project_logo_wrap w-100 d-flex flex-column justify-content-center align-items-center"
+                          >
+                            <div class="project_logo text_size_three">Converter</div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div
+                        class="more_info_wrap text_size_three"
+                        ref="moreBtn"
+                        @click="playMoreInfoContent"
+                      >
+                        <span>more info</span>
+                        <div class="more_info_symbol">&raquo;</div>
+                      </div>
+                      <div class="more_content_wrap text_size_three w-100 my-2">
+                        <div class="entitled_more py-2">
+                          <span class="font_Satisfy">Expectations</span>
+                        </div>
+                        <ul class="more_content_ct p-0 mt-2">
+                          <li
+                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                          >
+                            <div class="entity_box_number my-2">
+                              <div class="triangular_base_box">
+                                <div class="entity_number">1</div>
+                              </div>
+                            </div>
+                            <div class="entity_text">
+                              <p class="entity_text_paragraph text-center">
+                                Be familiar with Vacon NXP converter
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                          >
+                            <div class="entity_box_number my-2">
+                              <div class="triangular_base_box">
+                                <div class="entity_number">2</div>
+                              </div>
+                            </div>
+                            <div class="entity_text">
+                              <p class="entity_text_paragraph text-center">
+                                learn about automation with AC/DC Converter
+                              </p>
+                            </div>
+                          </li>
+                          <li
+                            class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                          >
+                            <div class="entity_box_number my-2">
+                              <div class="triangular_base_box">
+                                <div class="entity_number">3</div>
+                              </div>
+                            </div>
+                            <div class="entity_text">
+                              <p class="entity_text_paragraph text-center">
+                                implement preventive maintenance
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -307,6 +454,18 @@ li.no_list_style {
   font-size: 12px;
 }
 
+.text_size_one {
+  font-size: calc(11px + 0.15vw);
+}
+
+.text_size_two {
+  font-size: calc(12px + 0.25vw);
+}
+
+.text_size_three {
+  font-size: calc(14px + 0.3vw);
+}
+
 .lan_enum {
   padding: 0 0.25rem;
   color: #505050;
@@ -342,6 +501,11 @@ li.no_list_style {
 }
 
 @media (min-width: 160px) {
+  .flex_col_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   /*resume_wrapper*/
   .resume_domain {
     position: relative;
@@ -357,7 +521,7 @@ li.no_list_style {
     display: none;
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 950px;
     margin: 0.25rem auto 4rem;
   }
 
@@ -377,7 +541,6 @@ li.no_list_style {
 
   .story_wrap {
     position: relative;
-    left: 0.75rem;
     width: 100%;
     height: 100%;
     line-height: 1.5;
@@ -430,12 +593,12 @@ li.no_list_style {
 
   .primar_table_row {
     width: 100%;
-    margin: 0.5rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     gap: 1rem;
-    font-size: calc(12px + 0.15vw);
+    font-size: calc(12px + 0.35vw);
   }
 
   .primar_table_row .info_tech_title {
@@ -447,9 +610,8 @@ li.no_list_style {
   }
 
   .primar_table_row .info_tech_content {
-    text-align: left;
-    width: 82%;
-    padding-right: 1rem;
+    width: 100%;
+    padding: 0 0.5rem;
   }
   /* <-- primary education */
 
@@ -532,6 +694,155 @@ li.no_list_style {
   }
   /* <-- self-taught cursus */
 
+  /* --> experience section */
+  .experience_sample {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .company_base {
+    display: grid;
+    place-content: center;
+    margin: 0 auto;
+  }
+
+  .company_base .experience_tasks {
+    width: 100%;
+    list-style: square;
+    gap: 0.5rem;
+  }
+
+  .project_card {
+    width: 100%;
+    padding: 0;
+    margin: 0.5rem 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: 8rem 9rem 2rem;
+  }
+
+  .project_card .img_card_work {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+  }
+
+  .project_card .img_card_work::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    border: 1px solid #333;
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+
+  .project_card .project_content {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .more_info_wrap {
+    position: relative;
+    margin-left: calc(100% - 12ch);
+    margin-top: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.5rem;
+    transform: rotateZ(-360deg);
+    transition: all 0.45s ease 500ms;
+    z-index: 3;
+  }
+
+  .more_info_wrap:hover {
+    color: #15911b;
+    font-weight: bold;
+  }
+
+  .more_info_wrap.active_info {
+    transform: rotateZ(360deg);
+  }
+
+  .more_info_symbol {
+    position: relative;
+    top: 2px;
+    height: 100%;
+    margin: 0 0.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(90deg);
+    z-index: 1;
+  }
+
+  .more_info_wrap.active_info .more_info_symbol {
+    transform: rotate(-90deg);
+  }
+
+  .more_content_wrap {
+    width: 100%;
+    height: 0;
+    padding: 0.25rem;
+    visibility: hidden;
+    display: grid;
+    /*   grid-template-columns: 0; */
+    transition: all 1s ease-in-out;
+  }
+
+  .more_info_wrap.active_info + .more_content_wrap {
+    visibility: visible;
+    /*  grid-template-columns: 200px; */
+    height: auto;
+    transition: all 1.1s ease-in-out;
+  }
+
+  .entity_box_number {
+    position: relative;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #333;
+  }
+
+  .entity_box_number .triangular_base_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    background-color: #6e0797;
+    border-radius: 5px;
+  }
+
+  .entity_box_number .entity_number {
+    position: relative;
+    top: -2px;
+    left: 50%;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  /* <-- experience section */
+
   /* --> language potential  */
   .language_mastering {
     width: 100vw;
@@ -579,7 +890,8 @@ li.no_list_style {
   }
 
   .story_container {
-    margin-top: 2rem;
+    width: 94%;
+    margin: 2rem auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -622,8 +934,8 @@ li.no_list_style {
   }
 
   .primar_table_row .info_tech_content {
-    text-align: left;
     width: 72%;
+    margin: 0 auto;
   }
   /* <-- primary education */
 
@@ -764,7 +1076,7 @@ li.no_list_style {
   }
 
   .story_container {
-    margin-top: 0rem;
+    margin: 0 auto;
   }
 
   .resume_domain {
@@ -777,6 +1089,7 @@ li.no_list_style {
 
   .primar_table_row .info_tech_content {
     width: 90%;
+    margin: 0 auto;
   }
 
   /* <-- self-taught cursus */
@@ -810,6 +1123,26 @@ li.no_list_style {
     padding: 0;
     display: grid;
     place-items: center;
+  }
+
+  /* --> experiences */
+  .project_card {
+    width: 100%;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 10rem 6fr 2fr;
+    grid-auto-rows: 8rem;
+  }
+
+  .project_card .img_card_work {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #333;
   }
 
   /* --> language potential desk */

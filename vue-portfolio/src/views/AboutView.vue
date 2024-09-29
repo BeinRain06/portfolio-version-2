@@ -7,7 +7,7 @@
         <div class="locker_row row w-100 h-100 mx-auto">
           <div class="duty_wrapper">
             <div class="working_area">
-              <p class="skills_acquaintance fw-bold">Front-End/ Back-End Developer</p>
+              <p class="skills_acquaintance fw-bold">Front-End/ MERN App Developer</p>
             </div>
             <div class="skills_agent_wrap">
               <div class="agent_img_wrapper">
@@ -211,14 +211,14 @@
                     aria-valuenow="85"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    style="height: 22px"
+                    style="height: 22px; border-radius: 6px"
                   >
                     <div
                       class="progress-bar"
                       style="
                         width: 40%;
                         background-color: #f4f4f4;
-                        border-radius: 30px;
+                        border-radius: 6px;
                         animation: css-progress-anim 1s ease-in-out 4s forwards;
                       "
                     >
@@ -236,14 +236,14 @@
                       aria-valuenow="80"
                       aria-valuemin="0"
                       aria-valuemax="100"
-                      style="height: 22px"
+                      style="height: 22px; border-radius: 6px"
                     >
                       <div
                         class="progress-bar"
                         style="
                           width: 60%;
                           background-color: #f4f4f4;
-                          border-radius: 30px;
+                          border-radius: 6px;
                           animation: javascript-progress-anim 1s ease-in-out 5.1s forwards;
                         "
                       >
@@ -261,14 +261,14 @@
                         aria-valuenow="76"
                         aria-valuemin="0"
                         aria-valuemax="100"
-                        style="height: 22px"
+                        style="height: 22px; border-radius: 6px"
                       >
                         <div
                           class="progress-bar"
                           style="
                             width: 60%;
                             background-color: #f4f4f4;
-                            border-radius: 30px;
+                            border-radius: 6px;
                             animation: react-progress-anim 1s ease-in-out 5.1s forwards;
                           "
                         >
@@ -286,14 +286,14 @@
                           aria-valuenow="65"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="height: 22px"
+                          style="height: 22px; border-radius: 6px"
                         >
                           <div
                             class="progress-bar"
                             style="
                               width: 60%;
                               background-color: #f4f4f4;
-                              border-radius: 30px;
+                              border-radius: 6px;
                               animation: vue-progress-anim 1s ease-in-out 5.1s forwards;
                             "
                           >
@@ -311,14 +311,14 @@
                             aria-valuenow="60"
                             aria-valuemin="0"
                             aria-valuemax="100"
-                            style="height: 22px"
+                            style="height: 22px; border-radius: 6px"
                           >
                             <div
                               class="progress-bar"
                               style="
                                 width: 60%;
                                 background-color: #f4f4f4;
-                                border-radius: 30px;
+                                border-radius: 6px;
                                 animation: typescript-progress-anim 1s ease-in-out 5.1s forwards;
                               "
                             >
@@ -336,14 +336,14 @@
                               aria-valuenow="55"
                               aria-valuemin="0"
                               aria-valuemax="100"
-                              style="height: 22px"
+                              style="height: 22px; border-radius: 6px"
                             >
                               <div
                                 class="progress-bar"
                                 style="
                                   width: 55%;
                                   background-color: #f4f4f4;
-                                  border-radius: 30px;
+                                  border-radius: 6px;
                                   animation: express-progress-anim 1s ease-in-out 6s forwards;
                                 "
                               >
@@ -361,14 +361,14 @@
                                 aria-valuenow="20"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                                style="height: 22px"
+                                style="height: 22px; border-radius: 6px"
                               >
                                 <div
                                   class="progress-bar"
                                   style="
                                     width: 20%;
                                     background-color: #f4f4f4;
-                                    border-radius: 30px;
+                                    border-radius: 6px;
                                     animation: node-progress-anim 1s ease-in-out 8s forwards;
                                   "
                                 >
@@ -649,9 +649,17 @@
 
 @media (min-width: 768px) {
   .about_content_page {
+    position: relative;
     top: 0;
     padding-bottom: 0.5rem;
-    min-height: 110vh;
+    padding-top: 50px;
+    height: 30rem;
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  .locker_container {
+    height: calc(30rem - 6rem);
   }
 
   .skills_acquaintance {
@@ -666,27 +674,30 @@
     font-size: calc(25px + 0.3vw);
   }
 
-  .locker_container {
-    height: auto;
+  .duty_wrapper {
+    height: 100%;
   }
 
   .working_area {
     position: relative;
-    top: 0.5rem;
+    top: 0;
     left: 50%;
     width: 100vw;
+    height: 6rem;
     padding: 0.5rem 1rem;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
+    transform: translateX(-50%);
   }
 
   .skills_agent_wrap {
-    height: auto;
+    height: calc(100% - 6rem);
+    display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 
   .skills_agent_wrap .agent_img_wrapper {
@@ -731,18 +742,21 @@
 
   .interest_container {
     position: relative;
-    top: -1rem;
+    top: 0;
+    bottom: unset;
     width: 100%;
-    height: auto;
+    height: 6rem;
   }
 
   .inner_side_interests {
-    position: relative;
+    position: absolute;
     left: 50%;
-    bottom: auto;
+    /*  bottom: auto; */
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 0.25rem;
+    display: grid;
+    place-items: center;
     transform: translateX(-50%);
     gap: 0;
     font-size: calc(18px + 0.3vw);
