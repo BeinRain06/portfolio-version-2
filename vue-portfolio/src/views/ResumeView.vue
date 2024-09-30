@@ -1,14 +1,228 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { Ref } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import type { Ref, ComputedRef } from 'vue'
 
-const moreBtn: Ref<HTMLDivElement | undefined> = ref()
+const moreBtn: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
-function playMoreInfoContent() {
-  if (moreBtn.value?.classList.contains('active_info')) {
-    moreBtn.value?.classList.remove('active_info')
+const sideElectrical = reactive({
+  projects: [
+    {
+      id: 'elec_one',
+      name: 'VACON NXP',
+      subject: ' Elaborative maintenance guide for Vacon NXP Frequency Converter',
+      duty: 'Come up with an elaborative maintenance manual to prevent Vacon Converter from unexpected failures caused by lack of parameters watch',
+      logo: 'Converter',
+      moreLabel: 'more infos',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'Be Familiar withcon VACON NXP'
+        },
+        {
+          num: '2',
+          approach: 'Learn about automation with AC/DC Converter'
+        },
+        {
+          num: '3',
+          approach: 'Implement preventive maintenance'
+        }
+      ]
+    },
+    {
+      id: 'elec_two',
+      name: 'System Cut Back',
+      subject:
+        'rehabilitation of one wire system distribution diagram for thermic tank from System Cut Back Cameroun company',
+      duty: 'Come up with a functional diagram implementing the new new devices technology avilable',
+      logo: 'SCBC',
+      moreLabel: 'more infos',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'reconceptualize electrical diagram schema for heating fuel in tank'
+        },
+        {
+          num: '2',
+          approach: 'upgrade electrical scheme according to new sensor, or coil available'
+        },
+        {
+          num: '3',
+          approach:
+            'pack solution as a curative maintenance for efficiency of tank heating system like in the past'
+        }
+      ]
+    }
+  ]
+})
+
+const sideSelfDev = reactive({
+  projects: [
+    {
+      id: 'dev_one',
+      name: 'Reactjs-Context API',
+      subject: ' Word-letters-Game',
+      duty: 'guess the word hidden by the computer between 08 to 10 letters ',
+      link: 'https://words-letters-game.vercel.app/',
+      logo: 'word-letters',
+      moreLabel: 'more infos',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'select game template between 08 to 10 characters '
+        },
+        {
+          num: '2',
+          approach:
+            'color indice for letter, red(not the right  in this case), yellow(occured many times in this case right or not), green(right in this case) '
+        },
+        {
+          num: '3',
+          approach: 'Game Over. You can restart the Game'
+        }
+      ]
+    },
+    {
+      id: 'dev_two',
+      name: 'MERN App',
+      subject: 'Tds Restaurant',
+      duty: 'Online app foods. Order ready traditiononal cooked foods at home',
+      link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
+      logo: 'Tds',
+      moreLabel: 'more infos',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'can order dishes between 04 categories(meats, desserts, vegetarians, seafoods)'
+        },
+        {
+          num: '2',
+          approach: 'have the right to order and track at most three order at the same time'
+        },
+        {
+          num: '3',
+          approach: 'have the ability to rate dishes'
+        }
+      ]
+    },
+
+    {
+      id: 'dev_three',
+      name: 'MEVN App',
+      subject: 'Blog-app Tech',
+      duty: 'Blog about new culture, technologies and trend in I.T',
+      link: 'https://github.com/BeinRain06/blog-app-tech',
+      logo: 'BlogPinia',
+      moreLabel: 'more infos',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'createa/login to an account as admin or not'
+        },
+        {
+          num: '2',
+          approach: 'create/edit a post page if you are the author'
+        },
+        {
+          num: '3',
+          approach: 'filter post by author, by theme '
+        }
+      ]
+    }
+  ]
+})
+
+const frameworkBase = reactive({
+  inside: [
+    {
+      id: 'framework_one',
+      yearProject: '2023',
+      techFeatures: 'REACTJs with Context API data management',
+      techDetailOne: 'Use Typescript for easy and not confusing type variables declaration',
+      techDetailTwo: 'Use Context API Hook with react for data app management'
+    },
+    {
+      id: 'framework_two',
+      yearProject: '2024',
+      techFeatures: 'MongoDB-Express-React-Node Js (M.E.R.N App) - Full stack app based',
+      techDetailOne: 'ExpressJs - NodeJs  for backend development',
+      techDetailTwo: 'Mongo DataBase for data app management'
+    },
+    {
+      id: 'framework_three',
+      yearProject: '2024',
+      techFeatures: 'MongoDB-Express-Vue-Node Js (M.E.V.N App) - Full stack app based',
+      techDetailOne: 'ExpressJs - NodeJs  for backend development',
+      techDetailTwo: 'VueJs 3 framework for front-end UI design'
+    },
+    {
+      id: 'framework_four',
+      yearProject: '2024',
+      techFeatures: 'React Native',
+      techDetailOne: ' mobile app to ease communication within a small enterprize',
+      techDetailTwo: 'in progress ...'
+    }
+  ]
+})
+
+const sideElecProjects: ComputedRef<
+  {
+    id: string
+    name: string
+    subject: string
+    duty: string
+    logo: string
+    moreLabel: string
+    moreElt: {
+      num: string
+      approach: string
+    }[]
+  }[]
+> = computed(() => {
+  const sidePro = sideElectrical.projects
+  return sidePro
+})
+
+const frameTechnologies: ComputedRef<
+  {
+    id: string
+    yearProject: string
+    techFeatures: string
+    techDetailOne: string
+    techDetailTwo: string
+  }[]
+> = computed(() => {
+  const frameTech = frameworkBase.inside
+  return frameTech
+})
+
+const selfDevProjects: ComputedRef<
+  {
+    id: string
+    name: string
+    subject: string
+    duty: string
+    link: string
+    logo: string
+    moreLabel: string
+    moreElt: {
+      num: string
+      approach: string
+    }[]
+  }[]
+> = computed(() => {
+  const sideDev = sideSelfDev.projects
+  return sideDev
+})
+
+function playMoreElecInfoContent(i: string) {
+  /*  const btnTarget: (HTMLDivElement | undefined)[] | (undefined )) = moreBtn.value[+i]; */
+
+  console.log('moreBtn :', moreBtn)
+
+  if (moreBtn.value[+i]?.classList.contains('active_info')) {
+    moreBtn.value[+i]?.classList.remove('active_info')
   } else {
-    moreBtn.value?.classList.add('active_info')
+    moreBtn.value[+i]?.classList.add('active_info')
   }
 }
 </script>
@@ -154,14 +368,14 @@ function playMoreInfoContent() {
               >
                 <div class="experience_sample flex_col_center">
                   <div class="experience_sample_title text_size_one">
-                    <span>EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
+                    <span class="fw-bold text-lg">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
                   </div>
                   <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
                     <div class="company_base w-100">
                       <span class="years_intern my-2 fw-bold text-success">2013 -2014</span>
                       <div class="company_reference my-1">
                         <span class="w-full fw-bold">
-                          CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483
+                          CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483 Douala
                         </span>
                       </div>
                       <ul class="experience_tasks flex_col_center py-2 px-4">
@@ -174,38 +388,41 @@ function playMoreInfoContent() {
                     <div class="experience_projects px-1">
                       <span class="fw-bold">SIDE PROJECTS</span>
                       <div class="projects_list w-100 mt-3">
-                        <div class="project_card">
+                        <div
+                          class="project_card"
+                          :key="project.id"
+                          v-for="(project, i) in sideElecProjects"
+                        >
                           <ul class="project_box flex flex-column w-100" style="list-style: none">
                             <li class="w-100">
                               <div class="img_card_work">
                                 <span
-                                  class="w-100 h-100 d-flex justify-content-center align-items-center"
-                                  >VACON NXP</span
+                                  class="w-100 h-100"
+                                  style="display: grid; place-items: center"
+                                  >{{ project.name }}</span
                                 >
                               </div>
                             </li>
                             <li class="project_content text_size_one mt-3">
                               <span class="title_project fw-bold">
-                                Elaborative maintenance guide for Vacon NXP Frequency Converter
+                                {{ project.subject }}
                               </span>
                               <p class="gen_purpose">
-                                Come up with an elaborative maintenance manual to prevent Vacon
-                                Converter from unexpected failures caused by lack of parameters
-                                regards
+                                {{ project.duty }}
                               </p>
                             </li>
                             <li
                               class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
                             >
-                              <div class="project_logo text_size_three">Converter</div>
+                              <div class="project_logo text_size_three">{{ project.logo }}</div>
                             </li>
                             <li class="more_info_elt">
                               <div
                                 class="more_info_wrap"
                                 ref="moreBtn"
-                                @click="playMoreInfoContent"
+                                @click="() => playMoreElecInfoContent(`${i}`)"
                               >
-                                <span>more info</span>
+                                <span>{{ project.moreLabel }}</span>
                                 <div class="more_info_symbol">&raquo;</div>
                               </div>
                             </li>
@@ -221,12 +438,12 @@ function playMoreInfoContent() {
                               >
                                 <div class="entity_box_number my-2">
                                   <div class="triangular_base_box">
-                                    <div class="entity_number">1</div>
+                                    <div class="entity_number">{{ project.moreElt[0].num }}</div>
                                   </div>
                                 </div>
                                 <div class="entity_text">
                                   <p class="entity_text_paragraph text-center">
-                                    Be familiar with Vacon NXP converter
+                                    {{ project.moreElt[0].approach }}
                                   </p>
                                 </div>
                               </li>
@@ -235,12 +452,12 @@ function playMoreInfoContent() {
                               >
                                 <div class="entity_box_number my-2">
                                   <div class="triangular_base_box">
-                                    <div class="entity_number">2</div>
+                                    <div class="entity_number">{{ project.moreElt[1].num }}</div>
                                   </div>
                                 </div>
                                 <div class="entity_text">
                                   <p class="entity_text_paragraph text-center">
-                                    learn about automation with AC/DC Converter
+                                    {{ project.moreElt[1].approach }}
                                   </p>
                                 </div>
                               </li>
@@ -249,12 +466,183 @@ function playMoreInfoContent() {
                               >
                                 <div class="entity_box_number my-2">
                                   <div class="triangular_base_box">
-                                    <div class="entity_number">3</div>
+                                    <div class="entity_number">{{ project.moreElt[2].num }}</div>
                                   </div>
                                 </div>
                                 <div class="entity_text">
                                   <p class="entity_text_paragraph text-center">
-                                    implement preventive maintenance
+                                    {{ project.moreElt[2].approach }}
+                                  </p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                    <div class="company_base w-100">
+                      <span class="years_intern my-2 fw-bold text-success">2014 -2019</span>
+                      <div class="company_reference my-1">
+                        <span class="w-full fw-bold"> SELF ELECTRICAL ENTREPRENEUR </span>
+                      </div>
+                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                        <li class="w-100">Install Electrical devices for customers clients</li>
+                        <li class="w-100">2D electrical distribution diagram</li>
+                        <li class="w-100">single-line electrical distribution diagram</li>
+                      </ul>
+                      <div
+                        class="side_dream w-100 d-flex flex-column justify-content-start align-items-left gap-2"
+                      >
+                        <span class="fw-bold">side commitment</span>
+                        <p>
+                          attend more than 03 times to pass exam for
+                          <span class="fw-bold">polytechnic of Yaounde</span> as an aspiring
+                          electrical engineer
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                    <div class="company_base w-100">
+                      <span class="years_intern my-2 fw-bold text-success">2021</span>
+                      <div class="company_reference my-1">
+                        <span class="w-full fw-bold">
+                          SEAT (SYSTEME ENERGIE & APPLICATION TECHNIQUE) S.A.R.L · BP 16508 Douala
+                        </span>
+                      </div>
+                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                        <li class="w-100">
+                          Install Electrical devices for new built infrastructures - akwa
+                        </li>
+                        <li class="w-100">Install Electrical devices for hotels</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!--HERE WE ARE -->
+
+                <div class="experience_sample flex_col_center">
+                  <div class="experience_sample_title text_size_one">
+                    <span class="fw-bold text-lg">SELF TAUGHT DEVELOPMENT</span>
+                  </div>
+                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                    <div
+                      class="framework_base w-100"
+                      :key="framework.id"
+                      v-for="framework in frameTechnologies"
+                    >
+                      <span class="years_intern my-2 fw-bold text-success">{{
+                        framework.yearProject
+                      }}</span>
+                      <div class="company_reference my-1">
+                        <span class="w-full fw-bold">
+                          {{ framework.techFeatures }}
+                        </span>
+                      </div>
+                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                        <li class="w-100">
+                          {{ framework.techDetailOne }}
+                        </li>
+                        <li class="w-100">
+                          {{ framework.techDetailTwo }}
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="experience_projects px-1 margin_exp_sample_self">
+                      <span class="fw-bold">SIDE PROJECTS</span>
+                      <div class="projects_list w-100 mt-3">
+                        <div
+                          class="project_card"
+                          :key="project.id"
+                          v-for="(project, i) in selfDevProjects"
+                          :data-cardself="i"
+                        >
+                          <ul class="project_box flex flex-column w-100" style="list-style: none">
+                            <li class="w-100">
+                              <div class="img_card_work">
+                                <span
+                                  class="w-100 h-100 d-flex justify-content-center align-items-center"
+                                  >{{ project.name }}</span
+                                >
+                              </div>
+                            </li>
+                            <li class="project_content text_size_one mt-3">
+                              <span class="title_project fw-bold">
+                                {{ project.subject }}
+                              </span>
+                              <p class="gen_purpose">
+                                {{ project.duty }}
+                              </p>
+                              <a
+                                :href="project.link"
+                                class="gen_link"
+                                style="color: #4e6e97; font-weight: bold; transform: skewX(-3deg)"
+                                >{{ project.link }}</a
+                              >
+                            </li>
+                            <li
+                              class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
+                            >
+                              <div class="project_logo text_size_three">{{ project.logo }}</div>
+                            </li>
+                            <li class="more_info_elt">
+                              <div
+                                class="more_info_wrap"
+                                ref="moreBtn"
+                                @click="() => playMoreElecInfoContent(`${i}`)"
+                              >
+                                <span>{{ project.moreLabel }}</span>
+                                <div class="more_info_symbol">&raquo;</div>
+                              </div>
+                            </li>
+                          </ul>
+
+                          <div class="more_content_wrap text_size_three w-100 my-2">
+                            <div class="entitled_more py-2">
+                              <span class="font_Satisfy">Expectations</span>
+                            </div>
+                            <ul class="more_content_ct p-0 mt-2">
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">{{ project.moreElt[0].num }}</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    {{ project.moreElt[0].approach }}
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">{{ project.moreElt[1].num }}</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    {{ project.moreElt[1].approach }}
+                                  </p>
+                                </div>
+                              </li>
+                              <li
+                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                              >
+                                <div class="entity_box_number my-2">
+                                  <div class="triangular_base_box">
+                                    <div class="entity_number">{{ project.moreElt[2].num }}</div>
+                                  </div>
+                                </div>
+                                <div class="entity_text">
+                                  <p class="entity_text_paragraph text-center">
+                                    {{ project.moreElt[2].approach }}
                                   </p>
                                 </div>
                               </li>
@@ -358,7 +746,7 @@ function playMoreInfoContent() {
           <!-- language mastery -->
           <div class="language_mastering mt-4">
             <div class="lan_former">
-              <h5 class="language_title font_Satisfy p-2 my-2 mx-4">Language</h5>
+              <h5 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h5>
             </div>
             <div class="language_potential_mob">
               <div class="language_specific w-100">
@@ -475,6 +863,9 @@ li.no_list_style {
   margin: 0.5rem auto;
 }
 
+.margin_exp_sample_self {
+  margin: 2.5rem auto 0;
+}
 .lan_enum {
   padding: 0 0.25rem;
   color: #505050;
@@ -723,6 +1114,13 @@ li.no_list_style {
     gap: 0.5rem;
   }
 
+  .project_card .project_box .img_card_work,
+  .project_card .project_box .project_logo_wrap {
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-size: var(--var-font-size);
+  }
+
   .project_box {
     width: 100%;
     padding: 0;
@@ -770,6 +1168,45 @@ li.no_list_style {
     display: flex;
     justify-content: end;
     align-items: center;
+  }
+
+  .project_card[data-cardself='0'] .img_card_work {
+    background: url('../assets/images/projects/mobile-Words-Letters-Game.png') no-repeat center
+      center/cover;
+    margin: 0.75rem 0 1rem;
+    outline: 2px solid #1d831d;
+    outline-offset: 4px;
+    transition: all 1s ease-in-out;
+  }
+
+  .project_card[data-cardself='1'] .img_card_work {
+    background: url('../assets/images/projects/tds-retaurant.png') no-repeat center center/cover;
+    margin: 0.75rem 0 1rem;
+    outline: 2px solid #9c3f88;
+    outline-offset: 4px;
+    transition: all 1s ease-in-out;
+  }
+
+  .project_card[data-cardself='2'] .img_card_work {
+    background: url('../assets/images/projects/blog-app-tech.png') no-repeat center center/cover;
+    margin: 0.75rem 0 1rem;
+    outline: 2px solid #7c929e;
+    outline-offset: 4px;
+    transition: all 1s ease-in-out;
+  }
+
+  .project_card[data-cardself='0'] .img_card_work:hover,
+  .project_card[data-cardself='1'] .img_card_work:hover,
+  .project_card[data-cardself='2'] .img_card_work:hover {
+    color: #fff;
+  }
+
+  .project_card[data-cardself='0'] .img_card_work::before,
+  .project_card[data-cardself='1'] .img_card_work::before,
+  .project_card[data-cardself='2'] .img_card_work::before {
+    width: calc(100%);
+    height: calc(100%);
+    border: 1px solid transparent;
   }
 
   .more_info_wrap {
@@ -1145,7 +1582,7 @@ li.no_list_style {
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
     width: 80%;
-    height: 2.6rem;
+    height: 3.2rem;
     padding: 0;
     display: grid;
     place-items: center;
@@ -1171,7 +1608,7 @@ li.no_list_style {
     display: grid;
     place-content: center;
     grid-template-columns: 25% 50% 10% 15%;
-    grid-auto-rows: 9rem;
+    grid-auto-rows: 10rem;
     gap: 1rem;
   }
 
