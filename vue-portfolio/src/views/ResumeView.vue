@@ -1,8 +1,41 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, nextTick } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 
-const moreBtn: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+const moreElecBtn: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const moreSelfBtn: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const moreElecCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const moreSelfCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+let targetBtn: Ref<HTMLDivElement | undefined> = ref()
+let targetContent: Ref<HTMLDivElement | undefined> = ref()
+
+const classNameElec = reactive({
+  index: '',
+  button: {
+    optionA: 'more_info_wrap',
+    optionB: 'more_info_wrap active_button'
+  },
+  content: {
+    optionA: 'more_info_one',
+    optionB: 'more_info_one active_info'
+  }
+})
+
+const classNameSelf = reactive({
+  index: '',
+  button: {
+    optionA: 'more_info_wrap',
+    optionB: 'more_info_wrap active_button'
+  },
+  content: {
+    optionA: 'more_info_two',
+    optionB: 'more_info_two active_info'
+  }
+})
 
 const sideElectrical = reactive({
   projects: [
@@ -214,15 +247,95 @@ const selfDevProjects: ComputedRef<
   return sideDev
 })
 
-function playMoreElecInfoContent(i: string) {
-  /*  const btnTarget: (HTMLDivElement | undefined)[] | (undefined )) = moreBtn.value[+i]; */
+function playMoreInfoContent(i: string, label: string) {
+  if (label === 'elec') {
+    moreElecBtn.value.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_button')
+      } else {
+        item?.classList.remove('active_button')
+      }
+    })
 
-  console.log('moreBtn :', moreBtn)
+    moreElecCity.value.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_info')
+      } else {
+        item?.classList.remove('active_info')
+      }
+    })
 
-  if (moreBtn.value[+i]?.classList.contains('active_info')) {
-    moreBtn.value[+i]?.classList.remove('active_info')
-  } else {
-    moreBtn.value[+i]?.classList.add('active_info')
+    moreSelfBtn.value.forEach((item) => item?.classList.remove('active_button'))
+
+    moreSelfCity.value.forEach((item) => item?.classList.remove('active_info'))
+  }
+
+  if (label === 'self') {
+    moreSelfBtn.value.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_button')
+      } else {
+        item?.classList.remove('active_button')
+      }
+    })
+
+    moreSelfCity.value.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_info')
+      } else {
+        item?.classList.remove('active_info')
+      }
+    })
+
+    moreElecBtn.value.forEach((item) => item?.classList.remove('active_button'))
+
+    moreElecCity.value.forEach((item) => item?.classList.remove('active_info'))
+  }
+
+  /** resetMoreInfo(+i, label) **/
+}
+
+function resetMoreInfo(i: number, label: string) {
+  if (label === 'elec') {
+    moreElecBtn.value.forEach((item, j) => {
+      if (i === j) {
+        item?.classList.add('active_button')
+      } else {
+        item?.classList.remove('active_button')
+      }
+    })
+
+    moreElecCity.value.forEach((item, j) => {
+      if (i === j) {
+        item?.classList.add('active_info')
+      } else {
+        item?.classList.remove('active_info')
+      }
+    })
+
+    moreSelfBtn.value.forEach((item) => item?.classList.remove('active_button'))
+    moreSelfCity.value.forEach((item) => item?.classList.remove('active_info'))
+  }
+
+  if (label === 'self') {
+    moreSelfBtn.value.forEach((item, j) => {
+      if (i === j) {
+        item?.classList.add('active_button')
+      } else {
+        item?.classList.remove('active_button')
+      }
+    })
+
+    moreSelfCity.value.forEach((item, j) => {
+      if (i === j) {
+        item?.classList.add('active_info')
+      } else {
+        item?.classList.remove('active_info')
+      }
+    })
+
+    moreElecBtn.value.forEach((item) => item?.classList.remove('active_button'))
+    moreElecCity.value.forEach((item) => item?.classList.remove('active_info'))
   }
 }
 </script>
@@ -419,8 +532,8 @@ function playMoreElecInfoContent(i: string) {
                             <li class="more_info_elt">
                               <div
                                 class="more_info_wrap"
-                                ref="moreBtn"
-                                @click="() => playMoreElecInfoContent(`${i}`)"
+                                @click="() => playMoreInfoContent(`${i}`, 'elec')"
+                                ref="moreElecBtn"
                               >
                                 <span>{{ project.moreLabel }}</span>
                                 <div class="more_info_symbol">&raquo;</div>
@@ -428,54 +541,56 @@ function playMoreElecInfoContent(i: string) {
                             </li>
                           </ul>
 
-                          <div class="more_content_wrap text_size_three w-100 my-2">
-                            <div class="entitled_more py-2">
-                              <span class="font_Satisfy">Expectations</span>
+                          <div class="more_info_one" ref="moreElecCity">
+                            <div class="more_content_wrap text_size_three w-100 my-2">
+                              <div class="entitled_more py-2">
+                                <span class="font_Satisfy">Expectations</span>
+                              </div>
+                              <ul class="more_content_ct p-0 mt-2">
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[0].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[0].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[1].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[1].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[2].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[2].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
-                            <ul class="more_content_ct p-0 mt-2">
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[0].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[0].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[1].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[1].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[2].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[2].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                            </ul>
                           </div>
                         </div>
                       </div>
@@ -590,63 +705,64 @@ function playMoreElecInfoContent(i: string) {
                             <li class="more_info_elt">
                               <div
                                 class="more_info_wrap"
-                                ref="moreBtn"
-                                @click="() => playMoreElecInfoContent(`${i}`)"
+                                ref="moreSelfBtn"
+                                @click="() => playMoreInfoContent(`${i}`, 'self')"
                               >
                                 <span>{{ project.moreLabel }}</span>
                                 <div class="more_info_symbol">&raquo;</div>
                               </div>
                             </li>
                           </ul>
-
-                          <div class="more_content_wrap text_size_three w-100 my-2">
-                            <div class="entitled_more py-2">
-                              <span class="font_Satisfy">Expectations</span>
+                          <div class="more_info_two" ref="moreSelfCity">
+                            <div class="more_content_wrap text_size_three w-100 my-2">
+                              <div class="entitled_more py-2">
+                                <span class="font_Satisfy">Expectations</span>
+                              </div>
+                              <ul class="more_content_ct p-0 mt-2">
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[0].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[0].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[1].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[1].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                                <li
+                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
+                                >
+                                  <div class="entity_box_number my-2">
+                                    <div class="triangular_base_box">
+                                      <div class="entity_number">{{ project.moreElt[2].num }}</div>
+                                    </div>
+                                  </div>
+                                  <div class="entity_text">
+                                    <p class="entity_text_paragraph text-center">
+                                      {{ project.moreElt[2].approach }}
+                                    </p>
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
-                            <ul class="more_content_ct p-0 mt-2">
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[0].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[0].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[1].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[1].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                              <li
-                                class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                              >
-                                <div class="entity_box_number my-2">
-                                  <div class="triangular_base_box">
-                                    <div class="entity_number">{{ project.moreElt[2].num }}</div>
-                                  </div>
-                                </div>
-                                <div class="entity_text">
-                                  <p class="entity_text_paragraph text-center">
-                                    {{ project.moreElt[2].approach }}
-                                  </p>
-                                </div>
-                              </li>
-                            </ul>
                           </div>
                         </div>
                       </div>
@@ -1224,11 +1340,11 @@ li.no_list_style {
     font-weight: bold;
   }
 
-  .more_info_wrap.active_info {
+  .more_info_wrap.active_button {
     transform: rotateZ(360deg);
   }
 
-  .more_info_symbol {
+  .more_info_wrap .more_info_symbol {
     position: relative;
     top: 2px;
     height: 100%;
@@ -1240,31 +1356,51 @@ li.no_list_style {
     z-index: 1;
   }
 
-  .more_info_wrap.active_info .more_info_symbol {
+  .more_info_wrap.active_button .more_info_symbol {
     transform: rotate(-90deg);
   }
 
-  .more_content_wrap {
+  .more_info_one {
     width: 100%;
-    height: 0;
-    padding: 0.25rem;
-    visibility: hidden;
-    display: grid;
-    /*   grid-template-columns: 0; */
-    transition: all 1s ease-in-out;
+    margin: 1rem 0 0.5rem;
   }
 
-  .more_info_wrap.active_info + .more_content_wrap {
+  .more_info_two {
+    width: 100%;
+    margin: 2.5rem 0 0.5rem;
+  }
+
+  .more_info_one .more_content_wrap,
+  .more_info_two .more_content_wrap {
+    width: 100%;
+    padding: 0.5rem;
+    height: 0;
+    margin: 1rem 0;
+    background-color: #eee;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    transition:
+      visibility 0.3s ease-in-out,
+      height 0.9s ease,
+      background-color 0.9s ease;
+  }
+
+  .more_info_one.active_info .more_content_wrap,
+  .more_info_two.active_info .more_content_wrap {
     visibility: visible;
-    /*  grid-template-columns: 200px; */
-    height: auto;
-    transition: all 1.1s ease-in-out;
+    background-color: #ddd;
+    padding: 0.5rem;
+    margin: 2rem 0 1rem;
+    grid-template-columns: 100%;
+    height: max-content;
+    transition: all 3s ease-in-out 0.5s;
   }
 
   .entity_box_number {
     position: relative;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.35rem;
+    height: 1.35rem;
     border-radius: 5px;
     border: 1px solid transparent;
     border-bottom: 2px solid #333;
@@ -1290,7 +1426,7 @@ li.no_list_style {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-46%) rotate(-45deg);
   }
 
   /* <-- experience section */
