@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, computed, nextTick } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 
 const moreElecBtn: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
@@ -10,34 +10,33 @@ const moreElecCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
 const moreSelfCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
-let targetBtn: Ref<HTMLDivElement | undefined> = ref()
-let targetContent: Ref<HTMLDivElement | undefined> = ref()
+interface IFrameworkBase {
+  inside: {
+    id: string
+    yearProject: string
+    techFeatures: string
+    techDetailOne: string
+    techDetailTwo: string
+  }[]
+}
 
-const classNameElec = reactive({
-  index: '',
-  button: {
-    optionA: 'more_info_wrap',
-    optionB: 'more_info_wrap active_button'
-  },
-  content: {
-    optionA: 'more_info_one',
-    optionB: 'more_info_one active_info'
-  }
-})
+interface IProjects {
+  projects: {
+    id: string
+    name: string
+    subject: string
+    duty: string
+    link?: string
+    logo: string
+    moreLabel: string
+    moreElt: {
+      num: string
+      approach: string
+    }[]
+  }[]
+}
 
-const classNameSelf = reactive({
-  index: '',
-  button: {
-    optionA: 'more_info_wrap',
-    optionB: 'more_info_wrap active_button'
-  },
-  content: {
-    optionA: 'more_info_two',
-    optionB: 'more_info_two active_info'
-  }
-})
-
-const sideElectrical = reactive({
+const sideElectrical: IProjects = reactive({
   projects: [
     {
       id: 'elec_one',
@@ -88,7 +87,7 @@ const sideElectrical = reactive({
   ]
 })
 
-const sideSelfDev = reactive({
+const sideSelfDev: IProjects = reactive({
   projects: [
     {
       id: 'dev_one',
@@ -164,7 +163,7 @@ const sideSelfDev = reactive({
   ]
 })
 
-const frameworkBase = reactive({
+const frameworkBase: IFrameworkBase = reactive({
   inside: [
     {
       id: 'framework_one',
@@ -234,7 +233,7 @@ const selfDevProjects: ComputedRef<
     name: string
     subject: string
     duty: string
-    link: string
+    link?: string
     logo: string
     moreLabel: string
     moreElt: {
@@ -249,7 +248,7 @@ const selfDevProjects: ComputedRef<
 
 function playMoreInfoContent(i: string, label: string) {
   if (label === 'elec') {
-    moreElecBtn.value.forEach((item, j) => {
+    moreElecBtn.value?.forEach((item, j) => {
       if (j === +i) {
         item?.classList.toggle('active_button')
       } else {
@@ -257,7 +256,7 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreElecCity.value.forEach((item, j) => {
+    moreElecCity.value?.forEach((item, j) => {
       if (j === +i) {
         item?.classList.toggle('active_info')
       } else {
@@ -265,13 +264,13 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreSelfBtn.value.forEach((item) => item?.classList.remove('active_button'))
+    moreSelfBtn.value?.forEach((item) => item?.classList.remove('active_button'))
 
-    moreSelfCity.value.forEach((item) => item?.classList.remove('active_info'))
+    moreSelfCity.value?.forEach((item) => item?.classList.remove('active_info'))
   }
 
   if (label === 'self') {
-    moreSelfBtn.value.forEach((item, j) => {
+    moreSelfBtn.value?.forEach((item, j) => {
       if (j === +i) {
         item?.classList.toggle('active_button')
       } else {
@@ -279,7 +278,7 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreSelfCity.value.forEach((item, j) => {
+    moreSelfCity.value?.forEach((item, j) => {
       if (j === +i) {
         item?.classList.toggle('active_info')
       } else {
@@ -287,55 +286,9 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreElecBtn.value.forEach((item) => item?.classList.remove('active_button'))
+    moreElecBtn.value?.forEach((item) => item?.classList.remove('active_button'))
 
-    moreElecCity.value.forEach((item) => item?.classList.remove('active_info'))
-  }
-
-  /** resetMoreInfo(+i, label) **/
-}
-
-function resetMoreInfo(i: number, label: string) {
-  if (label === 'elec') {
-    moreElecBtn.value.forEach((item, j) => {
-      if (i === j) {
-        item?.classList.add('active_button')
-      } else {
-        item?.classList.remove('active_button')
-      }
-    })
-
-    moreElecCity.value.forEach((item, j) => {
-      if (i === j) {
-        item?.classList.add('active_info')
-      } else {
-        item?.classList.remove('active_info')
-      }
-    })
-
-    moreSelfBtn.value.forEach((item) => item?.classList.remove('active_button'))
-    moreSelfCity.value.forEach((item) => item?.classList.remove('active_info'))
-  }
-
-  if (label === 'self') {
-    moreSelfBtn.value.forEach((item, j) => {
-      if (i === j) {
-        item?.classList.add('active_button')
-      } else {
-        item?.classList.remove('active_button')
-      }
-    })
-
-    moreSelfCity.value.forEach((item, j) => {
-      if (i === j) {
-        item?.classList.add('active_info')
-      } else {
-        item?.classList.remove('active_info')
-      }
-    })
-
-    moreElecBtn.value.forEach((item) => item?.classList.remove('active_button'))
-    moreElecCity.value.forEach((item) => item?.classList.remove('active_info'))
+    moreElecCity.value?.forEach((item) => item?.classList.remove('active_info'))
   }
 }
 </script>
