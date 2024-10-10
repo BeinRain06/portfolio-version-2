@@ -14,6 +14,10 @@
                 <div class="agent_img"></div>
               </div>
 
+              <div class="working_area_inter">
+                <p class="skills_acquaintance fw-bold">Front-End/ MERN App Developer</p>
+              </div>
+
               <!-- skills recap mobile -->
               <div class="skills_recap d-block d-md-none">
                 <div id="first_skill_pro" class="skill_item_pro">
@@ -415,6 +419,10 @@
 }
 
 @media (min-width: 160px) {
+  .working_area_inter {
+    display: none;
+  }
+
   .skills_acquaintance {
     font-size: calc(18px + 0.3vw);
     visibility: hidden;
@@ -499,9 +507,10 @@
   }
 
   .skills_agent_wrap {
+    position: relative;
+    left: 0.65rem;
     width: 100%;
-    height: 18rem;
-    padding: 1rem 0;
+    height: 24rem;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -512,7 +521,7 @@
     top: 0;
     left: 0;
     width: 200px;
-    height: 175px;
+    height: 210px;
     perspective: 500px;
     display: flex;
     justify-content: flex-end;
@@ -522,21 +531,19 @@
   .agent_img_wrapper .agent_img {
     width: 100%;
     height: 100%;
-    background-image: url('../assets/images/profile_add-1.png');
-    object-fit: cover;
-    background-position: center;
+    background-image: url('../assets/images/profile_1.webp');
+    background-position: center 15px;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: luminosity;
-    transform: scale(0.96);
-    /* border-radius: 50%; */
+    background-color: rgba(0, 0, 90, 0.5);
   }
 
   /*interest side */
 
   .interest_container {
     position: absolute;
-    top: 17rem;
+    top: 19rem;
     left: 0.5rem;
     width: 100%;
     height: auto;
@@ -575,20 +582,23 @@
   }
 
   .working_area {
-    position: absolute;
-    top: 4rem;
-    left: 80%;
-    padding: 0 1rem;
-    margin-top: 0;
-    color: #fff;
-    width: 80%;
-
-    transform: translateX(-62%);
-    text-align: unset;
+    display: none;
   }
 
-  .skills_acquaintance {
+  .working_area_inter {
+    position: absolute;
+    display: inline-block;
+    top: calc(3rem + 0.25vw);
+    right: 10%;
+    width: 50%;
+    min-width: 260px;
+    height: 3rem;
+    color: #fff;
+  }
+
+  .working_area_inter .skills_acquaintance {
     font-size: calc(22px + 0.3vw);
+    margin: 0 auto;
   }
 
   .duty_wrapper .skills_recap {
@@ -596,6 +606,7 @@
   }
 
   .skills_agent_wrap {
+    left: 0;
     height: 25rem;
     padding-bottom: 0;
     flex-direction: column;
@@ -648,18 +659,20 @@
 }
 
 @media (min-width: 768px) {
+  .working_area_inter {
+    display: none;
+  }
+
   .about_content_page {
     position: relative;
     top: 0;
     padding-bottom: 0.5rem;
     padding-top: 50px;
-    height: 30rem;
-    /* display: flex;
-    flex-direction: column; */
+    min-height: 32rem;
   }
 
   .locker_container {
-    height: calc(30rem - 6rem);
+    height: calc(32rem - 6rem);
   }
 
   .skills_acquaintance {
@@ -701,26 +714,21 @@
   }
 
   .skills_agent_wrap .agent_img_wrapper {
-    top: 0.5rem;
+    top: 0;
     width: 19.25rem;
     padding-left: 1rem;
-    height: 90%;
+    height: 100%;
     margin-bottom: 0;
   }
 
   .agent_img_wrapper .agent_img {
-    background-image: url('../assets/images/profile_2.png');
     background-position: center 20px;
-    background-color: #8d8c8c;
-    background-color: rgba(0, 0, 90, 0.5);
-    transform: scale(1);
-    border-radius: 0;
     border: 2px solid transparent;
   }
 
   .duty_wrapper .skills_recap {
     position: relative;
-    top: 0.5rem;
+    top: 1.75rem;
     width: 60%;
     height: 100%;
     gap: 0.5rem;
@@ -745,7 +753,8 @@
     top: 0;
     bottom: unset;
     width: 100%;
-    height: 6rem;
+    height: 8rem;
+    margin: 2rem 0 1rem;
   }
 
   .inner_side_interests {
