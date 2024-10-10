@@ -715,13 +715,14 @@
 
   .skills_agent_wrap .agent_img_wrapper {
     top: 0;
-    width: 19.25rem;
+    width: 20rem;
     padding-left: 1rem;
     height: 100%;
     margin-bottom: 0;
   }
 
   .agent_img_wrapper .agent_img {
+    transform: scale(1);
     background-position: center 20px;
     border: 2px solid transparent;
   }
