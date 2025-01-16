@@ -320,7 +320,7 @@ input.trigger_menu {
   width: 100vw;
   height: auto;
   padding: 2rem 0 3.4rem;
-  background-color: rgba(0, 0, 128, 0.623);
+  background-color: hsla(240, 24%, 38%, 0.562);
   transform: translateX(-50%);
   transition: all 1.4s ease-in-out;
   z-index: 50;
@@ -329,11 +329,11 @@ input.trigger_menu {
 .menu_content.currently_view {
   content: '';
   position: absolute;
-  top: 3.1rem;
+  top: 3rem;
   left: 50%;
   width: 100vw;
   height: auto;
-  padding: 2rem 0;
+  padding: 2rem 0 7rem;
   transform: translateX(-50%);
   z-index: 50;
 }
@@ -562,7 +562,9 @@ input.trigger_menu {
   /*navbar desktop link */
   .navbar_content_tags {
     height: var(--navbar-height-mob-desk);
-    background-color: rgba(0, 0, 128, 0.95);
+    /* background-color: hsl(187, 33%, 65%);
+    background-color: hsl(188, 34%, 46%); */
+    background-color: var(--bg-navbar);
     padding: 0.25rem 0.5rem;
   }
 

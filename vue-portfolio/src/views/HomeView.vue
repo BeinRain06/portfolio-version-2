@@ -7,7 +7,7 @@
       <div class="hye_container container-fluid">
         <div class="hye_row row">
           <div class="hello_wrap d-flex w-100 p-2 gap-2">
-            <h1 class="say_hello">Front-End/ MERN App Developer</h1>
+            <h1 class="say_hello">Web Designer & Developer</h1>
           </div>
         </div>
       </div>
@@ -15,7 +15,9 @@
       <div class="name_container container-fluid">
         <div class="name_row row d-flex justify-content-center align-items-center">
           <div class="name_wrap d-flex justify-content-center align-items-center p-2">
-            <div class="my_name py-2 px-3">I AM NGOUEND GERARD</div>
+            <div class="my_name py-2 px-3 font_Satisfy">
+              <p>NGOUEND RaouL GERARD</p>
+            </div>
           </div>
         </div>
       </div>
@@ -86,8 +88,7 @@
     top: 2rem;
     left: calc(3% - 0.3vw);
     height: 80px;
-    color: #2f90bb;
-    color: #154c79;
+    color: var(--bg-primary-color);
     font-size: calc(18px + 0.3vw);
   }
 
@@ -116,7 +117,6 @@
     position: relative;
     width: 100%;
     height: auto;
-    color: rgb(36, 155, 36);
     font-weight: 430;
     font-size: calc(36px + 0.3vw);
     letter-spacing: 4px;
@@ -261,8 +261,9 @@
   .name_wrap {
     position: relative;
     height: 100%;
-    color: #89ff9d;
+    color: #030300;
     transition: all 450ms ease 300ms;
+    z-index: 2;
   }
 
   .name_wrap .my_name::before {
@@ -271,19 +272,21 @@
     top: 50%;
     left: 50%;
     width: 36rem;
-    height: 3rem;
-    padding: 0.25rem;
-    background-color: rgba(0, 0, 0, 0.45);
+    padding: 2rem 2rem;
+    background-color: #a8a6955d;
     border-radius: 5px;
-    transform: translate(-50%, -50%);
-    transition: all 450ms ease;
+    backdrop-filter: sepia(25%);
+    transform: translate(-50%, -52%);
+    transition: all 750ms ease;
+    z-index: -2;
   }
 
   .name_wrap .my_name:hover {
-    color: #068554;
+    color: #6b6142;
   }
   .name_wrap .my_name:hover::before {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: #a8a69585;
+    backdrop-filter: invert(67%);
   }
 
   .logo_skills_city {

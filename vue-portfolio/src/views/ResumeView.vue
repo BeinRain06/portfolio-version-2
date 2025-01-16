@@ -306,18 +306,18 @@ function playMoreInfoContent(i: string, label: string) {
           </div>
           <div class="story_wrap d-flex justify-content-center">
             <p class="story_content font_Open_Sans_400 pt-4">
-              Hye Guys! My Name is NGOUEND RAOUL GERARD and i really glad to meet you. Back in my
-              Three years University. I study basics electrical and automation engineering,
-              obtaining an <span>associate's degree</span> after two years and a
-              <span>bacheloror in Electrotechnics</span> in the end years. I successfully work on
-              the field for quite plenty 07 years after that, though didn't manage to become an
-              electrical engineering. During this course i loved dive in subject related with
-              automation , having difficulties to have an internship in enterprize with some good
-              automation devices. I turn myself to learn a subject that is quite familiar and that
-              can be accessible at low cost or obviously let'say some kind of free. Then i dive into
-              coding since 03 years , having made some side projects to master fundamentals skills
-              of web developments. This is a delight to share them with others crews on the field
-              web development from front-end development to full-stack dev.
+              Hye Guys! My Name is NGOUEND RAOUL GERARD i am really glad to meet you. Having some
+              previous technical experience. I studied basics electrical and automation engineering
+              two years , and got an <span>associate's degree</span>. Afterwards one year later i
+              obtain a <span>bachelor in Electrotechnics</span> . I worked for practically 7 good
+              years at least full times on the field and has been drowned to not see myself growing
+              because of the basics tasks i was used to perform all days. I wished i could join
+              industries based automation , but my efforts to land internship on those do not
+              succeed. I decide then to learn a skill that is quite familiar with automation ,
+              allowing accessibility at low cost. I end up choosing software development. And since
+              03 years, i have made my journey with side projects built-on html, css, javascript,
+              react, vuejs and libraries as bootstrap and tailwindcss. I'm committed , like working
+              with team and looking to become a full-stack developer.
             </p>
           </div>
         </div>
@@ -344,24 +344,25 @@ function playMoreInfoContent(i: string, label: string) {
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <td class="school_certificate w-70 mx-auto">
+                    <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
-                        <span class="text-success fw-bold">D.U.T </span>
+                        <div class="grade_certification">D.U.T</div>
                         <span>( Diplome Universitaire de Technologie/ Associate's Degree )</span>
                       </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <td class="my_department w-70 my-0 mx-auto">
-                      <div
-                        class="w-100 d-flex flex-column justify-content-center align-items-center md: flex-row"
-                      >
-                        <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
+                    <td class="info_tech_content">
+                      <div class="my_department">
+                        <span
+                          class="school_grade h6 m-0 cabin-500 fw-bold"
+                          style="color: var(--text-color-label)"
+                        >
                           G.E.I.I
                         </span>
-                        <span>
+                        <span class="pt-2">
                           (Genie Electrique et Informatique Industrielle/Industrial Automation And
                           Electrical Engineering)</span
                         >
@@ -371,10 +372,14 @@ function playMoreInfoContent(i: string, label: string) {
                   <tr class="primar_table_row p-4">
                     <td class="info_tech_content">
                       <div
-                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="px-4 py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span class="text-success">University of Douala/I.U.T</span>
-                        <span> Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28</span>
+                        <span style="color: var(--bg-secondary-color); font-weight: bolder"
+                          >University of Douala/I.U.T</span
+                        >
+                        <span style="color: var(--text-color-two)">
+                          Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28</span
+                        >
                       </div>
                     </td>
                   </tr>
@@ -384,15 +389,15 @@ function playMoreInfoContent(i: string, label: string) {
                 <tbody class="w-100">
                   <tr class="academic_primar_year py-1">
                     <td>
-                      <span class="p-1">2010-2012</span>
+                      <span class="p-1">2012-2013</span>
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <td class="school_certificate w-70 mx-auto">
+                    <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
-                        <span class="text-success fw-bold">E.T </span>
+                        <div class="grade_certification">E.T</div>
                         <span
                           >( Licence en Electrotechnique/ Bachelor in Electrotechnics science)</span
                         >
@@ -400,19 +405,29 @@ function playMoreInfoContent(i: string, label: string) {
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
-                    <td class="my_department w-70 my-0 mx-auto">
-                      <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
-                        E.T: ElectroTechnics</span
-                      >
+                    <td class="info_tech_content">
+                      <div class="my_department">
+                        <span
+                          class="school_grade h6 m-0 cabin-500 fw-bold"
+                          style="color: var(--text-color-label)"
+                        >
+                          Bachelor E.T</span
+                        >
+                        <span class="pt-2">ElectroTechnics</span>
+                      </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row p-4">
                     <td class="info_tech_content">
                       <div
-                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="px-4 px-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span class="text-success">University of Dschang/IUC </span>
-                        <span> Colline de Foto · +237 233 45 13 81</span>
+                        <span style="color: var(--bg-secondary-color); font-weight: bolder"
+                          >University of Dschang/IUC
+                        </span>
+                        <span style="color: var(--text-color-two)">
+                          Colline de Foto · +237 233 45 13 81</span
+                        >
                       </div>
                     </td>
                   </tr>
@@ -432,28 +447,28 @@ function playMoreInfoContent(i: string, label: string) {
               <div
                 class="experience_ct w-100 d-flex flex-column justify-content-center align-items-center"
               >
-                <div class="experience_sample flex_col_center">
-                  <div class="experience_sample_title text_size_one">
-                    <span class="fw-bold text-lg">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
+                <div class="experience_sample flex_col_center w-100">
+                  <div class="title_sub_section">
+                    <p class="fw-bold">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content w-100 margin_exp_sample">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2013 -2014</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                      <span class="years_intern my-2 title_year">2013 -2014</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with w-100">
                           CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483 Douala
                         </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center px-4">
                         <li class="w-100">Install Electrical devices for customers clients</li>
                         <li class="w-100">
                           Design Electrical schemes for electrical gas station board
                         </li>
                       </ul>
                     </div>
-                    <div class="experience_projects px-1">
-                      <span class="fw-bold">SIDE PROJECTS</span>
-                      <div class="projects_list w-100 mt-3">
+                    <div class="experience_projects px-1 mt-4">
+                      <h5 class="fw-bold">SIDE PROJECTS</h5>
+                      <div class="projects_list w-100" style="padding: 1rem 0 0.5rem">
                         <div
                           class="project_card"
                           :key="project.id"
@@ -469,7 +484,7 @@ function playMoreInfoContent(i: string, label: string) {
                                 >
                               </div>
                             </li>
-                            <li class="project_content text_size_one mt-3">
+                            <li class="project_content text_elec_project mt-3">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -480,7 +495,7 @@ function playMoreInfoContent(i: string, label: string) {
                             <li
                               class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
                             >
-                              <div class="project_logo text_size_three">{{ project.logo }}</div>
+                              <div class="project_logo text_project_logo">{{ project.logo }}</div>
                             </li>
                             <li class="more_info_elt">
                               <div
@@ -495,7 +510,7 @@ function playMoreInfoContent(i: string, label: string) {
                           </ul>
 
                           <div class="more_info_one" ref="moreElecCity">
-                            <div class="more_content_wrap text_size_three w-100 my-2">
+                            <div class="more_content_wrap text_project_logo w-100 my-2">
                               <div class="entitled_more py-2">
                                 <span class="font_Satisfy">Expectations</span>
                               </div>
@@ -549,34 +564,31 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content w-100 margin_exp_sample">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2014 -2019</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold"> SELF ELECTRICAL ENTREPRENEUR </span>
+                      <span class="years_intern my-2 title_year">2014 -2019</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with w-100"> SELF ELECTRICAL ENTREPRENEUR </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center px-4">
                         <li class="w-100">Install Electrical devices for customers clients</li>
                         <li class="w-100">2D electrical distribution diagram</li>
                         <li class="w-100">single-line electrical distribution diagram</li>
                       </ul>
                       <div
-                        class="side_dream w-100 d-flex flex-column justify-content-start align-items-left gap-2"
+                        class="side_dream w-100 pt-2 d-flex flex-column justify-content-start align-items-left"
+                        style="font-size: calc(12px + 0.15vw)"
                       >
-                        <span class="fw-bold">side commitment</span>
-                        <p>
-                          attend more than 03 times to pass exam for
-                          <span class="fw-bold">polytechnic of Yaounde</span> as an aspiring
-                          electrical engineer
-                        </p>
+                        <p class="fw-bold text-black-50 mb-0">side commitment</p>
+                        <p class="mx-1">Attend Engineer's schools exams training 04 years</p>
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content w-100 margin_exp_sample">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2021</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                      <span class="years_intern my-2 title_year">2021</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with w-100">
                           SEAT (SYSTEME ENERGIE & APPLICATION TECHNIQUE) S.A.R.L · BP 16508 Douala
                         </span>
                       </div>
@@ -589,27 +601,27 @@ function playMoreInfoContent(i: string, label: string) {
                     </div>
                   </div>
                 </div>
-                <!--HERE WE ARE -->
 
+                <!--SELF TAUGHT DEVELOPMENT-->
                 <div class="experience_sample flex_col_center">
-                  <div class="experience_sample_title text_size_one">
-                    <span class="fw-bold text-lg">SELF TAUGHT DEVELOPMENT</span>
+                  <div class="title_sub_section">
+                    <p class="fw-bold">SELF TAUGHT DEVELOPMENT</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content w-100 margin_exp_sample">
                     <div
                       class="framework_base w-100"
                       :key="framework.id"
                       v-for="framework in frameTechnologies"
                     >
-                      <span class="years_intern my-2 fw-bold text-success">{{
+                      <span class="years_intern my-2 fw-bold title_year">{{
                         framework.yearProject
                       }}</span>
                       <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                        <span class="w-full fw-bold title_self_dev">
                           {{ framework.techFeatures }}
                         </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center gap-2 py-2 px-4">
                         <li class="w-100">
                           {{ framework.techDetailOne }}
                         </li>
@@ -618,25 +630,29 @@ function playMoreInfoContent(i: string, label: string) {
                         </li>
                       </ul>
                     </div>
-                    <div class="experience_projects px-1 margin_exp_sample_self">
-                      <span class="fw-bold">SIDE PROJECTS</span>
-                      <div class="projects_list w-100 mt-3">
+                    <!-- SIDE PROJECTS -->
+                    <div class="experience_projects margin_exp_sample_self">
+                      <h5 class="fw-bold">SIDE PROJECTS</h5>
+                      <div class="projects_list w-100 p-4">
                         <div
                           class="project_card"
                           :key="project.id"
                           v-for="(project, i) in selfDevProjects"
                           :data-cardself="i"
                         >
-                          <ul class="project_box flex flex-column w-100" style="list-style: none">
-                            <li class="w-100">
+                          <div class="project_box w-100" style="list-style: none">
+                            <div
+                              class="image_box w-100 h-100 d-flex justify-content-center align-items-center"
+                              style="margin: 1rem auto"
+                            >
                               <div class="img_card_work">
                                 <span
                                   class="w-100 h-100 d-flex justify-content-center align-items-center"
                                   >{{ project.name }}</span
                                 >
                               </div>
-                            </li>
-                            <li class="project_content text_size_one mt-3">
+                            </div>
+                            <div class="project_content mt-4">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -649,13 +665,13 @@ function playMoreInfoContent(i: string, label: string) {
                                 style="color: #4e6e97; font-weight: bold; transform: skewX(-3deg)"
                                 >{{ project.link }}</a
                               >
-                            </li>
-                            <li
+                            </div>
+                            <div
                               class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
                             >
-                              <div class="project_logo text_size_three">{{ project.logo }}</div>
-                            </li>
-                            <li class="more_info_elt">
+                              <div class="project_logo text_project_logo">{{ project.logo }}</div>
+                            </div>
+                            <div class="more_info_elt">
                               <div
                                 class="more_info_wrap"
                                 ref="moreSelfBtn"
@@ -664,10 +680,10 @@ function playMoreInfoContent(i: string, label: string) {
                                 <span>{{ project.moreLabel }}</span>
                                 <div class="more_info_symbol">&raquo;</div>
                               </div>
-                            </li>
-                          </ul>
+                            </div>
+                          </div>
                           <div class="more_info_two" ref="moreSelfCity">
-                            <div class="more_content_wrap text_size_three w-100 my-2">
+                            <div class="more_content_wrap text_project_logo w-100 my-2">
                               <div class="entitled_more py-2">
                                 <span class="font_Satisfy">Expectations</span>
                               </div>
@@ -819,7 +835,7 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
             <div class="language_potential_mob">
               <div class="language_specific w-100">
-                <span class="language_text_enum lan_enum">French</span>
+                <span class="language_text_enum">French</span>
                 <div class="language_text_level lan_level w-100 d-flex justify-content-between">
                   <span> written</span>
                   <span>spoken</span>
@@ -827,7 +843,7 @@ function playMoreInfoContent(i: string, label: string) {
               </div>
 
               <div class="language_specific w-100">
-                <span class="language_text_enum lan_enum">English</span>
+                <span class="language_text_enum">English</span>
                 <div class="language_text_level lan_level w-100 d-flex justify-content-between">
                   <span> written</span>
                   <span> spoken (mid)</span>
@@ -836,11 +852,11 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
             <div class="language_potential_desk">
               <div class="taught_language_one">
-                <ul
+                <div
                   class="essence_lan d-flex flex-column justify-content-center align-items-center gap-2"
                 >
-                  <li class="m-0">French :</li>
-                  <li
+                  <div class="m-0">French :</div>
+                  <div
                     class="lan_square_list w-50 mx-auto p-1 d-flex justify-content-center gap-1 md:gap-4"
                   >
                     <div class="lan_square_item"></div>
@@ -848,17 +864,17 @@ function playMoreInfoContent(i: string, label: string) {
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
-                  </li>
-                  <li class="level_lan">Full-Professionnal</li>
-                </ul>
+                  </div>
+                  <div class="level_lan">Full-Professionnal</div>
+                </div>
               </div>
 
               <div class="taught_language_two">
-                <ul
+                <div
                   class="essence_lan d-flex flex-column justify-content-center align-items-center gap-2"
                 >
-                  <li class="m-0">English :</li>
-                  <li
+                  <div class="m-0">English :</div>
+                  <div
                     class="lan_square_list w-50 mx-auto p-1 d-flex justify-content-center gap-1 md:gap-4"
                   >
                     <div class="lan_square_item active_square"></div>
@@ -866,9 +882,9 @@ function playMoreInfoContent(i: string, label: string) {
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
-                  </li>
-                  <li class="level_lan">Intermediarie-Professionnal</li>
-                </ul>
+                  </div>
+                  <div class="level_lan">Intermediarie-Professionnal</div>
+                </div>
               </div>
             </div>
           </div>
@@ -912,34 +928,67 @@ li.no_list_style {
   font-variation-settings: 'wdth' 100;
 }
 
+.grade_certification {
+  width: 6.5rem;
+  padding: 5px 10px;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-three);
+  background-color: var(--bg-secondary-color);
+  font-size: calc(14px + 0.18vw);
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px var(--bg-border-layout);
+}
+
+.title_sub_section {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.25rem;
+  font-size: calc(14px + 0.15vw);
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+}
+
 .text_size {
   font-size: 12px;
 }
 
-.text_size_one {
-  font-size: calc(11px + 0.15vw);
+.text_elec_project {
+  font-size: calc(11px + 0.24vw);
+}
+
+.title_self_dev {
+  font-size: calc(13px + 0.2vw);
+  opacity: 0.88;
 }
 
 .text_size_two {
   font-size: calc(12px + 0.25vw);
 }
 
-.text_size_three {
+.text_project_logo {
   font-size: calc(14px + 0.3vw);
 }
 
+.title_year {
+  color: var(--bg-secondary-color);
+  font-size: calc(12px + 0.25vw);
+  font-weight: bold;
+}
+
+.title_worked_with {
+  color: var(--bg-shift-secondary-color);
+  font-size: calc(14px + 0.3vw);
+  font-weight: bold;
+}
+
 .margin_exp_sample {
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 }
 
 .margin_exp_sample_self {
   margin: 2.5rem auto 0;
-}
-.lan_enum {
-  padding: 0 0.25rem;
-  color: #505050;
-  font-size: calc(13px + 0.15vw);
-  font-weight: bold;
 }
 
 .lan_level {
@@ -951,7 +1000,7 @@ li.no_list_style {
 .edu_former {
   width: 12rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 128, 0.705);
+  background-color: var(--bg-shift-secondary-color);
   display: flex;
   justify-content: center;
 }
@@ -959,7 +1008,8 @@ li.no_list_style {
 .lan_former {
   width: 12rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 128, 0.705);
+  /* background-color: rgba(0, 0, 128, 0.705); */
+  background-color: var(--bg-shift-secondary-color);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -970,6 +1020,10 @@ li.no_list_style {
 }
 
 @media (min-width: 160px) {
+  li {
+    font-size: calc(14px + 0.12vw);
+  }
+
   .flex_col_center {
     display: flex;
     flex-direction: column;
@@ -982,7 +1036,7 @@ li.no_list_style {
     width: 100vw;
     padding: 0.5rem 1rem 1rem;
     margin: 0 auto;
-    background-color: #f4f4f4;
+    background-color: var(--bg-primary-color);
   }
 
   /* Summary */
@@ -998,8 +1052,8 @@ li.no_list_style {
     width: 200px;
     padding: 0.25rem 1rem;
     margin: 1rem 0;
-    color: #fff;
-    background-color: #c4c1c1;
+    color: var(--text-color-primar);
+    /* background-color: var(--bg-title); */
     text-align: center;
   }
 
@@ -1012,6 +1066,7 @@ li.no_list_style {
     position: relative;
     width: 100%;
     height: 100%;
+    color: var(--text-color-three);
     line-height: 1.5;
     font-size: calc(14px + 0.2vw);
     text-align: justify;
@@ -1051,12 +1106,15 @@ li.no_list_style {
     min-height: 200px;
     padding: 0.5rem 1rem;
     margin: 1.5rem 0;
-    background-color: #e0e0e0;
+    /* background-color: #e0e0e0; */
   }
 
   .academic_primar_year {
-    color: #d3d0d0;
-    background-color: #34803b;
+    /* color: #d3d0d0; */
+    /* background-color: #34803b; */
+    color: var(--text-color-title);
+    background-color: var(--bg-title);
+    border-top-left-radius: 5px;
     font-weight: bold;
   }
 
@@ -1070,18 +1128,31 @@ li.no_list_style {
     font-size: calc(12px + 0.35vw);
   }
 
-  .primar_table_row .info_tech_title {
-    width: 5rem;
-    padding: 0;
-    margin-right: 1rem;
-    color: #4f4f52;
-    font-weight: bold;
-  }
-
   .primar_table_row .info_tech_content {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 0.5rem;
   }
+
+  .primar_table_row .info_tech_content:nth-child(3) {
+    background-color: var(--text-color-label);
+    border-radius: 5px;
+  }
+
+  .info_tech_content span {
+    color: var(--text-color-content);
+  }
+
+  .info_tech_content .my_department {
+    width: 100%;
+    padding: 5px 0 20px;
+    color: var(--bg-shift-secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   /* <-- primary education */
 
   /* --> self-taught cursus */
@@ -1101,9 +1172,10 @@ li.no_list_style {
     width: 100%;
     padding: 0.35rem 0.25rem;
     color: #fff;
-    background-color: rgb(200, 200, 205);
+    background-color: var(--bg-title-2);
     font-size: calc(15px + 0.15vw);
     text-align: center;
+    border-radius: 5px;
   }
 
   .self_taught_cursus .about_journey {
@@ -1166,7 +1238,8 @@ li.no_list_style {
   /* --> experience section */
   .experience_sample {
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
+    margin: 1rem auto;
   }
 
   .company_base {
@@ -1180,7 +1253,7 @@ li.no_list_style {
   .company_base .experience_tasks {
     width: 100%;
     list-style: square;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .project_card .project_box .img_card_work,
@@ -1192,20 +1265,23 @@ li.no_list_style {
 
   .project_box {
     width: 100%;
-    padding: 0;
+    padding: 0.5rem;
     margin: 0.5rem 0;
+    background-color: var(--bg-navbar);
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 8rem min-content 1rem 1rem;
+    grid-auto-rows: 9.2rem min-content 1rem 1rem;
+    place-items: center;
   }
 
   .project_box .img_card_work {
     position: relative;
-    width: 90%;
+    top: 1rem;
+    width: 92%;
     height: 100%;
-    margin: 0 auto 0.5rem;
+    padding-bottom: 1rem;
     border-radius: 5px;
-    border: 1px solid #333;
+    border: 1px solid var(--text-color-label);
   }
 
   .project_box .img_card_work::before {
@@ -1218,7 +1294,7 @@ li.no_list_style {
     margin: 0 auto;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    border: 1px solid #333;
+    border: 1px solid var(--text-color-label);
     text-align: center;
     display: grid;
     place-items: center;
@@ -1406,6 +1482,20 @@ li.no_list_style {
     /*  gap: 0.5rem; */
   }
 
+  .language_potential_mob .language_specific {
+    padding: 5px 10px;
+    margin: 10px 0;
+    background-color: var(--bg-navbar);
+    border-radius: 5px;
+  }
+
+  .language_specific .language_text_enum {
+    padding: 0 0.25rem;
+    color: var(--bg-border-layout);
+    font-size: calc(13px + 0.15vw);
+    font-weight: bold;
+  }
+
   .language_potential_desk {
     display: none;
   }
@@ -1465,7 +1555,7 @@ li.no_list_style {
     min-height: 200px;
     padding: 0.5rem 1rem;
     margin: 1.5rem 0;
-    background-color: #e0e0e0;
+    /* background-color: #e0e0e0; */
   }
 
   .primar_table_row {
@@ -1524,47 +1614,41 @@ li.no_list_style {
     position: relative;
     top: 2rem;
     width: 100vw;
-    height: 130px;
-    padding: 0;
-    margin: 1rem auto;
-    display: flex;
-    justify-content: center;
+    padding: 0.5rem;
     font-size: calc(13px + 0.15vw);
-    gap: 0.15rem;
+    display: grid;
+    grid-template-columns: auto 40% 40% auto;
+    grid-template-rows: 130px;
   }
 
-  .taught_language_one,
-  .taught_language_two {
-    position: relative;
-    width: 50%;
-    height: 100px;
-    margin: 0 auto;
+  .language_potential_desk .taught_language_one {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
   }
 
-  .taught_language_one .essence_lan {
-    width: 210px;
+  .language_potential_desk .taught_language_two {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .taught_language_one .essence_lan,
+  .taught_language_two .essence_lan {
+    width: 100%;
     padding: 0.35rem 0.25rem;
     background-color: #ccd1cd;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
   }
 
   .taught_language_two .essence_lan {
-    width: 210px;
-    padding: 0.35rem 0.25rem;
     color: #fff;
     background-color: #6f1277;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
   }
 
-  .taught_language_one .lan_square_item {
+  .taught_language_one .lan_square_item,
+  .taught_language_two .lan_square_item {
     position: relative;
     width: 14px;
     height: 7px;
@@ -1572,9 +1656,6 @@ li.no_list_style {
   }
 
   .taught_language_two .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
     border: 1px solid #e4e4f4;
   }
 
@@ -1603,15 +1684,28 @@ li.no_list_style {
 }
 
 @media (min-width: 768px) {
-  .text_size_one {
-    font-size: calc(13px + 0.1vw);
+  .title_self_dev {
+    font-size: calc(15px + 0.15vw);
   }
-  .text_size_three {
-    font-size: calc(14px + 0.15vw);
+
+  .text_elec_project {
+    font-size: calc(12px + 0.35vw);
+  }
+
+  .title_sub_section {
+    font-size: calc(18px + 0.25vw);
+  }
+
+  li {
+    font-size: calc(15px + 0.18vw);
+  }
+
+  .text_project_logo {
+    font-size: calc(13px + 0.15vw);
   }
 
   .margin_exp_sample {
-    margin: 2.5rem auto 0.5rem;
+    margin: 1rem auto 0;
   }
 
   .edu_former {
@@ -1642,6 +1736,18 @@ li.no_list_style {
   .primar_table_row .info_tech_content {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .info_tech_content .my_department {
+    width: max-content;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  .experience_sample {
+    padding: 1rem 0.5rem;
+    margin: 3rem auto 1rem;
   }
 
   /* <-- self-taught cursus */
@@ -1686,29 +1792,33 @@ li.no_list_style {
   }
 
   .company_base {
-    align-items: left;
     margin: 0;
   }
 
   .project_box {
-    width: 100%;
-    padding: 0;
+    padding: 1rem;
     margin: 1rem 0 0;
     display: grid;
     place-content: center;
     grid-template-columns: 25% 50% 10% 15%;
-    grid-auto-rows: 10rem;
-    gap: 1rem;
+    grid-auto-rows: 12rem;
+    gap: 0.75rem;
   }
 
-  .project_box .img_card_work {
-    position: relative;
-    width: 90%;
-    height: 100%;
-    margin: 0 auto 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #333;
+  .project_box div.image_box {
+    padding: 0.25rem;
+    display: grid;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
   }
+
+  /* .project_box .img_card_work {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+  } */
 
   .project_box .project_content {
     width: 100%;
@@ -1744,34 +1854,10 @@ li.no_list_style {
   }
 
   .language_potential_desk {
-    width: 90vw;
-    max-width: 900px;
-    justify-content: space-between;
     font-size: calc(15px + 0.18vw);
     gap: 0.5rem;
   }
 
-  .taught_language_one .essence_lan {
-    width: 390px;
-  }
-
-  .taught_language_two .essence_lan {
-    width: 390px;
-  }
-
-  .taught_language_one .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
-    border: 1px solid #333;
-  }
-
-  .taught_language_two .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
-    border: 1px solid #e4e4f4;
-  }
   /* <-- language potential desk */
 }
 </style>

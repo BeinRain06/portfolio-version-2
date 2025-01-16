@@ -2,57 +2,33 @@
 <template>
   <section id="about_page">
     <div class="about_content_page">
-      <!-- about skills -->
-      <div class="locker_container container-fluid">
-        <div class="locker_row row w-100 h-100 mx-auto">
-          <div class="duty_wrapper">
-            <div class="working_area">
-              <p class="skills_acquaintance fw-bold">Front-End/ MERN App Developer</p>
-            </div>
-            <div class="skills_agent_wrap">
-              <div class="agent_img_wrapper">
-                <div class="agent_img"></div>
-              </div>
-
-              <div class="working_area_inter">
+      <div class="content_enroll">
+        <!-- about skills -->
+        <div class="locker_container container-fluid">
+          <div class="locker_row row w-100 h-100 mx-auto">
+            <div class="duty_wrapper">
+              <div class="working_area">
                 <p class="skills_acquaintance fw-bold">Front-End/ MERN App Developer</p>
               </div>
+              <div class="skills_agent_wrap">
+                <div class="agent_img_wrapper">
+                  <div class="agent_img"></div>
+                </div>
 
-              <!-- skills recap mobile -->
-              <div class="skills_recap d-block d-md-none">
-                <div id="first_skill_pro" class="skill_item_pro">
-                  <label for="css">CSS</label>
-                  <div
-                    id="progress_css"
-                    class="progress"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    aria-valuenow="85"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style="height: 14px"
-                  >
-                    <div
-                      class="progress-bar"
-                      style="
-                        width: 40%;
-                        background-color: #f4f4f4;
-                        border-radius: 30px;
-                        animation: css-progress-anim 1s ease-in-out 4s forwards;
-                      "
-                    >
-                      85%
-                    </div>
-                  </div>
+                <div class="working_area_inter">
+                  <p class="skills_acquaintance fw-bold">Front-End/ MERN App Developer</p>
+                </div>
 
-                  <div class="skill_item_pro">
-                    <label for="javascript">Javascript</label>
+                <!-- skills recap mobile -->
+                <div class="skills_recap d-block d-md-none">
+                  <div id="first_skill_pro" class="skill_item_pro">
+                    <label for="css">CSS</label>
                     <div
-                      id="progress_javascript"
+                      id="progress_css"
                       class="progress"
                       role="progressbar"
-                      aria-label="javascript"
-                      aria-valuenow="80"
+                      aria-label="Example with label"
+                      aria-valuenow="85"
                       aria-valuemin="0"
                       aria-valuemax="100"
                       style="height: 14px"
@@ -60,24 +36,24 @@
                       <div
                         class="progress-bar"
                         style="
-                          width: 60%;
+                          width: 40%;
                           background-color: #f4f4f4;
                           border-radius: 30px;
-                          animation: javascript-progress-anim 1s ease-in-out 5.1s forwards;
+                          animation: css-progress-anim 1s ease-in-out 4s forwards;
                         "
                       >
-                        80%
+                        85%
                       </div>
                     </div>
 
                     <div class="skill_item_pro">
-                      <label for="reactjs">ReactJS</label>
+                      <label for="javascript">Javascript</label>
                       <div
-                        id="progress_reactjs"
+                        id="progress_javascript"
                         class="progress"
                         role="progressbar"
-                        aria-label="reactjs"
-                        aria-valuenow="76"
+                        aria-label="javascript"
+                        aria-valuenow="80"
                         aria-valuemin="0"
                         aria-valuemax="100"
                         style="height: 14px"
@@ -88,21 +64,21 @@
                             width: 60%;
                             background-color: #f4f4f4;
                             border-radius: 30px;
-                            animation: react-progress-anim 1s ease-in-out 5.1s forwards;
+                            animation: javascript-progress-anim 1s ease-in-out 5.1s forwards;
                           "
                         >
-                          78%
+                          80%
                         </div>
                       </div>
 
                       <div class="skill_item_pro">
-                        <label for="vuejs">VueJS</label>
+                        <label for="reactjs">ReactJS</label>
                         <div
-                          id="progress_vuejs"
+                          id="progress_reactjs"
                           class="progress"
                           role="progressbar"
-                          aria-label="vuejs"
-                          aria-valuenow="65"
+                          aria-label="reactjs"
+                          aria-valuenow="76"
                           aria-valuemin="0"
                           aria-valuemax="100"
                           style="height: 14px"
@@ -113,21 +89,21 @@
                               width: 60%;
                               background-color: #f4f4f4;
                               border-radius: 30px;
-                              animation: vue-progress-anim 1s ease-in-out 5.1s forwards;
+                              animation: react-progress-anim 1s ease-in-out 5.1s forwards;
                             "
                           >
-                            68%
+                            78%
                           </div>
                         </div>
 
                         <div class="skill_item_pro">
-                          <label for="typescript">Typescript</label>
+                          <label for="vuejs">VueJS</label>
                           <div
-                            id="progress_typescript"
+                            id="progress_vuejs"
                             class="progress"
                             role="progressbar"
-                            aria-label="typescript"
-                            aria-valuenow="60"
+                            aria-label="vuejs"
+                            aria-valuenow="65"
                             aria-valuemin="0"
                             aria-valuemax="100"
                             style="height: 14px"
@@ -138,21 +114,21 @@
                                 width: 60%;
                                 background-color: #f4f4f4;
                                 border-radius: 30px;
-                                animation: typescript-progress-anim 1s ease-in-out 5.1s forwards;
+                                animation: vue-progress-anim 1s ease-in-out 5.1s forwards;
                               "
                             >
-                              65%
+                              68%
                             </div>
                           </div>
 
                           <div class="skill_item_pro">
-                            <label for="express">ExpressJS</label>
+                            <label for="typescript">Typescript</label>
                             <div
-                              id="progress_express"
+                              id="progress_typescript"
                               class="progress"
                               role="progressbar"
-                              aria-label="express"
-                              aria-valuenow="55"
+                              aria-label="typescript"
+                              aria-valuenow="60"
                               aria-valuemin="0"
                               aria-valuemax="100"
                               style="height: 14px"
@@ -160,24 +136,24 @@
                               <div
                                 class="progress-bar"
                                 style="
-                                  width: 55%;
+                                  width: 60%;
                                   background-color: #f4f4f4;
                                   border-radius: 30px;
-                                  animation: express-progress-anim 1s ease-in-out 6s forwards;
+                                  animation: typescript-progress-anim 1s ease-in-out 5.1s forwards;
                                 "
                               >
-                                75%
+                                65%
                               </div>
                             </div>
 
                             <div class="skill_item_pro">
-                              <label for="node">NodeJS</label>
+                              <label for="express">ExpressJS</label>
                               <div
-                                id="progress_node"
+                                id="progress_express"
                                 class="progress"
                                 role="progressbar"
-                                aria-label="NodeJs"
-                                aria-valuenow="20"
+                                aria-label="express"
+                                aria-valuenow="55"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
                                 style="height: 14px"
@@ -185,13 +161,39 @@
                                 <div
                                   class="progress-bar"
                                   style="
-                                    width: 20%;
+                                    width: 55%;
                                     background-color: #f4f4f4;
                                     border-radius: 30px;
-                                    animation: node-progress-anim 1s ease-in-out 8s forwards;
+                                    animation: express-progress-anim 1s ease-in-out 6s forwards;
                                   "
                                 >
-                                  60%
+                                  75%
+                                </div>
+                              </div>
+
+                              <div class="skill_item_pro">
+                                <label for="node">NodeJS</label>
+                                <div
+                                  id="progress_node"
+                                  class="progress"
+                                  role="progressbar"
+                                  aria-label="NodeJs"
+                                  aria-valuenow="20"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                  style="height: 14px"
+                                >
+                                  <div
+                                    class="progress-bar"
+                                    style="
+                                      width: 20%;
+                                      background-color: #f4f4f4;
+                                      border-radius: 30px;
+                                      animation: node-progress-anim 1s ease-in-out 8s forwards;
+                                    "
+                                  >
+                                    60%
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -201,43 +203,17 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- skills recap desktop -->
-              <div class="skills_recap d-none d-md-block">
-                <div id="first_skill_pro" class="skill_item_pro">
-                  <label for="css">CSS</label>
-                  <div
-                    id="progress_css"
-                    class="progress"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    aria-valuenow="85"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style="height: 22px; border-radius: 6px"
-                  >
+                <!-- skills recap desktop -->
+                <div class="skills_recap d-none d-md-block">
+                  <div id="first_skill_pro" class="skill_item_pro">
+                    <label for="css">CSS</label>
                     <div
-                      class="progress-bar"
-                      style="
-                        width: 40%;
-                        background-color: #f4f4f4;
-                        border-radius: 6px;
-                        animation: css-progress-anim 1s ease-in-out 4s forwards;
-                      "
-                    >
-                      85%
-                    </div>
-                  </div>
-
-                  <div class="skill_item_pro">
-                    <label for="javascript">Javascript</label>
-                    <div
-                      id="progress_javascript"
+                      id="progress_css"
                       class="progress"
                       role="progressbar"
-                      aria-label="javascript"
-                      aria-valuenow="80"
+                      aria-label="Example with label"
+                      aria-valuenow="85"
                       aria-valuemin="0"
                       aria-valuemax="100"
                       style="height: 22px; border-radius: 6px"
@@ -245,24 +221,24 @@
                       <div
                         class="progress-bar"
                         style="
-                          width: 60%;
+                          width: 40%;
                           background-color: #f4f4f4;
                           border-radius: 6px;
-                          animation: javascript-progress-anim 1s ease-in-out 5.1s forwards;
+                          animation: css-progress-anim 1s ease-in-out 4s forwards;
                         "
                       >
-                        80%
+                        85%
                       </div>
                     </div>
 
                     <div class="skill_item_pro">
-                      <label for="reactjs">ReactJS</label>
+                      <label for="javascript">Javascript</label>
                       <div
-                        id="progress_reactjs"
+                        id="progress_javascript"
                         class="progress"
                         role="progressbar"
-                        aria-label="reactjs"
-                        aria-valuenow="76"
+                        aria-label="javascript"
+                        aria-valuenow="80"
                         aria-valuemin="0"
                         aria-valuemax="100"
                         style="height: 22px; border-radius: 6px"
@@ -273,21 +249,21 @@
                             width: 60%;
                             background-color: #f4f4f4;
                             border-radius: 6px;
-                            animation: react-progress-anim 1s ease-in-out 5.1s forwards;
+                            animation: javascript-progress-anim 1s ease-in-out 5.1s forwards;
                           "
                         >
-                          78%
+                          80%
                         </div>
                       </div>
 
                       <div class="skill_item_pro">
-                        <label for="vuejs">VueJS</label>
+                        <label for="reactjs">ReactJS</label>
                         <div
-                          id="progress_vuejs"
+                          id="progress_reactjs"
                           class="progress"
                           role="progressbar"
-                          aria-label="vuejs"
-                          aria-valuenow="65"
+                          aria-label="reactjs"
+                          aria-valuenow="76"
                           aria-valuemin="0"
                           aria-valuemax="100"
                           style="height: 22px; border-radius: 6px"
@@ -298,21 +274,21 @@
                               width: 60%;
                               background-color: #f4f4f4;
                               border-radius: 6px;
-                              animation: vue-progress-anim 1s ease-in-out 5.1s forwards;
+                              animation: react-progress-anim 1s ease-in-out 5.1s forwards;
                             "
                           >
-                            68%
+                            78%
                           </div>
                         </div>
 
                         <div class="skill_item_pro">
-                          <label for="typescript">Typescript</label>
+                          <label for="vuejs">VueJS</label>
                           <div
-                            id="progress_typescript"
+                            id="progress_vuejs"
                             class="progress"
                             role="progressbar"
-                            aria-label="typescript"
-                            aria-valuenow="60"
+                            aria-label="vuejs"
+                            aria-valuenow="65"
                             aria-valuemin="0"
                             aria-valuemax="100"
                             style="height: 22px; border-radius: 6px"
@@ -323,21 +299,21 @@
                                 width: 60%;
                                 background-color: #f4f4f4;
                                 border-radius: 6px;
-                                animation: typescript-progress-anim 1s ease-in-out 5.1s forwards;
+                                animation: vue-progress-anim 1s ease-in-out 5.1s forwards;
                               "
                             >
-                              65%
+                              68%
                             </div>
                           </div>
 
                           <div class="skill_item_pro">
-                            <label for="express">ExpressJS</label>
+                            <label for="typescript">Typescript</label>
                             <div
-                              id="progress_express"
+                              id="progress_typescript"
                               class="progress"
                               role="progressbar"
-                              aria-label="express"
-                              aria-valuenow="55"
+                              aria-label="typescript"
+                              aria-valuenow="60"
                               aria-valuemin="0"
                               aria-valuemax="100"
                               style="height: 22px; border-radius: 6px"
@@ -345,24 +321,24 @@
                               <div
                                 class="progress-bar"
                                 style="
-                                  width: 55%;
+                                  width: 60%;
                                   background-color: #f4f4f4;
                                   border-radius: 6px;
-                                  animation: express-progress-anim 1s ease-in-out 6s forwards;
+                                  animation: typescript-progress-anim 1s ease-in-out 5.1s forwards;
                                 "
                               >
-                                75%
+                                65%
                               </div>
                             </div>
 
                             <div class="skill_item_pro">
-                              <label for="node">NodeJS</label>
+                              <label for="express">ExpressJS</label>
                               <div
-                                id="progress_node"
+                                id="progress_express"
                                 class="progress"
                                 role="progressbar"
-                                aria-label="NodeJs"
-                                aria-valuenow="20"
+                                aria-label="express"
+                                aria-valuenow="55"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
                                 style="height: 22px; border-radius: 6px"
@@ -370,13 +346,39 @@
                                 <div
                                   class="progress-bar"
                                   style="
-                                    width: 20%;
+                                    width: 55%;
                                     background-color: #f4f4f4;
                                     border-radius: 6px;
-                                    animation: node-progress-anim 1s ease-in-out 8s forwards;
+                                    animation: express-progress-anim 1s ease-in-out 6s forwards;
                                   "
                                 >
-                                  60%
+                                  75%
+                                </div>
+                              </div>
+
+                              <div class="skill_item_pro">
+                                <label for="node">NodeJS</label>
+                                <div
+                                  id="progress_node"
+                                  class="progress"
+                                  role="progressbar"
+                                  aria-label="NodeJs"
+                                  aria-valuenow="20"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                  style="height: 22px; border-radius: 6px"
+                                >
+                                  <div
+                                    class="progress-bar"
+                                    style="
+                                      width: 20%;
+                                      background-color: #f4f4f4;
+                                      border-radius: 6px;
+                                      animation: node-progress-anim 1s ease-in-out 8s forwards;
+                                    "
+                                  >
+                                    60%
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -389,14 +391,14 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- interest container -->
-      <div class="interest_container container-fluid">
-        <div class="inner_side_interests">
-          <div class="beating_interest">
-            <span class="int_work_title">Interest</span>
-            <p class="interest_area">writing, movies, Games</p>
+          <!-- interest container -->
+          <div class="interest_container container-fluid">
+            <div class="inner_side_interests">
+              <div class="beating_interest">
+                <span class="int_work_title">Interest</span>
+                <p class="interest_area">writing, movies, Games</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -445,18 +447,24 @@
     width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
-    border-top: 0.65rem solid rgb(0, 0, 56);
-    border-bottom: 1rem solid rgb(0, 0, 56);
+    border-top: 0.35rem solid var(--bg-border-layout);
+    border-bottom: 0.75rem solid var(--bg-border-layout);
     font-family: 'Hind', sans-serif;
     font-weight: 400;
     font-style: normal;
-
-    background-color: rgb(0, 0, 75);
+    background-color: var(--bg-primary-color);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
     z-index: 1;
+  }
+
+  .about_content_page .content_enroll {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--bg-secondary-color);
   }
 
   .locker_container {
@@ -481,7 +489,7 @@
     padding: 0 1rem;
     margin-top: 1rem;
     height: 4rem;
-    color: #fff;
+    color: var(--text-color-primar);
     text-align: center;
   }
 
@@ -499,7 +507,7 @@
 
   .skills_recap .skill_item_pro {
     width: 90%;
-    color: #c0c0c0;
+    color: var(--text-color-label);
     font-size: 11px;
     display: flex;
     flex-direction: column;
@@ -532,11 +540,13 @@
     width: 100%;
     height: 100%;
     background-image: url('../assets/images/profile_1.webp');
-    background-position: center 15px;
+    background-position: center 6px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: luminosity;
-    background-color: rgba(0, 0, 90, 0.5);
+    /*  background-blend-mode: luminosity; */
+    background-color: var(--bg-shift-secondary-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
   /*interest side */
@@ -551,7 +561,7 @@
   }
 
   .inner_side_interests {
-    color: hsl(0, 0%, 81%);
+    color: var(--text-color-two);
     height: auto;
     display: flex;
     flex-direction: column;
@@ -593,7 +603,7 @@
     width: 50%;
     min-width: 260px;
     height: 3rem;
-    color: #fff;
+    color: var(--text-color-primar);
   }
 
   .working_area_inter .skills_acquaintance {
@@ -669,6 +679,14 @@
     padding-bottom: 0.5rem;
     padding-top: 50px;
     min-height: 32rem;
+  }
+
+  .about_content_page .content_enroll {
+    width: 90%;
+    height: 100%;
+    padding: 1rem 0 2.2rem;
+    margin: 0 auto;
+    border-radius: 3%;
   }
 
   .locker_container {

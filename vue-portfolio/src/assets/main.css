@@ -20,6 +20,19 @@
   --footer-height-desk: 100px;
   --footer-height-mob: 70px;
   --msg-container-height: var(--footer-height) + var(--navbar-height-mob-desk);
+
+  --bg-navbar: hsl(188, 66%, 43%);
+  --bg-primary-color: hsl(184, 86%, 36%);
+  --bg-secondary-color: hsl(231, 28%, 38%);
+  --bg-shift-secondary-color: hsl(240, 24%, 38%);
+  --bg-border-layout: hsl(188, 9%, 82%);
+
+  --text-color-primar: #fff;
+  --text-color-label: #c0c0c0;
+  --text-color-two: hsl(0, 0%, 81%);
+  --text-color-three: hsl(180, 6%, 90%);
+
+  --bg-principal: rgb(0, 0, 75);
 }
 
 *,
