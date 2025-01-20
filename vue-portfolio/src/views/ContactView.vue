@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import type { Ref } from 'vue'
 
 import { sendDataMail } from '../api_functions/api_function'
 
@@ -11,17 +12,35 @@ const nameInputForm = <any>ref()
 const emailInputForm = <any>ref()
 const msgTextAreaForm = <any>ref()
 
+const floatingBox: Ref<HTMLDivElement | undefined> = ref()
+
+const lastScrollYPos = ref(0)
+
+onMounted(async () => {
+  await floatingBox
+  if (floatingBox) {
+    window.addEventListener('scroll', handleHappyMessage)
+  }
+})
+
+onUnmounted(async () => {
+  await floatingBox
+  if (floatingBox) {
+    window.removeEventListener('scroll', handleHappyMessage)
+  }
+})
+
 const thisURL = ref(
   'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
 )
 
-let media = <{ mediaLink: string }>reactive({ mediaLink: '' })
-let emailFormat = <{ name: string; email: string; message: string }>reactive({
+let media = reactive({ mediaLink: '' })
+let emailFormat = reactive({
   name: '',
   email: '',
   message: ''
 })
-let warningAttribute = <{ stateError: boolean; stateSuccess: boolean; message: string }>reactive({
+let warningAttribute = reactive({
   stateError: false,
   stateSuccess: false,
   message: ''
@@ -36,6 +55,21 @@ const formTag = computed(() => {
 
   return newObj
 })
+
+function handleHappyMessage(e: Event) {
+  const yPos = window.scrollY
+  const deltaX = yPos - lastScrollYPos.value
+
+  if (deltaX < 0) {
+    console.log('scroll upwards')
+    floatingBox.value?.classList.remove('active_greeting')
+  } else {
+    console.log('scroll downwards')
+    floatingBox.value?.classList.add('active_greeting')
+  }
+
+  lastScrollYPos.value = yPos
+}
 
 function redirectionMedia(label: string) {
   if (label === 'tweeter') {
@@ -156,32 +190,42 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
               </div>
               <div class="social_media_wrap">
                 <div class="social_media">
-                  <div
-                    id="link_tweeter"
-                    class="tweeter_wrapper link_media"
-                    ref="tweetRef"
-                    @click.prevent="() => redirectionMedia('tweeter')"
-                  ></div>
-                  <div
-                    id="link_github"
-                    class="github_wrapper link_media"
-                    ref="gitRef"
-                    @click.prevent="() => redirectionMedia('github')"
-                  ></div>
-                  <div
-                    id="link_linkedin"
-                    class="linkedin_wrapper link_media"
-                    ref="linkedInRef"
-                    @click.prevent="() => redirectionMedia('linkedin')"
-                  ></div>
+                  <div class="link_media">
+                    <div
+                      id="link_tweeter"
+                      class="link_icon"
+                      ref="tweetRef"
+                      @click.prevent="() => redirectionMedia('tweeter')"
+                    ></div>
+                  </div>
+                  <div class="link_media">
+                    <div
+                      id="link_github"
+                      class="link_icon"
+                      ref="gitRef"
+                      @click.prevent="() => redirectionMedia('github')"
+                    ></div>
+                  </div>
+                  <div class="link_media">
+                    <div
+                      id="link_linkedin"
+                      ref="linkedInRef"
+                      class="link_icon"
+                      @click.prevent="() => redirectionMedia('linkedin')"
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="form_side"></div>
           </div>
 
           <!--form container -->
-          <form class="form_container">
+          <form class="form_container" v-scroll="handleHappyMessage">
+            <div class="floating_box" ref="floatingBox">
+              <div class="floating_appeareance">
+                <p class="message_me">Let's Build Something Together !</p>
+              </div>
+            </div>
             <div class="sharing_msg">
               <p class="message_me">Let's Build Something Together !</p>
             </div>
@@ -271,43 +315,28 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   /* --------------- */
 
-  .link_media {
-    position: relative;
-    width: 2rem;
-    height: 2rem;
-    padding: 0rem;
+  #link_linkedin {
     background-image: url('../assets/images/linkedin-svgrepo-com.svg');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     z-index: 3;
   }
 
-  .tweeter_wrapper.link_media {
+  #link_tweeter {
     background-image: url('../assets/images/x_logo_twitter_new_brand_icon.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
   }
 
-  .github_wrapper.link_media {
+  #link_github {
     background-image: url('../assets/images/logo-github-svgrepo-com.svg');
-  }
-
-  .link_media::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.25rem;
-    opacity: 0.8;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    transition: all 1s ease-in-out;
-  }
-
-  .link_media:hover::before {
-    border-radius: 5px;
-    border: 1px solid #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
   }
 
   .msg_and_form_container {
@@ -316,21 +345,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     width: 100vw;
     height: auto;
     padding: 0;
-    background-image: linear-gradient(
-      to right,
-      #151365,
-      #121c6a,
-      #11256e,
-      #122d71,
-      #153474,
-      #193a79,
-      #1d407e,
-      #214683,
-      #254d8c,
-      #295496,
-      #2c5b9f,
-      #3062a9
-    );
+    background-color: var(--bg-primary-color);
   }
 
   .main_contact_area {
@@ -368,7 +383,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   .social_msg .social_says {
     position: relative;
     top: 0;
-    color: rgba(51, 51, 131, 0.87);
+    color: var(--text-color-two);
     padding-left: 12px;
     writing-mode: horizontal-tb;
     font-size: 11px;
@@ -383,7 +398,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   .social_activity .social_media {
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-size: calc(14px + 0.15vw);
     margin-top: 0.5rem;
     display: flex;
@@ -393,12 +408,31 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   }
 
   .social_media .link_media {
-    width: 1.3em;
-    height: 1.3em;
-    padding: 0;
+    flex-basis: calc(33% - 1rem);
+    height: 3rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .link_media .link_icon {
+    position: relative;
+    top: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 350ms ease;
+  }
+
+  .link_media:hover .link_icon {
+    position: relative;
+    top: -12px;
+    cursor: pointer;
+    padding: 1rem;
   }
 
   .form_container {
+    position: relative;
     width: 100%;
     padding: 15px;
     display: flex;
@@ -423,15 +457,20 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     border: 1px solid transparent;
   }
 
-  .sharing_msg .message_me {
+  .floating_box {
+    display: none;
+    width: 100%;
+  }
+
+  .message_me {
     font-size: calc(14px + 0.1vw);
-    color: #bebebe;
+    color: var(--text-color-three);
     padding: 5px 0;
     transition: all 380ms ease-in-out;
   }
 
-  .sharing_msg .message_me:hover {
-    color: navy;
+  .message_me:hover {
+    color: var(--text-color-two);
     letter-spacing: 0.35px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.38);
     font-size: calc(14px + 0.35vw);
@@ -482,10 +521,6 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     box-shadow: 0px 0px 4px rgb(127, 127, 131);
   }
 
-  .message_wrap textarea:focus {
-    border: 2px solid #1d5391;
-  }
-
   .submit_container {
     position: relative;
     width: 100%;
@@ -509,7 +544,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   }
 
   .submit_container .btn_sub_msg:hover {
-    background-color: rgb(28, 74, 143);
+    background-color: rgba(107, 25, 100, 0.18);
   }
 
   .form_content_control {
@@ -524,7 +559,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     top: 0;
     left: 0;
     width: 40%;
-    color: rgb(209, 190, 228);
+    color: var(--bg-border-layout);
     font-size: calc(11px + 0.3vw);
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: block;
@@ -533,17 +568,21 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   .form_container input {
     height: 32px;
-    color: #e2e2e0;
+    color: var(--text-color-three);
     padding-left: 0.5rem;
     margin-bottom: 1rem;
     background-color: transparent;
-    border-bottom: 1px solid #c5c3c3;
+    border-bottom: 1px solid var(--bg-border-layout);
     border-bottom-right-radius: 5px;
     transition: all 300ms ease-in-out;
   }
 
   .form_container input:focus {
-    border-bottom: 2px solid #1d5391;
+    border-bottom: 2px solid var(--bg-navbar);
+  }
+
+  .message_wrap textarea:focus {
+    border: 2px solid var(--bg-primary-color);
   }
 
   .form_container input::placeholder,
@@ -568,13 +607,13 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     border: 1px solid transparent;
   }
 
-  .sharing_msg .message_me {
+  .message_me {
     padding: 3px 0;
     font-size: calc(13px + 0.15vw);
   }
 
   .sharing_msg .message_me:hover {
-    color: navy;
+    color: hsla(240, 100%, 25%, 0.753);
     letter-spacing: 0.5px;
     font-size: calc(13px + 0.25vw);
   }
@@ -604,30 +643,21 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
 @media (min-width: 768px) {
   .main_contact_area {
-    top: 0;
+    top: 0.35rem;
     left: -0.35rem;
     width: 80%;
     height: 40rem;
     max-width: 920px;
+    margin: 1rem 0;
     flex-direction: row;
     gap: 20px;
   }
 
-  .main_contact_area * div {
-    width: 100%;
-    height: 100%;
-  }
-
-  .form_side {
-    width: 100%;
-    flex-direction: row;
-  }
-
   .contact_board {
-    top: 5rem;
-    height: 65%;
-    grid-template-columns: 140px;
-    grid-template-rows: 90%;
+    top: 6rem;
+    width: 11rem;
+    flex-shrink: 0;
+    grid-template-rows: 21rem;
   }
 
   .contact_board .social_activity {
@@ -646,88 +676,64 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   .social_msg .social_says {
     writing-mode: sideways-lr;
     top: 15px;
-    color: #9595ee;
     padding-left: 0px;
     letter-spacing: 1px;
     font-size: calc(14px + 0.15vw);
   }
 
-  .social_activity .social_media_wrap {
-    flex: 0 0 1;
-    flex-direction: column;
-  }
-
   .social_activity .social_media {
-    justify-content: center;
     align-items: baseline;
     margin-top: 0;
     gap: 1.25rem;
   }
 
-  .social_media .link_media {
-    width: 1.2rem;
-    height: 1.2rem;
-    padding: 0;
-  }
-
-  .form_container {
-    display: grid;
-    grid-template-areas:
-      '. . with_me with_me with_me'
-      'guess guess guess guess .'
-      'email email email submit submit'
-      'msg msg msg msg msg';
-    grid-template-rows: 140px;
-    padding: 10px 8px 10px 8px;
-    row-gap: 10px;
-  }
-
-  .sharing_msg {
-    grid-area: with_me;
+  .link_media:hover .link_icon {
     position: relative;
-    top: 5rem;
-    left: 0;
-    bottom: 0;
-    padding: 0.5rem 0;
-    float: right;
-    border-radius: 5px;
-    border-top: 1px solid #c5c3c3;
+    padding: 0.6rem;
   }
 
-  .sharing_msg .message_me {
-    font-size: calc(13px + 0.3vw);
-    color: #cac6c6;
-    font-weight: bolder;
-    padding-top: -0.15rem;
-    margin-bottom: 0;
-    transform: scale(1);
-    transition: all 350ms ease-in-out;
+  .floating_box {
+    display: flex;
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+    height: 3rem;
+    justify-content: flex-end;
   }
 
-  .sharing_msg .message_me:hover {
-    color: navy;
-    letter-spacing: 0px;
-    padding-top: 0.15rem;
+  .floating_box .floating_appeareance {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 350ms ease;
   }
 
-  .email_wrap {
-    grid-area: email;
+  .floating_box.active_greeting .floating_appeareance {
+    visibility: visible;
+    opacity: 1;
   }
 
-  .name_wrap {
-    grid-area: guess;
+  .sharing_msg[data-v-ae84ca9b] {
+    position: relative;
+    top: 1rem;
+    left: 2rem;
+    width: 100%;
+    height: 3rem;
+    display: inline-flex;
+    justify-content: flex-end;
+    visibility: visible;
+    opacity: 1;
+    border: 1px solid transparent;
   }
 
-  .message_wrap {
-    padding-top: 2rem;
-    grid-area: msg;
-    height: 12rem !important;
+  .floating_box.active_greeting + .sharing_msg {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms linear;
   }
 
   .submit_container {
-    grid-area: submit;
-    padding: 1rem;
-    border: 1px solid gray;
+    padding: 1rem 0.5rem;
+    border: 1px solid var(--text-color-label);
   }
 
   .submit_container .btn_sub_msg {
