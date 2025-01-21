@@ -313,7 +313,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     z-index: 10;
   }
 
-  /* --------------- */
+  /* -------link media-------- */
 
   #link_linkedin {
     background-image: url('../assets/images/linkedin-svgrepo-com.svg');
