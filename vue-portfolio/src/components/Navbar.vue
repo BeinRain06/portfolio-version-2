@@ -206,7 +206,6 @@ a {
   right: 0.5rem;
   width: 2rem;
   height: 2.2rem;
-  /*  border: 2px solid #ddd; */
   border-radius: 5px;
   z-index: 100;
   display: block;
@@ -239,10 +238,6 @@ input.trigger_menu {
   background-color: transparent;
   z-index: 100;
 }
-
-/* input.trigger_menu:checked {
-  accent-color: transparent;
-} */
 
 /*menu symbol transdormation */
 
@@ -320,7 +315,7 @@ input.trigger_menu {
   width: 100vw;
   height: auto;
   padding: 2rem 0 3.4rem;
-  background-color: hsla(240, 24%, 38%, 0.562);
+  background-color: hsla(188, 66%, 43%, 0.75);
   transform: translateX(-50%);
   transition: all 1.4s ease-in-out;
   z-index: 50;
@@ -415,11 +410,6 @@ input.trigger_menu {
   animation: menu-link-anim 0.8s ease-in-out 0.9s forwards;
 }
 
-/* .menulink_content.active_li a {
-  color: #ddd;
-  z-index: 1;
-} */
-
 .menulink_content a {
   color: rgb(209, 190, 228);
   z-index: 1;
@@ -433,7 +423,7 @@ input.trigger_menu {
   width: 100vw;
   height: 50px;
   background-color: transparent;
-  background-color: rgba(0, 0, 128, 0.95);
+  background-color: hsl(188, 66%, 43%);
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -447,7 +437,7 @@ input.trigger_menu {
   left: 0;
   width: 100vw;
   height: 50px;
-  background-color: rgba(0, 0, 128, 0.95);
+  background-color: hsla(188, 66%, 43%, 0.596);
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -463,19 +453,17 @@ input.trigger_menu {
   color: #fff;
   font-size: calc(20px + 0.3vw);
   transform: translateX(-56%);
-  z-index: 5;
+  z-index: 10;
   visibility: visible;
 }
 
 .logo_menu {
   position: relative;
-  /*  width: calc(100vw - 46px); */
   width: calc(100vw);
   height: 3.9rem;
   margin-bottom: 0;
   display: inline-block;
   z-index: 3;
-  /* transform: translateX(-46px); */
 }
 
 .logo_menu::before {
@@ -545,25 +533,18 @@ input.trigger_menu {
     overflow-x: hidden;
   }
 
-  /*  .menu_wrap {
-    left: 0.5rem;
-  } */
-
   .logo_menu {
     width: calc(100vw);
   }
 
   .logo_menu_text {
     font-size: calc(20px + 0.3vw);
-    /*   transform: translateX(-40%); */
     visibility: hidden;
   }
 
   /*navbar desktop link */
   .navbar_content_tags {
     height: var(--navbar-height-mob-desk);
-    /* background-color: hsl(187, 33%, 65%);
-    background-color: hsl(188, 34%, 46%); */
     background-color: var(--bg-navbar);
     padding: 0.25rem 0.5rem;
   }
@@ -641,7 +622,6 @@ input.trigger_menu {
   }
 
   .navbar_content_tags {
-    /*  background-color: #3c3c3f; */
     padding: 0.25rem 2rem 0 0;
   }
 

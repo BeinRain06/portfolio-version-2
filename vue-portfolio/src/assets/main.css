@@ -32,7 +32,7 @@
   --text-color-two: hsl(0, 0%, 81%);
   --text-color-three: hsl(180, 6%, 90%);
 
-  --bg-principal: rgb(0, 0, 75);
+  --bg-principal: hsla(240, 100%, 15%, 0.682);
 }
 
 *,

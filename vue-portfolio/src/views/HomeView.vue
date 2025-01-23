@@ -1,4 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive } from 'vue'
+
+let media = reactive({ mediaLink: '' })
+function redirectionMedia(label: string) {
+  if (label === 'tweeter') {
+    media.mediaLink = 'https://twitter.com/nest_Ngoueni'
+  } else if (label === 'github') {
+    media.mediaLink = 'https://github.com/BeinRain06'
+  } else if (label === 'linkedin') {
+    media.mediaLink = 'https://www.linkedin.com/in/gerard-ngouend-5a0584244/'
+  }
+
+  window.open(media.mediaLink, '_blank')
+}
+</script>
 
 <template>
   <section id="home_page">
@@ -23,7 +38,7 @@
       </div>
       <!-- Logo skills -->
       <div class="footer_container container-fluid">
-        <div class="footer_row w-100 h-100 p-2">
+        <div class="footer_row">
           <div class="logo_skills_wrapper w-100 h-100 d-flex flex-column">
             <div class="logo_skills_city">
               <div id="javascript_skill" class="logo_skill javascript_skill" data-pos="1"></div>
@@ -32,6 +47,31 @@
               <div id="vuejs_skill" class="logo_skill vuejs_skill" data-pos="2"></div>
               <div id="mongodb_skill" class="logo_skill mongodb_skill" data-pos="2"></div>
               <div id="node_skill" class="logo_skill node_skill" data-pos="2"></div>
+            </div>
+          </div>
+          <div class="social_media_assets">
+            <div class="social_media_content">
+              <div class="link_media">
+                <div
+                  id="link_tweeter"
+                  class="link_icon"
+                  @click.prevent="() => redirectionMedia('tweeter')"
+                ></div>
+              </div>
+              <div class="link_media">
+                <div
+                  id="link_github"
+                  class="link_icon"
+                  @click.prevent="() => redirectionMedia('github')"
+                ></div>
+              </div>
+              <div class="link_media">
+                <div
+                  id="link_linkedin"
+                  class="link_icon"
+                  @click.prevent="() => redirectionMedia('linkedin')"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -127,10 +167,22 @@
     position: relative !important;
     width: 100%;
     height: calc(32vh - 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     z-index: 3;
   }
 
+  .footer_row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .logo_skills_wrapper {
+    height: 30%;
     justify-content: center;
   }
 
@@ -144,7 +196,7 @@
 
   .logo_skill {
     position: relative;
-    width: 70px;
+    width: 60px;
     height: 100%;
     clip-path: circle(55%);
     transform: rotate(0deg);
@@ -181,6 +233,75 @@
   .logo_skill.vuejs_skill {
     background-image: url('../assets/images/vue-vuejs-javascript-js-framework-svgrepo-com.svg');
   }
+
+  /* -------social media-------- */
+
+  .social_media_assets {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social_media_content {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    place-items: center;
+  }
+
+  .social_media_content .link_media {
+    height: 3rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .link_media .link_icon {
+    position: relative;
+    top: 0;
+    width: 2rem;
+    height: 1.6rem;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 350ms ease;
+  }
+
+  .link_media:hover .link_icon {
+    position: relative;
+    top: -12px;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  #link_linkedin {
+    position: relative;
+    background-image: url('../assets/images/linkedin-svgrepo-com.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
+  }
+
+  #link_tweeter {
+    position: relative;
+    background-image: url('../assets/images/x_logo_twitter_new_brand_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
+  }
+
+  #link_github {
+    position: relative;
+    background-image: url('../assets/images/logo-github-svgrepo-com.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
+  }
 }
 
 @media (min-width: 460px) {
@@ -213,6 +334,13 @@
     width: 55px;
     height: 100%;
     clip-path: circle(55%);
+  }
+
+  /* -------social media-------- */
+
+  .social_media_content {
+    width: 50%;
+    height: 100%;
   }
 }
 
@@ -297,6 +425,19 @@
   .logo_skill {
     position: relative;
     width: 80px;
+  }
+
+  /* -------social media-------- */
+
+  .social_media_assets {
+    display: flex;
+    justify-content: end;
+  }
+
+  .social_media_content {
+    width: 36%;
+    height: 100%;
+    place-items: end center;
   }
 }
 

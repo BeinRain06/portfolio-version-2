@@ -349,7 +349,9 @@ function playMoreInfoContent(i: string, label: string) {
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
                         <div class="grade_certification">D.U.T</div>
-                        <span>( Diplome Universitaire de Technologie/ Associate's Degree )</span>
+                        <span style="color: var(--bg-principal)"
+                          >( Diplome Universitaire de Technologie/ Associate's Degree )</span
+                        >
                       </div>
                     </td>
                   </tr>
@@ -398,7 +400,7 @@ function playMoreInfoContent(i: string, label: string) {
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
                         <div class="grade_certification">E.T</div>
-                        <span
+                        <span style="color: var(--bg-principal)"
                           >( Licence en Electrotechnique/ Bachelor in Electrotechnics science)</span
                         >
                       </div>
@@ -475,7 +477,7 @@ function playMoreInfoContent(i: string, label: string) {
                           v-for="(project, i) in sideElecProjects"
                         >
                           <ul class="project_box flex flex-column w-100" style="list-style: none">
-                            <li class="w-100">
+                            <li class="w-100 h-100 py-2">
                               <div class="img_card_work">
                                 <span
                                   class="w-100 h-100"
@@ -633,26 +635,22 @@ function playMoreInfoContent(i: string, label: string) {
                     <!-- SIDE PROJECTS -->
                     <div class="experience_projects margin_exp_sample_self">
                       <h5 class="fw-bold">SIDE PROJECTS</h5>
-                      <div class="projects_list w-100 p-4">
+                      <div class="projects_list w-100">
                         <div
                           class="project_card"
                           :key="project.id"
                           v-for="(project, i) in selfDevProjects"
                           :data-cardself="i"
                         >
-                          <div class="project_box w-100" style="list-style: none">
-                            <div
-                              class="image_box w-100 h-100 d-flex justify-content-center align-items-center"
-                              style="margin: 1rem auto"
-                            >
+                          <ul class="project_box w-100" style="list-style: none">
+                            <li class="image_box w-100 h-100 ms-1 d-flex justify-content-center">
                               <div class="img_card_work">
-                                <span
-                                  class="w-100 h-100 d-flex justify-content-center align-items-center"
-                                  >{{ project.name }}</span
-                                >
+                                <span class="w-100 h-100 d-flex justify-content-center">{{
+                                  project.name
+                                }}</span>
                               </div>
-                            </div>
-                            <div class="project_content mt-4">
+                            </li>
+                            <li class="project_content mt-2">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -665,13 +663,13 @@ function playMoreInfoContent(i: string, label: string) {
                                 style="color: #4e6e97; font-weight: bold; transform: skewX(-3deg)"
                                 >{{ project.link }}</a
                               >
-                            </div>
-                            <div
+                            </li>
+                            <li
                               class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
                             >
                               <div class="project_logo text_project_logo">{{ project.logo }}</div>
-                            </div>
-                            <div class="more_info_elt">
+                            </li>
+                            <li class="more_info_elt">
                               <div
                                 class="more_info_wrap"
                                 ref="moreSelfBtn"
@@ -680,8 +678,8 @@ function playMoreInfoContent(i: string, label: string) {
                                 <span>{{ project.moreLabel }}</span>
                                 <div class="more_info_symbol">&raquo;</div>
                               </div>
-                            </div>
-                          </div>
+                            </li>
+                          </ul>
                           <div class="more_info_two" ref="moreSelfCity">
                             <div class="more_content_wrap text_project_logo w-100 my-2">
                               <div class="entitled_more py-2">
@@ -1265,21 +1263,21 @@ li.no_list_style {
 
   .project_box {
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0.5rem 0;
     background-color: var(--bg-navbar);
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: 9.2rem min-content 1rem 1rem;
     place-items: center;
+    gap: 1rem;
   }
 
   .project_box .img_card_work {
     position: relative;
-    top: 1rem;
-    width: 92%;
+    top: 0;
+    width: 100%;
     height: 100%;
-    padding-bottom: 1rem;
     border-radius: 5px;
     border: 1px solid var(--text-color-label);
   }
@@ -1318,7 +1316,6 @@ li.no_list_style {
   .project_card[data-cardself='0'] .img_card_work {
     background: url('../assets/images/projects/mobile-Words-Letters-Game.png') no-repeat center
       center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #1d831d;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
@@ -1326,7 +1323,6 @@ li.no_list_style {
 
   .project_card[data-cardself='1'] .img_card_work {
     background: url('../assets/images/projects/tds-retaurant.png') no-repeat center center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #9c3f88;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
@@ -1334,7 +1330,6 @@ li.no_list_style {
 
   .project_card[data-cardself='2'] .img_card_work {
     background: url('../assets/images/projects/blog-app-tech.png') no-repeat center center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #7c929e;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
@@ -1796,13 +1791,13 @@ li.no_list_style {
   }
 
   .project_box {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     margin: 1rem 0 0;
     display: grid;
     place-content: center;
-    grid-template-columns: 25% 50% 10% 15%;
-    grid-auto-rows: 12rem;
-    gap: 0.75rem;
+    grid-template-columns: 20% 40% 10% 15%;
+    grid-auto-rows: max-content;
+    gap: 2rem;
   }
 
   .project_box div.image_box {
@@ -1811,14 +1806,6 @@ li.no_list_style {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
-
-  /* .project_box .img_card_work {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
-  } */
 
   .project_box .project_content {
     width: 100%;
