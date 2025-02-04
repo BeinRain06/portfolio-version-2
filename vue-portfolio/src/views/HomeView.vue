@@ -1,45 +1,35 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { redirectionMedia, handleHoverMedia } from '@/reusable-function/media-target'
 
 let media = reactive({ mediaLink: '' })
-function redirectionMedia(label: string) {
-  if (label === 'tweeter') {
-    media.mediaLink = 'https://twitter.com/nest_Ngoueni'
-  } else if (label === 'github') {
-    media.mediaLink = 'https://github.com/BeinRain06'
-  } else if (label === 'linkedin') {
-    media.mediaLink = 'https://www.linkedin.com/in/gerard-ngouend-5a0584244/'
-  }
-
-  window.open(media.mediaLink, '_blank')
-}
 </script>
 
 <template>
   <section id="home_page">
     <div class="taked_home">
       <!-- Tech -->
-      <div class="hye_container container-fluid">
-        <div class="hye_row row">
+      <div class="hye_container">
+        <div class="hye_row">
           <div class="hello_wrap d-flex w-100 p-2 gap-2">
-            <h1 class="say_hello">Web Designer & Developer</h1>
+            <h1 class="say_hello">Web Designer & <span style="color: #154c79">Developer</span></h1>
           </div>
         </div>
       </div>
       <!-- Name -->
-      <div class="name_container container-fluid">
-        <div class="name_row row d-flex justify-content-center align-items-center">
-          <div class="name_wrap d-flex justify-content-center align-items-center p-2">
-            <div class="my_name py-2 px-3 font_Satisfy">
+      <div class="name_container">
+        <div class="name_row d-flex justify-content-center align-items-center">
+          <div class="name_wrap d-flex justify-content-center align-items-center">
+            <div class="my_name px-1 font_Satisfy">
               <p>NGOUEND RaouL GERARD</p>
             </div>
           </div>
         </div>
       </div>
       <!-- Logo skills -->
-      <div class="footer_container container-fluid">
+      <div class="footer_container">
         <div class="footer_row">
-          <div class="logo_skills_wrapper w-100 h-100 d-flex flex-column">
+          <div class="logo_skills_wrapper w-100 d-flex flex-column">
             <div class="logo_skills_city">
               <div id="javascript_skill" class="logo_skill javascript_skill" data-pos="1"></div>
               <div id="react_skill" class="logo_skill react_skill" data-pos="1"></div>
@@ -50,27 +40,30 @@ function redirectionMedia(label: string) {
             </div>
           </div>
           <div class="social_media_assets">
-            <div class="social_media_content">
-              <div class="link_media">
-                <div
-                  id="link_tweeter"
-                  class="link_icon"
-                  @click.prevent="() => redirectionMedia('tweeter')"
-                ></div>
+            <div
+              class="social_media_content"
+              @click.prevent="(e: Event) => redirectionMedia(e, media)"
+            >
+              <div
+                class="link_media"
+                @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+              >
+                <div id="link_tweeter" class="link_icon" data-icon="0"></div>
               </div>
-              <div class="link_media">
-                <div
-                  id="link_github"
-                  class="link_icon"
-                  @click.prevent="() => redirectionMedia('github')"
-                ></div>
+              <div
+                class="link_media"
+                @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+              >
+                <div id="link_github" class="link_icon" data-icon="0"></div>
               </div>
-              <div class="link_media">
-                <div
-                  id="link_linkedin"
-                  class="link_icon"
-                  @click.prevent="() => redirectionMedia('linkedin')"
-                ></div>
+              <div
+                class="link_media"
+                @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+              >
+                <div id="link_linkedin" class="link_icon" data-icon="0"></div>
               </div>
             </div>
           </div>
@@ -92,7 +85,7 @@ function redirectionMedia(label: string) {
     position: relative;
     top: 0;
     width: 100%;
-    min-height: calc(100vh - 100px);
+    height: calc(100vh - 50px);
     margin: 0;
     background-color: rgb(201, 174, 226);
     background-image: url('../assets/images/lauren-mancke-aOC7TSLb1o8-unsplash.jpg');
@@ -107,9 +100,9 @@ function redirectionMedia(label: string) {
   /* hello message */
   .hye_container {
     position: relative;
-    top: 0.5rem;
     width: 100%;
-    height: 22vh;
+    height: calc(34vh - 50px);
+    padding-top: 0.5rem;
     z-index: 3;
   }
 
@@ -118,17 +111,15 @@ function redirectionMedia(label: string) {
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: left;
     visibility: hidden;
     animation: anim-hello-group 1s ease-out 1.8s forwards;
   }
 
   .hello_wrap {
     position: relative;
-    top: 2rem;
     left: calc(3% - 0.3vw);
     height: 80px;
-    color: var(--bg-primary-color);
+    color: hsla(187, 9%, 82%, 0.72);
     font-size: calc(18px + 0.3vw);
   }
 
@@ -137,7 +128,7 @@ function redirectionMedia(label: string) {
   .name_container {
     position: relative;
     width: 100%;
-    height: 44vh !important;
+    height: calc(40vh - 1rem);
     z-index: 3;
   }
 
@@ -157,16 +148,17 @@ function redirectionMedia(label: string) {
     position: relative;
     width: 100%;
     height: auto;
+    color: var(--bg-border-layout);
     font-weight: 430;
-    font-size: calc(36px + 0.3vw);
+    font-size: calc(24px + 0.25vw);
     letter-spacing: 4px;
   }
 
   /* footer message */
   .footer_container {
-    position: relative !important;
+    position: relative;
     width: 100%;
-    height: calc(32vh - 40px);
+    height: 26vh;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -178,17 +170,20 @@ function redirectionMedia(label: string) {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
   }
 
   .logo_skills_wrapper {
-    height: 30%;
+    height: 42%;
+    padding: 0 1rem;
     justify-content: center;
+    perspective: 600px;
   }
 
   .logo_skills_city {
     width: 100%;
-    height: 50px;
+    height: 100%;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -196,8 +191,8 @@ function redirectionMedia(label: string) {
 
   .logo_skill {
     position: relative;
-    width: 60px;
-    height: 100%;
+    width: 32px;
+    height: 32px;
     clip-path: circle(55%);
     transform: rotate(0deg);
     display: block;
@@ -240,67 +235,25 @@ function redirectionMedia(label: string) {
     width: 100%;
     height: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 
   .social_media_content {
-    width: 50%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: min-content;
+    grid-template-columns: repeat(3, 2.5rem);
+    grid-auto-rows: 100%;
     place-items: center;
   }
 
   .social_media_content .link_media {
-    height: 3rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: calc(13px + 0.25vw);
     display: grid;
     place-items: center;
-  }
-
-  .link_media .link_icon {
-    position: relative;
-    top: 0;
-    width: 2rem;
-    height: 1.6rem;
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 350ms ease;
-  }
-
-  .link_media:hover .link_icon {
-    position: relative;
-    top: -12px;
-    cursor: pointer;
-    padding: 1rem;
-  }
-
-  #link_linkedin {
-    position: relative;
-    background-image: url('../assets/images/linkedin-svgrepo-com.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
-  }
-
-  #link_tweeter {
-    position: relative;
-    background-image: url('../assets/images/x_logo_twitter_new_brand_icon.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
-  }
-
-  #link_github {
-    position: relative;
-    background-image: url('../assets/images/logo-github-svgrepo-com.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
   }
 }
 
@@ -339,8 +292,9 @@ function redirectionMedia(label: string) {
   /* -------social media-------- */
 
   .social_media_content {
-    width: 50%;
-    height: 100%;
+    width: 10rem;
+    grid-template-columns: repeat(3, 3.2rem);
+    place-items: end center;
   }
 }
 
@@ -389,7 +343,6 @@ function redirectionMedia(label: string) {
   .name_wrap {
     position: relative;
     height: 100%;
-    color: #030300;
     transition: all 450ms ease 300ms;
     z-index: 2;
   }
@@ -433,11 +386,29 @@ function redirectionMedia(label: string) {
     display: flex;
     justify-content: end;
   }
+}
 
-  .social_media_content {
-    width: 36%;
-    height: 100%;
-    place-items: end center;
+@media (max-width: 600px) and (orientation: landscape) {
+  .hye_container {
+    width: 100%;
+    height: calc(38vh - 50px);
+    padding-top: 0;
+  }
+
+  .name_container {
+    top: 0.5rem;
+    width: 100%;
+    height: calc(44vh - 0.5rem);
+  }
+
+  .footer_container {
+    height: 18vh;
+  }
+
+  .logo_skills_city {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 

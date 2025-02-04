@@ -3,6 +3,7 @@ import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import type { Ref } from 'vue'
 
 import { sendDataMail } from '../api_functions/api_function'
+import { redirectionMedia, handleHoverMedia } from '@/reusable-function/media-target'
 
 const tweetRef = <any>ref()
 const gitRef = <any>ref()
@@ -13,6 +14,8 @@ const emailInputForm = <any>ref()
 const msgTextAreaForm = <any>ref()
 
 const floatingBox: Ref<HTMLDivElement | undefined> = ref()
+
+let mediaSocial = reactive({ mediaLink: '' })
 
 const lastScrollYPos = ref(0)
 
@@ -69,18 +72,6 @@ function handleHappyMessage(e: Event) {
   }
 
   lastScrollYPos.value = yPos
-}
-
-function redirectionMedia(label: string) {
-  if (label === 'tweeter') {
-    media.mediaLink = 'https://twitter.com/nest_Ngoueni'
-  } else if (label === 'github') {
-    media.mediaLink = 'https://github.com/BeinRain06'
-  } else if (label === 'linkedin') {
-    media.mediaLink = 'https://www.linkedin.com/in/gerard-ngouend-5a0584244/'
-  }
-
-  window.open(media.mediaLink, '_blank')
 }
 
 function handThisData(e: Event, element: string) {
@@ -189,30 +180,30 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
                 <p class="social_says">social media</p>
               </div>
               <div class="social_media_wrap">
-                <div class="social_media">
-                  <div class="link_media">
-                    <div
-                      id="link_tweeter"
-                      class="link_icon"
-                      ref="tweetRef"
-                      @click.prevent="() => redirectionMedia('tweeter')"
-                    ></div>
+                <div
+                  class="social_media_content"
+                  @click.prevent="(e: Event) => redirectionMedia(e, mediaSocial)"
+                >
+                  <div
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_tweeter" class="link_icon" data-icon="0" ref="tweetRef"></div>
                   </div>
-                  <div class="link_media">
-                    <div
-                      id="link_github"
-                      class="link_icon"
-                      ref="gitRef"
-                      @click.prevent="() => redirectionMedia('github')"
-                    ></div>
+                  <div
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_github" class="link_icon" data-icon="0" ref="gitRef"></div>
                   </div>
-                  <div class="link_media">
-                    <div
-                      id="link_linkedin"
-                      ref="linkedInRef"
-                      class="link_icon"
-                      @click.prevent="() => redirectionMedia('linkedin')"
-                    ></div>
+                  <div
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_linkedin" ref="linkedInRef" class="link_icon" data-icon="0"></div>
                   </div>
                 </div>
               </div>
@@ -313,32 +304,6 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     z-index: 10;
   }
 
-  /* -------link media-------- */
-
-  #link_linkedin {
-    background-image: url('../assets/images/linkedin-svgrepo-com.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
-  }
-
-  #link_tweeter {
-    background-image: url('../assets/images/x_logo_twitter_new_brand_icon.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
-  }
-
-  #link_github {
-    background-image: url('../assets/images/logo-github-svgrepo-com.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 3;
-  }
-
   .msg_and_form_container {
     position: relative;
     top: 0;
@@ -396,39 +361,33 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     justify-content: center;
   }
 
-  .social_activity .social_media {
+  /* -------link media-------- */
+
+  .social_media_content {
     width: 100%;
     height: 50px;
-    font-size: calc(14px + 0.15vw);
     margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100%;
+    place-items: center;
   }
 
-  .social_media .link_media {
-    flex-basis: calc(33% - 1rem);
+  .social_media_content .link_media {
     height: 3rem;
+    font-size: calc(13px + 0.25vw);
     display: grid;
     place-items: center;
   }
 
-  .link_media .link_icon {
+  .link_media .link_icon[data-icon='0'] {
     position: relative;
     top: 0;
-    width: 1.4rem;
-    height: 1.4rem;
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 350ms ease;
   }
 
-  .link_media:hover .link_icon {
+  .link_media:hover .link_icon[data-icon='1'] {
     position: relative;
-    top: -12px;
-    cursor: pointer;
-    padding: 1rem;
+    top: -16px;
   }
 
   .form_container {
@@ -589,6 +548,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   .form_container textarea::placeholder {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 10px;
+    color: #c0c0c0c0;
   }
 }
 
@@ -681,12 +641,6 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     font-size: calc(14px + 0.15vw);
   }
 
-  .social_activity .social_media {
-    align-items: baseline;
-    margin-top: 0;
-    gap: 1.25rem;
-  }
-
   .link_media:hover .link_icon {
     position: relative;
     padding: 0.6rem;
@@ -754,7 +708,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   input.input_field::placeholder,
   textarea.message::placeholder {
-    font-size: calc(12px + 0.25vw);
+    font-size: calc(12px + 0.1vw);
   }
 }
 </style>
