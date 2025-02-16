@@ -935,7 +935,7 @@ li.no_list_style {
   font-size: calc(14px + 0.18vw);
   font-weight: bold;
   border-radius: 5px;
-  box-shadow: 0px 2px 10px var(--bg-border-layout);
+  box-shadow: 0px 2px 5px var(--text-color-label);
 }
 
 .title_sub_section {
@@ -1355,7 +1355,7 @@ li.no_list_style {
     display: inline-flex;
     gap: 0.5rem;
     transform: rotateZ(-360deg);
-    transition: all 0.45s ease 500ms;
+    transition: all 1.35s ease 1s;
     z-index: 3;
   }
 
@@ -1384,41 +1384,41 @@ li.no_list_style {
     transform: rotate(-90deg);
   }
 
-  .more_info_one {
-    width: 100%;
-    margin: 1rem 0 0.5rem;
-  }
-
+  .more_info_one,
   .more_info_two {
     width: 100%;
-    margin: 2.5rem 0 0.5rem;
+    margin: 1rem 0 0.5rem;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 0;
+    overflow: hidden;
+    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1) 1.2s;
+  }
+
+  .more_info_one.active_info,
+  .more_info_two.active_info {
+    display: grid;
+    grid-template-rows: 24rem;
   }
 
   .more_info_one .more_content_wrap,
   .more_info_two .more_content_wrap {
     width: 100%;
     padding: 0.5rem;
-    height: 0;
-    margin: 1rem 0;
-    background-color: #eee;
+    margin-inline: auto;
+    background-color: #fff;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 100%;
-    transition:
-      visibility 0.3s ease-in-out,
-      height 0.9s ease,
-      background-color 0.9s ease;
+    overflow: hidden;
+    transition: all 3s linear;
   }
 
   .more_info_one.active_info .more_content_wrap,
   .more_info_two.active_info .more_content_wrap {
     visibility: visible;
-    background-color: #ddd;
-    padding: 0.5rem;
-    margin: 2rem 0 1rem;
-    grid-template-columns: 100%;
-    height: max-content;
-    transition: all 3s ease-in-out 0.5s;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    transition: all 1s linear 100ms;
   }
 
   .entity_box_number {
@@ -1437,8 +1437,17 @@ li.no_list_style {
     width: 100%;
     height: 100%;
     transform: rotate(45deg);
-    background-color: #6e0797;
+    /* background-color: #6e0797; */
+    background-color: #9056a7;
     border-radius: 5px;
+  }
+
+  ul.more_content_ct li:nth-child(2) .triangular_base_box {
+    background-color: #a15252;
+  }
+
+  ul.more_content_ct li:nth-child(3) .triangular_base_box {
+    background-color: #bec46c;
   }
 
   .entity_box_number .entity_number {
