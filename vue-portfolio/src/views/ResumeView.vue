@@ -1030,7 +1030,6 @@ li.no_list_style {
   /*resume_wrapper*/
   .resume_domain {
     position: relative;
-    left: 0;
     width: 100vw;
     padding: 0.5rem 1rem 1rem;
     margin: 0 auto;

@@ -40,7 +40,7 @@
                 <div class="stand_bar" data-stand="0">
                   <span style="height: 80%"></span>
                   <div class="stats_number">80%</div>
-                  <div class="label_bar">Javascript</div>
+                  <div class="label_bar" style="">Javascript</div>
                 </div>
                 <div class="stand_bar" data-stand="1">
                   <span style="height: 68%"></span>
@@ -147,7 +147,7 @@
           </ul>
 
           <div class="author">
-            <p class="author_name fw-bold" style="color: hsl(0, 0%, 27%)">Michael London</p>
+            <p class="author_name fw-bold" style="color: hsl(0, 0%, 27%)">Michael Landon</p>
           </div>
         </div>
       </div>
@@ -651,10 +651,14 @@ ul {
 
   .stand_bar .label_bar {
     position: absolute;
-    bottom: 16px;
-    left: 7px;
-    writing-mode: sideways-lr;
+    top: 20%;
+    left: 8px;
+    /* writing-mode: sideways-lr; */
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     font-size: calc(11px + 0.15vw);
+    display: flex;
+    justify-content: center;
   }
 
   /* interests */
