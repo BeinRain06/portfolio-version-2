@@ -325,7 +325,7 @@ function playMoreInfoContent(i: string, label: string) {
 
       <!-- resume container-->
       <div class="resume_container container-fluid">
-        <div class="resume_row_one row">
+        <div class="resume_row_one">
           <!-- primar education -->
           <div class="primar_education w-100 my-2">
             <div class="primar_title_wrapper">
@@ -740,7 +740,7 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
         </div>
-        <div class="resume_row_two row">
+        <div class="resume_row_two">
           <!-- self taught cursus -->
           <div class="self_taught_cursus">
             <div class="edu_former">
