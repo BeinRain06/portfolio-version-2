@@ -324,26 +324,26 @@ function playMoreInfoContent(i: string, label: string) {
       </div>
 
       <!-- resume container-->
-      <div class="resume_container container-fluid">
-        <div class="resume_row_one">
+      <div class="resume_container">
+        <div class="resume_row_one w-100">
           <!-- primar education -->
-          <div class="primar_education w-100 my-2">
+          <div class="primar_education w-100">
             <div class="primar_title_wrapper">
               <div class="edu_former justify-self-center">
                 <h5 class="education_title font_Satisfy my-2">Education</h5>
               </div>
             </div>
             <div
-              class="primar_education_content d-flex flex-column justify-center items-center gap-2"
+              class="primar_education_content d-flex flex-column justify-content-center align-items-center gap-2"
             >
               <table class="primar_table">
                 <tbody class="w-100">
-                  <tr class="academic_primar_year py-1">
+                  <tr class="academic_primar_year">
                     <td>
                       <span class="p-1">2010-2012</span>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
@@ -355,7 +355,7 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div class="my_department">
                         <span
@@ -371,7 +371,7 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
                         class="px-4 py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
@@ -389,12 +389,12 @@ function playMoreInfoContent(i: string, label: string) {
               </table>
               <table class="primar_table">
                 <tbody class="w-100">
-                  <tr class="academic_primar_year py-1">
+                  <tr class="academic_primar_year">
                     <td>
                       <span class="p-1">2012-2013</span>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
@@ -406,7 +406,7 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div class="my_department">
                         <span
@@ -419,7 +419,7 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
                         class="px-4 px-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
@@ -438,7 +438,7 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
           <!-- experiences -->
-          <div class="experience_duty w-100 my-2">
+          <div class="experience_duty">
             <div class="primar_title_wrapper my-4">
               <div class="edu_former justify-self-center">
                 <h5 class="experience_title font_Satisfy my-2">Experiences</h5>
@@ -446,18 +446,16 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
 
             <div class="experience_wrap">
-              <div
-                class="experience_ct w-100 d-flex flex-column justify-content-center align-items-center"
-              >
+              <div class="experience_ct">
                 <div class="experience_sample flex_col_center w-100">
                   <div class="title_sub_section">
                     <p class="fw-bold">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample">
-                    <div class="company_base w-100">
+                  <div class="experience_sample_content">
+                    <div class="company_base">
                       <span class="years_intern my-2 title_year">2013 -2014</span>
                       <div class="company_reference pt-2 pb-4">
-                        <span class="title_worked_with w-100">
+                        <span class="title_worked_with">
                           CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483 Douala
                         </span>
                       </div>
@@ -566,11 +564,11 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample">
+                  <div class="experience_sample_content w-100">
                     <div class="company_base w-100">
                       <span class="years_intern my-2 title_year">2014 -2019</span>
                       <div class="company_reference pt-2 pb-4">
-                        <span class="title_worked_with w-100"> SELF ELECTRICAL ENTREPRENEUR </span>
+                        <span class="title_worked_with"> SELF ELECTRICAL ENTREPRENEUR </span>
                       </div>
                       <ul class="experience_tasks flex_col_center px-4">
                         <li class="w-100">Install Electrical devices for customers clients</li>
@@ -586,9 +584,9 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample">
+                  <div class="experience_sample_content w-100">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 title_year">2021</span>
+                      <span class="years_intern mt-4 mb-2 title_year">2021</span>
                       <div class="company_reference pt-2 pb-4">
                         <span class="title_worked_with w-100">
                           SEAT (SYSTEME ENERGIE & APPLICATION TECHNIQUE) S.A.R.L · BP 16508 Douala
@@ -605,13 +603,13 @@ function playMoreInfoContent(i: string, label: string) {
                 </div>
 
                 <!--SELF TAUGHT DEVELOPMENT-->
-                <div class="experience_sample flex_col_center">
+                <div class="experience_sample flex_col_center w-100 my-4">
                   <div class="title_sub_section">
                     <p class="fw-bold">SELF TAUGHT DEVELOPMENT</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample">
+                  <div class="experience_sample_content w-100">
                     <div
-                      class="framework_base w-100"
+                      class="framework_base w-100 py-4"
                       :key="framework.id"
                       v-for="framework in frameTechnologies"
                     >
@@ -634,7 +632,7 @@ function playMoreInfoContent(i: string, label: string) {
                     </div>
                     <!-- SIDE PROJECTS -->
                     <div class="experience_projects margin_exp_sample_self">
-                      <h5 class="fw-bold">SIDE PROJECTS</h5>
+                      <h5 class="fw-bold py-2">SIDE PROJECTS</h5>
                       <div class="projects_list w-100">
                         <div
                           class="project_card"
@@ -650,7 +648,7 @@ function playMoreInfoContent(i: string, label: string) {
                                 }}</span>
                               </div>
                             </li>
-                            <li class="project_content mt-2">
+                            <li class="project_content w-100 mt-2">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -740,9 +738,9 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
         </div>
-        <div class="resume_row_two">
+        <div class="resume_row_two w-100">
           <!-- self taught cursus -->
-          <div class="self_taught_cursus">
+          <div class="self_taught_cursus w-100">
             <div class="edu_former">
               <h5 class="education_title font_Satisfy my-2">Self Taught Developer</h5>
             </div>
@@ -827,7 +825,7 @@ function playMoreInfoContent(i: string, label: string) {
             </ul>
           </div>
           <!-- language mastery -->
-          <div class="language_mastering mt-4">
+          <div class="language_mastering">
             <div class="lan_former">
               <h5 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h5>
             </div>
@@ -893,6 +891,13 @@ function playMoreInfoContent(i: string, label: string) {
 </template>
 
 <style scoped>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 li.no_list_style {
   list-style: none;
 }
@@ -939,7 +944,7 @@ li.no_list_style {
 }
 
 .title_sub_section {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 0.25rem;
   font-size: calc(14px + 0.15vw);
@@ -981,13 +986,13 @@ li.no_list_style {
   font-weight: bold;
 }
 
-.margin_exp_sample {
+/* .margin_exp_sample {
   margin: 1rem auto;
-}
+} */
 
-.margin_exp_sample_self {
+/* .margin_exp_sample_self {
   margin: 2.5rem auto 0;
-}
+} */
 
 .lan_level {
   padding: 0 0.25rem;
@@ -1017,6 +1022,13 @@ li.no_list_style {
   width: 8rem;
 }
 
+.gen_link {
+  width: 100%;
+  padding: 0.25rem;
+  display: grid;
+  place-items: start;
+}
+
 @media (min-width: 160px) {
   li {
     font-size: calc(14px + 0.12vw);
@@ -1031,7 +1043,7 @@ li.no_list_style {
   .resume_domain {
     position: relative;
     width: 100vw;
-    padding: 0.5rem 1rem 1rem;
+    padding: 0.5rem 0 1rem;
     margin: 0 auto;
     background-color: var(--bg-primary-color);
   }
@@ -1086,7 +1098,7 @@ li.no_list_style {
 
   /* --> primary education */
   .primar_education_content {
-    width: 86%;
+    width: 100%;
     margin: 2rem auto 1rem;
   }
 
@@ -1101,28 +1113,32 @@ li.no_list_style {
   .primar_table {
     width: 100%;
     min-height: 200px;
-    padding: 0.5rem 1rem;
-    margin: 1.5rem 0;
+    padding: 0.5rem 2%;
+    margin: 0.75rem 0;
+    display: grid;
     /* background-color: #e0e0e0; */
   }
 
   .academic_primar_year {
     /* color: #d3d0d0; */
     /* background-color: #34803b; */
+    display: block;
     color: var(--text-color-title);
     background-color: var(--bg-title);
+    padding: 1rem 0 0.75rem;
     border-top-left-radius: 5px;
     font-weight: bold;
   }
 
   .primar_table_row {
     width: 100%;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1rem;
-    font-size: calc(12px + 0.35vw);
+    gap: 0.5rem;
+    font-size: calc(13px + 0.25vw);
   }
 
   .primar_table_row .info_tech_content {
@@ -1154,8 +1170,7 @@ li.no_list_style {
 
   /* --> self-taught cursus */
   .self_taught_cursus {
-    width: 100vw;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1187,13 +1202,14 @@ li.no_list_style {
   }
 
   .self_taught_cursus .flash_resume {
-    width: 100%;
-    padding: 0.5rem;
     border-radius: 5px;
+
+    margin: 0.75rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
   }
 
   .self_taught_cursus .flash_resume:nth-child(odd) {
@@ -1233,17 +1249,20 @@ li.no_list_style {
   /* <-- self-taught cursus */
 
   /* --> experience section */
-  .experience_sample {
+  .experience_ct {
     width: 100%;
-    padding: 1rem 0.5rem;
-    margin: 1rem auto;
-  }
-
-  .company_base {
+    padding: 0.5rem 1rem 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
 
+  .company_base {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
   }
 
@@ -1465,9 +1484,9 @@ li.no_list_style {
 
   /* --> language potential  */
   .language_mastering {
-    width: 100vw;
+    width: 100%;
     height: 210px;
-    margin: 1rem auto;
+    margin: 2.5rem auto 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1477,7 +1496,7 @@ li.no_list_style {
   .language_potential_mob {
     width: 100%;
     padding: 1rem 2rem;
-    margin: 1.5rem auto 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
