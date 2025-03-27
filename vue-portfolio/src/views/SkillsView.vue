@@ -551,11 +551,11 @@ h4 {
   }
 
   #img_full_one.img_full_stack {
-    background-image: url('../assets/images/Screenshot-2.png');
+    background-image: url('../assets/images/projects/tds-retaurant.png');
   }
 
   #img_full_two.img_full_stack {
-    background-image: url('../assets/images/Screenshot-3.png');
+    background-image: url('../assets/images/projects/blog-app-tech.png');
   }
 
   .project_base .img_stack_wrap:hover {
