@@ -618,7 +618,7 @@ input.trigger_menu {
     width: 100%;
     margin: 0;
     display: block;
-    z-index: 5;
+    z-index: 15;
   }
 
   .navbar_content_tags {

@@ -10,6 +10,16 @@ const moreElecCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
 const moreSelfCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
+const devTitle: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const modalVideoRef: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const lastVideoRef: Ref<HTMLDivElement | undefined> = ref()
+
+const videoBlurRef: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const lastBlurRef: Ref<HTMLDivElement | undefined> = ref()
+
 interface IFrameworkBase {
   inside: {
     id: string
@@ -29,6 +39,22 @@ interface IProjects {
     link?: string
     logo: string
     moreLabel: string
+    moreElt: {
+      num: string
+      approach: string
+    }[]
+  }[]
+}
+
+interface IProjectsSelf {
+  projects: {
+    id: string
+    techno: string
+    logo: string
+    name: string
+    duty: string
+    link?: string
+    linkVideo?: string
     moreElt: {
       num: string
       approach: string
@@ -87,64 +113,16 @@ const sideElectrical: IProjects = reactive({
   ]
 })
 
-const sideSelfDev: IProjects = reactive({
+const sideSelfDev: IProjectsSelf = reactive({
   projects: [
     {
       id: 'dev_one',
-      name: 'Reactjs-Context API',
-      subject: ' Word-letters-Game',
-      duty: 'guess the word hidden by the computer between 08 to 10 letters ',
-      link: 'https://words-letters-game.vercel.app/',
-      logo: 'word-letters',
-      moreLabel: 'more infos',
-      moreElt: [
-        {
-          num: '1',
-          approach: 'select game template between 08 to 10 characters '
-        },
-        {
-          num: '2',
-          approach:
-            'color indice for letter, red(not the right  in this case), yellow(occured many times in this case right or not), green(right in this case) '
-        },
-        {
-          num: '3',
-          approach: 'Game Over. You can restart the Game'
-        }
-      ]
-    },
-    {
-      id: 'dev_two',
-      name: 'MERN App',
-      subject: 'Tds Restaurant',
-      duty: 'Online app foods. Order ready traditiononal cooked foods at home',
-      link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
-      logo: 'Tds',
-      moreLabel: 'more infos',
-      moreElt: [
-        {
-          num: '1',
-          approach: 'can order dishes between 04 categories(meats, desserts, vegetarians, seafoods)'
-        },
-        {
-          num: '2',
-          approach: 'have the right to order and track at most three order at the same time'
-        },
-        {
-          num: '3',
-          approach: 'have the ability to rate dishes'
-        }
-      ]
-    },
-
-    {
-      id: 'dev_three',
-      name: 'MEVN App',
-      subject: 'Blog-app Tech',
+      techno: 'MEVN App',
+      logo: 'BlogPania',
+      name: 'BLOG-APP-TECH',
       duty: 'Blog about new culture, technologies and trend in I.T',
       link: 'https://github.com/BeinRain06/blog-app-tech',
-      logo: 'BlogPinia',
-      moreLabel: 'more infos',
+      linkVideo: '../assets/videos/video-1.mkv',
       moreElt: [
         {
           num: '1',
@@ -157,6 +135,55 @@ const sideSelfDev: IProjects = reactive({
         {
           num: '3',
           approach: 'filter post by author, by theme '
+        }
+      ]
+    },
+
+    {
+      id: 'dev_two',
+      techno: 'Reactjs-Context API',
+      logo: 'word-letters',
+      name: 'Word-letters-Game',
+      duty: 'guess the word hidden by the computer between 08 to 10 letters ',
+      link: 'https://words-letters-game.vercel.app/',
+      linkVideo: '',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'selec template between 08 to 10 characters '
+        },
+        {
+          num: '2',
+          approach:
+            'letter, red(wrong in place), yellow(many times appearance wrong or not), green(right place) '
+        },
+        {
+          num: '3',
+          approach: 'Game Over. You can restart the Game'
+        }
+      ]
+    },
+
+    {
+      id: 'dev_three',
+      techno: 'MERN App',
+      logo: 'Tds',
+      name: 'TDS-RESTAURANT',
+      duty: 'Online app foods. Order ready traditiononal cooked foods at home',
+      link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
+      linkVideo: '',
+      moreElt: [
+        {
+          num: '1',
+          approach: '04 categories(meats, desserts, vegetarians, seafoods)'
+        },
+        {
+          num: '2',
+          approach: 'order and track at most three order at the same time'
+        },
+        {
+          num: '3',
+          approach: 'rate dishes'
         }
       ]
     }
@@ -230,12 +257,12 @@ const frameTechnologies: ComputedRef<
 const selfDevProjects: ComputedRef<
   {
     id: string
+    techno: string
+    logo: string
     name: string
-    subject: string
     duty: string
     link?: string
-    logo: string
-    moreLabel: string
+    linkVideo?: string
     moreElt: {
       num: string
       approach: string
@@ -250,9 +277,9 @@ function playMoreInfoContent(i: string, label: string) {
   if (label === 'elec') {
     moreElecBtn.value?.forEach((item, j) => {
       if (j === +i) {
-        item?.classList.toggle('active_button')
+        item?.classList.toggle('active_note')
       } else {
-        item?.classList.remove('active_button')
+        item?.classList.remove('active_note')
       }
     })
 
@@ -264,17 +291,28 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreSelfBtn.value?.forEach((item) => item?.classList.remove('active_button'))
-
-    moreSelfCity.value?.forEach((item) => item?.classList.remove('active_info'))
+    moreSelfBtn.value?.forEach((item) => item?.classList.remove('active_note'))
   }
 
   if (label === 'self') {
+    console.log('moreSelfBtn value :', moreSelfBtn.value)
+    console.log('devTitle :', devTitle.value)
+
     moreSelfBtn.value?.forEach((item, j) => {
       if (j === +i) {
-        item?.classList.toggle('active_button')
+        item?.classList.toggle('active_note')
+        item?.parentElement?.classList.toggle('active_note')
       } else {
-        item?.classList.remove('active_button')
+        item?.classList.remove('active_note')
+        item?.parentElement?.classList.remove('active_note')
+      }
+    })
+
+    devTitle.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_note')
+      } else {
+        item?.classList.remove('active_note')
       }
     })
 
@@ -285,10 +323,31 @@ function playMoreInfoContent(i: string, label: string) {
         item?.classList.remove('active_info')
       }
     })
+  }
+}
 
-    moreElecBtn.value?.forEach((item) => item?.classList.remove('active_button'))
+function handleModalVideo(i: number, label: string) {
+  if (label === 'open') {
+    modalVideoRef.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.add('active_video')
+        lastVideoRef.value = item
+      } else {
+        item?.classList.remove('active_video')
+      }
+    })
 
-    moreElecCity.value?.forEach((item) => item?.classList.remove('active_info'))
+    videoBlurRef.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.add('active_video')
+        lastBlurRef.value = item
+      } else {
+        item?.classList.remove('active_video')
+      }
+    })
+  } else {
+    lastVideoRef.value?.classList.remove('active_video')
+    lastBlurRef.value?.classList.remove('active_video')
   }
 }
 </script>
@@ -466,15 +525,18 @@ function playMoreInfoContent(i: string, label: string) {
                         </li>
                       </ul>
                     </div>
-                    <div class="experience_projects px-1 mt-4">
+                    <div class="experience_elec px-1 mt-4">
                       <h5 class="fw-bold">SIDE PROJECTS</h5>
                       <div class="projects_list w-100" style="padding: 1rem 0 0.5rem">
                         <div
-                          class="project_card"
+                          class="card_elec"
                           :key="project.id"
                           v-for="(project, i) in sideElecProjects"
                         >
-                          <ul class="project_box flex flex-column w-100" style="list-style: none">
+                          <ul
+                            class="card_elec_frame flex flex-column w-100"
+                            style="list-style: none"
+                          >
                             <li class="w-100 h-100 py-2">
                               <div class="img_card_work">
                                 <span
@@ -509,8 +571,8 @@ function playMoreInfoContent(i: string, label: string) {
                             </li>
                           </ul>
 
-                          <div class="more_info_one" ref="moreElecCity">
-                            <div class="more_content_wrap text_project_logo w-100 my-2">
+                          <div class="modal_more_elec" ref="moreElecCity">
+                            <div class="modal_elec_frame text_project_logo w-100 my-2">
                               <div class="entitled_more py-2">
                                 <span class="font_Satisfy">Expectations</span>
                               </div>
@@ -630,103 +692,151 @@ function playMoreInfoContent(i: string, label: string) {
                         </li>
                       </ul>
                     </div>
-                    <!-- SIDE PROJECTS -->
-                    <div class="experience_projects margin_exp_sample_self">
+
+                    <!-- SIDE PROJECTS DEV STACK -->
+                    <div class="experience_pro w-100 d-flex flex-column align-items-center gap-2">
                       <h5 class="fw-bold py-2">SIDE PROJECTS</h5>
+
+                      <!--stack projects-->
                       <div class="projects_list w-100">
-                        <div
-                          class="project_card"
-                          :key="project.id"
-                          v-for="(project, i) in selfDevProjects"
-                          :data-cardself="i"
-                        >
-                          <ul class="project_box w-100" style="list-style: none">
-                            <li class="image_box w-100 h-100 ms-1 d-flex justify-content-center">
-                              <div class="img_card_work">
-                                <span class="w-100 h-100 d-flex justify-content-center">{{
-                                  project.name
-                                }}</span>
+                        <div class="project_dev_frame">
+                          <div
+                            class="card_stack"
+                            :key="project.id"
+                            v-for="(project, i) in selfDevProjects"
+                            :data-cardself="i"
+                          >
+                            <div
+                              :id="project.name"
+                              class="modal_video_blur"
+                              ref="videoBlurRef"
+                            ></div>
+                            <div class="card_profile">
+                              <div class="card_stick" :data-stack="project.id">
+                                <div class="card_img"></div>
+                                <div class="card_mini_name">
+                                  <h5 class="first_mini">{{ project.name }}</h5>
+                                  <h5 class="second_mini">{{ project.logo }}</h5>
+                                </div>
                               </div>
-                            </li>
-                            <li class="project_content w-100 mt-2">
-                              <span class="title_project fw-bold">
-                                {{ project.subject }}
-                              </span>
-                              <p class="gen_purpose">
-                                {{ project.duty }}
-                              </p>
-                              <a
-                                :href="project.link"
-                                class="gen_link"
-                                style="color: #4e6e97; font-weight: bold; transform: skewX(-3deg)"
-                                >{{ project.link }}</a
-                              >
-                            </li>
-                            <li
-                              class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
-                            >
-                              <div class="project_logo text_project_logo">{{ project.logo }}</div>
-                            </li>
-                            <li class="more_info_elt">
-                              <div
-                                class="more_info_wrap"
-                                ref="moreSelfBtn"
-                                @click="() => playMoreInfoContent(`${i}`, 'self')"
-                              >
-                                <span>{{ project.moreLabel }}</span>
-                                <div class="more_info_symbol">&raquo;</div>
+                              <div class="holder_link">
+                                <div class="holder_title">
+                                  <h3 class="label_project">{{ project.name }}</h3>
+                                </div>
+                                <div class="holder_hot_link">
+                                  <span style="font-size: calc(12px + 0.25vw)">Link :</span
+                                  ><a :src="project.link" target="_blank">{{ project.link }}</a>
+                                </div>
                               </div>
-                            </li>
-                          </ul>
-                          <div class="more_info_two" ref="moreSelfCity">
-                            <div class="more_content_wrap text_project_logo w-100 my-2">
-                              <div class="entitled_more py-2">
-                                <span class="font_Satisfy">Expectations</span>
+                            </div>
+                            <div class="card_dev">
+                              <div class="card_dev_title">
+                                <h6 class="dev_title_logo">{{ project.logo }}</h6>
+                                <h6 class="dev_title_name" ref="devTitle">{{ project.name }}</h6>
                               </div>
-                              <ul class="more_content_ct p-0 mt-2">
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[0].num }}</div>
+                              <div class="card_dev_info" :data-stack="project.id">
+                                <div class="card_link_video">
+                                  <div class="link_video_wrap">
+                                    <div
+                                      style="cursor: pointer"
+                                      @click="() => handleModalVideo(i, 'open')"
+                                    >
+                                      video
+                                    </div>
+                                    <div class="modal_video_box" ref="modalVideoRef">
+                                      <div class="close_video_toggler">
+                                        <div
+                                          class="btn_video_close"
+                                          :aria-controls="project.name"
+                                          aria-expanded="false"
+                                          :aria-label="project.name"
+                                          @click="() => handleModalVideo(i, 'close')"
+                                        >
+                                          <i>&times;</i>
+                                        </div>
+                                      </div>
+                                      <video
+                                        class="video_to_play"
+                                        controls
+                                        src="../assets/videos/video-1.mkv"
+                                        poster="../assets/images/projects/blog-app-tech-d-mode.png"
+                                      >
+                                        <a href="../assets/videos/video-1.mkv">WEBM</a>
+                                      </video>
                                     </div>
                                   </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[0].approach }}
-                                    </p>
+                                </div>
+                                <div class="card_dev_summary">
+                                  <div class="dev_summary_wrap">
+                                    <p>{{ project.duty }}</p>
                                   </div>
-                                </li>
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[1].num }}</div>
+                                </div>
+                                <div class="card_dev_link">
+                                  <div class="link_text_wrap">
+                                    <div class="card_link_text">
+                                      <span>Link :</span
+                                      ><a :src="project.link" target="_blank">{{ project.link }}</a>
                                     </div>
                                   </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[1].approach }}
-                                    </p>
+                                </div>
+                                <div class="card_note_more">
+                                  <h6
+                                    class="more_link"
+                                    ref="moreSelfBtn"
+                                    @click="() => playMoreInfoContent(`${i}`, 'self')"
+                                  >
+                                    <div>more</div>
+                                    <div class="note_arrow">&raquo;</div>
+                                  </h6>
+                                  <!--modal not more-->
+                                  <div class="modal_more_note">
+                                    <ul class="more_note_expand">
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[0].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[0].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[1].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[1].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[2].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[2].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
                                   </div>
-                                </li>
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[2].num }}</div>
-                                    </div>
-                                  </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[2].approach }}
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -738,6 +848,7 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
         </div>
+
         <div class="resume_row_two w-100">
           <!-- self taught cursus -->
           <div class="self_taught_cursus w-100">
@@ -1029,6 +1140,52 @@ li.no_list_style {
   place-items: start;
 }
 
+/* modal more utilities  */
+
+.entity_box_number {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  border-bottom: 2px solid #333;
+  flex-shrink: 0;
+}
+
+.entity_box_number .triangular_base_box {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  background-color: #6e0797;
+  background-color: #9056a7;
+  border-radius: 5px;
+}
+
+ul.more_note_expand li:nth-child(2) .triangular_base_box,
+ul.more_content_ct li:nth-child(2) .triangular_base_box {
+  background-color: #a15252;
+}
+
+ul.more_note_expand li:nth-child(3) .triangular_base_box,
+ul.more_content_ct li:nth-child(3) .triangular_base_box {
+  background-color: #bec46c;
+}
+
+.entity_box_number .entity_number {
+  position: relative;
+  top: -2px;
+  left: 50%;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-46%) rotate(-45deg);
+}
+
 @media (min-width: 160px) {
   li {
     font-size: calc(14px + 0.12vw);
@@ -1042,6 +1199,7 @@ li.no_list_style {
   /*resume_wrapper*/
   .resume_domain {
     position: relative;
+    top: 0;
     width: 100vw;
     padding: 0.5rem 0 1rem;
     margin: 0 auto;
@@ -1272,14 +1430,16 @@ li.no_list_style {
     gap: 1rem;
   }
 
-  .project_card .project_box .img_card_work,
-  .project_card .project_box .project_logo_wrap {
+  /* EX Project BOX */
+
+  .card_elec .card_elec_frame .img_card_work,
+  .card_elec .card_elec_frame .project_logo_wrap {
     font-family: 'Poetsen One', sans-serif;
     font-style: normal;
     font-size: var(--var-font-size);
   }
 
-  .project_box {
+  .card_elec_frame {
     width: 100%;
     padding: 1rem;
     margin: 0.5rem 0;
@@ -1291,7 +1451,7 @@ li.no_list_style {
     gap: 1rem;
   }
 
-  .project_box .img_card_work {
+  .card_elec_frame .img_card_work {
     position: relative;
     top: 0;
     width: 100%;
@@ -1300,7 +1460,7 @@ li.no_list_style {
     border: 1px solid var(--text-color-label);
   }
 
-  .project_box .img_card_work::before {
+  .card_elec_frame .img_card_work::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -1316,7 +1476,7 @@ li.no_list_style {
     place-items: center;
   }
 
-  .project_box .project_content {
+  .card_elec_frame .project_content {
     width: 100%;
     padding: 0.5rem;
     display: flex;
@@ -1324,14 +1484,14 @@ li.no_list_style {
     gap: 0.5rem;
   }
 
-  .project_box .more_info_elt {
+  .card_elec_frame .more_info_elt {
     width: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
   }
 
-  .project_card[data-cardself='0'] .img_card_work {
+  .card_elec[data-cardself='0'] .img_card_work {
     background: url('../assets/images/projects/mobile-Words-Letters-Game.png') no-repeat center
       center/cover;
     outline: 2px solid #1d831d;
@@ -1339,29 +1499,29 @@ li.no_list_style {
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='1'] .img_card_work {
+  .card_elec[data-cardself='1'] .img_card_work {
     background: url('../assets/images/projects/tds-retaurant.png') no-repeat center center/cover;
     outline: 2px solid #9c3f88;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='2'] .img_card_work {
+  .card_elec[data-cardself='2'] .img_card_work {
     background: url('../assets/images/projects/blog-app-tech.png') no-repeat center center/cover;
     outline: 2px solid #7c929e;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='0'] .img_card_work:hover,
-  .project_card[data-cardself='1'] .img_card_work:hover,
-  .project_card[data-cardself='2'] .img_card_work:hover {
+  .card_elec[data-cardself='0'] .img_card_work:hover,
+  .card_elec[data-cardself='1'] .img_card_work:hover,
+  .card_elec[data-cardself='2'] .img_card_work:hover {
     color: #fff;
   }
 
-  .project_card[data-cardself='0'] .img_card_work::before,
-  .project_card[data-cardself='1'] .img_card_work::before,
-  .project_card[data-cardself='2'] .img_card_work::before {
+  .card_elec[data-cardself='0'] .img_card_work::before,
+  .card_elec[data-cardself='1'] .img_card_work::before,
+  .card_elec[data-cardself='2'] .img_card_work::before {
     width: calc(100%);
     height: calc(100%);
     border: 1px solid transparent;
@@ -1382,7 +1542,7 @@ li.no_list_style {
     font-weight: bold;
   }
 
-  .more_info_wrap.active_button {
+  .more_info_wrap.active_note {
     transform: rotateZ(360deg);
   }
 
@@ -1398,12 +1558,11 @@ li.no_list_style {
     z-index: 1;
   }
 
-  .more_info_wrap.active_button .more_info_symbol {
+  .more_info_wrap.active_note .more_info_symbol {
     transform: rotate(-90deg);
   }
 
-  .more_info_one,
-  .more_info_two {
+  .modal_more_elec {
     width: 100%;
     margin: 1rem 0 0.5rem;
     display: grid;
@@ -1413,14 +1572,12 @@ li.no_list_style {
     transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1) 1.2s;
   }
 
-  .more_info_one.active_info,
-  .more_info_two.active_info {
+  .modal_more_elec.active_info {
     display: grid;
     grid-template-rows: 24rem;
   }
 
-  .more_info_one .more_content_wrap,
-  .more_info_two .more_content_wrap {
+  .modal_more_elec .modal_elec_frame {
     width: 100%;
     padding: 0.5rem;
     margin-inline: auto;
@@ -1431,56 +1588,392 @@ li.no_list_style {
     transition: all 3s linear;
   }
 
-  .more_info_one.active_info .more_content_wrap,
-  .more_info_two.active_info .more_content_wrap {
+  .modal_more_elec.active_info .modal_elec_frame {
     visibility: visible;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     transition: all 1s linear 100ms;
   }
 
-  .entity_box_number {
+  /* EX Project BOX */
+
+  /* --> Card frame stack-dev project */
+
+  .project_dev_frame {
+    width: 100%;
+    height: auto;
+    background-color: inherit;
     position: relative;
-    width: 1.35rem;
-    height: 1.35rem;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    border-bottom: 2px solid #333;
+    display: grid;
+    place-items: center;
+    transition: all 450ms ease;
   }
 
-  .entity_box_number .triangular_base_box {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .card_stack {
+    width: 100%;
+    padding: 1.5rem 0 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px var(--bg-secondary-color);
+  }
+
+  .card_profile {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .card_stick {
+    width: 100%;
+    padding: 1rem 1rem;
+    /*  height: 16rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border-radius: 24px;
+    /*  border: 1px solid #555; */
+    box-shadow: 0px 0px 3px hsl(231, 29%, 33%);
+  }
+
+  .card_stick .card_img {
+    width: 100%;
+    aspect-ratio: 16/11;
+    background-image: url('../assets/images/projects/blog-app-tech-d-mode.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top -22px left -2px;
+    border-radius: 4px;
+    /* border: 1px solid #444; */
+  }
+
+  .card_stick[data-stack='dev_one'] .card_img {
+    background-image: url('../assets/images/projects/blog-app-tech-d-mode.png');
+  }
+
+  .card_stick[data-stack='dev_two'] .card_img {
+    background-image: url('../assets/images/projects/mobile-Words-Letters-Game.png');
+  }
+
+  .card_stick[data-stack='dev_three'] .card_img {
+    background-image: url('../assets/images/projects/tds-retaurant.png');
+  }
+
+  .card_stick .first_mini {
+    position: relative;
+    top: -0.5rem;
+  }
+
+  .card_stick .second_mini {
+    display: none;
+  }
+
+  .holder_link {
+    display: none;
+  }
+
+  .card_stack h5 {
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-size: calc(14px + 0.25vw);
+    letter-spacing: 1px;
+  }
+
+  .card_stack a {
+    cursor: pointer;
+    font-size: calc(11px + 0.1vw);
+    color: hsl(231, 36%, 25%);
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 1s ease;
+  }
+
+  .card_stack a:hover {
+    color: var(--bg-border-layout);
+  }
+
+  .card_stack p {
+    font-size: calc(14px + 0.15vw);
+    color: var(--text-color-two);
+  }
+
+  .card_stack span {
+    font-size: calc(12px + 0.1vw);
+  }
+
+  .card_stack h6 {
+    width: max-content;
+    color: black;
+    font-weight: bold;
+    font-size: calc(15px + 0.1vw);
+  }
+
+  .card_dev {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .card_dev .card_dev_title {
+    display: none;
+    width: 50%;
+  }
+
+  .card_dev_info {
+    width: 100%;
+    height: 15rem;
+    display: grid;
+    grid-template-areas:
+      'link-video link-text'
+      'summary  summary'
+      'note-more  note-more';
+    grid-template-rows: 6.6rem 5rem 3.4rem;
+    grid-template-columns: 50% 50%;
+    margin-top: 5px;
+  }
+
+  .card_link_video {
+    grid-area: link-video;
     width: 100%;
     height: 100%;
-    transform: rotate(45deg);
-    /* background-color: #6e0797; */
-    background-color: #9056a7;
-    border-radius: 5px;
+    padding: 0 1rem;
+    display: grid;
+    place-items: center;
   }
 
-  ul.more_content_ct li:nth-child(2) .triangular_base_box {
-    background-color: #a15252;
-  }
-
-  ul.more_content_ct li:nth-child(3) .triangular_base_box {
-    background-color: #bec46c;
-  }
-
-  .entity_box_number .entity_number {
-    position: relative;
-    top: -2px;
-    left: 50%;
+  .card_dev_link {
+    grid-area: link-text;
     width: 100%;
-    color: #fff;
+    height: 100%;
+    padding: 0 1rem;
+    display: block;
+  }
+
+  .card_dev_summary {
+    grid-area: summary;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+
+    /*  border-radius: 12px;
+    border: 1px solid #555; */
+    display: grid;
+    place-items: center;
+  }
+
+  .card_note_more {
+    grid-area: note-more;
+    position: relative;
+    width: 100%;
+    height: 3.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-46%) rotate(-45deg);
+    z-index: 5;
+    transition: all 650ms ease 1.1s;
   }
 
-  /* <-- experience section */
+  .card_note_more.active_note {
+    align-items: end;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 80%;
+    max-width: 220px;
+    aspect-ratio: 16/9;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    /* border: 1px solid #444; */
+    box-shadow: 0px 0px 5px hsl(231, 29%, 33%);
+  }
+
+  .card_dev_link .link_text_wrap {
+    width: 96%;
+    height: 100%;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 1s ease-in-out;
+  }
+
+  .link_text_wrap .card_link_text {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    gap: 5px;
+  }
+
+  .card_dev_summary .dev_summary_wrap {
+    width: 90%;
+    height: max-content;
+    padding: 0.5rem 0.5rem;
+    border-radius: 12px;
+    /* border: 1px solid #444444; */
+    box-shadow: 0px 0px 5px hsl(231, 29%, 33%);
+    display: flex;
+    justify-content: start;
+    text-align: center;
+  }
+
+  .more_link {
+    width: 6rem;
+    height: min-content;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 0;
+    transition: all 1s ease-in-out;
+  }
+
+  .more_link.active_note {
+    position: relative;
+    top: 1.3rem;
+    width: 100%;
+    height: 60%;
+    color: var(--text-color-two);
+    background-color: #222;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 3;
+  }
+
+  .more_link .note_arrow {
+    position: relative;
+    top: 2px;
+    transform: rotate(-90deg);
+    z-index: 1;
+  }
+
+  .more_link.active_note .note_arrow {
+    transform: rotate(90deg);
+  }
+  /* modal more note */
+
+  .modal_more_note {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 2.8rem;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 900ms ease-in-out;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    width: 100%;
+    position: absolute;
+    top: -10rem;
+    height: 12.8rem;
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .more_note_expand {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1.5rem;
+    color: #333;
+    background-color: var(--bg-principal);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 4rem 4rem 4rem;
+    gap: 0;
+  }
+
+  .more_note_expand .note_expand_character {
+    width: 100%;
+    margin: 0 auto;
+    color: var(--text-color-two);
+    font-size: calc(14px + 0.12vw);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  /* modal video container */
+  .modal_video_blur {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow-y: hidden;
+    z-index: 1;
+  }
+
+  .modal_video_blur.active_video {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2222223a;
+    transform: translateX(-12%);
+    overflow-y: hidden;
+    z-index: 5;
+  }
+
+  .modal_video_box {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    width: 100%;
+    aspect-ratio: 16/12;
+    padding: 0.25rem 1rem 1rem;
+    background-color: var(--text-color-label);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out 480ms;
+  }
+
+  .modal_video_box.active_video {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .close_video_toggler {
+    width: 100%;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .btn_video_close {
+    width: 1.1em;
+    height: 1.1em;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .video_to_play {
+    width: 100%;
+    height: calc(100% - 1.5em);
+    padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+    border-radius: 5px;
+  }
+
+  /* <-- Card frame stack-dev project */
 
   /* --> language potential  */
   .language_mastering {
@@ -1524,7 +2017,7 @@ li.no_list_style {
   /* <-- language potential */
 }
 
-@media (min-width: 460px) {
+@media (min-width: 500px) {
   .edu_former {
     width: 20rem;
   }
@@ -1626,6 +2119,159 @@ li.no_list_style {
     font-size: calc(14px + 0.3vw);
   }
   /* <-- self-taught cursus */
+
+  /* --> Card frame stack-dev project */
+
+  /* .experience_pro .active_video {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
+  } */
+
+  .card_stack {
+    padding: 0.5rem 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card_stack a {
+    font-size: calc(10px + 0.1vw);
+  }
+
+  .card_profile {
+    width: 50%;
+    padding: 0 0 0 1rem;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  .card_stick {
+    padding: 0.5rem 0.75rem;
+    height: 14rem;
+  }
+
+  .card_stick .card_img {
+    aspect-ratio: 16/11;
+    max-height: 192px;
+  }
+
+  .card_stick .first_mini {
+    position: relative;
+    top: -0.5rem;
+    display: none;
+  }
+
+  .card_stick .second_mini {
+    display: flex;
+  }
+
+  .card_dev {
+    width: 50%;
+    padding: 0 0.5rem 0 0;
+  }
+
+  .card_dev .card_dev_title {
+    width: 80%;
+    height: 1.8rem;
+    color: inherit;
+    margin: 8px 0 4px;
+    display: grid;
+    place-items: center;
+  }
+
+  .card_dev_title .dev_title_logo {
+    display: none;
+  }
+
+  .card_dev_info {
+    position: relative;
+    width: 100%;
+    height: 14rem;
+    padding-right: 0.25rem;
+    display: grid;
+    grid-template-areas:
+      'summary  summary'
+      'link-video link-text'
+      'note-more note-more';
+    grid-template-rows: 5rem 5rem 2rem;
+    grid-template-columns: 40% 60%;
+    gap: 0.5rem;
+    margin-top: 0;
+  }
+
+  .card_link_video {
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .card_dev_link {
+    grid-area: link-text;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0.25rem 0.5rem 0;
+    margin: 0.5rem 0;
+    display: block;
+  }
+
+  .card_note_more {
+    display: flex;
+    justify-content: end;
+  }
+
+  .card_note_more.active_note[data-v-a5cd2c92] {
+    align-items: start;
+  }
+
+  .link_text_wrap .card_link_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 0;
+  }
+
+  .card_dev_summary {
+    padding: 0;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 70%;
+    max-width: 220px;
+    aspect-ratio: 16/14;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    top: -11rem;
+    height: 13.5rem;
+  }
+
+  .more_note_expand .note_expand_character {
+    font-size: calc(10px + 0.15vw);
+  }
+
+  .modal_video_box {
+    left: 0%;
+    width: calc(200% + 1.9rem);
+    height: 17.2rem;
+    transform: translate(-52%, 0);
+    aspect-ratio: unset;
+    bottom: -4px;
+  }
+
+  .close_video_toggler {
+    width: calc(100% + 1.5rem);
+    height: 1.75em;
+    align-items: start;
+  }
+
+  .video_to_play {
+    padding: 0;
+    height: calc(100% - 1.75em);
+  }
+
+  /* <-- Card frame stack-dev project */
 
   /* --> language potential desk */
   .language_potential_mob {
@@ -1817,7 +2463,9 @@ li.no_list_style {
     margin: 0;
   }
 
-  .project_box {
+  /* EX Project Box */
+
+  .card_elec_frame {
     padding: 1rem 0.5rem;
     margin: 1rem 0 0;
     display: grid;
@@ -1827,14 +2475,14 @@ li.no_list_style {
     gap: 2rem;
   }
 
-  .project_box div.image_box {
+  .card_elec_frame div.image_box {
     padding: 0.25rem;
     display: grid;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
 
-  .project_box .project_content {
+  .card_elec_frame .project_content {
     width: 100%;
     padding: 0;
     display: flex;
@@ -1843,11 +2491,11 @@ li.no_list_style {
     align-items: stretch;
   }
 
-  .project_box .project_logo_wrap {
+  .card_elec_frame .project_logo_wrap {
     margin-left: 2rem;
   }
 
-  .project_box .more_info_elt {
+  .card_elec_frame .more_info_elt {
     width: 100%;
     height: 90%;
     display: flex;
@@ -1862,6 +2510,8 @@ li.no_list_style {
     font-size: calc(12px + 0.3vw);
   }
 
+  /* EX Project Box */
+
   /* --> language potential desk */
   .language_mastering {
     height: 350px;
@@ -1873,5 +2523,96 @@ li.no_list_style {
   }
 
   /* <-- language potential desk */
+}
+
+@media (min-width: 920px) {
+  .project_dev_frame {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    gap: 1.5rem;
+  }
+
+  .card_stack {
+    padding: 1.25rem 0.5rem;
+    padding: 1.25rem 0.5rem;
+    border-radius: 10px;
+    background-color: var(--bg-navbar);
+    box-shadow: unset;
+  }
+
+  .card_stack a {
+    font-size: calc(12px + 0.15vw);
+  }
+
+  .card_stick {
+    padding: 0.5rem 0.75rem;
+    height: 15.5rem;
+  }
+
+  .dev_title_name {
+    color: inherit;
+    z-index: 0;
+    transition: all 450ms ease;
+  }
+
+  .dev_title_name.active_note {
+    color: var(--text-color-two);
+    z-index: 10;
+    transition: all 450ms ease 850ms;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 70%;
+    height: 80px;
+    max-width: 220px;
+    aspect-ratio: unset;
+  }
+
+  .more_link.active_note {
+    position: relative;
+    top: 0.5rem;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    top: -13.25rem;
+    height: 14.75rem;
+  }
+
+  .more_note_expand {
+    padding: 1.5rem 1.5rem 0.5rem;
+    grid-template-rows: 3.6rem 3.6rem 3.6rem;
+  }
+
+  .modal_video_box {
+    width: calc(200% + 2.2rem);
+    height: 17.2rem;
+    transform: translate(-51%, 0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal_video_box {
+    height: 27.8rem;
+  }
+
+  .close_video_toggler {
+    width: 100%;
+    height: 3em;
+  }
+
+  .btn_video_close {
+    width: 1.4em;
+    height: 1.4em;
+    font-size: calc(16px + 0.25vw);
+  }
+
+  .video_to_play {
+    width: 100%;
+    height: calc(100% - 3em);
+    padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+    border-radius: 5px;
+  }
 }
 </style>
