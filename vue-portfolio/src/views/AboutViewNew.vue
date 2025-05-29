@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
   <section id="about_page">
     <div class="about_container">
@@ -30,7 +31,7 @@
 
       <!-- skills architecture -->
       <div class="skills_architecture">
-        <div class="title_arch_desk">Tools , Libraries, Framework</div>
+        <div class="title_arch_desk eb-garamond-600">Tools , Libraries, Framework</div>
         <!-- Note HERE :  NEXT you need to style **stand_bard** properly (add color first) -->
         <div class="graph_box_container">
           <div class="graph_portait">
@@ -68,7 +69,7 @@
                   <div class="label_bar">NodeJS</div>
                 </div>
               </div>
-              <div class="title_graph_play">
+              <div class="title_graph_play eb-garamond-600">
                 <p>Libraries & Frameworks</p>
               </div>
             </div>
@@ -118,7 +119,7 @@
                   <div class="label_bar">CSS</div>
                 </div>
               </div>
-              <div class="title_graph_play">
+              <div class="title_graph_play eb-garamond-600">
                 <p>I.T Tools</p>
               </div>
             </div>
@@ -133,7 +134,7 @@
         >
           <ul class="w-100 mt-2">
             <li>
-              <span class="text-decoration-underline" style="color: var(--bg-border-layout)"
+              <span class="text-decoration-underline" style="color: var(--text-color-two)"
                 >Quote:</span
               >
             </li>
@@ -158,7 +159,7 @@
             <h4>Interests</h4>
           </div>
           <div
-            class="interest_list font_Open_Sans_400 w-100 d-flex justify-content-center justify-content-sm-end gap-2"
+            class="interest_list open-sans-400 w-100 d-flex justify-content-center justify-content-sm-end gap-2"
           >
             <p>writings</p>
             ,
@@ -334,9 +335,6 @@ ul {
     padding: 2rem 1rem 0;
     margin: 0 auto;
     background-color: var(--bg-primary-color);
-    font-family: 'Hind', sans-serif;
-    font-weight: 400;
-    font-style: normal;
     border-top: 0.35rem solid var(--bg-border-layout);
     border-bottom: 0.75rem solid var(--bg-border-layout);
   }
@@ -409,9 +407,10 @@ ul {
 
   .graph_portait {
     width: 100%;
+    margin-top: 0.5rem;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 20rem 20rem;
+    grid-template-rows: 18rem 18rem;
     gap: 3rem;
   }
 
@@ -430,7 +429,7 @@ ul {
     grid-template-areas:
       'title'
       'graph';
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 14% 86%;
     padding: 0 0.5rem;
   }
 
@@ -444,8 +443,8 @@ ul {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: calc(17px + 0.1vw);
-    font-weight: bold;
+    font-size: calc(20px + 0.15vw);
+    /*  font-weight: bold; */
   }
 
   .graph_play {
@@ -501,6 +500,7 @@ ul {
     position: absolute;
     bottom: 8px;
     left: 10px;
+    color: var(--text-color-three);
     writing-mode: unset;
     font-size: calc(11px + 0.15vw);
   }
@@ -605,16 +605,16 @@ ul {
   /* skills architecture */
 
   .graph_portait {
-    padding-top: 3rem;
-    grid-template-rows: 20rem 20rem;
+    margin-top: 3.25rem;
   }
 
-  /* .graph_box {
-    gap: 0;
-  } */
+  .graph_box {
+    grid-template-rows: 5% 95%;
+    padding: 0 0.5rem;
+  }
 
   .title_graph_play {
-    font-size: calc(20px + 0.1vw);
+    font-size: calc(22px + 0.15vw);
   }
 
   .graph_play {
@@ -695,14 +695,13 @@ ul {
     padding: 0.5rem 0;
     display: grid;
     place-items: center;
-    font-size: calc(20px + 0.15vw);
+    font-size: calc(24px + 0.18vw);
   }
 
   .graph_portait {
     width: 100%;
     max-width: 90%;
     margin: 0 auto;
-    padding-top: 0rem;
     display: grid;
     grid-template-columns: 35% 30% 35%;
     grid-template-rows: 16rem;
@@ -733,6 +732,7 @@ ul {
     grid-row: 2 / span 1;
     height: 2rem;
     text-decoration: underline;
+    font-size: calc(22px + 0.15vw);
   }
 
   #libraries_frameworks .title_graph_play {

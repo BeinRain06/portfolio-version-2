@@ -3,8 +3,8 @@
 <template>
   <div class="active_skills">
     <div class="skills_container container-fluid">
-      <div class="skills_content col-xs-12 col-6">
-        <div class="skill_box">
+      <div class="skills_content open-sans-400 col-xs-12 col-6">
+        <div class="skill_box" data-box="color-one">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">CSS</h4>
@@ -16,13 +16,11 @@
                   <p class="knowledge">Flex Item</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
-                    <a
-                      href="https://crowdfunding-product-page-peach-five.vercel.app"
-                      class="text-decoration-underline"
-                    >
-                      https://crowdfunding-product-page-peach-five.vercel.app/</a
+
+                    <a href="https://crowdfunding-product-page-peach-five.vercel.app">
+                      <span>https://crowdfunding-product-page-peach-five.vercel.app/</span></a
                     >
                   </p>
                 </li>
@@ -30,7 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-one">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">JavaScript</h4>
@@ -45,13 +43,14 @@
                   <p class="knowledge">Loading Effect</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
+
                     <a
                       href="https://quiz-app-delta-beryl.vercel.app/"
                       class="text-decoration-underline"
                     >
-                      https://quiz-app-delta-beryl.vercel.app/</a
+                      <span>https://quiz-app-delta-beryl.vercel.app/</span></a
                     >
                   </p>
                 </li>
@@ -59,7 +58,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-one">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">Vanilla JS</h4>
@@ -74,13 +73,14 @@
                   <p class="knowledge">handle DOM Events actions in vanilla JS</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
+
                     <a
                       href="https://to-do-list-kappa-lyart-28.vercel.app/"
                       class="text-decoration-underline"
                     >
-                      https://to-do-list-kappa-lyart-28.vercel.app/</a
+                      <span> https://to-do-list-kappa-lyart-28.vercel.app/</span></a
                     >
                   </p>
                 </li>
@@ -88,7 +88,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-two">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">React JS</h4>
@@ -109,13 +109,14 @@
                   <p class="knowledge">React-Router-DOM</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
+
                     <a
                       href="https://furniture-store-peach.vercel.app/"
                       class="text-decoration-underline"
                     >
-                      https://furniture-store-peach.vercel.app/</a
+                      <span>https://furniture-store-peach.vercel.app/</span></a
                     >
                   </p>
                 </li>
@@ -123,7 +124,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-two">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">VueJS</h4>
@@ -141,13 +142,14 @@
                   <p class="knowledge">Token key pass with linux openssl and jsonwebtoken</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
+
                     <a
                       href="https://github.com/BeinRain06/blog-app-tech"
                       class="text-decoration-underline"
                     >
-                      https://github.com/BeinRain06/blog-app-tech</a
+                      <span>https://github.com/BeinRain06/blog-app-tech</span></a
                     >
                   </p>
                 </li>
@@ -155,7 +157,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-two">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">TypeScript</h4>
@@ -167,13 +169,13 @@
                   <p class="knowledge">TypeScript declaration in ReactJS Components</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
                     <a
                       href="https://words-letters-game.vercel.app/"
                       class="text-decoration-underline"
                     >
-                      https://words-letters-game.vercel.app/</a
+                      <span>https://words-letters-game.vercel.app/</span></a
                     >
                   </p>
                 </li>
@@ -181,7 +183,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-three">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">Express JS</h4>
@@ -196,13 +198,14 @@
                   <p class="knowledge">MONGODB Model with ExpressJS</p>
                 </li>
                 <li class="talking_area">
-                  <p class="sample_project">
+                  <p class="sample_project eb-garamond-600">
                     <span class="sample_link fw-light text-decoration-underline">Link :</span>
+
                     <a
                       href="https://github.com/BeinRain06/Tds_Restaurant_three"
                       class="text-decoration-underline"
                     >
-                      https://github.com/BeinRain06/Tds_Restaurant_three</a
+                      <span>https://github.com/BeinRain06/Tds_Restaurant_three</span></a
                     >
                   </p>
                 </li>
@@ -210,7 +213,7 @@
             </div>
           </div>
         </div>
-        <div class="skill_box">
+        <div class="skill_box" data-box="color-three">
           <div class="skill_item">
             <div class="skill_subItem">
               <h4 class="title_subItem py-2 px-4">NodeJS</h4>
@@ -237,19 +240,67 @@
               </div>
               <div class="about_stack_project d-flex flex-column align-items-left">
                 <ul class="summary_project w-100">
-                  <li style="list-style: square; margin-right: 0.5rem"></li>
-                  <li style="list-style: none">order foods online</li>
+                  <li class="project_goal">
+                    <div style="font-size: 0.875rem">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                      >
+                        <g fill="none">
+                          <path
+                            fill="url(#fluentColorFood160)"
+                            d="M13.5 1A4.5 4.5 0 0 0 9 5.5V7a1 1 0 0 0 1 1h.944l-.02.191c-.046.452-.109 1.062-.172 1.7c-.123 1.255-.252 2.663-.252 3.109a2 2 0 1 0 4 0c0-.446-.129-1.854-.252-3.11a304 304 0 0 0-.23-2.24L14 7.473V1.5a.5.5 0 0 0-.5-.5"
+                          />
+                          <path
+                            fill="url(#fluentColorFood161)"
+                            d="M6.723 1.054a.5.5 0 0 1 .265.335C7.006 1.468 7.5 3.582 7.5 5c0 .95-.442 1.797-1.13 2.346c-.25.2-.37.418-.37.6v.486q0 .035.004.066c.034.248.157 1.169.272 2.124c.113.937.224 1.959.224 2.378a2 2 0 1 1-4 0c0-.42.111-1.44.224-2.378c.115-.955.238-1.876.272-2.124L3 8.432v-.486c0-.182-.12-.4-.37-.6A3 3 0 0 1 1.5 5c0-1.413.49-3.516.512-3.61A.505.505 0 0 1 2.505 1c.28 0 .507.227.507.507v2.998A.495.495 0 1 0 4 4.5v-3a.5.5 0 0 1 1 0v3.026a.495.495 0 0 0 .99-.021v-3c0-.279.226-.505.506-.505c.022 0 .12 0 .227.054"
+                          />
+                          <defs>
+                            <linearGradient
+                              id="fluentColorFood160"
+                              x1="8.154"
+                              x2="21.198"
+                              y1="1.875"
+                              y2="6.749"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#6ce0ff" />
+                              <stop offset="1" stop-color="#0067bf" />
+                            </linearGradient>
+                            <linearGradient
+                              id="fluentColorFood161"
+                              x1=".577"
+                              x2="14.483"
+                              y1="1.875"
+                              y2="7.543"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#6ce0ff" />
+                              <stop offset="1" stop-color="#0067bf" />
+                            </linearGradient>
+                          </defs>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="color: var(--bg-variant-color); font-weight: bold">
+                      order foods online
+                    </div>
+                  </li>
+                  <li class="link_stack_wrapper">
+                    <div class="link_pitch_box">
+                      <a
+                        class="full_stack_link eb-garamond-600"
+                        href="https://github.com/BeinRain06/Tds_Restaurant_three"
+                        >https://github.com/BeinRain06/Tds_Restaurant_three</a
+                      >
+                    </div>
+                  </li>
                 </ul>
-                <span class="font_Open_Sans_500 mb-1" style="padding-left: 1rem"
+                <span class="tech_stack_tools"
                   >MERN (MONGODB-Express-ReactJS-Node) + Styled-Components</span
                 >
-                <div class="link_stack_wrapper w-100">
-                  <a
-                    class="full_stack_link"
-                    href="https://github.com/BeinRain06/Tds_Restaurant_three"
-                    >https://github.com/BeinRain06/Tds_Restaurant_three</a
-                  >
-                </div>
               </div>
             </div>
             <div class="project_base">
@@ -258,17 +309,67 @@
               </div>
               <div class="about_stack_project">
                 <ul class="summary_project w-100">
-                  <li style="list-style: square; margin-right: 0.5rem"></li>
-                  <li style="list-style: none">blog about tech news</li>
+                  <li class="project_goal">
+                    <div style="font-size: 0.875rem">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                      >
+                        <g fill="none">
+                          <path
+                            fill="url(#fluentColorPaw161)"
+                            d="M8 7a5 5 0 0 0-5 5c0 1.298 1.212 2 2.285 2h5.43C11.788 14 13 13.298 13 12a5 5 0 0 0-5-5"
+                          />
+                          <path
+                            fill="url(#fluentColorPaw160)"
+                            d="M8.5 3.875C8.5 2.938 9.138 2 10.125 2s1.625.938 1.625 1.875s-.638 1.875-1.625 1.875S8.5 4.812 8.5 3.875m-6.125.375C1.388 4.25.75 5.188.75 6.125S1.388 8 2.375 8S4 7.062 4 6.125S3.362 4.25 2.375 4.25m11.25 0c-.987 0-1.625.938-1.625 1.875S12.638 8 13.625 8s1.625-.938 1.625-1.875s-.638-1.875-1.625-1.875M5.875 2c-.987 0-1.625.938-1.625 1.875S4.888 5.75 5.875 5.75S7.5 4.812 7.5 3.875S6.862 2 5.875 2"
+                          />
+                          <defs>
+                            <radialGradient
+                              id="fluentColorPaw160"
+                              cx="0"
+                              cy="0"
+                              r="1"
+                              gradientTransform="matrix(0 -7.71429 11.6 0 8.403 8.429)"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#eb4824" />
+                              <stop offset="1" stop-color="#ff921f" />
+                            </radialGradient>
+                            <linearGradient
+                              id="fluentColorPaw161"
+                              x1="5.378"
+                              x2="8.294"
+                              y1="7.931"
+                              y2="14.583"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop offset=".125" stop-color="#ff921f" />
+                              <stop offset="1" stop-color="#eb4824" />
+                            </linearGradient>
+                          </defs>
+                        </g>
+                      </svg>
+                    </div>
+                    <div style="color: var(--bg-variant-color); font-weight: bold">
+                      blog about tech news
+                    </div>
+                  </li>
+                  <li class="link_stack_wrapper">
+                    <div class="link_pitch_box">
+                      <a
+                        class="full_stack_link eb-garamond-600"
+                        href="https://github.com/BeinRain06/blog-app-tech"
+                        >https://github.com/BeinRain06/blog-app-tech</a
+                      >
+                    </div>
+                  </li>
                 </ul>
-                <span class="font_Open_Sans_500 mb-1" style="padding-left: 1rem"
+                <span class="tech_stack_tools"
                   >MEVN (MONGODB-Express-VueJS-Node) + TailwindCSS
                 </span>
-                <div class="link_stack_wrapper w-100">
-                  <a class="full_stack_link" href="https://github.com/BeinRain06/blog-app-tech"
-                    >https://github.com/BeinRain06/blog-app-tech</a
-                  >
-                </div>
               </div>
             </div>
           </div>
@@ -279,24 +380,17 @@
 </template>
 
 <style scoped>
-.font_Satisfy {
-  font-family: 'Satisfy', cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font_Open_Sans_500 {
-  font-family: 'Open Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-  font-size: clamp(0.75rem, 0.92rem, 1.1rem);
-}
-
 h4 {
+  color: var(--text-color-primar);
   font-size: calc(14px + 0.3vw);
   text-decoration: underline;
+}
+
+a {
+  font-size: calc(12px + 0.3vw);
+  color: var(--text-color-primar);
+  opacity: 0.75;
+  transition: all 1s ease;
 }
 
 @media (min-width: 160px) {
@@ -387,34 +481,42 @@ h4 {
   }
 
   .skill_box .skill_item:hover::after {
-    top: 26px;
-    background-color: hsl(45, 90%, 52%);
+    top: 42px;
+    /*  background-color: hsl(45, 79%, 60%); */
+    background-color: var(--bg-principal);
     opacity: 1;
-    transform: translateX(-62%) scale(1.4);
+    transform: translateX(-62%) scale(1.25);
   }
 
   .skill_box .skill_item .sample_project {
     font-size: calc(12px + 0.3vw);
     padding-right: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
   }
 
-  .sample_project span.sample_link {
-    color: var(--text-color-label);
-  }
-
-  .sample_project a {
-    color: var(--bg-border-layout);
+  .sample_project {
+    width: 100%;
+    padding-right: 1rem;
+    color: var(--text-color-primar);
     font-size: calc(12px + 0.3vw);
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
     transition: all 1s ease-in-out 0.2s;
   }
 
-  .skill_box .skill_item:hover .sample_project a {
-    color: hsl(45, 90%, 52%);
+  .skill_box .skill_item:hover .sample_project * {
+    /* color: hsl(45, 79%, 60%); */
+    color: var(--bg-principal);
   }
 
-  .skill_box .skill_item:hover::after ~ .sample_project a {
+  .skill_box .skill_item:hover::after ~ .sample_project * {
     font-size: calc(11px + 0.3vw);
-    color: hsl(45, 90%, 52%);
+    /*  color: hsl(45, 79%, 60%); */
+    color: var(--bg-principal);
   }
 
   .skill_box .skill_item .skill_subItem {
@@ -434,10 +536,10 @@ h4 {
     width: 88%;
     aspect-ratio: 16/7;
     padding-top: 0.75rem;
-    color: var(--text-color-primar);
-    background-color: var(--bg-shift-secondary-color);
+    color: var(--bg-border-layout);
+    background-color: var(--bg-tertiary-color);
     border-radius: 5px;
-    border: 1px solid var(--text-color-three);
+    /* border: 1px solid var(--text-color-three); */
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 60px max-content;
@@ -555,46 +657,68 @@ h4 {
   }
 
   #img_full_two.img_full_stack {
-    background-image: url('../assets/images/projects/blog-app-tech.png');
+    background-image: url('../assets/images/projects/blog-app-tech-d-mode.png');
   }
 
   .project_base .img_stack_wrap:hover {
-    outline: 2px solid var(--text-color-three);
-    outline-offset: -2px;
+    box-shadow: 0px 0px 14px var(--bg-principal);
   }
 
   .project_base .about_stack_project {
-    width: 82%;
-    padding: 0;
+    width: 100%;
+    padding-left: 0;
     margin: 0.5rem auto;
     display: flex;
     flex-direction: column;
   }
 
-  .project_base .img_stack_wrap ~ .about_stack_project .full_stack_link,
-  .about_stack_project .full_stack_link {
+  .about_stack_project .summary_project {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: calc(14px + 0.25vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about_stack_project .tech_stack_tools {
+    width: 14rem;
+    margin: 0.35rem 0 0.25rem;
+    padding-left: 0;
+    font-size: calc(10px + 0.15vw);
+    line-height: 1.6;
+  }
+
+  .summary_project .project_goal {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.35rem;
+  }
+
+  .summary_project .link_stack_wrapper {
+    width: 100%;
+    position: relative;
+    top: -3px;
+  }
+
+  .summary_project .full_stack_link {
     cursor: pointer;
-    padding-left: 1rem;
-    color: var(--text-color-label);
-    font-size: calc(13px + 0.3vw);
+    color: var(--text-color-three);
+    padding-top: 0.25rem;
+    font-size: calc(13px + 0.25vw);
     text-decoration: underline;
     transition: all 450ms ease-in-out;
   }
 
-  .project_base .img_stack_wrap:hover ~ .about_stack_project .full_stack_link,
-  .link_stack_wrapper:hover .full_stack_link {
-    color: hsl(188, 85%, 18%);
+  .summary_project .full_stack_link:hover {
+    color: var(--bg-principal);
   }
 
-  .about_stack_project .summary_project {
-    width: 100%;
-    margin-top: 0.75rem;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .summary_project:nth-child(2) {
-    font-size: calc(13px + 0.2vw);
+  .project_base .img_stack_wrap:hover ~ .about_stack_project .full_stack_link {
+    color: var(--bg-principal);
   }
 }
 
@@ -615,6 +739,17 @@ h4 {
     width: 80%;
     max-width: 620px;
     margin: 0 auto;
+  }
+
+  /* tech stack projects */
+
+  .project_base .about_stack_project {
+    width: 100%;
+    padding-left: calc(10% + 5px);
+  }
+
+  .about_stack_project .tech_stack_tools {
+    width: 16rem;
   }
 }
 
@@ -661,6 +796,36 @@ h4 {
   }
   .skill_subItem::after {
     display: none;
+  }
+
+  /* tech stack project */
+
+  .about_stack_project .tech_stack_tools {
+    width: 16rem;
+    padding-left: 0.75rem;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  .about_stack_project .summary_project {
+    width: 100%;
+    margin: 0;
+    font-size: calc(15px + 0.25vw);
+  }
+
+  .summary_project .link_stack_wrapper {
+    width: 100%;
+    position: relative;
+    top: -5px;
+  }
+
+  .summary_project .full_stack_link {
+    font-size: calc(14px + 0.11vw);
+  }
+
+  .link_stack_wrapper .link_pitch_box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 

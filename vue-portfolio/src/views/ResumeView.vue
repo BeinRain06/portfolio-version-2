@@ -122,7 +122,7 @@ const sideSelfDev: IProjectsSelf = reactive({
       name: 'BLOG-APP-TECH',
       duty: 'Blog about new culture, technologies and trend in I.T',
       link: 'https://github.com/BeinRain06/blog-app-tech',
-      linkVideo: '../assets/videos/video-1.mkv',
+      linkVideo: '',
       moreElt: [
         {
           num: '1',
@@ -169,7 +169,7 @@ const sideSelfDev: IProjectsSelf = reactive({
       techno: 'MERN App',
       logo: 'Tds',
       name: 'TDS-RESTAURANT',
-      duty: 'Online app foods. Order ready traditiononal cooked foods at home',
+      duty: 'Online app foods. Order ready traditional cooked foods at home',
       link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
       linkVideo: '',
       moreElt: [
@@ -354,17 +354,15 @@ function handleModalVideo(i: number, label: string) {
 
 <template>
   <section id="resume_page">
-    <div class="resume_domain">
+    <div class="resume_domain open-sans-400">
       <!-- years story -->
       <div class="story_container p-1">
         <div
           class="story_enroll w-100 p-2 mx-auto d-flex flex-column justify-content-center align-items-center"
         >
-          <div class="title_story">
-            <h4 class="font_Cabin_500"><strong>Summary</strong></h4>
-          </div>
+          <div class="title_story eb-garamond-600">Summary</div>
           <div class="story_wrap d-flex justify-content-center">
-            <p class="story_content font_Open_Sans_400 pt-4">
+            <p class="story_content pt-4">
               Hye Guys! My Name is NGOUEND RAOUL GERARD i am really glad to meet you. Having some
               previous technical experience. I studied basics electrical and automation engineering
               two years , and got an <span>associate's degree</span>. Afterwards one year later i
@@ -386,10 +384,10 @@ function handleModalVideo(i: number, label: string) {
       <div class="resume_container">
         <div class="resume_row_one w-100">
           <!-- primar education -->
-          <div class="primar_education w-100">
+          <div class="primar_education margin_section w-100">
             <div class="primar_title_wrapper">
               <div class="edu_former justify-self-center">
-                <h5 class="education_title font_Satisfy my-2">Education</h5>
+                <h4 class="education_title font_Satisfy my-2">Education</h4>
               </div>
             </div>
             <div
@@ -399,7 +397,7 @@ function handleModalVideo(i: number, label: string) {
                 <tbody class="w-100">
                   <tr class="academic_primar_year">
                     <td>
-                      <span class="p-1">2010-2012</span>
+                      <h6 class="title_year p-1">2010-2012</h6>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
@@ -408,39 +406,39 @@ function handleModalVideo(i: number, label: string) {
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
                         <div class="grade_certification">D.U.T</div>
-                        <span style="color: var(--bg-principal)"
-                          >( Diplome Universitaire de Technologie/ Associate's Degree )</span
-                        >
+                        <h3 style="color: var(--bg-principal)">
+                          ( Diplome Universitaire de Technologie/ Associate's Degree )
+                        </h3>
                       </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div class="my_department">
-                        <span
-                          class="school_grade h6 m-0 cabin-500 fw-bold"
-                          style="color: var(--text-color-label)"
-                        >
+                        <div class="school_grade fw-bold" style="color: var(--text-color-label)">
                           G.E.I.I
-                        </span>
-                        <span class="pt-2">
-                          (Genie Electrique et Informatique Industrielle/Industrial Automation And
-                          Electrical Engineering)</span
+                        </div>
+                        <h6
+                          class="acronym_grade_meaning pt-2"
+                          style="color: var(--bg-secondary-color)"
                         >
+                          (Genie Electrique et Informatique Industrielle/Industrial Automation And
+                          Electrical Engineering)
+                        </h6>
                       </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
-                        class="px-4 py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="school_location px-4 py-0 md:py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span style="color: var(--bg-secondary-color); font-weight: bolder"
+                        <span style="color: var(--text-highlight-skill); font-weight: bolder"
                           >University of Douala/I.U.T</span
                         >
-                        <span style="color: var(--text-color-two)">
-                          Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28</span
-                        >
+                        <h6 style="color: var(--text-color-two)">
+                          Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28
+                        </h6>
                       </div>
                     </td>
                   </tr>
@@ -450,7 +448,7 @@ function handleModalVideo(i: number, label: string) {
                 <tbody class="w-100">
                   <tr class="academic_primar_year">
                     <td>
-                      <span class="p-1">2012-2013</span>
+                      <h6 class="title_year p-1">2012-2013</h6>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
@@ -459,36 +457,38 @@ function handleModalVideo(i: number, label: string) {
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
                         <div class="grade_certification">E.T</div>
-                        <span style="color: var(--bg-principal)"
-                          >( Licence en Electrotechnique/ Bachelor in Electrotechnics science)</span
-                        >
+                        <h3 style="color: var(--bg-principal)">
+                          ( Licence en Electrotechnique/ Bachelor in Electrotechnics science)
+                        </h3>
                       </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div class="my_department">
-                        <span
-                          class="school_grade h6 m-0 cabin-500 fw-bold"
-                          style="color: var(--text-color-label)"
+                        <div class="school_grade fw-bold" style="color: var(--text-color-label)">
+                          Bachelor E.T
+                        </div>
+                        <h6
+                          class="acronym_grade_meaning pt-2"
+                          style="color: var(--bg-secondary-color)"
                         >
-                          Bachelor E.T</span
-                        >
-                        <span class="pt-2">ElectroTechnics</span>
+                          ElectroTechnics
+                        </h6>
                       </div>
                     </td>
                   </tr>
                   <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
-                        class="px-4 px-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="school_location px-4 py-0 md:py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span style="color: var(--bg-secondary-color); font-weight: bolder"
+                        <span style="color: var(--text-highlight-skill); font-weight: bolder"
                           >University of Dschang/IUC
                         </span>
-                        <span style="color: var(--text-color-two)">
-                          Colline de Foto · +237 233 45 13 81</span
-                        >
+                        <h6 style="color: var(--text-color-two)">
+                          Colline de Foto · +237 233 45 13 81
+                        </h6>
                       </div>
                     </td>
                   </tr>
@@ -497,10 +497,10 @@ function handleModalVideo(i: number, label: string) {
             </div>
           </div>
           <!-- experiences -->
-          <div class="experience_duty">
+          <div class="experience_duty margin_section">
             <div class="primar_title_wrapper my-4">
               <div class="edu_former justify-self-center">
-                <h5 class="experience_title font_Satisfy my-2">Experiences</h5>
+                <h4 class="experience_title font_Satisfy my-2">Experiences</h4>
               </div>
             </div>
 
@@ -510,7 +510,7 @@ function handleModalVideo(i: number, label: string) {
                   <div class="title_sub_section">
                     <p class="fw-bold">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</p>
                   </div>
-                  <div class="experience_sample_content">
+                  <div class="experience_sample_content pt-4 pb-2">
                     <div class="company_base">
                       <span class="years_intern my-2 title_year">2013 -2014</span>
                       <div class="company_reference pt-2 pb-4">
@@ -546,7 +546,7 @@ function handleModalVideo(i: number, label: string) {
                                 >
                               </div>
                             </li>
-                            <li class="project_content text_elec_project mt-3">
+                            <li class="project_content mt-3">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -626,7 +626,7 @@ function handleModalVideo(i: number, label: string) {
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div class="company_base w-100">
                       <span class="years_intern my-2 title_year">2014 -2019</span>
                       <div class="company_reference pt-2 pb-4">
@@ -641,12 +641,12 @@ function handleModalVideo(i: number, label: string) {
                         class="side_dream w-100 pt-2 d-flex flex-column justify-content-start align-items-left"
                         style="font-size: calc(12px + 0.15vw)"
                       >
-                        <p class="fw-bold text-black-50 mb-0">side commitment</p>
-                        <p class="mx-1">Attend Engineer's schools exams training 04 years</p>
+                        <span class="fw-bold text-black-50 mb-0">side commitment</span>
+                        <span class="mx-1">Attend Engineer's schools exams training 04 years</span>
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div class="company_base w-100">
                       <span class="years_intern mt-4 mb-2 title_year">2021</span>
                       <div class="company_reference pt-2 pb-4">
@@ -669,7 +669,7 @@ function handleModalVideo(i: number, label: string) {
                   <div class="title_sub_section">
                     <p class="fw-bold">SELF TAUGHT DEVELOPMENT</p>
                   </div>
-                  <div class="experience_sample_content w-100">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div
                       class="framework_base w-100 py-4"
                       :key="framework.id"
@@ -695,7 +695,7 @@ function handleModalVideo(i: number, label: string) {
 
                     <!-- SIDE PROJECTS DEV STACK -->
                     <div class="experience_pro w-100 d-flex flex-column align-items-center gap-2">
-                      <h5 class="fw-bold py-2">SIDE PROJECTS</h5>
+                      <h5 class="fw-bold pt-4">SIDE PROJECTS</h5>
 
                       <!--stack projects-->
                       <div class="projects_list w-100">
@@ -741,7 +741,7 @@ function handleModalVideo(i: number, label: string) {
                                       style="cursor: pointer"
                                       @click="() => handleModalVideo(i, 'open')"
                                     >
-                                      video
+                                      live
                                     </div>
                                     <div class="modal_video_box" ref="modalVideoRef">
                                       <div class="close_video_toggler">
@@ -755,14 +755,31 @@ function handleModalVideo(i: number, label: string) {
                                           <i>&times;</i>
                                         </div>
                                       </div>
-                                      <video
+
+                                      <!-- <video
                                         class="video_to_play"
                                         controls
                                         src="../assets/videos/video-1.mkv"
                                         poster="../assets/images/projects/blog-app-tech-d-mode.png"
                                       >
                                         <a href="../assets/videos/video-1.mkv">WEBM</a>
-                                      </video>
+                                      </video>-->
+
+                                      <div class="video_to_play">
+                                        <div>not available</div>
+                                        <div
+                                          class="w-100 h-100 d-flex justify-content-center align-items-center"
+                                        >
+                                          <a
+                                            :src="project.link"
+                                            target="_blank"
+                                            class="underline"
+                                            style="color: var(--text-placeholder)"
+                                            alt="no video link"
+                                            >Visit Link</a
+                                          >
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -780,14 +797,14 @@ function handleModalVideo(i: number, label: string) {
                                   </div>
                                 </div>
                                 <div class="card_note_more">
-                                  <h6
+                                  <div
                                     class="more_link"
                                     ref="moreSelfBtn"
                                     @click="() => playMoreInfoContent(`${i}`, 'self')"
                                   >
-                                    <div>more</div>
-                                    <div class="note_arrow">&raquo;</div>
-                                  </h6>
+                                    <span>more</span>
+                                    <span class="note_arrow">&raquo;</span>
+                                  </div>
                                   <!--modal not more-->
                                   <div class="modal_more_note">
                                     <ul class="more_note_expand">
@@ -853,13 +870,13 @@ function handleModalVideo(i: number, label: string) {
           <!-- self taught cursus -->
           <div class="self_taught_cursus w-100">
             <div class="edu_former">
-              <h5 class="education_title font_Satisfy my-2">Self Taught Developer</h5>
+              <h4 class="education_title font_Satisfy my-2">Self Taught Developer</h4>
             </div>
             <div class="w-100 d-flex justify-content-start relative">
               <span class="about_journey font_Satisfy">Journey</span>
             </div>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">CSS</span></li>
+              <li class="skill_label"><div class="p-1">CSS</div></li>
               <li class="period_works"><span class="duration_times">03 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -868,7 +885,7 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Javascript</span></li>
+              <li class="skill_label"><div class="p-1">Javascript</div></li>
               <li class="period_works"><span class="duration_times">06 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -877,8 +894,8 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500">
-                <span class="p-1">Vanilla Javascript</span>
+              <li class="skill_label">
+                <div class="p-1">Vanilla Javascript</div>
               </li>
               <li class="period_works"><span class="duration_times">02 months</span></li>
               <li class="period_works">
@@ -888,7 +905,7 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">React JS</span></li>
+              <li class="skill_label"><div class="p-1">React JS</div></li>
               <li class="period_works"><span class="duration_times">06 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -897,7 +914,7 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Bootstrap</span></li>
+              <li class="skill_label"><div class="p-1">Bootstrap</div></li>
               <li class="period_works"><span class="duration_times">01 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -906,8 +923,8 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500">
-                <span class="text_size p-1">React, -Bootstrap, - styled-components, - BackEnd</span>
+              <li class="skill_label">
+                <div class="text_size p-1">React, -Bootstrap, - styled-components, - BackEnd</div>
               </li>
               <li class="period_works"><span class="duration_times">05 months</span></li>
               <li class="period_works">
@@ -917,7 +934,7 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Tailwind CSS</span></li>
+              <li class="skill_label"><div class="p-1">Tailwind CSS</div></li>
               <li class="period_works"><span class="duration_times">01 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -926,7 +943,7 @@ function handleModalVideo(i: number, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">VueJS</span></li>
+              <li class="skill_label"><div class="p-1">VueJS</div></li>
               <li class="period_works"><span class="duration_times">02 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -938,7 +955,7 @@ function handleModalVideo(i: number, label: string) {
           <!-- language mastery -->
           <div class="language_mastering">
             <div class="lan_former">
-              <h5 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h5>
+              <h4 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h4>
             </div>
             <div class="language_potential_mob">
               <div class="language_specific w-100">
@@ -1009,37 +1026,13 @@ function handleModalVideo(i: number, label: string) {
   margin: 0;
   padding: 0;
 }
+
+ul.experience_tasks {
+  list-style: circle;
+}
+
 li.no_list_style {
   list-style: none;
-}
-
-.font_Satisfy {
-  font-family: 'Satisfy', cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font_Garamond_400 {
-  font-family: 'EB Garamond', serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font_Cabin_500 {
-  font-family: 'Cabin', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-}
-
-.font_Open_Sans_400 {
-  font-family: 'Open Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
 }
 
 .grade_certification {
@@ -1047,63 +1040,13 @@ li.no_list_style {
   padding: 5px 10px;
   margin-bottom: 0.5rem;
   color: var(--text-color-three);
-  background-color: var(--bg-secondary-color);
+  /* background-color: var(--bg-secondary-color); */
+  background-color: transparent;
   font-size: calc(14px + 0.18vw);
   font-weight: bold;
   border-radius: 5px;
-  box-shadow: 0px 2px 5px var(--text-color-label);
+  box-shadow: 0px 1px 5px var(--text-color-three);
 }
-
-.title_sub_section {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0.25rem;
-  font-size: calc(14px + 0.15vw);
-  font-weight: bold;
-  display: grid;
-  place-items: center;
-}
-
-.text_size {
-  font-size: 12px;
-}
-
-.text_elec_project {
-  font-size: calc(11px + 0.24vw);
-}
-
-.title_self_dev {
-  font-size: calc(13px + 0.2vw);
-  opacity: 0.88;
-}
-
-.text_size_two {
-  font-size: calc(12px + 0.25vw);
-}
-
-.text_project_logo {
-  font-size: calc(14px + 0.3vw);
-}
-
-.title_year {
-  color: var(--bg-secondary-color);
-  font-size: calc(12px + 0.25vw);
-  font-weight: bold;
-}
-
-.title_worked_with {
-  color: var(--bg-shift-secondary-color);
-  font-size: calc(14px + 0.3vw);
-  font-weight: bold;
-}
-
-/* .margin_exp_sample {
-  margin: 1rem auto;
-} */
-
-/* .margin_exp_sample_self {
-  margin: 2.5rem auto 0;
-} */
 
 .lan_level {
   padding: 0 0.25rem;
@@ -1114,7 +1057,8 @@ li.no_list_style {
 .edu_former {
   width: 12rem;
   padding: 0.5rem;
-  background-color: var(--bg-shift-secondary-color);
+  /* background-color: var(--bg-shift-secondary-color); */
+  background-color: var(--text-highlight-skill);
   display: flex;
   justify-content: center;
 }
@@ -1123,7 +1067,8 @@ li.no_list_style {
   width: 12rem;
   padding: 0.5rem;
   /* background-color: rgba(0, 0, 128, 0.705); */
-  background-color: var(--bg-shift-secondary-color);
+  /*  background-color: var(--bg-shift-secondary-color); */
+  background-color: var(--text-highlight-skill);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1191,6 +1136,87 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     font-size: calc(14px + 0.12vw);
   }
 
+  p {
+    font-size: calc(14px + 0.2vw);
+  }
+
+  h3 {
+    font-size: calc(15px + 0.25vw);
+  }
+
+  h4 {
+    font-size: calc(15px + 0.15vw);
+  }
+
+  h5 {
+    font-size: calc(14px + 0.06vw);
+  }
+
+  h6 {
+    font-size: calc(12px + 0.12vw);
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  p.gen_purpose {
+    font-size: calc(13px + 0.1vw);
+  }
+
+  .title_project {
+    color: var(--bg-variant-color);
+    font-size: calc(12px + 0.12vw);
+    font-weight: bold;
+  }
+
+  .title_sub_section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.25rem;
+    color: var(--text-color-two);
+    font-size: calc(14px + 0.15vw);
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+  }
+
+  .text_size {
+    font-size: 12px;
+  }
+
+  .title_self_dev {
+    color: var(--bg-variant-color);
+    font-size: calc(13px + 0.2vw);
+    opacity: 0.88;
+  }
+
+  .text_project_logo {
+    font-size: calc(14px + 0.3vw);
+  }
+  /*
+new text size add */
+
+  .text_sub_detail {
+    font-size: calc(11px + 0.1vw);
+  }
+
+  .title_year {
+    color: var(--text-highlight-skill);
+    font-size: calc(12px + 0.25vw);
+    font-weight: bold;
+  }
+
+  .title_worked_with {
+    color: var(--text-highlight-skill);
+    font-size: calc(14px + 0.3vw);
+    font-weight: bold;
+  }
+
+  .margin_section {
+    margin: 2rem 0 1rem;
+  }
+
   .flex_col_center {
     display: flex;
     flex-direction: column;
@@ -1203,6 +1229,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     width: 100vw;
     padding: 0.5rem 0 1rem;
     margin: 0 auto;
+    color: var(--text-color-three);
     background-color: var(--bg-primary-color);
   }
 
@@ -1220,7 +1247,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     padding: 0.25rem 1rem;
     margin: 1rem 0;
     color: var(--text-color-primar);
-    /* background-color: var(--bg-title); */
+    font-size: 26px;
     text-align: center;
   }
 
@@ -1233,9 +1260,8 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     position: relative;
     width: 100%;
     height: 100%;
-    color: var(--text-color-three);
+    /*  color: var(--text-color-three); */
     line-height: 1.5;
-    font-size: calc(14px + 0.2vw);
     text-align: justify;
   }
 
@@ -1246,7 +1272,6 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     top: 0.25rem;
     width: 100%;
     padding: 0;
-    margin: 2rem 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1316,7 +1341,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 
   .info_tech_content .my_department {
     width: 100%;
-    padding: 5px 0 20px;
+    padding: 16px 0 20px;
     color: var(--bg-shift-secondary-color);
     display: flex;
     flex-direction: column;
@@ -1343,7 +1368,6 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     padding: 0.35rem 0.25rem;
     color: #fff;
     background-color: var(--bg-title-2);
-    font-size: calc(15px + 0.15vw);
     text-align: center;
     border-radius: 5px;
   }
@@ -1361,7 +1385,6 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 
   .self_taught_cursus .flash_resume {
     border-radius: 5px;
-
     margin: 0.75rem auto;
     display: flex;
     flex-direction: column;
@@ -1371,10 +1394,10 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   }
 
   .self_taught_cursus .flash_resume:nth-child(odd) {
-    background-color: #e6ebfc;
+    background-color: #154c7970;
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
-    background-color: #eee;
+    background-color: #154c7970;
   }
 
   .flash_resume .skill_label {
@@ -1444,6 +1467,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     padding: 1rem;
     margin: 0.5rem 0;
     background-color: var(--bg-navbar);
+    font-size: calc(11px + 0.24vw);
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: 9.2rem min-content 1rem 1rem;
@@ -1619,6 +1643,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     gap: 0.5rem;
     border-radius: 3px;
     box-shadow: 0px 0px 10px var(--bg-secondary-color);
+    box-shadow: 0px 0px 10px var(--text-highlight-skill);
   }
 
   .card_profile {
@@ -1636,9 +1661,10 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     align-items: center;
     justify-content: center;
     gap: 0;
-    border-radius: 24px;
-    /*  border: 1px solid #555; */
-    box-shadow: 0px 0px 3px hsl(231, 29%, 33%);
+    border-radius: 14px;
+    /*  box-shadow: 0px 0px 3px hsl(231, 29%, 33%);*/
+
+    border: 1px solid #6663638e;
   }
 
   .card_stick .card_img {
@@ -1687,30 +1713,18 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   .card_stack a {
     cursor: pointer;
     font-size: calc(11px + 0.1vw);
-    color: hsl(231, 36%, 25%);
+    color: var(--text-highlight-skill);
     font-weight: bold;
     text-decoration: underline;
     transition: all 1s ease;
   }
 
   .card_stack a:hover {
-    color: var(--bg-border-layout);
+    color: var(--bg-variant-color);
   }
 
   .card_stack p {
     font-size: calc(14px + 0.15vw);
-    color: var(--text-color-two);
-  }
-
-  .card_stack span {
-    font-size: calc(12px + 0.1vw);
-  }
-
-  .card_stack h6 {
-    width: max-content;
-    color: black;
-    font-weight: bold;
-    font-size: calc(15px + 0.1vw);
   }
 
   .card_dev {
@@ -1789,8 +1803,8 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     display: grid;
     place-items: center;
     border-radius: 5px;
-    /* border: 1px solid #444; */
-    box-shadow: 0px 0px 5px hsl(231, 29%, 33%);
+
+    box-shadow: 0px 0px 3px #8bd5e979;
   }
 
   .card_dev_link .link_text_wrap {
@@ -1815,8 +1829,6 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     height: max-content;
     padding: 0.5rem 0.5rem;
     border-radius: 12px;
-    /* border: 1px solid #444444; */
-    box-shadow: 0px 0px 5px hsl(231, 29%, 33%);
     display: flex;
     justify-content: start;
     text-align: center;
@@ -1932,7 +1944,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     width: 100%;
     aspect-ratio: 16/12;
     padding: 0.25rem 1rem 1rem;
-    background-color: var(--text-color-label);
+    background-color: var(--text-highlight-skill);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1970,6 +1982,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     width: 100%;
     height: calc(100% - 1.5em);
     padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+    background-color: #222;
     border-radius: 5px;
   }
 
@@ -2018,6 +2031,10 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 }
 
 @media (min-width: 500px) {
+  h4 {
+    font-size: calc(20px + 0.35vw);
+  }
+
   .edu_former {
     width: 20rem;
   }
@@ -2048,7 +2065,6 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
     width: 80%;
-    font-size: calc(20px + 0.35vw);
   }
 
   /* --> primary education */
@@ -2074,6 +2090,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   }
 
   .primar_table_row {
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -2096,13 +2113,13 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   }
 
   .self_taught_cursus .flash_resume {
-    height: 15rem;
+    height: max-content;
   }
 
   .flash_resume .skill_label {
     width: 40%;
     padding-bottom: 0.5rem;
-    font-size: calc(20px + 0.3vw);
+    font-size: calc(18px + 0.15vw);
   }
 
   .flash_resume .period_works {
@@ -2307,7 +2324,8 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   .taught_language_two .essence_lan {
     width: 100%;
     padding: 0.35rem 0.25rem;
-    background-color: #ccd1cd;
+    /*background-color: #154c79b0;*/
+    background-color: #154c79cc;
   }
 
   .taught_language_two .essence_lan {
@@ -2352,28 +2370,20 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 }
 
 @media (min-width: 768px) {
+  li {
+    font-size: 15px;
+  }
+
   .title_self_dev {
     font-size: calc(15px + 0.15vw);
   }
 
-  .text_elec_project {
-    font-size: calc(12px + 0.35vw);
-  }
-
   .title_sub_section {
-    font-size: calc(18px + 0.25vw);
-  }
-
-  li {
-    font-size: calc(15px + 0.18vw);
+    font-size: calc(20px + 0.25vw);
   }
 
   .text_project_logo {
     font-size: calc(13px + 0.15vw);
-  }
-
-  .margin_exp_sample {
-    margin: 1rem auto 0;
   }
 
   .edu_former {
@@ -2397,7 +2407,12 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     padding: 4.5rem 1rem 1rem;
   }
 
+  .margin_section {
+    margin: 5rem 0 1rem;
+  }
+
   .primar_table_row {
+    padding: 0.5rem;
     font-size: calc(14px + 0.25vw);
   }
 
@@ -2415,7 +2430,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 
   .experience_sample {
     padding: 1rem 0.5rem;
-    margin: 3rem auto 1rem;
+    margin: 1rem auto;
   }
 
   /* <-- self-taught cursus */
@@ -2430,14 +2445,15 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     font-size: calc(15px + 0.3vw);
   }
 
-  .self_taught_cursus .flash_resume:nth-child(odd) {
+  /*.self_taught_cursus .flash_resume:nth-child(odd) {
     border-left: 0.1rem solid #fccfaa;
     border-right: 0.1rem solid #fccfaa;
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
     border-left: 0.1rem solid #afafafc7;
     border-right: 0.1rem solid #afafafc7;
-  }
+  }*/
+
   /* <-- self-taught cursus */
 
   .primar_education .education_title,
@@ -2468,6 +2484,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
   .card_elec_frame {
     padding: 1rem 0.5rem;
     margin: 1rem 0 0;
+    font-size: calc(12px + 0.15vw);
     display: grid;
     place-content: center;
     grid-template-columns: 20% 40% 10% 15%;
@@ -2538,7 +2555,7 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
     padding: 1.25rem 0.5rem;
     padding: 1.25rem 0.5rem;
     border-radius: 10px;
-    background-color: var(--bg-navbar);
+    background-color: #154c794b;
     box-shadow: unset;
   }
 
@@ -2593,6 +2610,10 @@ ul.more_content_ct li:nth-child(3) .triangular_base_box {
 }
 
 @media (min-width: 1200px) {
+  .story_wrap {
+    line-height: 1.9;
+  }
+
   .modal_video_box {
     height: 27.8rem;
   }

@@ -549,8 +549,13 @@ input.trigger_menu {
     padding: 0.25rem 0.5rem;
   }
 
+  .title_nav {
+    padding-left: 0.5rem;
+    color: var(--text-color-two);
+  }
+
   .navlink_container {
-    gap: calc(26px + 0.45vw);
+    gap: calc(22px + 0.35vw);
   }
 
   .navlink .navlink_content {
@@ -565,9 +570,9 @@ input.trigger_menu {
     z-index: 5;
   }
 
-  .navlink .navlink_content a {
-    color: var(--body-text-color);
-    font-size: calc(12px + 0.2vw);
+  .navlink .navlink_content span {
+    color: var(--text-color-three);
+    font-size: calc(12px + 0.15vw);
   }
 
   .navlink .navlink_content::before {
@@ -604,7 +609,7 @@ input.trigger_menu {
     background-color: rgba(0, 0, 0, 0.215);
   }
 
-  .navlink.active_li .navlink_content a {
+  .navlink.active_li .navlink_content span {
     color: var(--body-text-color);
     font-size: calc(0.7em + 0.1vw);
   }
@@ -627,6 +632,7 @@ input.trigger_menu {
 
   .title_nav {
     padding-left: 1.5rem;
+    color: var(--text-color-two);
     font-size: calc(16px + 0.28vw);
   }
 
@@ -634,11 +640,11 @@ input.trigger_menu {
     padding: 1rem;
   }
 
-  .navlink .navlink_content a {
+  .navlink .navlink_content span {
     font-size: calc(13px + 0.25vw);
   }
 
-  .navlink.active_li .navlink_content a {
+  .navlink.active_li .navlink_content span {
     font-size: calc(13px + 0.18vw);
   }
 }

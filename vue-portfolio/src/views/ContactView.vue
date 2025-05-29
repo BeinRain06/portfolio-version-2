@@ -168,6 +168,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   }
 }
 </script>
+
 <template>
   <section id="contact_page">
     <div class="msg_and_form_container container-fluid">
@@ -342,16 +343,15 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     height: 35px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .social_msg .social_says {
     position: relative;
-    top: 0;
+    top: 0.9rem;
     color: var(--text-color-two);
-    padding-left: 12px;
     writing-mode: horizontal-tb;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .social_activity .social_media_wrap {
@@ -398,7 +398,6 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     flex-direction: column;
     gap: 1.25rem;
     justify-content: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 
   .form_container input,
@@ -476,8 +475,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     background-color: transparent;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #c5c3c3;
-    box-shadow: 0px 0px 4px rgb(127, 127, 131);
+    border: 1px solid var(--bg-border-layout);
   }
 
   .submit_container {
@@ -496,7 +494,8 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     width: 100%;
     color: #fff;
     padding: 12px 0;
-    background-color: rgb(88, 115, 151);
+    /*  background-color: rgb(88, 115, 151); */
+    background-color: rgba(107, 25, 100, 0.18);
     border-radius: 5px;
     font-size: calc(14px + 0.25vw);
     transition: all 350ms ease-in-out;
@@ -517,10 +516,9 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     position: relative;
     top: 0;
     left: 0;
-    width: 40%;
+    width: max-content;
     color: var(--bg-border-layout);
-    font-size: calc(11px + 0.3vw);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: calc(12px + 0.15vw);
     display: block;
     float: left;
   }
@@ -536,19 +534,10 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     transition: all 300ms ease-in-out;
   }
 
-  .form_container input:focus {
-    border-bottom: 2px solid var(--bg-navbar);
-  }
-
-  .message_wrap textarea:focus {
-    border: 2px solid var(--bg-primary-color);
-  }
-
   .form_container input::placeholder,
   .form_container textarea::placeholder {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10px;
-    color: #c0c0c0c0;
+    font-size: 12px;
+    color: var(--text-placeholder);
   }
 }
 
@@ -631,12 +620,13 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .social_msg .social_says {
     writing-mode: sideways-lr;
     top: 15px;
-    padding-left: 0px;
+    left: 0;
     letter-spacing: 1px;
     font-size: calc(14px + 0.15vw);
   }
@@ -687,7 +677,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   .submit_container {
     padding: 1rem 0.5rem;
-    border: 1px solid var(--text-color-label);
+    border: 1px solid var(--bg-border-layout);
   }
 
   .submit_container .btn_sub_msg {
@@ -708,7 +698,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   input.input_field::placeholder,
   textarea.message::placeholder {
-    font-size: calc(12px + 0.1vw);
+    font-size: calc(13px + 0.1vw);
   }
 }
 </style>

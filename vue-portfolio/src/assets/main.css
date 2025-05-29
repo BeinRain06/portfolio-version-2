@@ -1,37 +1,40 @@
-@import './base.css';
+/* @import './base.css'; */
 
-/* @import '../../node_modules/bootstrap/dist/css/bootstrap-utilities.min.css'; */
 @import '../../node_modules/bootstrap/dist/css/bootstrap-utilities.min.css';
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Satisfy&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Hind:wght@300;400;500;600;700&family=Poetsen+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Hind:wght@300;400;500;600;700&family=Poetsen+One&display=swap'); */
 
 :root {
-  --body-text-color: #fff;
+  /* --body-text-color: #fff;
   --navlink-show-color: #000;
   --bg-color-link: #f0e9e9;
   --bg-color-navbar: #3c3c3f;
-  --bg-color-menu-wrap: #848d94;
+  --bg-color-menu-wrap: #848d94; */
 
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
-  --navmenu-color-title: #f4f4f4;
   --footer-height-desk: 100px;
   --footer-height-mob: 70px;
   --msg-container-height: var(--footer-height) + var(--navbar-height-mob-desk);
 
   --bg-navbar: hsl(188, 66%, 43%);
   --bg-primary-color: hsl(184, 86%, 36%);
+  --bg-variant-color: #8bd5e9;
+  --bg-tertiary-color: #078ec4;
   --bg-secondary-color: hsl(231, 28%, 38%);
   --bg-shift-secondary-color: hsl(240, 24%, 38%);
+
   --bg-border-layout: hsl(188, 9%, 82%);
 
   --text-color-primar: #fff;
   --text-color-label: #c0c0c0;
   --text-color-two: hsl(0, 0%, 81%);
   --text-color-three: hsl(180, 6%, 90%);
+  --text-placeholder: #c0c0c0d0;
 
+  --text-highlight-skill: #154c79;
   --bg-principal: hsla(240, 100%, 15%, 0.682);
 }
 
@@ -119,37 +122,35 @@
   font-style: normal;
 } */
 
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 700
-
-.cabin-<uniquifier> {
-  font-family: "Cabin", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-} */
-
+/* logo */
 .font_Satisfy {
   font-family: 'Satisfy', cursive;
   font-weight: 400;
   font-style: normal;
 }
 
-.font_Open_Sans_400 {
+/* title */
+.eb-garamond-600 {
+  font-family: 'EB Garamond', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* title */
+.open-sans-650 {
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 650;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+/* text */
+.open-sans-400 {
   font-family: 'Open Sans', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-  /* font-size: clamp(0.75rem, 0.92rem, 1.1rem); */
-}
-
-.cabin-500 {
-  font-family: 'Cabin', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
   font-style: normal;
   font-variation-settings: 'wdth' 100;
 }
@@ -165,6 +166,12 @@ body {
   min-height: 100svh;
   padding: 0rem;
   overflow-x: hidden;
+
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
 }
 
 @keyframes anim-welcome-page {

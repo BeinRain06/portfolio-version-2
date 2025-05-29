@@ -12,7 +12,9 @@ let media = reactive({ mediaLink: '' })
       <div class="hye_container">
         <div class="hye_row">
           <div class="hello_wrap d-flex w-100 p-2 gap-2">
-            <h1 class="say_hello">Web Designer & <span style="color: #154c79">Developer</span></h1>
+            <h1 class="say_hello">
+              Web Designer & <span style="color: var(--text-highlight-skill)">Developer</span>
+            </h1>
           </div>
         </div>
       </div>
