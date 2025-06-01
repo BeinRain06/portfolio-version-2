@@ -1385,6 +1385,7 @@ new text size add */
 
   .self_taught_cursus .flash_resume {
     border-radius: 5px;
+    padding: 0 0 0.25rem;
     margin: 0.75rem auto;
     display: flex;
     flex-direction: column;
@@ -1605,7 +1606,7 @@ new text size add */
     width: 100%;
     padding: 0.5rem;
     margin-inline: auto;
-    background-color: #fff;
+    background-color: var(--bg-tertiary-color);
     visibility: hidden;
     display: grid;
     overflow: hidden;
@@ -1628,8 +1629,10 @@ new text size add */
     height: auto;
     background-color: inherit;
     position: relative;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     transition: all 450ms ease;
   }
 
@@ -1743,11 +1746,13 @@ new text size add */
     height: 15rem;
     display: grid;
     grid-template-areas:
-      'link-video link-text'
+      'link-video link-video'
+      'link-text link-text'
       'summary  summary'
       'note-more  note-more';
-    grid-template-rows: 6.6rem 5rem 3.4rem;
+    grid-template-rows: 3.25rem 4rem 5rem 3.4rem;
     grid-template-columns: 50% 50%;
+    gap: 0.25rem;
     margin-top: 5px;
   }
 
@@ -1755,7 +1760,7 @@ new text size add */
     grid-area: link-video;
     width: 100%;
     height: 100%;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem 0.5rem;
     display: grid;
     place-items: center;
   }
@@ -1798,8 +1803,7 @@ new text size add */
 
   .card_link_video .link_video_wrap {
     width: 80%;
-    max-width: 220px;
-    aspect-ratio: 16/9;
+    height: 100%;
     display: grid;
     place-items: center;
     border-radius: 5px;
@@ -1810,7 +1814,7 @@ new text size add */
   .card_dev_link .link_text_wrap {
     width: 96%;
     height: 100%;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -2028,6 +2032,33 @@ new text size add */
     display: none;
   }
   /* <-- language potential */
+}
+
+@media (min-width: 380px) {
+  .card_dev_info {
+    width: 100%;
+    height: 15rem;
+    display: grid;
+    grid-template-areas:
+      'link-video link-text'
+      'summary  summary'
+      'note-more  note-more';
+    grid-template-rows: 6.6rem 5rem 3.4rem;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    margin-top: 5px;
+  }
+
+  .card_link_video {
+    padding: 0 1rem;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 80%;
+    height: auto;
+    max-width: 220px;
+    aspect-ratio: 16/9;
+  }
 }
 
 @media (min-width: 500px) {
