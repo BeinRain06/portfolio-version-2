@@ -2586,7 +2586,7 @@ new text size add */
     padding: 1.25rem 0.5rem;
     padding: 1.25rem 0.5rem;
     border-radius: 10px;
-    background-color: #154c794b;
+    background-color: var(--bg-box-project);
     box-shadow: unset;
   }
 

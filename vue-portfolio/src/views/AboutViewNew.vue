@@ -181,8 +181,9 @@
   width: 100%;
   height: 2px;
   margin-bottom: 2.2rem;
-  background-color: var(--bg-border-layout);
+  background-color: #72b7ca;
   border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px hsl(0, 8%, 45%);
 }
 
 .profile_bar[data-bar='1'] {
@@ -194,6 +195,7 @@
   margin-bottom: 2.2rem;
   background-color: hsl(0, 8%, 45%);
   border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px hsl(0, 8%, 45%);
 }
 
 .profile_bar[data-bar='2'] {
@@ -203,8 +205,9 @@
   width: 60%;
   height: 2px;
   margin-bottom: 2.2rem;
-  background-color: hsl(149, 28%, 28%);
+  background-color: hsl(150, 44%, 42%);
   border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px hsl(0, 8%, 45%);
 }
 
 .profile_bar[data-bar='3'] {
@@ -218,6 +221,7 @@
  */
   background-color: hsl(0, 34%, 38%);
   border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px hsl(0, 8%, 45%);
 }
 
 .profile_bar[data-bar='4'] {
@@ -226,8 +230,9 @@
   flex-shrink: 0;
   width: 65%;
   height: 2px;
-  background-color: hsl(229, 20%, 21%);
+  background-color: hsl(263, 17%, 57%);
   border-bottom-left-radius: 2px;
+  box-shadow: -2px 2px 5px hsl(0, 8%, 45%);
 }
 
 /* graph skills colors */
@@ -335,8 +340,8 @@ ul {
     padding: 2rem 1rem 0;
     margin: 0 auto;
     background-color: var(--bg-primary-color);
-    border-top: 0.35rem solid var(--bg-border-layout);
-    border-bottom: 0.75rem solid var(--bg-border-layout);
+    border-top: 0.35rem solid #55a4b9;
+    border-bottom: 0.75rem solid #448ca0;
   }
 
   /* presentation */
@@ -556,7 +561,8 @@ ul {
   .profile_bubble_3,
   .profile_bubble_4 {
     position: absolute;
-    border: 2px solid var(--text-color-three);
+    /* border: 2px solid var(--text-color-three); */
+    box-shadow: 0px 0px 5px var(--bg-secondary-color);
     border-radius: 50%;
     z-index: 1;
   }

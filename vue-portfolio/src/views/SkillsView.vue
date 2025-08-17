@@ -393,6 +393,10 @@ a {
   transition: all 1s ease;
 }
 
+a:hover {
+  animation: anim-link 1s ease-in-out forwards;
+}
+
 @media (min-width: 160px) {
   /*skills wrapper */
   .active_skills {
@@ -537,9 +541,8 @@ a {
     aspect-ratio: 16/7;
     padding-top: 0.75rem;
     color: var(--bg-border-layout);
-    background-color: var(--bg-tertiary-color);
+    background-color: var(--bg-box-project);
     border-radius: 5px;
-    /* border: 1px solid var(--text-color-three); */
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 60px max-content;
@@ -836,6 +839,17 @@ a {
   }
   100% {
     left: 0%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-link {
+  0% {
+    opacity: 0.2;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0.75;
     visibility: visible;
   }
 }

@@ -314,6 +314,21 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     background-color: var(--bg-primary-color);
   }
 
+  .msg_and_form_container::before {
+    content: '';
+    position: absolute;
+    top: -12%;
+    left: calc(25%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/profile_2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.42;
+    transform: scale(0.6);
+  }
+
   .main_contact_area {
     width: 90%;
     height: 595px;
@@ -494,15 +509,15 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     width: 100%;
     color: #fff;
     padding: 12px 0;
-    /*  background-color: rgb(88, 115, 151); */
+
     background-color: rgba(107, 25, 100, 0.18);
     border-radius: 5px;
     font-size: calc(14px + 0.25vw);
-    transition: all 350ms ease-in-out;
+    transition: background-color 650ms ease-in-out;
   }
 
   .submit_container .btn_sub_msg:hover {
-    background-color: rgba(107, 25, 100, 0.18);
+    background-color: rgba(128, 0, 128, 0.315);
   }
 
   .form_content_control {

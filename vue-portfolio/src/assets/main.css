@@ -7,12 +7,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Hind:wght@300;400;500;600;700&family=Poetsen+One&display=swap'); */
 
 :root {
-  /* --body-text-color: #fff;
-  --navlink-show-color: #000;
-  --bg-color-link: #f0e9e9;
-  --bg-color-navbar: #3c3c3f;
-  --bg-color-menu-wrap: #848d94; */
-
   --navbar-height-desk-1: 100px;
   --navbar-height-mob-desk: 50px;
   --footer-height-desk: 100px;
@@ -35,6 +29,7 @@
   --text-placeholder: #c0c0c0d0;
 
   --text-highlight-skill: #154c79;
+  --bg-box-project: #154c794b;
   --bg-principal: hsla(240, 100%, 15%, 0.682);
 }
 
