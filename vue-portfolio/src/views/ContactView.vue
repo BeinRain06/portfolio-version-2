@@ -34,7 +34,7 @@ onUnmounted(async () => {
 })
 
 const thisURL = ref(
-  'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
+  'https://script.google.com/macros/s/AKfycbzrewwfacyEum-DOjHPwn2WllZ-E6R7k9jdPlXPHYHQUtTroGB9P_wap2uerRkNobuBmQ/exec'
 )
 
 let media = reactive({ mediaLink: '' })
