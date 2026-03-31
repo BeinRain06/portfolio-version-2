@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import type { Ref } from 'vue'
 
 import { sendDataMail } from '../api_functions/api_function'
+import { redirectionMedia, handleHoverMedia } from '@/reusable-function/media-target'
 
 const tweetRef = <any>ref()
 const gitRef = <any>ref()
@@ -11,17 +13,37 @@ const nameInputForm = <any>ref()
 const emailInputForm = <any>ref()
 const msgTextAreaForm = <any>ref()
 
+const floatingBox: Ref<HTMLDivElement | undefined> = ref()
+
+let mediaSocial = reactive({ mediaLink: '' })
+
+const lastScrollYPos = ref(0)
+
+onMounted(async () => {
+  await floatingBox
+  if (floatingBox) {
+    window.addEventListener('scroll', handleHappyMessage)
+  }
+})
+
+onUnmounted(async () => {
+  await floatingBox
+  if (floatingBox) {
+    window.removeEventListener('scroll', handleHappyMessage)
+  }
+})
+
 const thisURL = ref(
-  'https://script.google.com/macros/s/AKfycbypH2BtAHlCavQC5M35GMVIYS4NKpllq5XnRp1c-YWk70TLZAbqG8AQftGl5MwLjwZgVQ/exec'
+  'https://script.google.com/macros/s/AKfycbzrewwfacyEum-DOjHPwn2WllZ-E6R7k9jdPlXPHYHQUtTroGB9P_wap2uerRkNobuBmQ/exec'
 )
 
-let media = <{ mediaLink: string }>reactive({ mediaLink: '' })
-let emailFormat = <{ name: string; email: string; message: string }>reactive({
+let media = reactive({ mediaLink: '' })
+let emailFormat = reactive({
   name: '',
   email: '',
   message: ''
 })
-let warningAttribute = <{ stateError: boolean; stateSuccess: boolean; message: string }>reactive({
+let warningAttribute = reactive({
   stateError: false,
   stateSuccess: false,
   message: ''
@@ -37,16 +59,19 @@ const formTag = computed(() => {
   return newObj
 })
 
-function redirectionMedia(label: string) {
-  if (label === 'tweeter') {
-    media.mediaLink = 'https://twitter.com/nest_Ngoueni'
-  } else if (label === 'github') {
-    media.mediaLink = 'https://github.com/BeinRain06'
-  } else if (label === 'linkedin') {
-    media.mediaLink = 'https://www.linkedin.com/in/gerard-ngouend-5a0584244/'
+function handleHappyMessage(e: Event) {
+  const yPos = window.scrollY
+  const deltaX = yPos - lastScrollYPos.value
+
+  if (deltaX < 0) {
+    console.log('scroll upwards')
+    floatingBox.value?.classList.remove('active_greeting')
+  } else {
+    console.log('scroll downwards')
+    floatingBox.value?.classList.add('active_greeting')
   }
 
-  window.open(media.mediaLink, '_blank')
+  lastScrollYPos.value = yPos
 }
 
 function handThisData(e: Event, element: string) {
@@ -143,6 +168,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
   }
 }
 </script>
+
 <template>
   <section id="contact_page">
     <div class="msg_and_form_container container-fluid">
@@ -155,33 +181,43 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
                 <p class="social_says">social media</p>
               </div>
               <div class="social_media_wrap">
-                <div class="social_media">
+                <div
+                  class="social_media_content"
+                  @click.prevent="(e: Event) => redirectionMedia(e, mediaSocial)"
+                >
                   <div
-                    id="link_tweeter"
-                    class="tweeter_wrapper link_media"
-                    ref="tweetRef"
-                    @click.prevent="() => redirectionMedia('tweeter')"
-                  ></div>
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_tweeter" class="link_icon" data-icon="0" ref="tweetRef"></div>
+                  </div>
                   <div
-                    id="link_github"
-                    class="github_wrapper link_media"
-                    ref="gitRef"
-                    @click.prevent="() => redirectionMedia('github')"
-                  ></div>
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_github" class="link_icon" data-icon="0" ref="gitRef"></div>
+                  </div>
                   <div
-                    id="link_linkedin"
-                    class="linkedin_wrapper link_media"
-                    ref="linkedInRef"
-                    @click.prevent="() => redirectionMedia('linkedin')"
-                  ></div>
+                    class="link_media"
+                    @mouseover="(e: Event) => handleHoverMedia(e, 'hover')"
+                    @mouseleave="(e: Event) => handleHoverMedia(e, 'leave')"
+                  >
+                    <div id="link_linkedin" ref="linkedInRef" class="link_icon" data-icon="0"></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="form_side"></div>
           </div>
 
           <!--form container -->
-          <form class="form_container">
+          <form class="form_container" v-scroll="handleHappyMessage">
+            <div class="floating_box" ref="floatingBox">
+              <div class="floating_appeareance">
+                <p class="message_me">Let's Build Something Together !</p>
+              </div>
+            </div>
             <div class="sharing_msg">
               <p class="message_me">Let's Build Something Together !</p>
             </div>
@@ -269,68 +305,28 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     z-index: 10;
   }
 
-  /* --------------- */
-
-  .link_media {
-    position: relative;
-    width: 2rem;
-    height: 2rem;
-    padding: 0rem;
-    background-image: url('../assets/images/linkedin-svgrepo-com.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 3;
-  }
-
-  .tweeter_wrapper.link_media {
-    background-image: url('../assets/images/x_logo_twitter_new_brand_icon.svg');
-  }
-
-  .github_wrapper.link_media {
-    background-image: url('../assets/images/logo-github-svgrepo-com.svg');
-  }
-
-  .link_media::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.25rem;
-    opacity: 0.8;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    transition: all 1s ease-in-out;
-  }
-
-  .link_media:hover::before {
-    border-radius: 5px;
-    border: 1px solid #fff;
-  }
-
   .msg_and_form_container {
     position: relative;
     top: 0;
     width: 100vw;
     height: auto;
     padding: 0;
-    background-image: linear-gradient(
-      to right,
-      #151365,
-      #121c6a,
-      #11256e,
-      #122d71,
-      #153474,
-      #193a79,
-      #1d407e,
-      #214683,
-      #254d8c,
-      #295496,
-      #2c5b9f,
-      #3062a9
-    );
+    background-color: var(--bg-primary-color);
+  }
+
+  .msg_and_form_container::before {
+    content: '';
+    position: absolute;
+    top: -12%;
+    left: calc(25%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/profile_2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.42;
+    transform: scale(0.6);
   }
 
   .main_contact_area {
@@ -362,16 +358,15 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     height: 35px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .social_msg .social_says {
     position: relative;
-    top: 0;
-    color: rgba(51, 51, 131, 0.87);
-    padding-left: 12px;
+    top: 0.9rem;
+    color: var(--text-color-two);
     writing-mode: horizontal-tb;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .social_activity .social_media_wrap {
@@ -381,31 +376,43 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     justify-content: center;
   }
 
-  .social_activity .social_media {
+  /* -------link media-------- */
+
+  .social_media_content {
     width: 100%;
-    height: 40px;
-    font-size: calc(14px + 0.15vw);
+    height: 50px;
     margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100%;
+    place-items: center;
   }
 
-  .social_media .link_media {
-    width: 1.3em;
-    height: 1.3em;
-    padding: 0;
+  .social_media_content .link_media {
+    height: 3rem;
+    font-size: calc(13px + 0.25vw);
+    display: grid;
+    place-items: center;
+  }
+
+  .link_media .link_icon[data-icon='0'] {
+    position: relative;
+    top: 0;
+  }
+
+  .link_media:hover .link_icon[data-icon='1'] {
+    position: relative;
+    top: -16px;
   }
 
   .form_container {
+    position: relative;
     width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     justify-content: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 
   .form_container input,
@@ -423,15 +430,20 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     border: 1px solid transparent;
   }
 
-  .sharing_msg .message_me {
+  .floating_box {
+    display: none;
+    width: 100%;
+  }
+
+  .message_me {
     font-size: calc(14px + 0.1vw);
-    color: #bebebe;
+    color: var(--text-color-three);
     padding: 5px 0;
     transition: all 380ms ease-in-out;
   }
 
-  .sharing_msg .message_me:hover {
-    color: navy;
+  .message_me:hover {
+    color: var(--text-color-two);
     letter-spacing: 0.35px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.38);
     font-size: calc(14px + 0.35vw);
@@ -478,12 +490,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     background-color: transparent;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #c5c3c3;
-    box-shadow: 0px 0px 4px rgb(127, 127, 131);
-  }
-
-  .message_wrap textarea:focus {
-    border: 2px solid #1d5391;
+    border: 1px solid var(--bg-border-layout);
   }
 
   .submit_container {
@@ -502,14 +509,15 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     width: 100%;
     color: #fff;
     padding: 12px 0;
-    background-color: rgb(88, 115, 151);
+
+    background-color: rgba(107, 25, 100, 0.18);
     border-radius: 5px;
     font-size: calc(14px + 0.25vw);
-    transition: all 350ms ease-in-out;
+    transition: background-color 650ms ease-in-out;
   }
 
   .submit_container .btn_sub_msg:hover {
-    background-color: rgb(28, 74, 143);
+    background-color: rgba(128, 0, 128, 0.315);
   }
 
   .form_content_control {
@@ -523,33 +531,28 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     position: relative;
     top: 0;
     left: 0;
-    width: 40%;
-    color: rgb(209, 190, 228);
-    font-size: calc(11px + 0.3vw);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: max-content;
+    color: var(--bg-border-layout);
+    font-size: calc(12px + 0.15vw);
     display: block;
     float: left;
   }
 
   .form_container input {
     height: 32px;
-    color: #e2e2e0;
+    color: var(--text-color-three);
     padding-left: 0.5rem;
     margin-bottom: 1rem;
     background-color: transparent;
-    border-bottom: 1px solid #c5c3c3;
+    border-bottom: 1px solid var(--bg-border-layout);
     border-bottom-right-radius: 5px;
     transition: all 300ms ease-in-out;
   }
 
-  .form_container input:focus {
-    border-bottom: 2px solid #1d5391;
-  }
-
   .form_container input::placeholder,
   .form_container textarea::placeholder {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
+    color: var(--text-placeholder);
   }
 }
 
@@ -568,13 +571,13 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     border: 1px solid transparent;
   }
 
-  .sharing_msg .message_me {
+  .message_me {
     padding: 3px 0;
     font-size: calc(13px + 0.15vw);
   }
 
   .sharing_msg .message_me:hover {
-    color: navy;
+    color: hsla(240, 100%, 25%, 0.753);
     letter-spacing: 0.5px;
     font-size: calc(13px + 0.25vw);
   }
@@ -604,30 +607,21 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
 @media (min-width: 768px) {
   .main_contact_area {
-    top: 0;
+    top: 0.35rem;
     left: -0.35rem;
     width: 80%;
     height: 40rem;
     max-width: 920px;
+    margin: 1rem 0;
     flex-direction: row;
     gap: 20px;
   }
 
-  .main_contact_area * div {
-    width: 100%;
-    height: 100%;
-  }
-
-  .form_side {
-    width: 100%;
-    flex-direction: row;
-  }
-
   .contact_board {
-    top: 5rem;
-    height: 65%;
-    grid-template-columns: 140px;
-    grid-template-rows: 90%;
+    top: 6rem;
+    width: 11rem;
+    flex-shrink: 0;
+    grid-template-rows: 21rem;
   }
 
   .contact_board .social_activity {
@@ -641,93 +635,64 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .social_msg .social_says {
     writing-mode: sideways-lr;
     top: 15px;
-    color: #9595ee;
-    padding-left: 0px;
+    left: 0;
     letter-spacing: 1px;
     font-size: calc(14px + 0.15vw);
   }
 
-  .social_activity .social_media_wrap {
-    flex: 0 0 1;
-    flex-direction: column;
-  }
-
-  .social_activity .social_media {
-    justify-content: center;
-    align-items: baseline;
-    margin-top: 0;
-    gap: 1.25rem;
-  }
-
-  .social_media .link_media {
-    width: 1.2rem;
-    height: 1.2rem;
-    padding: 0;
-  }
-
-  .form_container {
-    display: grid;
-    grid-template-areas:
-      '. . with_me with_me with_me'
-      'guess guess guess guess .'
-      'email email email submit submit'
-      'msg msg msg msg msg';
-    grid-template-rows: 140px;
-    padding: 10px 8px 10px 8px;
-    row-gap: 10px;
-  }
-
-  .sharing_msg {
-    grid-area: with_me;
+  .link_media:hover .link_icon {
     position: relative;
-    top: 5rem;
-    left: 0;
-    bottom: 0;
-    padding: 0.5rem 0;
-    float: right;
-    border-radius: 5px;
-    border-top: 1px solid #c5c3c3;
+    padding: 0.6rem;
   }
 
-  .sharing_msg .message_me {
-    font-size: calc(13px + 0.3vw);
-    color: #cac6c6;
-    font-weight: bolder;
-    padding-top: -0.15rem;
-    margin-bottom: 0;
-    transform: scale(1);
-    transition: all 350ms ease-in-out;
+  .floating_box {
+    display: flex;
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+    height: 3rem;
+    justify-content: flex-end;
   }
 
-  .sharing_msg .message_me:hover {
-    color: navy;
-    letter-spacing: 0px;
-    padding-top: 0.15rem;
+  .floating_box .floating_appeareance {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 350ms ease;
   }
 
-  .email_wrap {
-    grid-area: email;
+  .floating_box.active_greeting .floating_appeareance {
+    visibility: visible;
+    opacity: 1;
   }
 
-  .name_wrap {
-    grid-area: guess;
+  .sharing_msg[data-v-ae84ca9b] {
+    position: relative;
+    top: 1rem;
+    left: 2rem;
+    width: 100%;
+    height: 3rem;
+    display: inline-flex;
+    justify-content: flex-end;
+    visibility: visible;
+    opacity: 1;
+    border: 1px solid transparent;
   }
 
-  .message_wrap {
-    padding-top: 2rem;
-    grid-area: msg;
-    height: 12rem !important;
+  .floating_box.active_greeting + .sharing_msg {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms linear;
   }
 
   .submit_container {
-    grid-area: submit;
-    padding: 1rem;
-    border: 1px solid gray;
+    padding: 1rem 0.5rem;
+    border: 1px solid var(--bg-border-layout);
   }
 
   .submit_container .btn_sub_msg {
@@ -748,7 +713,7 @@ function sendOurMailReview(emailFormat: { name: string; email: string; message: 
 
   input.input_field::placeholder,
   textarea.message::placeholder {
-    font-size: calc(12px + 0.25vw);
+    font-size: calc(13px + 0.1vw);
   }
 }
 </style>

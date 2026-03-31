@@ -10,6 +10,16 @@ const moreElecCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
 const moreSelfCity: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
 
+const devTitle: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const modalVideoRef: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const lastVideoRef: Ref<HTMLDivElement | undefined> = ref()
+
+const videoBlurRef: Ref<(HTMLDivElement | undefined)[] | undefined> = ref()
+
+const lastBlurRef: Ref<HTMLDivElement | undefined> = ref()
+
 interface IFrameworkBase {
   inside: {
     id: string
@@ -29,6 +39,22 @@ interface IProjects {
     link?: string
     logo: string
     moreLabel: string
+    moreElt: {
+      num: string
+      approach: string
+    }[]
+  }[]
+}
+
+interface IProjectsSelf {
+  projects: {
+    id: string
+    techno: string
+    logo: string
+    name: string
+    duty: string
+    link?: string
+    linkVideo?: string
     moreElt: {
       num: string
       approach: string
@@ -87,64 +113,16 @@ const sideElectrical: IProjects = reactive({
   ]
 })
 
-const sideSelfDev: IProjects = reactive({
+const sideSelfDev: IProjectsSelf = reactive({
   projects: [
     {
       id: 'dev_one',
-      name: 'Reactjs-Context API',
-      subject: ' Word-letters-Game',
-      duty: 'guess the word hidden by the computer between 08 to 10 letters ',
-      link: 'https://words-letters-game.vercel.app/',
-      logo: 'word-letters',
-      moreLabel: 'more infos',
-      moreElt: [
-        {
-          num: '1',
-          approach: 'select game template between 08 to 10 characters '
-        },
-        {
-          num: '2',
-          approach:
-            'color indice for letter, red(not the right  in this case), yellow(occured many times in this case right or not), green(right in this case) '
-        },
-        {
-          num: '3',
-          approach: 'Game Over. You can restart the Game'
-        }
-      ]
-    },
-    {
-      id: 'dev_two',
-      name: 'MERN App',
-      subject: 'Tds Restaurant',
-      duty: 'Online app foods. Order ready traditiononal cooked foods at home',
-      link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
-      logo: 'Tds',
-      moreLabel: 'more infos',
-      moreElt: [
-        {
-          num: '1',
-          approach: 'can order dishes between 04 categories(meats, desserts, vegetarians, seafoods)'
-        },
-        {
-          num: '2',
-          approach: 'have the right to order and track at most three order at the same time'
-        },
-        {
-          num: '3',
-          approach: 'have the ability to rate dishes'
-        }
-      ]
-    },
-
-    {
-      id: 'dev_three',
-      name: 'MEVN App',
-      subject: 'Blog-app Tech',
+      techno: 'MEVN App',
+      logo: 'BlogPania',
+      name: 'BLOG-APP-TECH',
       duty: 'Blog about new culture, technologies and trend in I.T',
       link: 'https://github.com/BeinRain06/blog-app-tech',
-      logo: 'BlogPinia',
-      moreLabel: 'more infos',
+      linkVideo: '',
       moreElt: [
         {
           num: '1',
@@ -157,6 +135,55 @@ const sideSelfDev: IProjects = reactive({
         {
           num: '3',
           approach: 'filter post by author, by theme '
+        }
+      ]
+    },
+
+    {
+      id: 'dev_two',
+      techno: 'Reactjs-Context API',
+      logo: 'word-letters',
+      name: 'Word-letters-Game',
+      duty: 'guess the word hidden by the computer between 08 to 10 letters ',
+      link: 'https://words-letters-game.vercel.app/',
+      linkVideo: '',
+      moreElt: [
+        {
+          num: '1',
+          approach: 'selec template between 08 to 10 characters '
+        },
+        {
+          num: '2',
+          approach:
+            'letter, red(wrong in place), yellow(many times appearance wrong or not), green(right place) '
+        },
+        {
+          num: '3',
+          approach: 'Game Over. You can restart the Game'
+        }
+      ]
+    },
+
+    {
+      id: 'dev_three',
+      techno: 'MERN App',
+      logo: 'Tds',
+      name: 'TDS-RESTAURANT',
+      duty: 'Online app foods. Order ready traditional cooked foods at home',
+      link: 'https://github.com/BeinRain06/Tds_Restaurant_three',
+      linkVideo: '',
+      moreElt: [
+        {
+          num: '1',
+          approach: '04 categories(meats, desserts, vegetarians, seafoods)'
+        },
+        {
+          num: '2',
+          approach: 'order and track at most three order at the same time'
+        },
+        {
+          num: '3',
+          approach: 'rate dishes'
         }
       ]
     }
@@ -230,12 +257,12 @@ const frameTechnologies: ComputedRef<
 const selfDevProjects: ComputedRef<
   {
     id: string
+    techno: string
+    logo: string
     name: string
-    subject: string
     duty: string
     link?: string
-    logo: string
-    moreLabel: string
+    linkVideo?: string
     moreElt: {
       num: string
       approach: string
@@ -250,9 +277,9 @@ function playMoreInfoContent(i: string, label: string) {
   if (label === 'elec') {
     moreElecBtn.value?.forEach((item, j) => {
       if (j === +i) {
-        item?.classList.toggle('active_button')
+        item?.classList.toggle('active_note')
       } else {
-        item?.classList.remove('active_button')
+        item?.classList.remove('active_note')
       }
     })
 
@@ -264,17 +291,28 @@ function playMoreInfoContent(i: string, label: string) {
       }
     })
 
-    moreSelfBtn.value?.forEach((item) => item?.classList.remove('active_button'))
-
-    moreSelfCity.value?.forEach((item) => item?.classList.remove('active_info'))
+    moreSelfBtn.value?.forEach((item) => item?.classList.remove('active_note'))
   }
 
   if (label === 'self') {
+    console.log('moreSelfBtn value :', moreSelfBtn.value)
+    console.log('devTitle :', devTitle.value)
+
     moreSelfBtn.value?.forEach((item, j) => {
       if (j === +i) {
-        item?.classList.toggle('active_button')
+        item?.classList.toggle('active_note')
+        item?.parentElement?.classList.toggle('active_note')
       } else {
-        item?.classList.remove('active_button')
+        item?.classList.remove('active_note')
+        item?.parentElement?.classList.remove('active_note')
+      }
+    })
+
+    devTitle.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.toggle('active_note')
+      } else {
+        item?.classList.remove('active_note')
       }
     })
 
@@ -285,96 +323,122 @@ function playMoreInfoContent(i: string, label: string) {
         item?.classList.remove('active_info')
       }
     })
+  }
+}
 
-    moreElecBtn.value?.forEach((item) => item?.classList.remove('active_button'))
+function handleModalVideo(i: number, label: string) {
+  if (label === 'open') {
+    modalVideoRef.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.add('active_video')
+        lastVideoRef.value = item
+      } else {
+        item?.classList.remove('active_video')
+      }
+    })
 
-    moreElecCity.value?.forEach((item) => item?.classList.remove('active_info'))
+    videoBlurRef.value?.forEach((item, j) => {
+      if (j === +i) {
+        item?.classList.add('active_video')
+        lastBlurRef.value = item
+      } else {
+        item?.classList.remove('active_video')
+      }
+    })
+  } else {
+    lastVideoRef.value?.classList.remove('active_video')
+    lastBlurRef.value?.classList.remove('active_video')
   }
 }
 </script>
 
 <template>
   <section id="resume_page">
-    <div class="resume_domain">
+    <div class="resume_domain open-sans-400">
       <!-- years story -->
       <div class="story_container p-1">
         <div
           class="story_enroll w-100 p-2 mx-auto d-flex flex-column justify-content-center align-items-center"
         >
-          <div class="title_story">
-            <h4 class="font_Cabin_500"><strong>Summary</strong></h4>
-          </div>
+          <div class="title_story eb-garamond-600">Summary</div>
           <div class="story_wrap d-flex justify-content-center">
-            <p class="story_content font_Open_Sans_400 pt-4">
-              Hye Guys! My Name is NGOUEND RAOUL GERARD and i really glad to meet you. Back in my
-              Three years University. I study basics electrical and automation engineering,
-              obtaining an <span>associate's degree</span> after two years and a
-              <span>bacheloror in Electrotechnics</span> in the end years. I successfully work on
-              the field for quite plenty 07 years after that, though didn't manage to become an
-              electrical engineering. During this course i loved dive in subject related with
-              automation , having difficulties to have an internship in enterprize with some good
-              automation devices. I turn myself to learn a subject that is quite familiar and that
-              can be accessible at low cost or obviously let'say some kind of free. Then i dive into
-              coding since 03 years , having made some side projects to master fundamentals skills
-              of web developments. This is a delight to share them with others crews on the field
-              web development from front-end development to full-stack dev.
+            <p class="story_content pt-4">
+              Hye Guys! My Name is NGOUEND RAOUL GERARD i am really glad to meet you. Having some
+              previous technical experience. I studied basics electrical and automation engineering
+              two years , and got an <span>associate's degree</span>. Afterwards one year later i
+              obtain a <span>bachelor in Electrotechnics</span> . I worked for practically 7 good
+              years at least full times on the field and has been drowned to not see myself growing
+              because of the basics tasks i was used to perform all days. I wished i could join
+              industries based automation , but my efforts to land internship on those do not
+              succeed. I decide then to learn a skill that is quite familiar with automation ,
+              allowing accessibility at low cost. I end up choosing software development. And since
+              03 years, i have made my journey with side projects built-on html, css, javascript,
+              react, vuejs and libraries as bootstrap and tailwindcss. I'm committed , like working
+              with team and looking to become a full-stack developer.
             </p>
           </div>
         </div>
       </div>
 
       <!-- resume container-->
-      <div class="resume_container container-fluid">
-        <div class="resume_row_one row">
+      <div class="resume_container">
+        <div class="resume_row_one w-100">
           <!-- primar education -->
-          <div class="primar_education w-100 my-2">
+          <div class="primar_education margin_section w-100">
             <div class="primar_title_wrapper">
               <div class="edu_former justify-self-center">
-                <h5 class="education_title font_Satisfy my-2">Education</h5>
+                <h4 class="education_title font_Satisfy my-2">Education</h4>
               </div>
             </div>
             <div
-              class="primar_education_content d-flex flex-column justify-center items-center gap-2"
+              class="primar_education_content d-flex flex-column justify-content-center align-items-center gap-2"
             >
               <table class="primar_table">
                 <tbody class="w-100">
-                  <tr class="academic_primar_year py-1">
+                  <tr class="academic_primar_year">
                     <td>
-                      <span class="p-1">2010-2012</span>
+                      <h6 class="title_year p-1">2010-2012</h6>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
-                    <td class="school_certificate w-70 mx-auto">
+                  <tr class="primar_table_row">
+                    <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
-                        <span class="text-success fw-bold">D.U.T </span>
-                        <span>( Diplome Universitaire de Technologie/ Associate's Degree )</span>
+                        <div class="grade_certification">D.U.T</div>
+                        <h3 style="color: var(--bg-principal)">
+                          ( Diplome Universitaire de Technologie/ Associate's Degree )
+                        </h3>
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
-                    <td class="my_department w-70 my-0 mx-auto">
-                      <div
-                        class="w-100 d-flex flex-column justify-content-center align-items-center md: flex-row"
-                      >
-                        <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
+                  <tr class="primar_table_row">
+                    <td class="info_tech_content">
+                      <div class="my_department">
+                        <div class="school_grade fw-bold" style="color: var(--text-color-label)">
                           G.E.I.I
-                        </span>
-                        <span>
-                          (Genie Electrique et Informatique Industrielle/Industrial Automation And
-                          Electrical Engineering)</span
+                        </div>
+                        <h6
+                          class="acronym_grade_meaning pt-2"
+                          style="color: var(--bg-secondary-color)"
                         >
+                          (Genie Electrique et Informatique Industrielle/Industrial Automation And
+                          Electrical Engineering)
+                        </h6>
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
-                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="school_location px-4 py-0 md:py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span class="text-success">University of Douala/I.U.T</span>
-                        <span> Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28</span>
+                        <span style="color: var(--text-highlight-skill); font-weight: bolder"
+                          >University of Douala/I.U.T</span
+                        >
+                        <h6 style="color: var(--text-color-two)">
+                          Douala Carrefour Ange Raphaël ·+237 2 33 40 11 28
+                        </h6>
                       </div>
                     </td>
                   </tr>
@@ -382,37 +446,49 @@ function playMoreInfoContent(i: string, label: string) {
               </table>
               <table class="primar_table">
                 <tbody class="w-100">
-                  <tr class="academic_primar_year py-1">
+                  <tr class="academic_primar_year">
                     <td>
-                      <span class="p-1">2010-2012</span>
+                      <h6 class="title_year p-1">2012-2013</h6>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
-                    <td class="school_certificate w-70 mx-auto">
+                  <tr class="primar_table_row">
+                    <td class="info_tech_content">
                       <div
                         class="w-100 d-flex flex-column justify-content-center align-items-center gap-2 md: flex-row"
                       >
-                        <span class="text-success fw-bold">E.T </span>
-                        <span
-                          >( Licence en Electrotechnique/ Bachelor in Electrotechnics science)</span
-                        >
+                        <div class="grade_certification">E.T</div>
+                        <h3 style="color: var(--bg-principal)">
+                          ( Licence en Electrotechnique/ Bachelor in Electrotechnics science)
+                        </h3>
                       </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
-                    <td class="my_department w-70 my-0 mx-auto">
-                      <span class="school_name cabin-500 fw-bolder m-0" style="color: #333">
-                        E.T: ElectroTechnics</span
-                      >
+                  <tr class="primar_table_row">
+                    <td class="info_tech_content">
+                      <div class="my_department">
+                        <div class="school_grade fw-bold" style="color: var(--text-color-label)">
+                          Bachelor E.T
+                        </div>
+                        <h6
+                          class="acronym_grade_meaning pt-2"
+                          style="color: var(--bg-secondary-color)"
+                        >
+                          ElectroTechnics
+                        </h6>
+                      </div>
                     </td>
                   </tr>
-                  <tr class="primar_table_row p-4">
+                  <tr class="primar_table_row">
                     <td class="info_tech_content">
                       <div
-                        class="d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
+                        class="school_location px-4 py-0 md:py-2 mx-auto d-flex flex-column justify-content-center align-items-center gap-1 md: flex-row"
                       >
-                        <span class="text-success">University of Dschang/IUC </span>
-                        <span> Colline de Foto · +237 233 45 13 81</span>
+                        <span style="color: var(--text-highlight-skill); font-weight: bolder"
+                          >University of Dschang/IUC
+                        </span>
+                        <h6 style="color: var(--text-color-two)">
+                          Colline de Foto · +237 233 45 13 81
+                        </h6>
                       </div>
                     </td>
                   </tr>
@@ -421,46 +497,47 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
           <!-- experiences -->
-          <div class="experience_duty w-100 my-2">
+          <div class="experience_duty margin_section">
             <div class="primar_title_wrapper my-4">
               <div class="edu_former justify-self-center">
-                <h5 class="experience_title font_Satisfy my-2">Experiences</h5>
+                <h4 class="experience_title font_Satisfy my-2">Experiences</h4>
               </div>
             </div>
 
             <div class="experience_wrap">
-              <div
-                class="experience_ct w-100 d-flex flex-column justify-content-center align-items-center"
-              >
-                <div class="experience_sample flex_col_center">
-                  <div class="experience_sample_title text_size_one">
-                    <span class="fw-bold text-lg">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</span>
+              <div class="experience_ct">
+                <div class="experience_sample flex_col_center w-100">
+                  <div class="title_sub_section">
+                    <p class="fw-bold">EXPERIENCE PROFESSIONELLE / WORK EXPERIENCE</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
-                    <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2013 -2014</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                  <div class="experience_sample_content pt-4 pb-2">
+                    <div class="company_base">
+                      <span class="years_intern my-2 title_year">2013 -2014</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with">
                           CAMINSER (CAMEROUN INDUSTRIES SERVICES) S.A.R.L · BP 3483 Douala
                         </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center px-4">
                         <li class="w-100">Install Electrical devices for customers clients</li>
                         <li class="w-100">
                           Design Electrical schemes for electrical gas station board
                         </li>
                       </ul>
                     </div>
-                    <div class="experience_projects px-1">
-                      <span class="fw-bold">SIDE PROJECTS</span>
-                      <div class="projects_list w-100 mt-3">
+                    <div class="experience_elec px-1 mt-4">
+                      <h5 class="fw-bold">SIDE PROJECTS</h5>
+                      <div class="projects_list w-100" style="padding: 1rem 0 0.5rem">
                         <div
-                          class="project_card"
+                          class="card_elec"
                           :key="project.id"
                           v-for="(project, i) in sideElecProjects"
                         >
-                          <ul class="project_box flex flex-column w-100" style="list-style: none">
-                            <li class="w-100">
+                          <ul
+                            class="card_elec_frame flex flex-column w-100"
+                            style="list-style: none"
+                          >
+                            <li class="w-100 h-100 py-2">
                               <div class="img_card_work">
                                 <span
                                   class="w-100 h-100"
@@ -469,7 +546,7 @@ function playMoreInfoContent(i: string, label: string) {
                                 >
                               </div>
                             </li>
-                            <li class="project_content text_size_one mt-3">
+                            <li class="project_content mt-3">
                               <span class="title_project fw-bold">
                                 {{ project.subject }}
                               </span>
@@ -480,7 +557,7 @@ function playMoreInfoContent(i: string, label: string) {
                             <li
                               class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
                             >
-                              <div class="project_logo text_size_three">{{ project.logo }}</div>
+                              <div class="project_logo text_project_logo">{{ project.logo }}</div>
                             </li>
                             <li class="more_info_elt">
                               <div
@@ -494,8 +571,8 @@ function playMoreInfoContent(i: string, label: string) {
                             </li>
                           </ul>
 
-                          <div class="more_info_one" ref="moreElecCity">
-                            <div class="more_content_wrap text_size_three w-100 my-2">
+                          <div class="modal_more_elec" ref="moreElecCity">
+                            <div class="modal_elec_frame text_project_logo w-100 my-2">
                               <div class="entitled_more py-2">
                                 <span class="font_Satisfy">Expectations</span>
                               </div>
@@ -549,34 +626,31 @@ function playMoreInfoContent(i: string, label: string) {
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2014 -2019</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold"> SELF ELECTRICAL ENTREPRENEUR </span>
+                      <span class="years_intern my-2 title_year">2014 -2019</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with"> SELF ELECTRICAL ENTREPRENEUR </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center px-4">
                         <li class="w-100">Install Electrical devices for customers clients</li>
                         <li class="w-100">2D electrical distribution diagram</li>
                         <li class="w-100">single-line electrical distribution diagram</li>
                       </ul>
                       <div
-                        class="side_dream w-100 d-flex flex-column justify-content-start align-items-left gap-2"
+                        class="side_dream w-100 pt-2 d-flex flex-column justify-content-start align-items-left"
+                        style="font-size: calc(12px + 0.15vw)"
                       >
-                        <span class="fw-bold">side commitment</span>
-                        <p>
-                          attend more than 03 times to pass exam for
-                          <span class="fw-bold">polytechnic of Yaounde</span> as an aspiring
-                          electrical engineer
-                        </p>
+                        <span class="fw-bold text-black-50 mb-0">side commitment</span>
+                        <span class="mx-1">Attend Engineer's schools exams training 04 years</span>
                       </div>
                     </div>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div class="company_base w-100">
-                      <span class="years_intern my-2 fw-bold text-success">2021</span>
-                      <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                      <span class="years_intern mt-4 mb-2 title_year">2021</span>
+                      <div class="company_reference pt-2 pb-4">
+                        <span class="title_worked_with w-100">
                           SEAT (SYSTEME ENERGIE & APPLICATION TECHNIQUE) S.A.R.L · BP 16508 Douala
                         </span>
                       </div>
@@ -589,27 +663,27 @@ function playMoreInfoContent(i: string, label: string) {
                     </div>
                   </div>
                 </div>
-                <!--HERE WE ARE -->
 
-                <div class="experience_sample flex_col_center">
-                  <div class="experience_sample_title text_size_one">
-                    <span class="fw-bold text-lg">SELF TAUGHT DEVELOPMENT</span>
+                <!--SELF TAUGHT DEVELOPMENT-->
+                <div class="experience_sample flex_col_center w-100 my-4">
+                  <div class="title_sub_section">
+                    <p class="fw-bold">SELF TAUGHT DEVELOPMENT</p>
                   </div>
-                  <div class="experience_sample_content w-100 margin_exp_sample text_size_one">
+                  <div class="experience_sample_content pt-4 pb-2 w-100">
                     <div
-                      class="framework_base w-100"
+                      class="framework_base w-100 py-4"
                       :key="framework.id"
                       v-for="framework in frameTechnologies"
                     >
-                      <span class="years_intern my-2 fw-bold text-success">{{
+                      <span class="years_intern my-2 fw-bold title_year">{{
                         framework.yearProject
                       }}</span>
                       <div class="company_reference my-1">
-                        <span class="w-full fw-bold">
+                        <span class="w-full fw-bold title_self_dev">
                           {{ framework.techFeatures }}
                         </span>
                       </div>
-                      <ul class="experience_tasks flex_col_center py-2 px-4">
+                      <ul class="experience_tasks flex_col_center gap-2 py-2 px-4">
                         <li class="w-100">
                           {{ framework.techDetailOne }}
                         </li>
@@ -618,103 +692,168 @@ function playMoreInfoContent(i: string, label: string) {
                         </li>
                       </ul>
                     </div>
-                    <div class="experience_projects px-1 margin_exp_sample_self">
-                      <span class="fw-bold">SIDE PROJECTS</span>
-                      <div class="projects_list w-100 mt-3">
-                        <div
-                          class="project_card"
-                          :key="project.id"
-                          v-for="(project, i) in selfDevProjects"
-                          :data-cardself="i"
-                        >
-                          <ul class="project_box flex flex-column w-100" style="list-style: none">
-                            <li class="w-100">
-                              <div class="img_card_work">
-                                <span
-                                  class="w-100 h-100 d-flex justify-content-center align-items-center"
-                                  >{{ project.name }}</span
-                                >
+
+                    <!-- SIDE PROJECTS DEV STACK -->
+                    <div class="experience_pro w-100 d-flex flex-column align-items-center gap-2">
+                      <h5 class="fw-bold pt-4">SIDE PROJECTS</h5>
+
+                      <!--stack projects-->
+                      <div class="projects_list w-100">
+                        <div class="project_dev_frame">
+                          <div
+                            class="card_stack"
+                            :key="project.id"
+                            v-for="(project, i) in selfDevProjects"
+                            :data-cardself="i"
+                          >
+                            <div
+                              :id="project.name"
+                              class="modal_video_blur"
+                              ref="videoBlurRef"
+                            ></div>
+                            <div class="card_profile">
+                              <div class="card_stick" :data-stack="project.id">
+                                <div class="card_img"></div>
+                                <div class="card_mini_name">
+                                  <h5 class="first_mini">{{ project.name }}</h5>
+                                  <h5 class="second_mini">{{ project.logo }}</h5>
+                                </div>
                               </div>
-                            </li>
-                            <li class="project_content text_size_one mt-3">
-                              <span class="title_project fw-bold">
-                                {{ project.subject }}
-                              </span>
-                              <p class="gen_purpose">
-                                {{ project.duty }}
-                              </p>
-                              <a
-                                :href="project.link"
-                                class="gen_link"
-                                style="color: #4e6e97; font-weight: bold; transform: skewX(-3deg)"
-                                >{{ project.link }}</a
-                              >
-                            </li>
-                            <li
-                              class="project_logo_wrap w-100 d-flex flex justify-content-center align-items-center"
-                            >
-                              <div class="project_logo text_size_three">{{ project.logo }}</div>
-                            </li>
-                            <li class="more_info_elt">
-                              <div
-                                class="more_info_wrap"
-                                ref="moreSelfBtn"
-                                @click="() => playMoreInfoContent(`${i}`, 'self')"
-                              >
-                                <span>{{ project.moreLabel }}</span>
-                                <div class="more_info_symbol">&raquo;</div>
+                              <div class="holder_link">
+                                <div class="holder_title">
+                                  <h3 class="label_project">{{ project.name }}</h3>
+                                </div>
+                                <div class="holder_hot_link">
+                                  <span style="font-size: calc(12px + 0.25vw)">Link :</span
+                                  ><a :src="project.link" target="_blank">{{ project.link }}</a>
+                                </div>
                               </div>
-                            </li>
-                          </ul>
-                          <div class="more_info_two" ref="moreSelfCity">
-                            <div class="more_content_wrap text_size_three w-100 my-2">
-                              <div class="entitled_more py-2">
-                                <span class="font_Satisfy">Expectations</span>
+                            </div>
+                            <div class="card_dev">
+                              <div class="card_dev_title">
+                                <h6 class="dev_title_logo">{{ project.logo }}</h6>
+                                <h6 class="dev_title_name" ref="devTitle">{{ project.name }}</h6>
                               </div>
-                              <ul class="more_content_ct p-0 mt-2">
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[0].num }}</div>
+                              <div class="card_dev_info" :data-stack="project.id">
+                                <div class="card_link_video">
+                                  <div class="link_video_wrap">
+                                    <div
+                                      style="cursor: pointer"
+                                      @click="() => handleModalVideo(i, 'open')"
+                                    >
+                                      live
+                                    </div>
+                                    <div class="modal_video_box" ref="modalVideoRef">
+                                      <div class="close_video_toggler">
+                                        <div
+                                          class="btn_video_close"
+                                          :aria-controls="project.name"
+                                          aria-expanded="false"
+                                          :aria-label="project.name"
+                                          @click="() => handleModalVideo(i, 'close')"
+                                        >
+                                          <i>&times;</i>
+                                        </div>
+                                      </div>
+
+                                      <!-- <video
+                                        class="video_to_play"
+                                        controls
+                                        src="../assets/videos/video-1.mkv"
+                                        poster="../assets/images/projects/blog-app-tech-d-mode.png"
+                                      >
+                                        <a href="../assets/videos/video-1.mkv">WEBM</a>
+                                      </video>-->
+
+                                      <div class="video_to_play">
+                                        <div>not available</div>
+                                        <div
+                                          class="w-100 h-100 d-flex justify-content-center align-items-center"
+                                        >
+                                          <a
+                                            :src="project.link"
+                                            target="_blank"
+                                            class="underline"
+                                            style="color: var(--text-placeholder)"
+                                            alt="no video link"
+                                            >Visit Link</a
+                                          >
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[0].approach }}
-                                    </p>
+                                </div>
+                                <div class="card_dev_summary">
+                                  <div class="dev_summary_wrap">
+                                    <p>{{ project.duty }}</p>
                                   </div>
-                                </li>
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[1].num }}</div>
+                                </div>
+                                <div class="card_dev_link">
+                                  <div class="link_text_wrap">
+                                    <div class="card_link_text">
+                                      <span>Link :</span
+                                      ><a :src="project.link" target="_blank">{{ project.link }}</a>
                                     </div>
                                   </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[1].approach }}
-                                    </p>
+                                </div>
+                                <div class="card_note_more">
+                                  <div
+                                    class="more_link"
+                                    ref="moreSelfBtn"
+                                    @click="() => playMoreInfoContent(`${i}`, 'self')"
+                                  >
+                                    <span>more</span>
+                                    <span class="note_arrow">&raquo;</span>
                                   </div>
-                                </li>
-                                <li
-                                  class="entity_more flex_col_center w-100 p-1 justify-content-center mx-auto"
-                                >
-                                  <div class="entity_box_number my-2">
-                                    <div class="triangular_base_box">
-                                      <div class="entity_number">{{ project.moreElt[2].num }}</div>
-                                    </div>
+                                  <!--modal not more-->
+                                  <div class="modal_more_note">
+                                    <ul class="more_note_expand">
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[0].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[0].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[1].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[1].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="note_expand_character">
+                                        <div class="entity_box_number">
+                                          <div class="triangular_base_box">
+                                            <div class="entity_number">
+                                              {{ project.moreElt[2].num }}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="entity_text">
+                                          <div class="entity_text_paragraph">
+                                            {{ project.moreElt[2].approach }}
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
                                   </div>
-                                  <div class="entity_text">
-                                    <p class="entity_text_paragraph text-center">
-                                      {{ project.moreElt[2].approach }}
-                                    </p>
-                                  </div>
-                                </li>
-                              </ul>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -726,17 +865,18 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
           </div>
         </div>
-        <div class="resume_row_two row">
+
+        <div class="resume_row_two w-100">
           <!-- self taught cursus -->
-          <div class="self_taught_cursus">
+          <div class="self_taught_cursus w-100">
             <div class="edu_former">
-              <h5 class="education_title font_Satisfy my-2">Self Taught Developer</h5>
+              <h4 class="education_title font_Satisfy my-2">Self Taught Developer</h4>
             </div>
             <div class="w-100 d-flex justify-content-start relative">
               <span class="about_journey font_Satisfy">Journey</span>
             </div>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">CSS</span></li>
+              <li class="skill_label"><div class="p-1">CSS</div></li>
               <li class="period_works"><span class="duration_times">03 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -745,7 +885,7 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Javascript</span></li>
+              <li class="skill_label"><div class="p-1">Javascript</div></li>
               <li class="period_works"><span class="duration_times">06 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -754,8 +894,8 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500">
-                <span class="p-1">Vanilla Javascript</span>
+              <li class="skill_label">
+                <div class="p-1">Vanilla Javascript</div>
               </li>
               <li class="period_works"><span class="duration_times">02 months</span></li>
               <li class="period_works">
@@ -765,7 +905,7 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">React JS</span></li>
+              <li class="skill_label"><div class="p-1">React JS</div></li>
               <li class="period_works"><span class="duration_times">06 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -774,7 +914,7 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Bootstrap</span></li>
+              <li class="skill_label"><div class="p-1">Bootstrap</div></li>
               <li class="period_works"><span class="duration_times">01 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -783,8 +923,8 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500">
-                <span class="text_size p-1">React, -Bootstrap, - styled-components, - BackEnd</span>
+              <li class="skill_label">
+                <div class="text_size p-1">React, -Bootstrap, - styled-components, - BackEnd</div>
               </li>
               <li class="period_works"><span class="duration_times">05 months</span></li>
               <li class="period_works">
@@ -794,7 +934,7 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">Tailwind CSS</span></li>
+              <li class="skill_label"><div class="p-1">Tailwind CSS</div></li>
               <li class="period_works"><span class="duration_times">01 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -803,7 +943,7 @@ function playMoreInfoContent(i: string, label: string) {
               </li>
             </ul>
             <ul class="flash_resume w-100">
-              <li class="skill_label font_Cabin_500"><span class="p-1">VueJS</span></li>
+              <li class="skill_label"><div class="p-1">VueJS</div></li>
               <li class="period_works"><span class="duration_times">02 months</span></li>
               <li class="period_works">
                 <span class="specific_date no_list_style font_Open_Sans_400"
@@ -813,13 +953,13 @@ function playMoreInfoContent(i: string, label: string) {
             </ul>
           </div>
           <!-- language mastery -->
-          <div class="language_mastering mt-4">
+          <div class="language_mastering">
             <div class="lan_former">
-              <h5 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h5>
+              <h4 class="language_title font_Satisfy p-1 my-2 mx-4">Language</h4>
             </div>
             <div class="language_potential_mob">
               <div class="language_specific w-100">
-                <span class="language_text_enum lan_enum">French</span>
+                <span class="language_text_enum">French</span>
                 <div class="language_text_level lan_level w-100 d-flex justify-content-between">
                   <span> written</span>
                   <span>spoken</span>
@@ -827,7 +967,7 @@ function playMoreInfoContent(i: string, label: string) {
               </div>
 
               <div class="language_specific w-100">
-                <span class="language_text_enum lan_enum">English</span>
+                <span class="language_text_enum">English</span>
                 <div class="language_text_level lan_level w-100 d-flex justify-content-between">
                   <span> written</span>
                   <span> spoken (mid)</span>
@@ -836,11 +976,11 @@ function playMoreInfoContent(i: string, label: string) {
             </div>
             <div class="language_potential_desk">
               <div class="taught_language_one">
-                <ul
+                <div
                   class="essence_lan d-flex flex-column justify-content-center align-items-center gap-2"
                 >
-                  <li class="m-0">French :</li>
-                  <li
+                  <div class="m-0">French :</div>
+                  <div
                     class="lan_square_list w-50 mx-auto p-1 d-flex justify-content-center gap-1 md:gap-4"
                   >
                     <div class="lan_square_item"></div>
@@ -848,17 +988,17 @@ function playMoreInfoContent(i: string, label: string) {
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
-                  </li>
-                  <li class="level_lan">Full-Professionnal</li>
-                </ul>
+                  </div>
+                  <div class="level_lan">Full-Professionnal</div>
+                </div>
               </div>
 
               <div class="taught_language_two">
-                <ul
+                <div
                   class="essence_lan d-flex flex-column justify-content-center align-items-center gap-2"
                 >
-                  <li class="m-0">English :</li>
-                  <li
+                  <div class="m-0">English :</div>
+                  <div
                     class="lan_square_list w-50 mx-auto p-1 d-flex justify-content-center gap-1 md:gap-4"
                   >
                     <div class="lan_square_item active_square"></div>
@@ -866,9 +1006,9 @@ function playMoreInfoContent(i: string, label: string) {
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
                     <div class="lan_square_item"></div>
-                  </li>
-                  <li class="level_lan">Intermediarie-Professionnal</li>
-                </ul>
+                  </div>
+                  <div class="level_lan">Intermediarie-Professionnal</div>
+                </div>
               </div>
             </div>
           </div>
@@ -879,67 +1019,33 @@ function playMoreInfoContent(i: string, label: string) {
 </template>
 
 <style scoped>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul.experience_tasks {
+  list-style: circle;
+}
+
 li.no_list_style {
   list-style: none;
 }
 
-.font_Satisfy {
-  font-family: 'Satisfy', cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font_Garamond_400 {
-  font-family: 'EB Garamond', serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font_Cabin_500 {
-  font-family: 'Cabin', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-}
-
-.font_Open_Sans_400 {
-  font-family: 'Open Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-}
-
-.text_size {
-  font-size: 12px;
-}
-
-.text_size_one {
-  font-size: calc(11px + 0.15vw);
-}
-
-.text_size_two {
-  font-size: calc(12px + 0.25vw);
-}
-
-.text_size_three {
-  font-size: calc(14px + 0.3vw);
-}
-
-.margin_exp_sample {
-  margin: 0.5rem auto;
-}
-
-.margin_exp_sample_self {
-  margin: 2.5rem auto 0;
-}
-.lan_enum {
-  padding: 0 0.25rem;
-  color: #505050;
-  font-size: calc(13px + 0.15vw);
+.grade_certification {
+  width: 6.5rem;
+  padding: 5px 10px;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-three);
+  /* background-color: var(--bg-secondary-color); */
+  background-color: transparent;
+  font-size: calc(14px + 0.18vw);
   font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px var(--text-color-three);
 }
 
 .lan_level {
@@ -951,7 +1057,8 @@ li.no_list_style {
 .edu_former {
   width: 12rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 128, 0.705);
+  /* background-color: var(--bg-shift-secondary-color); */
+  background-color: var(--text-highlight-skill);
   display: flex;
   justify-content: center;
 }
@@ -959,7 +1066,9 @@ li.no_list_style {
 .lan_former {
   width: 12rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 128, 0.705);
+  /* background-color: rgba(0, 0, 128, 0.705); */
+  /*  background-color: var(--bg-shift-secondary-color); */
+  background-color: var(--text-highlight-skill);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -969,7 +1078,145 @@ li.no_list_style {
   width: 8rem;
 }
 
+.gen_link {
+  width: 100%;
+  padding: 0.25rem;
+  display: grid;
+  place-items: start;
+}
+
+/* modal more utilities  */
+
+.entity_box_number {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  border-bottom: 2px solid #333;
+  flex-shrink: 0;
+}
+
+.entity_box_number .triangular_base_box {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  background-color: #6e0797;
+  background-color: #9056a7;
+  border-radius: 5px;
+}
+
+ul.more_note_expand li:nth-child(2) .triangular_base_box,
+ul.more_content_ct li:nth-child(2) .triangular_base_box {
+  background-color: #a15252;
+}
+
+ul.more_note_expand li:nth-child(3) .triangular_base_box,
+ul.more_content_ct li:nth-child(3) .triangular_base_box {
+  background-color: #bec46c;
+}
+
+.entity_box_number .entity_number {
+  position: relative;
+  top: -2px;
+  left: 50%;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-46%) rotate(-45deg);
+}
+
 @media (min-width: 160px) {
+  li {
+    font-size: calc(14px + 0.12vw);
+  }
+
+  p {
+    font-size: calc(14px + 0.2vw);
+  }
+
+  h3 {
+    font-size: calc(15px + 0.25vw);
+  }
+
+  h4 {
+    font-size: calc(15px + 0.15vw);
+  }
+
+  h5 {
+    font-size: calc(14px + 0.06vw);
+  }
+
+  h6 {
+    font-size: calc(12px + 0.12vw);
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  p.gen_purpose {
+    font-size: calc(13px + 0.1vw);
+  }
+
+  .title_project {
+    color: var(--bg-variant-color);
+    font-size: calc(12px + 0.12vw);
+    font-weight: bold;
+  }
+
+  .title_sub_section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.25rem;
+    color: var(--text-color-two);
+    font-size: calc(14px + 0.15vw);
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+  }
+
+  .text_size {
+    font-size: 12px;
+  }
+
+  .title_self_dev {
+    color: var(--bg-variant-color);
+    font-size: calc(13px + 0.2vw);
+    opacity: 0.88;
+  }
+
+  .text_project_logo {
+    font-size: calc(14px + 0.3vw);
+  }
+  /*
+new text size add */
+
+  .text_sub_detail {
+    font-size: calc(11px + 0.1vw);
+  }
+
+  .title_year {
+    color: var(--text-highlight-skill);
+    font-size: calc(12px + 0.25vw);
+    font-weight: bold;
+  }
+
+  .title_worked_with {
+    color: var(--text-highlight-skill);
+    font-size: calc(14px + 0.3vw);
+    font-weight: bold;
+  }
+
+  .margin_section {
+    margin: 2rem 0 1rem;
+  }
+
   .flex_col_center {
     display: flex;
     flex-direction: column;
@@ -978,11 +1225,12 @@ li.no_list_style {
   /*resume_wrapper*/
   .resume_domain {
     position: relative;
-    left: 0;
+    top: 0;
     width: 100vw;
-    padding: 0.5rem 1rem 1rem;
+    padding: 0.5rem 0 1rem;
     margin: 0 auto;
-    background-color: #f4f4f4;
+    color: var(--text-color-three);
+    background-color: var(--bg-primary-color);
   }
 
   /* Summary */
@@ -998,8 +1246,8 @@ li.no_list_style {
     width: 200px;
     padding: 0.25rem 1rem;
     margin: 1rem 0;
-    color: #fff;
-    background-color: #c4c1c1;
+    color: var(--text-color-primar);
+    font-size: 26px;
     text-align: center;
   }
 
@@ -1012,8 +1260,8 @@ li.no_list_style {
     position: relative;
     width: 100%;
     height: 100%;
+    /*  color: var(--text-color-three); */
     line-height: 1.5;
-    font-size: calc(14px + 0.2vw);
     text-align: justify;
   }
 
@@ -1024,7 +1272,6 @@ li.no_list_style {
     top: 0.25rem;
     width: 100%;
     padding: 0;
-    margin: 2rem 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1034,7 +1281,7 @@ li.no_list_style {
 
   /* --> primary education */
   .primar_education_content {
-    width: 86%;
+    width: 100%;
     margin: 2rem auto 1rem;
   }
 
@@ -1049,45 +1296,64 @@ li.no_list_style {
   .primar_table {
     width: 100%;
     min-height: 200px;
-    padding: 0.5rem 1rem;
-    margin: 1.5rem 0;
-    background-color: #e0e0e0;
+    padding: 0.5rem 2%;
+    margin: 0.75rem 0;
+    display: grid;
+    /* background-color: #e0e0e0; */
   }
 
   .academic_primar_year {
-    color: #d3d0d0;
-    background-color: #34803b;
+    /* color: #d3d0d0; */
+    /* background-color: #34803b; */
+    display: block;
+    color: var(--text-color-title);
+    background-color: var(--bg-title);
+    padding: 1rem 0 0.75rem;
+    border-top-left-radius: 5px;
     font-weight: bold;
   }
 
   .primar_table_row {
     width: 100%;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1rem;
-    font-size: calc(12px + 0.35vw);
-  }
-
-  .primar_table_row .info_tech_title {
-    width: 5rem;
-    padding: 0;
-    margin-right: 1rem;
-    color: #4f4f52;
-    font-weight: bold;
+    gap: 0.5rem;
+    font-size: calc(13px + 0.25vw);
   }
 
   .primar_table_row .info_tech_content {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 0.5rem;
   }
+
+  .primar_table_row .info_tech_content:nth-child(3) {
+    background-color: var(--text-color-label);
+    border-radius: 5px;
+  }
+
+  .info_tech_content span {
+    color: var(--text-color-content);
+  }
+
+  .info_tech_content .my_department {
+    width: 100%;
+    padding: 16px 0 20px;
+    color: var(--bg-shift-secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   /* <-- primary education */
 
   /* --> self-taught cursus */
   .self_taught_cursus {
-    width: 100vw;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1101,9 +1367,9 @@ li.no_list_style {
     width: 100%;
     padding: 0.35rem 0.25rem;
     color: #fff;
-    background-color: rgb(200, 200, 205);
-    font-size: calc(15px + 0.15vw);
+    background-color: var(--bg-title-2);
     text-align: center;
+    border-radius: 5px;
   }
 
   .self_taught_cursus .about_journey {
@@ -1118,20 +1384,21 @@ li.no_list_style {
   }
 
   .self_taught_cursus .flash_resume {
-    width: 100%;
-    padding: 0.5rem;
     border-radius: 5px;
+    padding: 0 0 0.25rem;
+    margin: 0.75rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
   }
 
   .self_taught_cursus .flash_resume:nth-child(odd) {
-    background-color: #e6ebfc;
+    background-color: #154c7970;
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
-    background-color: #eee;
+    background-color: #154c7970;
   }
 
   .flash_resume .skill_label {
@@ -1164,51 +1431,61 @@ li.no_list_style {
   /* <-- self-taught cursus */
 
   /* --> experience section */
-  .experience_sample {
+  .experience_ct {
     width: 100%;
-    padding: 0.5rem;
-  }
-
-  .company_base {
+    padding: 0.5rem 1rem 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
 
+  .company_base {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
   }
 
   .company_base .experience_tasks {
     width: 100%;
     list-style: square;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
-  .project_card .project_box .img_card_work,
-  .project_card .project_box .project_logo_wrap {
+  /* EX Project BOX */
+
+  .card_elec .card_elec_frame .img_card_work,
+  .card_elec .card_elec_frame .project_logo_wrap {
     font-family: 'Poetsen One', sans-serif;
     font-style: normal;
     font-size: var(--var-font-size);
   }
 
-  .project_box {
+  .card_elec_frame {
     width: 100%;
-    padding: 0;
+    padding: 1rem;
     margin: 0.5rem 0;
+    background-color: var(--bg-navbar);
+    font-size: calc(11px + 0.24vw);
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 8rem min-content 1rem 1rem;
+    grid-auto-rows: 9.2rem min-content 1rem 1rem;
+    place-items: center;
+    gap: 1rem;
   }
 
-  .project_box .img_card_work {
+  .card_elec_frame .img_card_work {
     position: relative;
-    width: 90%;
+    top: 0;
+    width: 100%;
     height: 100%;
-    margin: 0 auto 0.5rem;
     border-radius: 5px;
-    border: 1px solid #333;
+    border: 1px solid var(--text-color-label);
   }
 
-  .project_box .img_card_work::before {
+  .card_elec_frame .img_card_work::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -1218,13 +1495,13 @@ li.no_list_style {
     margin: 0 auto;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    border: 1px solid #333;
+    border: 1px solid var(--text-color-label);
     text-align: center;
     display: grid;
     place-items: center;
   }
 
-  .project_box .project_content {
+  .card_elec_frame .project_content {
     width: 100%;
     padding: 0.5rem;
     display: flex;
@@ -1232,47 +1509,44 @@ li.no_list_style {
     gap: 0.5rem;
   }
 
-  .project_box .more_info_elt {
+  .card_elec_frame .more_info_elt {
     width: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
   }
 
-  .project_card[data-cardself='0'] .img_card_work {
+  .card_elec[data-cardself='0'] .img_card_work {
     background: url('../assets/images/projects/mobile-Words-Letters-Game.png') no-repeat center
       center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #1d831d;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='1'] .img_card_work {
+  .card_elec[data-cardself='1'] .img_card_work {
     background: url('../assets/images/projects/tds-retaurant.png') no-repeat center center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #9c3f88;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='2'] .img_card_work {
+  .card_elec[data-cardself='2'] .img_card_work {
     background: url('../assets/images/projects/blog-app-tech.png') no-repeat center center/cover;
-    margin: 0.75rem 0 1rem;
     outline: 2px solid #7c929e;
     outline-offset: 4px;
     transition: all 1s ease-in-out;
   }
 
-  .project_card[data-cardself='0'] .img_card_work:hover,
-  .project_card[data-cardself='1'] .img_card_work:hover,
-  .project_card[data-cardself='2'] .img_card_work:hover {
+  .card_elec[data-cardself='0'] .img_card_work:hover,
+  .card_elec[data-cardself='1'] .img_card_work:hover,
+  .card_elec[data-cardself='2'] .img_card_work:hover {
     color: #fff;
   }
 
-  .project_card[data-cardself='0'] .img_card_work::before,
-  .project_card[data-cardself='1'] .img_card_work::before,
-  .project_card[data-cardself='2'] .img_card_work::before {
+  .card_elec[data-cardself='0'] .img_card_work::before,
+  .card_elec[data-cardself='1'] .img_card_work::before,
+  .card_elec[data-cardself='2'] .img_card_work::before {
     width: calc(100%);
     height: calc(100%);
     border: 1px solid transparent;
@@ -1284,7 +1558,7 @@ li.no_list_style {
     display: inline-flex;
     gap: 0.5rem;
     transform: rotateZ(-360deg);
-    transition: all 0.45s ease 500ms;
+    transition: all 1.35s ease 1s;
     z-index: 3;
   }
 
@@ -1293,7 +1567,7 @@ li.no_list_style {
     font-weight: bold;
   }
 
-  .more_info_wrap.active_button {
+  .more_info_wrap.active_note {
     transform: rotateZ(360deg);
   }
 
@@ -1309,86 +1583,420 @@ li.no_list_style {
     z-index: 1;
   }
 
-  .more_info_wrap.active_button .more_info_symbol {
+  .more_info_wrap.active_note .more_info_symbol {
     transform: rotate(-90deg);
   }
 
-  .more_info_one {
+  .modal_more_elec {
     width: 100%;
     margin: 1rem 0 0.5rem;
-  }
-
-  .more_info_two {
-    width: 100%;
-    margin: 2.5rem 0 0.5rem;
-  }
-
-  .more_info_one .more_content_wrap,
-  .more_info_two .more_content_wrap {
-    width: 100%;
-    padding: 0.5rem;
-    height: 0;
-    margin: 1rem 0;
-    background-color: #eee;
-    visibility: hidden;
     display: grid;
     grid-template-columns: 100%;
-    transition:
-      visibility 0.3s ease-in-out,
-      height 0.9s ease,
-      background-color 0.9s ease;
+    grid-template-rows: 0;
+    overflow: hidden;
+    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1) 1.2s;
   }
 
-  .more_info_one.active_info .more_content_wrap,
-  .more_info_two.active_info .more_content_wrap {
-    visibility: visible;
-    background-color: #ddd;
+  .modal_more_elec.active_info {
+    display: grid;
+    grid-template-rows: 24rem;
+  }
+
+  .modal_more_elec .modal_elec_frame {
+    width: 100%;
     padding: 0.5rem;
-    margin: 2rem 0 1rem;
-    grid-template-columns: 100%;
-    height: max-content;
-    transition: all 3s ease-in-out 0.5s;
+    margin-inline: auto;
+    background-color: var(--bg-tertiary-color);
+    visibility: hidden;
+    display: grid;
+    overflow: hidden;
+    transition: all 3s linear;
   }
 
-  .entity_box_number {
-    position: relative;
-    width: 1.35rem;
-    height: 1.35rem;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    border-bottom: 2px solid #333;
+  .modal_more_elec.active_info .modal_elec_frame {
+    visibility: visible;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    transition: all 1s linear 100ms;
   }
 
-  .entity_box_number .triangular_base_box {
-    position: absolute;
-    top: 0;
-    left: 0;
+  /* EX Project BOX */
+
+  /* --> Card frame stack-dev project */
+
+  .project_dev_frame {
     width: 100%;
-    height: 100%;
-    transform: rotate(45deg);
-    background-color: #6e0797;
-    border-radius: 5px;
-  }
-
-  .entity_box_number .entity_number {
+    height: auto;
+    background-color: inherit;
     position: relative;
-    top: -2px;
-    left: 50%;
-    width: 100%;
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-46%) rotate(-45deg);
+    flex-direction: column;
+    transition: all 450ms ease;
   }
 
-  /* <-- experience section */
+  .card_stack {
+    width: 100%;
+    padding: 1.5rem 0 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px var(--bg-secondary-color);
+    box-shadow: 0px 0px 10px var(--text-highlight-skill);
+  }
+
+  .card_profile {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .card_stick {
+    width: 100%;
+    padding: 1rem 1rem;
+    /*  height: 16rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border-radius: 14px;
+    /*  box-shadow: 0px 0px 3px hsl(231, 29%, 33%);*/
+
+    border: 1px solid #6663638e;
+  }
+
+  .card_stick .card_img {
+    width: 100%;
+    aspect-ratio: 16/11;
+    background-image: url('../assets/images/projects/blog-app-tech-d-mode.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top -22px left -2px;
+    border-radius: 4px;
+    /* border: 1px solid #444; */
+  }
+
+  .card_stick[data-stack='dev_one'] .card_img {
+    background-image: url('../assets/images/projects/blog-app-tech-d-mode.png');
+  }
+
+  .card_stick[data-stack='dev_two'] .card_img {
+    background-image: url('../assets/images/projects/mobile-Words-Letters-Game.png');
+  }
+
+  .card_stick[data-stack='dev_three'] .card_img {
+    background-image: url('../assets/images/projects/tds-retaurant.png');
+  }
+
+  .card_stick .first_mini {
+    position: relative;
+    top: -0.5rem;
+  }
+
+  .card_stick .second_mini {
+    display: none;
+  }
+
+  .holder_link {
+    display: none;
+  }
+
+  .card_stack h5 {
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-size: calc(14px + 0.25vw);
+    letter-spacing: 1px;
+  }
+
+  .card_stack a {
+    cursor: pointer;
+    font-size: calc(11px + 0.1vw);
+    color: var(--text-highlight-skill);
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 1s ease;
+  }
+
+  .card_stack a:hover {
+    color: var(--bg-variant-color);
+  }
+
+  .card_stack p {
+    font-size: calc(14px + 0.15vw);
+  }
+
+  .card_dev {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .card_dev .card_dev_title {
+    display: none;
+    width: 50%;
+  }
+
+  .card_dev_info {
+    width: 100%;
+    height: 15rem;
+    display: grid;
+    grid-template-areas:
+      'link-video link-video'
+      'link-text link-text'
+      'summary  summary'
+      'note-more  note-more';
+    grid-template-rows: 3.25rem 4rem 5rem 3.4rem;
+    grid-template-columns: 50% 50%;
+    gap: 0.25rem;
+    margin-top: 5px;
+  }
+
+  .card_link_video {
+    grid-area: link-video;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1rem 0.5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .card_dev_link {
+    grid-area: link-text;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    display: block;
+  }
+
+  .card_dev_summary {
+    grid-area: summary;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+
+    /*  border-radius: 12px;
+    border: 1px solid #555; */
+    display: grid;
+    place-items: center;
+  }
+
+  .card_note_more {
+    grid-area: note-more;
+    position: relative;
+    width: 100%;
+    height: 3.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: all 650ms ease 1.1s;
+  }
+
+  .card_note_more.active_note {
+    align-items: end;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 80%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 3px #8bd5e979;
+  }
+
+  .card_dev_link .link_text_wrap {
+    width: 96%;
+    height: 100%;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 1s ease-in-out;
+  }
+
+  .link_text_wrap .card_link_text {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    gap: 5px;
+  }
+
+  .card_dev_summary .dev_summary_wrap {
+    width: 90%;
+    height: max-content;
+    padding: 0.5rem 0.5rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: start;
+    text-align: center;
+  }
+
+  .more_link {
+    width: 6rem;
+    height: min-content;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 0;
+    transition: all 1s ease-in-out;
+  }
+
+  .more_link.active_note {
+    position: relative;
+    top: 1.3rem;
+    width: 100%;
+    height: 60%;
+    color: var(--text-color-two);
+    background-color: #222;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 3;
+  }
+
+  .more_link .note_arrow {
+    position: relative;
+    top: 2px;
+    transform: rotate(-90deg);
+    z-index: 1;
+  }
+
+  .more_link.active_note .note_arrow {
+    transform: rotate(90deg);
+  }
+  /* modal more note */
+
+  .modal_more_note {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 2.8rem;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 900ms ease-in-out;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    width: 100%;
+    position: absolute;
+    top: -10rem;
+    height: 12.8rem;
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .more_note_expand {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1.5rem;
+    color: #333;
+    background-color: var(--bg-principal);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 4rem 4rem 4rem;
+    gap: 0;
+  }
+
+  .more_note_expand .note_expand_character {
+    width: 100%;
+    margin: 0 auto;
+    color: var(--text-color-two);
+    font-size: calc(14px + 0.12vw);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  /* modal video container */
+  .modal_video_blur {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow-y: hidden;
+    z-index: 1;
+  }
+
+  .modal_video_blur.active_video {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2222223a;
+    transform: translateX(-12%);
+    overflow-y: hidden;
+    z-index: 5;
+  }
+
+  .modal_video_box {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    width: 100%;
+    aspect-ratio: 16/12;
+    padding: 0.25rem 1rem 1rem;
+    background-color: var(--text-highlight-skill);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out 480ms;
+  }
+
+  .modal_video_box.active_video {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .close_video_toggler {
+    width: 100%;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .btn_video_close {
+    width: 1.1em;
+    height: 1.1em;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .video_to_play {
+    width: 100%;
+    height: calc(100% - 1.5em);
+    padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+    background-color: #222;
+    border-radius: 5px;
+  }
+
+  /* <-- Card frame stack-dev project */
 
   /* --> language potential  */
   .language_mastering {
-    width: 100vw;
+    width: 100%;
     height: 210px;
-    margin: 1rem auto;
+    margin: 2.5rem auto 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1398,12 +2006,26 @@ li.no_list_style {
   .language_potential_mob {
     width: 100%;
     padding: 1rem 2rem;
-    margin: 1.5rem auto 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /*  gap: 0.5rem; */
+  }
+
+  .language_potential_mob .language_specific {
+    padding: 5px 10px;
+    margin: 10px 0;
+    background-color: var(--bg-navbar);
+    border-radius: 5px;
+  }
+
+  .language_specific .language_text_enum {
+    padding: 0 0.25rem;
+    color: var(--bg-border-layout);
+    font-size: calc(13px + 0.15vw);
+    font-weight: bold;
   }
 
   .language_potential_desk {
@@ -1412,7 +2034,38 @@ li.no_list_style {
   /* <-- language potential */
 }
 
-@media (min-width: 460px) {
+@media (min-width: 380px) {
+  .card_dev_info {
+    width: 100%;
+    height: 15rem;
+    display: grid;
+    grid-template-areas:
+      'link-video link-text'
+      'summary  summary'
+      'note-more  note-more';
+    grid-template-rows: 6.6rem 5rem 3.4rem;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    margin-top: 5px;
+  }
+
+  .card_link_video {
+    padding: 0 1rem;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 80%;
+    height: auto;
+    max-width: 220px;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (min-width: 500px) {
+  h4 {
+    font-size: calc(20px + 0.35vw);
+  }
+
   .edu_former {
     width: 20rem;
   }
@@ -1443,7 +2096,6 @@ li.no_list_style {
   .self_taught_cursus .education_title,
   .language_mastering .language_title {
     width: 80%;
-    font-size: calc(20px + 0.35vw);
   }
 
   /* --> primary education */
@@ -1465,10 +2117,11 @@ li.no_list_style {
     min-height: 200px;
     padding: 0.5rem 1rem;
     margin: 1.5rem 0;
-    background-color: #e0e0e0;
+    /* background-color: #e0e0e0; */
   }
 
   .primar_table_row {
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1491,13 +2144,13 @@ li.no_list_style {
   }
 
   .self_taught_cursus .flash_resume {
-    height: 15rem;
+    height: max-content;
   }
 
   .flash_resume .skill_label {
     width: 40%;
     padding-bottom: 0.5rem;
-    font-size: calc(20px + 0.3vw);
+    font-size: calc(18px + 0.15vw);
   }
 
   .flash_resume .period_works {
@@ -1515,6 +2168,159 @@ li.no_list_style {
   }
   /* <-- self-taught cursus */
 
+  /* --> Card frame stack-dev project */
+
+  /* .experience_pro .active_video {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
+  } */
+
+  .card_stack {
+    padding: 0.5rem 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card_stack a {
+    font-size: calc(10px + 0.1vw);
+  }
+
+  .card_profile {
+    width: 50%;
+    padding: 0 0 0 1rem;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  .card_stick {
+    padding: 0.5rem 0.75rem;
+    height: 14rem;
+  }
+
+  .card_stick .card_img {
+    aspect-ratio: 16/11;
+    max-height: 192px;
+  }
+
+  .card_stick .first_mini {
+    position: relative;
+    top: -0.5rem;
+    display: none;
+  }
+
+  .card_stick .second_mini {
+    display: flex;
+  }
+
+  .card_dev {
+    width: 50%;
+    padding: 0 0.5rem 0 0;
+  }
+
+  .card_dev .card_dev_title {
+    width: 80%;
+    height: 1.8rem;
+    color: inherit;
+    margin: 8px 0 4px;
+    display: grid;
+    place-items: center;
+  }
+
+  .card_dev_title .dev_title_logo {
+    display: none;
+  }
+
+  .card_dev_info {
+    position: relative;
+    width: 100%;
+    height: 14rem;
+    padding-right: 0.25rem;
+    display: grid;
+    grid-template-areas:
+      'summary  summary'
+      'link-video link-text'
+      'note-more note-more';
+    grid-template-rows: 5rem 5rem 2rem;
+    grid-template-columns: 40% 60%;
+    gap: 0.5rem;
+    margin-top: 0;
+  }
+
+  .card_link_video {
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .card_dev_link {
+    grid-area: link-text;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0.25rem 0.5rem 0;
+    margin: 0.5rem 0;
+    display: block;
+  }
+
+  .card_note_more {
+    display: flex;
+    justify-content: end;
+  }
+
+  .card_note_more.active_note[data-v-a5cd2c92] {
+    align-items: start;
+  }
+
+  .link_text_wrap .card_link_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 0;
+  }
+
+  .card_dev_summary {
+    padding: 0;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 70%;
+    max-width: 220px;
+    aspect-ratio: 16/14;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    top: -11rem;
+    height: 13.5rem;
+  }
+
+  .more_note_expand .note_expand_character {
+    font-size: calc(10px + 0.15vw);
+  }
+
+  .modal_video_box {
+    left: 0%;
+    width: calc(200% + 1.9rem);
+    height: 17.2rem;
+    transform: translate(-52%, 0);
+    aspect-ratio: unset;
+    bottom: -4px;
+  }
+
+  .close_video_toggler {
+    width: calc(100% + 1.5rem);
+    height: 1.75em;
+    align-items: start;
+  }
+
+  .video_to_play {
+    padding: 0;
+    height: calc(100% - 1.75em);
+  }
+
+  /* <-- Card frame stack-dev project */
+
   /* --> language potential desk */
   .language_potential_mob {
     display: none;
@@ -1524,47 +2330,42 @@ li.no_list_style {
     position: relative;
     top: 2rem;
     width: 100vw;
-    height: 130px;
-    padding: 0;
-    margin: 1rem auto;
-    display: flex;
-    justify-content: center;
+    padding: 0.5rem;
     font-size: calc(13px + 0.15vw);
-    gap: 0.15rem;
+    display: grid;
+    grid-template-columns: auto 40% 40% auto;
+    grid-template-rows: 130px;
   }
 
-  .taught_language_one,
-  .taught_language_two {
-    position: relative;
-    width: 50%;
-    height: 100px;
-    margin: 0 auto;
+  .language_potential_desk .taught_language_one {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
   }
 
-  .taught_language_one .essence_lan {
-    width: 210px;
+  .language_potential_desk .taught_language_two {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .taught_language_one .essence_lan,
+  .taught_language_two .essence_lan {
+    width: 100%;
     padding: 0.35rem 0.25rem;
-    background-color: #ccd1cd;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
+    /*background-color: #154c79b0;*/
+    background-color: #154c79cc;
   }
 
   .taught_language_two .essence_lan {
-    width: 210px;
-    padding: 0.35rem 0.25rem;
     color: #fff;
     background-color: #6f1277;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
   }
 
-  .taught_language_one .lan_square_item {
+  .taught_language_one .lan_square_item,
+  .taught_language_two .lan_square_item {
     position: relative;
     width: 14px;
     height: 7px;
@@ -1572,9 +2373,6 @@ li.no_list_style {
   }
 
   .taught_language_two .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
     border: 1px solid #e4e4f4;
   }
 
@@ -1603,15 +2401,20 @@ li.no_list_style {
 }
 
 @media (min-width: 768px) {
-  .text_size_one {
-    font-size: calc(13px + 0.1vw);
-  }
-  .text_size_three {
-    font-size: calc(14px + 0.15vw);
+  li {
+    font-size: 15px;
   }
 
-  .margin_exp_sample {
-    margin: 2.5rem auto 0.5rem;
+  .title_self_dev {
+    font-size: calc(15px + 0.15vw);
+  }
+
+  .title_sub_section {
+    font-size: calc(20px + 0.25vw);
+  }
+
+  .text_project_logo {
+    font-size: calc(13px + 0.15vw);
   }
 
   .edu_former {
@@ -1635,13 +2438,30 @@ li.no_list_style {
     padding: 4.5rem 1rem 1rem;
   }
 
+  .margin_section {
+    margin: 5rem 0 1rem;
+  }
+
   .primar_table_row {
+    padding: 0.5rem;
     font-size: calc(14px + 0.25vw);
   }
 
   .primar_table_row .info_tech_content {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .info_tech_content .my_department {
+    width: max-content;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  .experience_sample {
+    padding: 1rem 0.5rem;
+    margin: 1rem auto;
   }
 
   /* <-- self-taught cursus */
@@ -1656,14 +2476,15 @@ li.no_list_style {
     font-size: calc(15px + 0.3vw);
   }
 
-  .self_taught_cursus .flash_resume:nth-child(odd) {
+  /*.self_taught_cursus .flash_resume:nth-child(odd) {
     border-left: 0.1rem solid #fccfaa;
     border-right: 0.1rem solid #fccfaa;
   }
   .self_taught_cursus .flash_resume:nth-child(even) {
     border-left: 0.1rem solid #afafafc7;
     border-right: 0.1rem solid #afafafc7;
-  }
+  }*/
+
   /* <-- self-taught cursus */
 
   .primar_education .education_title,
@@ -1686,31 +2507,30 @@ li.no_list_style {
   }
 
   .company_base {
-    align-items: left;
     margin: 0;
   }
 
-  .project_box {
-    width: 100%;
-    padding: 0;
+  /* EX Project Box */
+
+  .card_elec_frame {
+    padding: 1rem 0.5rem;
     margin: 1rem 0 0;
+    font-size: calc(12px + 0.15vw);
     display: grid;
     place-content: center;
-    grid-template-columns: 25% 50% 10% 15%;
-    grid-auto-rows: 10rem;
-    gap: 1rem;
+    grid-template-columns: 20% 40% 10% 15%;
+    grid-auto-rows: max-content;
+    gap: 2rem;
   }
 
-  .project_box .img_card_work {
-    position: relative;
-    width: 90%;
-    height: 100%;
-    margin: 0 auto 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #333;
+  .card_elec_frame div.image_box {
+    padding: 0.25rem;
+    display: grid;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
   }
 
-  .project_box .project_content {
+  .card_elec_frame .project_content {
     width: 100%;
     padding: 0;
     display: flex;
@@ -1719,11 +2539,11 @@ li.no_list_style {
     align-items: stretch;
   }
 
-  .project_box .project_logo_wrap {
+  .card_elec_frame .project_logo_wrap {
     margin-left: 2rem;
   }
 
-  .project_box .more_info_elt {
+  .card_elec_frame .more_info_elt {
     width: 100%;
     height: 90%;
     display: flex;
@@ -1738,40 +2558,113 @@ li.no_list_style {
     font-size: calc(12px + 0.3vw);
   }
 
+  /* EX Project Box */
+
   /* --> language potential desk */
   .language_mastering {
     height: 350px;
   }
 
   .language_potential_desk {
-    width: 90vw;
-    max-width: 900px;
-    justify-content: space-between;
     font-size: calc(15px + 0.18vw);
     gap: 0.5rem;
   }
 
-  .taught_language_one .essence_lan {
-    width: 390px;
-  }
-
-  .taught_language_two .essence_lan {
-    width: 390px;
-  }
-
-  .taught_language_one .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
-    border: 1px solid #333;
-  }
-
-  .taught_language_two .lan_square_item {
-    position: relative;
-    width: 14px;
-    height: 7px;
-    border: 1px solid #e4e4f4;
-  }
   /* <-- language potential desk */
+}
+
+@media (min-width: 920px) {
+  .project_dev_frame {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    gap: 1.5rem;
+  }
+
+  .card_stack {
+    padding: 1.25rem 0.5rem;
+    padding: 1.25rem 0.5rem;
+    border-radius: 10px;
+    background-color: var(--bg-box-project);
+    box-shadow: unset;
+  }
+
+  .card_stack a {
+    font-size: calc(12px + 0.15vw);
+  }
+
+  .card_stick {
+    padding: 0.5rem 0.75rem;
+    height: 15.5rem;
+  }
+
+  .dev_title_name {
+    color: inherit;
+    z-index: 0;
+    transition: all 450ms ease;
+  }
+
+  .dev_title_name.active_note {
+    color: var(--text-color-two);
+    z-index: 10;
+    transition: all 450ms ease 850ms;
+  }
+
+  .card_link_video .link_video_wrap {
+    width: 70%;
+    height: 80px;
+    max-width: 220px;
+    aspect-ratio: unset;
+  }
+
+  .more_link.active_note {
+    position: relative;
+    top: 0.5rem;
+  }
+
+  .more_link.active_note + .modal_more_note {
+    top: -13.25rem;
+    height: 14.75rem;
+  }
+
+  .more_note_expand {
+    padding: 1.5rem 1.5rem 0.5rem;
+    grid-template-rows: 3.6rem 3.6rem 3.6rem;
+  }
+
+  .modal_video_box {
+    width: calc(200% + 2.2rem);
+    height: 17.2rem;
+    transform: translate(-51%, 0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .story_wrap {
+    line-height: 1.9;
+  }
+
+  .modal_video_box {
+    height: 27.8rem;
+  }
+
+  .close_video_toggler {
+    width: 100%;
+    height: 3em;
+  }
+
+  .btn_video_close {
+    width: 1.4em;
+    height: 1.4em;
+    font-size: calc(16px + 0.25vw);
+  }
+
+  .video_to_play {
+    width: 100%;
+    height: calc(100% - 3em);
+    padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+    border-radius: 5px;
+  }
 }
 </style>

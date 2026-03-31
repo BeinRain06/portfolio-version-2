@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRouter } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView, useRouter } from 'vue-router'
 import Navbar from './components/Navbar.vue'
-
-import { computed } from 'vue'
 
 const router = useRouter()
 

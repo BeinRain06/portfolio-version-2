@@ -206,7 +206,6 @@ a {
   right: 0.5rem;
   width: 2rem;
   height: 2.2rem;
-  /*  border: 2px solid #ddd; */
   border-radius: 5px;
   z-index: 100;
   display: block;
@@ -239,10 +238,6 @@ input.trigger_menu {
   background-color: transparent;
   z-index: 100;
 }
-
-/* input.trigger_menu:checked {
-  accent-color: transparent;
-} */
 
 /*menu symbol transdormation */
 
@@ -320,7 +315,7 @@ input.trigger_menu {
   width: 100vw;
   height: auto;
   padding: 2rem 0 3.4rem;
-  background-color: rgba(0, 0, 128, 0.623);
+  background-color: hsla(188, 66%, 43%, 0.75);
   transform: translateX(-50%);
   transition: all 1.4s ease-in-out;
   z-index: 50;
@@ -329,11 +324,11 @@ input.trigger_menu {
 .menu_content.currently_view {
   content: '';
   position: absolute;
-  top: 3.1rem;
+  top: 3rem;
   left: 50%;
   width: 100vw;
   height: auto;
-  padding: 2rem 0;
+  padding: 2rem 0 7rem;
   transform: translateX(-50%);
   z-index: 50;
 }
@@ -415,11 +410,6 @@ input.trigger_menu {
   animation: menu-link-anim 0.8s ease-in-out 0.9s forwards;
 }
 
-/* .menulink_content.active_li a {
-  color: #ddd;
-  z-index: 1;
-} */
-
 .menulink_content a {
   color: rgb(209, 190, 228);
   z-index: 1;
@@ -433,7 +423,7 @@ input.trigger_menu {
   width: 100vw;
   height: 50px;
   background-color: transparent;
-  background-color: rgba(0, 0, 128, 0.95);
+  background-color: hsl(188, 66%, 43%);
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -447,7 +437,7 @@ input.trigger_menu {
   left: 0;
   width: 100vw;
   height: 50px;
-  background-color: rgba(0, 0, 128, 0.95);
+  background-color: hsla(188, 66%, 43%, 0.596);
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -463,19 +453,17 @@ input.trigger_menu {
   color: #fff;
   font-size: calc(20px + 0.3vw);
   transform: translateX(-56%);
-  z-index: 5;
+  z-index: 10;
   visibility: visible;
 }
 
 .logo_menu {
   position: relative;
-  /*  width: calc(100vw - 46px); */
   width: calc(100vw);
   height: 3.9rem;
   margin-bottom: 0;
   display: inline-block;
   z-index: 3;
-  /* transform: translateX(-46px); */
 }
 
 .logo_menu::before {
@@ -545,29 +533,29 @@ input.trigger_menu {
     overflow-x: hidden;
   }
 
-  /*  .menu_wrap {
-    left: 0.5rem;
-  } */
-
   .logo_menu {
     width: calc(100vw);
   }
 
   .logo_menu_text {
     font-size: calc(20px + 0.3vw);
-    /*   transform: translateX(-40%); */
     visibility: hidden;
   }
 
   /*navbar desktop link */
   .navbar_content_tags {
     height: var(--navbar-height-mob-desk);
-    background-color: rgba(0, 0, 128, 0.95);
+    background-color: var(--bg-navbar);
     padding: 0.25rem 0.5rem;
   }
 
+  .title_nav {
+    padding-left: 0.5rem;
+    color: var(--text-color-two);
+  }
+
   .navlink_container {
-    gap: calc(26px + 0.45vw);
+    gap: calc(22px + 0.35vw);
   }
 
   .navlink .navlink_content {
@@ -582,9 +570,9 @@ input.trigger_menu {
     z-index: 5;
   }
 
-  .navlink .navlink_content a {
-    color: var(--body-text-color);
-    font-size: calc(12px + 0.2vw);
+  .navlink .navlink_content span {
+    color: var(--text-color-three);
+    font-size: calc(12px + 0.15vw);
   }
 
   .navlink .navlink_content::before {
@@ -621,7 +609,7 @@ input.trigger_menu {
     background-color: rgba(0, 0, 0, 0.215);
   }
 
-  .navlink.active_li .navlink_content a {
+  .navlink.active_li .navlink_content span {
     color: var(--body-text-color);
     font-size: calc(0.7em + 0.1vw);
   }
@@ -635,16 +623,16 @@ input.trigger_menu {
     width: 100%;
     margin: 0;
     display: block;
-    z-index: 5;
+    z-index: 15;
   }
 
   .navbar_content_tags {
-    /*  background-color: #3c3c3f; */
     padding: 0.25rem 2rem 0 0;
   }
 
   .title_nav {
     padding-left: 1.5rem;
+    color: var(--text-color-two);
     font-size: calc(16px + 0.28vw);
   }
 
@@ -652,11 +640,11 @@ input.trigger_menu {
     padding: 1rem;
   }
 
-  .navlink .navlink_content a {
+  .navlink .navlink_content span {
     font-size: calc(13px + 0.25vw);
   }
 
-  .navlink.active_li .navlink_content a {
+  .navlink.active_li .navlink_content span {
     font-size: calc(13px + 0.18vw);
   }
 }
